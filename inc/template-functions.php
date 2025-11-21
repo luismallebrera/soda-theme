@@ -50,6 +50,16 @@ function soda_theme_pingback_header() {
 add_action( 'wp_head', 'soda_theme_pingback_header' );
 
 /**
+ * Remove admin bar margin when fixed header is enabled.
+ */
+function soda_theme_remove_admin_bar_margin() {
+	if ( get_theme_mod( 'enable_fixed_header', false ) ) {
+		echo '<style>html { margin-top: 0 !important; }</style>';
+	}
+}
+add_action( 'wp_head', 'soda_theme_remove_admin_bar_margin', 99 );
+
+/**
  * Display custom logo with sticky logo support.
  */
 function soda_theme_custom_logo() {
