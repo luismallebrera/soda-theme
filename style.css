@@ -782,6 +782,27 @@ body.admin-bar.has-fixed-header .site-header {
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* Transparent + Fixed Header */
+.has-transparent-header.has-fixed-header .site-header {
+	position: fixed;
+	background: transparent;
+	box-shadow: none;
+}
+
+.has-transparent-header.has-fixed-header #content {
+	margin-top: 0;
+}
+
+body.admin-bar.has-transparent-header.has-fixed-header .site-header {
+	top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+	body.admin-bar.has-transparent-header.has-fixed-header .site-header {
+		top: 46px;
+	}
+}
+
 /* Transparent header becomes solid on scroll */
 .has-transparent-header.has-sticky-header .site-header.sticky-header {
 	background: #fff;
