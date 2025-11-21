@@ -35,3 +35,22 @@ function soda_theme_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'soda_theme_pingback_header' );
+
+/**
+ * Display custom logo with sticky logo support.
+ */
+function soda_theme_custom_logo() {
+	$sticky_logo_id = get_theme_mod( 'sticky_logo' );
+	
+	if ( has_custom_logo() ) {
+		the_custom_logo();
+	}
+	
+	// Add sticky logo data attribute for JavaScript
+	if ( $sticky_logo_id ) {
+		$sticky_logo_url = wp_get_attachment_image_url( $sticky_logo_id, 'full' );
+		if ( $sticky_logo_url ) {
+			echo '<span class="sticky-logo-data" data-sticky-logo="' . esc_url( $sticky_logo_url ) . '" style="display:none;"></span>';
+		}
+	}
+}

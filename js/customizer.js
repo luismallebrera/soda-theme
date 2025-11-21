@@ -39,4 +39,22 @@
 			}
 		} );
 	} );
+
+	// Regular Logo Width
+	wp.customize( 'regular_logo_width', function( value ) {
+		value.bind( function( to ) {
+			$( '.custom-logo' ).css( {
+				'max-width': to + 'px'
+			} );
+		} );
+	} );
+
+	// Sticky Logo Width
+	wp.customize( 'sticky_logo_width', function( value ) {
+		value.bind( function( to ) {
+			var style = '<style id="sticky-logo-width-preview">.site-header.sticky-header .custom-logo { max-width: ' + to + 'px; }</style>';
+			$( '#sticky-logo-width-preview' ).remove();
+			$( 'head' ).append( style );
+		} );
+	} );
 }( jQuery ) );

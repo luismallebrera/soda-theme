@@ -655,6 +655,7 @@ textarea {
 .site-header {
 	padding: 1.5em 0;
 	border-bottom: 1px solid #ddd;
+	transition: all 0.3s ease;
 }
 
 .site-header .header-container {
@@ -682,6 +683,54 @@ textarea {
 	margin: 0.5em 0;
 	font-size: 1em;
 	color: #666;
+}
+
+/* Logo styles */
+.custom-logo-link {
+	display: inline-block;
+	transition: all 0.3s ease;
+}
+
+.custom-logo {
+	display: block;
+	height: auto;
+	transition: all 0.3s ease;
+}
+
+/* Sticky Header */
+.site-header.sticky-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	padding: 0.75em 0;
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.site-header.sticky-header .site-title {
+	font-size: 1.4em;
+}
+
+.site-header.sticky-header .site-description {
+	display: none;
+}
+
+/* Sticky logo transition */
+.site-header.sticky-header .custom-logo-link {
+	transition: all 0.3s ease;
+}
+
+/* Add padding to body when header is sticky */
+body.admin-bar .site-header.sticky-header {
+	top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+	body.admin-bar .site-header.sticky-header {
+		top: 46px;
+	}
 }
 
 /* Layout 1 - Default (Logo Left, Menu Right) */

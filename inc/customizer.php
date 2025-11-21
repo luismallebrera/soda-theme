@@ -32,6 +32,88 @@ function soda_theme_customize_register( $wp_customize ) {
 		);
 	}
 
+	// Add Logo Settings Section
+	$wp_customize->add_section(
+		'soda_theme_logo_settings',
+		array(
+			'title'    => __( 'Logo Settings', 'soda-theme' ),
+			'priority' => 29,
+		)
+	);
+
+	// Sticky Logo Upload
+	$wp_customize->add_setting(
+		'sticky_logo',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'absint',
+			'transport'         => 'refresh',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Media_Control(
+			$wp_customize,
+			'sticky_logo',
+			array(
+				'label'       => __( 'Sticky Header Logo', 'soda-theme' ),
+				'description' => __( 'Upload a logo to be displayed when the header is sticky/scrolled.', 'soda-theme' ),
+				'section'     => 'soda_theme_logo_settings',
+				'mime_type'   => 'image',
+			)
+		)
+	);
+
+	// Regular Logo Width
+	$wp_customize->add_setting(
+		'regular_logo_width',
+		array(
+			'default'           => 150,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'regular_logo_width',
+		array(
+			'label'       => __( 'Regular Logo Width (px)', 'soda-theme' ),
+			'description' => __( 'Set the width for the regular logo.', 'soda-theme' ),
+			'section'     => 'soda_theme_logo_settings',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 50,
+				'max'  => 500,
+				'step' => 5,
+			),
+		)
+	);
+
+	// Sticky Logo Width
+	$wp_customize->add_setting(
+		'sticky_logo_width',
+		array(
+			'default'           => 100,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'sticky_logo_width',
+		array(
+			'label'       => __( 'Sticky Logo Width (px)', 'soda-theme' ),
+			'description' => __( 'Set the width for the sticky header logo.', 'soda-theme' ),
+			'section'     => 'soda_theme_logo_settings',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 50,
+				'max'  => 300,
+				'step' => 5,
+			),
+		)
+	);
+
 	// Add Header Layout Section
 	$wp_customize->add_section(
 		'soda_theme_header_layout',
@@ -107,5 +189,41 @@ function soda_theme_customize_partial_blogdescription() {
  */
 function soda_theme_customize_preview_js() {
 	wp_enqueue_script( 'soda-theme-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
+	
+	// Pass logo width settings to customizer JS
+	$logo_data = array(
+		'regular_logo_width' => get_theme_mod( 'regular_logo_width', 150 ),
+		'sticky_logo_width'  => get_theme_mod( 'sticky_logo_width', 100 ),
+	);
+	wp_localize_script( 'soda-theme-customizer', 'sodaThemeLogoData', $logo_data );
 }
 add_action( 'customize_preview_init', 'soda_theme_customize_preview_js' );
+
+/**
+ * Output custom logo styles.
+ */
+function soda_theme_logo_styles() {
+	$regular_logo_width = get_theme_mod( 'regular_logo_width', 150 );
+	$sticky_logo_width  = get_theme_mod( 'sticky_logo_width', 100 );
+	$sticky_logo_id     = get_theme_mod( 'sticky_logo' );
+	
+	$css = '<style type="text/css">';
+	
+	// Regular logo width
+	if ( $regular_logo_width ) {
+		$css .= '.custom-logo { max-width: ' . absint( $regular_logo_width ) . 'px; height: auto; }';
+	}
+	
+	// Sticky logo styles
+	if ( $sticky_logo_id && $sticky_logo_width ) {
+		$css .= '.site-header.sticky-header .custom-logo { max-width: ' . absint( $sticky_logo_width ) . 'px; }';
+		$css .= '.site-header.sticky-header .custom-logo-link { background-image: url(' . esc_url( wp_get_attachment_url( $sticky_logo_id ) ) . '); }';
+		$css .= '.site-header.sticky-header .custom-logo-link .custom-logo { opacity: 0; }';
+		$css .= '.custom-logo-link { background-size: contain; background-repeat: no-repeat; background-position: center; display: inline-block; }';
+	}
+	
+	$css .= '</style>';
+	
+	echo $css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+add_action( 'wp_head', 'soda_theme_logo_styles' );
