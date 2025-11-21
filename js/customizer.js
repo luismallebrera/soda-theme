@@ -57,4 +57,36 @@
 			$( 'head' ).append( style );
 		} );
 	} );
+
+	// Header Padding Top
+	wp.customize( 'header_padding_top', function( value ) {
+		value.bind( function( to ) {
+			$( '.site-header' ).css( 'padding-top', to + 'px' );
+		} );
+	} );
+
+	// Header Padding Bottom
+	wp.customize( 'header_padding_bottom', function( value ) {
+		value.bind( function( to ) {
+			$( '.site-header' ).css( 'padding-bottom', to + 'px' );
+		} );
+	} );
+
+	// Sticky Header Padding Top
+	wp.customize( 'sticky_header_padding_top', function( value ) {
+		value.bind( function( to ) {
+			var style = '<style id="sticky-padding-top-preview">.has-sticky-header .site-header.sticky-header { padding-top: ' + to + 'px; }</style>';
+			$( '#sticky-padding-top-preview' ).remove();
+			$( 'head' ).append( style );
+		} );
+	} );
+
+	// Sticky Header Padding Bottom
+	wp.customize( 'sticky_header_padding_bottom', function( value ) {
+		value.bind( function( to ) {
+			var style = '<style id="sticky-padding-bottom-preview">.has-sticky-header .site-header.sticky-header { padding-bottom: ' + to + 'px; }</style>';
+			$( '#sticky-padding-bottom-preview' ).remove();
+			$( 'head' ).append( style );
+		} );
+	} );
 }( jQuery ) );

@@ -218,6 +218,115 @@ function soda_theme_customize_register( $wp_customize ) {
 			'type'        => 'checkbox',
 		)
 	);
+
+	// Add Header Spacing Section
+	$wp_customize->add_section(
+		'soda_theme_header_spacing',
+		array(
+			'title'    => __( 'Header Spacing', 'soda-theme' ),
+			'priority' => 32,
+		)
+	);
+
+	// Header Padding Top
+	$wp_customize->add_setting(
+		'header_padding_top',
+		array(
+			'default'           => 24,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'header_padding_top',
+		array(
+			'label'       => __( 'Header Padding Top (px)', 'soda-theme' ),
+			'description' => __( 'Set the top padding for the header.', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 100,
+				'step' => 1,
+			),
+		)
+	);
+
+	// Header Padding Bottom
+	$wp_customize->add_setting(
+		'header_padding_bottom',
+		array(
+			'default'           => 24,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'header_padding_bottom',
+		array(
+			'label'       => __( 'Header Padding Bottom (px)', 'soda-theme' ),
+			'description' => __( 'Set the bottom padding for the header.', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 100,
+				'step' => 1,
+			),
+		)
+	);
+
+	// Sticky Header Padding Top
+	$wp_customize->add_setting(
+		'sticky_header_padding_top',
+		array(
+			'default'           => 12,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'sticky_header_padding_top',
+		array(
+			'label'       => __( 'Sticky Header Padding Top (px)', 'soda-theme' ),
+			'description' => __( 'Set the top padding for the sticky header.', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 50,
+				'step' => 1,
+			),
+		)
+	);
+
+	// Sticky Header Padding Bottom
+	$wp_customize->add_setting(
+		'sticky_header_padding_bottom',
+		array(
+			'default'           => 12,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'sticky_header_padding_bottom',
+		array(
+			'label'       => __( 'Sticky Header Padding Bottom (px)', 'soda-theme' ),
+			'description' => __( 'Set the bottom padding for the sticky header.', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 50,
+				'step' => 1,
+			),
+		)
+	);
 }
 
 /**
@@ -272,15 +381,29 @@ add_action( 'customize_preview_init', 'soda_theme_customize_preview_js' );
  * Output custom logo styles.
  */
 function soda_theme_logo_styles() {
-	$regular_logo_width = get_theme_mod( 'regular_logo_width', 150 );
-	$sticky_logo_width  = get_theme_mod( 'sticky_logo_width', 100 );
-	$sticky_logo_id     = get_theme_mod( 'sticky_logo' );
+	$regular_logo_width        = get_theme_mod( 'regular_logo_width', 150 );
+	$sticky_logo_width         = get_theme_mod( 'sticky_logo_width', 100 );
+	$sticky_logo_id            = get_theme_mod( 'sticky_logo' );
+	$header_padding_top        = get_theme_mod( 'header_padding_top', 24 );
+	$header_padding_bottom     = get_theme_mod( 'header_padding_bottom', 24 );
+	$sticky_padding_top        = get_theme_mod( 'sticky_header_padding_top', 12 );
+	$sticky_padding_bottom     = get_theme_mod( 'sticky_header_padding_bottom', 12 );
 	
 	$css = '<style type="text/css">';
 	
 	// Regular logo width
 	if ( $regular_logo_width ) {
 		$css .= '.custom-logo { max-width: ' . absint( $regular_logo_width ) . 'px; height: auto; }';
+	}
+	
+	// Header padding
+	if ( $header_padding_top || $header_padding_bottom ) {
+		$css .= '.site-header { padding-top: ' . absint( $header_padding_top ) . 'px; padding-bottom: ' . absint( $header_padding_bottom ) . 'px; }';
+	}
+	
+	// Sticky header padding
+	if ( $sticky_padding_top || $sticky_padding_bottom ) {
+		$css .= '.has-sticky-header .site-header.sticky-header { padding-top: ' . absint( $sticky_padding_top ) . 'px; padding-bottom: ' . absint( $sticky_padding_bottom ) . 'px; }';
 	}
 	
 	// Sticky logo styles
