@@ -750,11 +750,19 @@ body.admin-bar.has-sticky-header .site-header.sticky-header {
 	margin-top: 100px;
 }
 
+body.admin-bar.has-fixed-header #content {
+	margin-top: 132px;
+}
+
 body.admin-bar.has-fixed-header .site-header {
 	top: 32px;
 }
 
 @media screen and (max-width: 782px) {
+	body.admin-bar.has-fixed-header #content {
+		margin-top: 146px;
+	}
+
 	body.admin-bar.has-fixed-header .site-header {
 		top: 46px;
 	}
