@@ -750,6 +750,11 @@ body.admin-bar.has-sticky-header .site-header.sticky-header {
 	margin-top: 100px;
 }
 
+/* Remove WordPress admin bar margin and add combined margin to content */
+body.admin-bar.has-fixed-header {
+	margin-top: 0 !important;
+}
+
 body.admin-bar.has-fixed-header #content {
 	margin-top: 132px;
 }
