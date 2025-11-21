@@ -5,6 +5,11 @@
 	'use strict';
 
 	$(document).ready(function() {
+		// Check if sticky header is enabled
+		if (!$('body').hasClass('has-sticky-header')) {
+			return;
+		}
+
 		var $header = $('.site-header');
 		var $logo = $('.custom-logo');
 		var $logoLink = $('.custom-logo-link');

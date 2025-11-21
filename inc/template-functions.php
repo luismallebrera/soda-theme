@@ -22,6 +22,19 @@ function soda_theme_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	// Add header behavior classes
+	if ( get_theme_mod( 'enable_sticky_header', true ) ) {
+		$classes[] = 'has-sticky-header';
+	}
+
+	if ( get_theme_mod( 'enable_fixed_header', false ) ) {
+		$classes[] = 'has-fixed-header';
+	}
+
+	if ( get_theme_mod( 'enable_transparent_header', false ) ) {
+		$classes[] = 'has-transparent-header';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'soda_theme_body_classes' );

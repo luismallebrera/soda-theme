@@ -700,7 +700,7 @@ textarea {
 }
 
 /* Sticky Header */
-.site-header.sticky-header {
+.has-sticky-header .site-header.sticky-header {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -711,28 +711,87 @@ textarea {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.site-header.sticky-header .site-title {
+.has-sticky-header .site-header.sticky-header .site-title {
 	font-size: 1.4em;
 }
 
-.site-header.sticky-header .site-description {
+.has-sticky-header .site-header.sticky-header .site-description {
 	display: none;
 }
 
 /* Sticky logo transition */
-.site-header.sticky-header .custom-logo-link {
+.has-sticky-header .site-header.sticky-header .custom-logo-link {
 	transition: all 0.3s ease;
 }
 
 /* Add padding to body when header is sticky */
-body.admin-bar .site-header.sticky-header {
+body.admin-bar.has-sticky-header .site-header.sticky-header {
 	top: 32px;
 }
 
 @media screen and (max-width: 782px) {
-	body.admin-bar .site-header.sticky-header {
+	body.admin-bar.has-sticky-header .site-header.sticky-header {
 		top: 46px;
 	}
+}
+
+/* Fixed Header */
+.has-fixed-header .site-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.has-fixed-header #content {
+	margin-top: 100px;
+}
+
+body.admin-bar.has-fixed-header .site-header {
+	top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+	body.admin-bar.has-fixed-header .site-header {
+		top: 46px;
+	}
+}
+
+/* Transparent Header */
+.has-transparent-header .site-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	background: transparent;
+	border-bottom: none;
+}
+
+.has-transparent-header .site-header .site-title a,
+.has-transparent-header .site-header .main-navigation a {
+	color: #fff;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.has-transparent-header .site-description {
+	color: rgba(255, 255, 255, 0.9);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Transparent header becomes solid on scroll */
+.has-transparent-header.has-sticky-header .site-header.sticky-header {
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.has-transparent-header.has-sticky-header .site-header.sticky-header .site-title a,
+.has-transparent-header.has-sticky-header .site-header.sticky-header .main-navigation a {
+	color: #333;
+	text-shadow: none;
 }
 
 /* Layout 1 - Default (Logo Left, Menu Right) */

@@ -149,6 +149,75 @@ function soda_theme_customize_register( $wp_customize ) {
 			),
 		)
 	);
+
+	// Add Header Behavior Section
+	$wp_customize->add_section(
+		'soda_theme_header_behavior',
+		array(
+			'title'    => __( 'Header Behavior', 'soda-theme' ),
+			'priority' => 31,
+		)
+	);
+
+	// Enable Sticky Header
+	$wp_customize->add_setting(
+		'enable_sticky_header',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'rest_sanitize_boolean',
+			'transport'         => 'refresh',
+		)
+	);
+
+	$wp_customize->add_control(
+		'enable_sticky_header',
+		array(
+			'label'       => __( 'Enable Sticky Header', 'soda-theme' ),
+			'description' => __( 'Make the header stick to the top when scrolling.', 'soda-theme' ),
+			'section'     => 'soda_theme_header_behavior',
+			'type'        => 'checkbox',
+		)
+	);
+
+	// Enable Fixed Header
+	$wp_customize->add_setting(
+		'enable_fixed_header',
+		array(
+			'default'           => false,
+			'sanitize_callback' => 'rest_sanitize_boolean',
+			'transport'         => 'refresh',
+		)
+	);
+
+	$wp_customize->add_control(
+		'enable_fixed_header',
+		array(
+			'label'       => __( 'Enable Fixed Header', 'soda-theme' ),
+			'description' => __( 'Keep the header fixed at the top of the page at all times.', 'soda-theme' ),
+			'section'     => 'soda_theme_header_behavior',
+			'type'        => 'checkbox',
+		)
+	);
+
+	// Enable Transparent Header
+	$wp_customize->add_setting(
+		'enable_transparent_header',
+		array(
+			'default'           => false,
+			'sanitize_callback' => 'rest_sanitize_boolean',
+			'transport'         => 'refresh',
+		)
+	);
+
+	$wp_customize->add_control(
+		'enable_transparent_header',
+		array(
+			'label'       => __( 'Enable Transparent Header', 'soda-theme' ),
+			'description' => __( 'Make the header background transparent (works best on homepage with hero images).', 'soda-theme' ),
+			'section'     => 'soda_theme_header_behavior',
+			'type'        => 'checkbox',
+		)
+	);
 }
 
 /**
