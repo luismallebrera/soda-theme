@@ -152,11 +152,12 @@ function soda_theme_scripts() {
 	) );
 
 	// Smooth scrolling (Lenis)
-	$exclude_pages = get_theme_mod( 'soda_smooth_scrolling_exclude_page', array() );
-	$is_excluded   = is_array( $exclude_pages ) && in_array( get_the_ID(), $exclude_pages );
-	$is_preview    = class_exists( '\Elementor\Plugin' ) && \Elementor\Plugin::$instance->preview->is_preview_mode();
+	$enable_smooth_scrolling = get_theme_mod( 'enable_smooth_scrolling', false );
+	$exclude_pages           = get_theme_mod( 'soda_smooth_scrolling_exclude_page', array() );
+	$is_excluded             = is_array( $exclude_pages ) && in_array( get_the_ID(), $exclude_pages );
+	$is_preview              = class_exists( '\Elementor\Plugin' ) && \Elementor\Plugin::$instance->preview->is_preview_mode();
 
-	if ( ! $is_excluded && ! $is_preview ) {
+	if ( $enable_smooth_scrolling && ! $is_excluded && ! $is_preview ) {
 		wp_enqueue_script( 'lenis', get_template_directory_uri() . '/js/lenis.min.js', array(), '1.1.13', true );
 		wp_enqueue_script( 'soda-theme-smooth-scrolling', get_template_directory_uri() . '/js/smooth-scrolling.js', array( 'lenis' ), _S_VERSION, true );
 

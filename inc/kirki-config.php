@@ -464,6 +464,23 @@ new \Kirki\Section(
 );
 
 /**
+ * Enable Smooth Scrolling
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'    => 'enable_smooth_scrolling',
+		'label'       => esc_html__( 'Enable Smooth Scrolling', 'soda-theme' ),
+		'description' => esc_html__( 'Enable Lenis smooth scrolling on your website.', 'soda-theme' ),
+		'section'     => 'soda_theme_smooth_scrolling',
+		'default'     => false,
+		'choices'     => array(
+			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
+			'off' => esc_html__( 'Disabled', 'soda-theme' ),
+		),
+	)
+);
+
+/**
  * Disable Mouse Wheel
  */
 new \Kirki\Field\Checkbox_Switch(
