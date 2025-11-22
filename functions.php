@@ -146,6 +146,11 @@ function soda_theme_scripts() {
 	// Enqueue sticky header script
 	wp_enqueue_script( 'soda-theme-sticky-header', get_template_directory_uri() . '/js/sticky-header.js', array( 'jquery' ), _S_VERSION, true );
 
+	// Pass scroll threshold to JavaScript
+	wp_localize_script( 'soda-theme-sticky-header', 'sodaThemeSettings', array(
+		'scrollThreshold' => get_theme_mod( 'scroll_threshold', 100 ),
+	) );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

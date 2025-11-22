@@ -39,21 +39,6 @@ function soda_theme_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'soda_theme_body_classes' );
 
-/**
- * Output scroll threshold data attribute in wp_head.
- */
-function soda_theme_scroll_threshold_script() {
-	$scroll_threshold = get_theme_mod( 'scroll_threshold', 100 );
-	?>
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			document.body.setAttribute('data-scroll-threshold', '<?php echo esc_js( $scroll_threshold ); ?>');
-		});
-	</script>
-	<?php
-}
-add_action( 'wp_head', 'soda_theme_scroll_threshold_script', 1 );
-
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.

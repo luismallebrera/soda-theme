@@ -16,7 +16,7 @@
 		var $logoLink = $('.custom-logo-link');
 		var $stickyLogoData = $('.sticky-logo-data');
 		var headerOffset = $header.offset().top;
-		var scrollThreshold = 100;
+		var scrollThreshold = (typeof sodaThemeSettings !== 'undefined') ? sodaThemeSettings.scrollThreshold : 100;
 		var originalLogoSrc = $logo.attr('src');
 		var stickyLogoSrc = $stickyLogoData.data('sticky-logo');
 
