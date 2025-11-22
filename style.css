@@ -1016,7 +1016,7 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+	margin: 0;
 }
 
 .updated:not(.published) {
@@ -1026,12 +1026,12 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 00;
 }
 
 .page-links {
 	clear: both;
-	margin: 0 0 1.5em;
+	margin: 0;
 }
 
 /* Comments
