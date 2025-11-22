@@ -16,7 +16,7 @@
 		var $logoLink = $('.custom-logo-link');
 		var $stickyLogoData = $('.sticky-logo-data');
 		var headerOffset = $header.offset().top;
-		var scrollThreshold = $body.data('scroll-threshold') || 100;
+		var scrollThreshold = 100;
 		var originalLogoSrc = $logo.attr('src');
 		var stickyLogoSrc = $stickyLogoData.data('sticky-logo');
 
@@ -24,18 +24,16 @@
 			var scrollTop = $(window).scrollTop();
 
 			if (scrollTop > scrollThreshold) {
-				$header.addClass('sticky-header');
-				$body.addClass('scrolled');
-				$header.addClass('scrolled');
+				$header.addClass('sticky-header scroll');
+				$body.addClass('scroll');
 				
 				// Swap to sticky logo if available
 				if (stickyLogoSrc && $logo.length) {
 					$logo.attr('src', stickyLogoSrc);
 				}
 			} else {
-				$header.removeClass('sticky-header');
-				$body.removeClass('scrolled');
-				$header.removeClass('scrolled');
+				$header.removeClass('sticky-header scroll');
+				$body.removeClass('scroll');
 				
 				// Restore original logo
 				if (originalLogoSrc && $logo.length) {
