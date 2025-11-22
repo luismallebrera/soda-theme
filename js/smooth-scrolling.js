@@ -39,6 +39,11 @@
 
 		requestAnimationFrame(raf);
 
+		// Log scroll events
+		lenis.on('scroll', (e) => {
+			console.log(e);
+		});
+
 		// Smooth anchor links
 		if (settings.anchorLinks) {
 			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
