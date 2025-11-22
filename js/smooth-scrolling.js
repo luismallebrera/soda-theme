@@ -5,80 +5,75 @@
 	'use strict';
 
 	// Wait for DOM to be ready
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initLenis);
+	if (document.readyState !== 'loading') {
+		smoothScrollReady();
 	} else {
-		initLenis();
+		document.addEventListener('DOMContentLoaded', smoothScrollReady);
 	}
 
-	function initLenis() {
-		// Get settings from localized script
-		const settings = window.sodaSmoothScrollingParams || {
-			smoothWheel: 1,
-			anchorOffset: 0,
-			lerp: 0.1,
-			duration: 1.2,
-			anchorLinks: false,
-			gsapSync: false
-		};
+	function smoothScrollReady() {
+		if (typeof Lenis != "undefined") {
+			// Get settings from localized script
+			const settings = window.sodaSmoothScrollingParams || {
+				smoothWheel: 1,
+				anchorOffset: 0,
+				lerp: 0.1,
+				duration: 1.2,
+				anchorLinks: false,
+				gsapSync: false
+			};
 
-		// Initialize Lenis
-		const lenis = new Lenis({
-			duration: settings.lerp > 0 ? undefined : settings.duration,
-			lerp: settings.lerp > 0 ? settings.lerp : undefined,
-			smoothWheel: settings.smoothWheel === 1,
-			smoothTouch: false,
-			wheelMultiplier: 1,
-		});
+			let lenisSettings = {
+				smoothWheel: parseInt(settings.smoothWheel)
+			};
 
-		// Animation frame
-		function raf(time) {
-			lenis.raf(time);
+			if (settings.lerp > 0) {
+				lenisSettings.lerp = parseFloat(settings.lerp);
+			} else if (settings.duration > 0) {
+				lenisSettings.duration = parseFloat(settings.duration);
+			}
+
+			// Initialize Lenis
+			const lenis = new Lenis(lenisSettings);
+			
+			lenis.on('scroll', (e) => {
+				if (typeof smoothScrollLenisCallback != "undefined") {
+					smoothScrollLenisCallback(e);
+				}
+			});
+
+			window.lenis = lenis;
+
+			// Animation frame
+			function raf(time) {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
+			}
+
 			requestAnimationFrame(raf);
-		}
 
-		requestAnimationFrame(raf);
+			// GSAP ScrollTrigger sync
+			if (settings.gsapSync && typeof gsap != "undefined" && typeof ScrollTrigger != "undefined") {
+				lenis.on('scroll', ScrollTrigger.update);
+				gsap.ticker.add((time) => {
+					lenis.raf(time * 1000);
+				});
+				gsap.ticker.lagSmoothing(0);
+			}
 
-		// Log scroll events
-		lenis.on('scroll', (e) => {
-			console.log(e);
-		});
-
-		// Smooth anchor links
-		if (settings.anchorLinks) {
-			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-				anchor.addEventListener('click', function (e) {
-					const href = this.getAttribute('href');
-					if (href === '#' || href === '') return;
-
-					const target = document.querySelector(href);
-					if (target) {
-						e.preventDefault();
-						const offset = settings.anchorOffset || 0;
-						lenis.scrollTo(target, {
-							offset: -offset,
-							duration: settings.duration
+			// Smooth anchor links
+			if (settings.anchorLinks) {
+				document.querySelectorAll("a").forEach(function(item) {
+					if (item.hash && item.hash[0] == "#") {
+						item.addEventListener("click", (e) => {
+							lenis.scrollTo(item.hash, {
+								offset: settings.anchorOffset
+							});
 						});
 					}
 				});
-			});
+			}
 		}
-
-		// GSAP ScrollTrigger sync
-		if (settings.gsapSync && typeof gsap !== 'undefined' && gsap.registerPlugin) {
-			gsap.registerPlugin(ScrollTrigger);
-			
-			lenis.on('scroll', ScrollTrigger.update);
-
-			gsap.ticker.add((time) => {
-				lenis.raf(time * 1000);
-			});
-
-			gsap.ticker.lagSmoothing(0);
-		}
-
-		// Expose lenis instance globally
-		window.lenis = lenis;
 	}
 
 })();
