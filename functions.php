@@ -182,6 +182,13 @@ function soda_theme_scripts() {
 add_action( 'wp_enqueue_scripts', 'soda_theme_scripts' );
 
 /**
+ * Load Redux Framework configuration.
+ */
+if ( file_exists( get_template_directory() . '/inc/redux-config.php' ) ) {
+	require get_template_directory() . '/inc/redux-config.php';
+}
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
