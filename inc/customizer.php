@@ -219,6 +219,31 @@ function soda_theme_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Scroll Threshold
+	$wp_customize->add_setting(
+		'scroll_threshold',
+		array(
+			'default'           => 100,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'scroll_threshold',
+		array(
+			'label'       => __( 'Scroll Threshold (px)', 'soda-theme' ),
+			'description' => __( 'Number of pixels to scroll before adding "scrolled" class to body and header.', 'soda-theme' ),
+			'section'     => 'soda_theme_header_behavior',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 500,
+				'step' => 10,
+			),
+		)
+	);
+
 	// Add Header Spacing Section
 	$wp_customize->add_section(
 		'soda_theme_header_spacing',

@@ -161,4 +161,11 @@
 			}
 		} );
 	} );
+
+	// Scroll Threshold
+	wp.customize( 'scroll_threshold', function( value ) {
+		value.bind( function( to ) {
+			$( 'body' ).attr( 'data-scroll-threshold', to );
+		} );
+	} );
 }( jQuery ) );

@@ -40,6 +40,16 @@ function soda_theme_body_classes( $classes ) {
 add_filter( 'body_class', 'soda_theme_body_classes' );
 
 /**
+ * Add custom data attributes to body tag.
+ */
+function soda_theme_body_attributes() {
+	$scroll_threshold = get_theme_mod( 'scroll_threshold', 100 );
+	echo ' data-scroll-threshold="' . esc_attr( $scroll_threshold ) . '"';
+}
+add_action( 'body_class', 'soda_theme_body_attributes', 20 );
+
+
+/**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
 function soda_theme_pingback_header() {
