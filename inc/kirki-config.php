@@ -607,3 +607,220 @@ new \Kirki\Field\Select(
 	)
 );
 
+/**
+ * Grid Line Section
+ */
+new \Kirki\Section(
+	'soda_theme_grid_line',
+	array(
+		'title'    => esc_html__( 'Grid Line Overlay', 'soda-theme' ),
+		'priority' => 60,
+	)
+);
+
+/**
+ * Enable Grid Line
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'    => 'grid_line_enable',
+		'label'       => esc_html__( 'Enable Grid Line', 'soda-theme' ),
+		'description' => esc_html__( 'Display a grid line overlay on the page.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => false,
+		'choices'     => array(
+			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
+			'off' => esc_html__( 'Disabled', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Line Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'    => 'grid_line_line_color',
+		'label'       => esc_html__( 'Line Color', 'soda-theme' ),
+		'description' => esc_html__( 'Color of the grid lines.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => '#eeeeee',
+		'choices'     => array(
+			'alpha' => true,
+		),
+		'output'      => array(
+			array(
+				'element'  => 'body',
+				'property' => '--grid-line-color',
+			),
+		),
+	)
+);
+
+/**
+ * Column Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'    => 'grid_line_column_color',
+		'label'       => esc_html__( 'Column Color', 'soda-theme' ),
+		'description' => esc_html__( 'Background color between lines.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => 'transparent',
+		'choices'     => array(
+			'alpha' => true,
+		),
+		'output'      => array(
+			array(
+				'element'  => 'body',
+				'property' => '--grid-line-column-color',
+			),
+		),
+	)
+);
+
+/**
+ * Number of Columns
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'grid_line_columns',
+		'label'       => esc_html__( 'Number of Columns', 'soda-theme' ),
+		'description' => esc_html__( 'Number of grid columns to display.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => 12,
+		'choices'     => array(
+			'min'  => 1,
+			'max'  => 24,
+			'step' => 1,
+		),
+		'output'      => array(
+			array(
+				'element'  => 'body',
+				'property' => '--grid-line-columns',
+			),
+		),
+	)
+);
+
+/**
+ * Grid Outline
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings' => 'grid_line_outline',
+		'label'    => esc_html__( 'Grid Outline', 'soda-theme' ),
+		'section'  => 'soda_theme_grid_line',
+		'default'  => false,
+		'choices'  => array(
+			'on'  => esc_html__( 'Yes', 'soda-theme' ),
+			'off' => esc_html__( 'No', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Grid Max Width
+ */
+new \Kirki\Field\Dimension(
+	array(
+		'settings'    => 'grid_line_max_width',
+		'label'       => esc_html__( 'Grid Max Width', 'soda-theme' ),
+		'description' => esc_html__( 'Maximum width of the grid overlay.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => '100%',
+		'output'      => array(
+			array(
+				'element'  => 'body',
+				'property' => '--grid-line-max-width',
+			),
+		),
+	)
+);
+
+/**
+ * Grid Width
+ */
+new \Kirki\Field\Dimension(
+	array(
+		'settings'    => 'grid_line_the_width',
+		'label'       => esc_html__( 'Grid Width', 'soda-theme' ),
+		'description' => esc_html__( 'Width of the grid container.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => '100%',
+		'output'      => array(
+			array(
+				'element'  => 'body',
+				'property' => '--grid-line-the-width',
+			),
+		),
+	)
+);
+
+/**
+ * Line Width
+ */
+new \Kirki\Field\Dimension(
+	array(
+		'settings'    => 'grid_line_line_width',
+		'label'       => esc_html__( 'Line Width', 'soda-theme' ),
+		'description' => esc_html__( 'Thickness of each grid line.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => '1px',
+		'output'      => array(
+			array(
+				'element'  => 'body',
+				'property' => '--grid-line-width',
+			),
+		),
+	)
+);
+
+/**
+ * Line Direction
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'grid_line_direction',
+		'label'       => esc_html__( 'Line Direction (degrees)', 'soda-theme' ),
+		'description' => esc_html__( 'Angle of the grid lines.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => 90,
+		'choices'     => array(
+			'min'  => -360,
+			'max'  => 360,
+			'step' => 15,
+		),
+		'output'      => array(
+			array(
+				'element'  => 'body',
+				'property' => '--grid-line-direction',
+				'suffix'   => 'deg',
+			),
+		),
+	)
+);
+
+/**
+ * Z-Index
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'grid_line_z_index',
+		'label'       => esc_html__( 'Z-Index', 'soda-theme' ),
+		'description' => esc_html__( 'Stacking order of the grid overlay.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => 0,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 9999,
+			'step' => 1,
+		),
+		'output'      => array(
+			array(
+				'element'  => 'body',
+				'property' => '--grid-line-z-index',
+			),
+		),
+	)
+);
