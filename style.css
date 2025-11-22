@@ -662,7 +662,6 @@ textarea {
 .site-header .header-container {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 0 1em;
 }
 
 .site-branding {
@@ -1026,7 +1025,7 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 00;
+	margin: 0;
 }
 
 .page-links {
