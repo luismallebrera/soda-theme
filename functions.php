@@ -151,6 +151,28 @@ function soda_theme_scripts() {
 		'scrollThreshold' => get_theme_mod( 'scroll_threshold', 100 ),
 	) );
 
+	// Smooth scrolling (Lenis)
+	$exclude_pages = get_theme_mod( 'soda_smooth_scrolling_exclude_page', array() );
+	$is_excluded   = is_array( $exclude_pages ) && in_array( get_the_ID(), $exclude_pages );
+	$is_preview    = class_exists( '\Elementor\Plugin' ) && \Elementor\Plugin::$instance->preview->is_preview_mode();
+
+	if ( ! $is_excluded && ! $is_preview ) {
+		wp_enqueue_script( 'lenis', get_template_directory_uri() . '/js/lenis.min.js', array(), '1.1.13', true );
+		wp_enqueue_script( 'soda-theme-smooth-scrolling', get_template_directory_uri() . '/js/smooth-scrolling.js', array( 'lenis' ), _S_VERSION, true );
+
+		// Pass smooth scrolling settings to JavaScript
+		$smooth_wheel = get_theme_mod( 'soda_smooth_scrolling_disable_wheel', 'no' ) === 'no' ? 1 : 0;
+
+		wp_localize_script( 'soda-theme-smooth-scrolling', 'sodaSmoothScrollingParams', array(
+			'smoothWheel'    => (int) $smooth_wheel,
+			'anchorOffset'   => (int) get_theme_mod( 'soda_smooth_scrolling_anchor_offset', 0 ),
+			'lerp'           => (float) get_theme_mod( 'soda_smooth_scrolling_lerp', 0.1 ),
+			'duration'       => (float) get_theme_mod( 'soda_smooth_scrolling_duration', 1.2 ),
+			'anchorLinks'    => get_theme_mod( 'soda_smooth_scrolling_anchor_links', 'no' ) === 'yes',
+			'gsapSync'       => get_theme_mod( 'soda_smooth_scrolling_gsap', 'no' ) === 'yes',
+		) );
+	}
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
