@@ -40,13 +40,19 @@ function soda_theme_body_classes( $classes ) {
 add_filter( 'body_class', 'soda_theme_body_classes' );
 
 /**
- * Add custom data attributes to body tag.
+ * Output scroll threshold data attribute in wp_head.
  */
-function soda_theme_body_attributes() {
+function soda_theme_scroll_threshold_script() {
 	$scroll_threshold = get_theme_mod( 'scroll_threshold', 100 );
-	echo ' data-scroll-threshold="' . esc_attr( $scroll_threshold ) . '"';
+	?>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.body.setAttribute('data-scroll-threshold', '<?php echo esc_js( $scroll_threshold ); ?>');
+		});
+	</script>
+	<?php
 }
-add_action( 'body_class', 'soda_theme_body_attributes', 20 );
+add_action( 'wp_head', 'soda_theme_scroll_threshold_script', 1 );
 
 
 /**
