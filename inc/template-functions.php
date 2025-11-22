@@ -90,25 +90,16 @@ function soda_theme_grid_line_styles() {
 	}
 
 	// Get all grid line settings
-	$line_color     = get_theme_mod( 'grid_line_line_color', '#eeeeee' );
-	$column_color   = get_theme_mod( 'grid_line_column_color', 'transparent' );
-	$columns        = get_theme_mod( 'grid_line_columns', 12 );
-	$outline        = get_theme_mod( 'grid_line_outline', false );
-	$max_width      = get_theme_mod( 'grid_line_max_width', '100%' );
-	$the_width      = get_theme_mod( 'grid_line_the_width', '100%' );
-	$line_width     = get_theme_mod( 'grid_line_line_width', '1px' );
-	$direction      = get_theme_mod( 'grid_line_direction', 90 );
-	$z_index        = get_theme_mod( 'grid_line_z_index', 0 );
-
-	// Build the gradient
-	$gradient_parts = array();
-	for ( $i = 0; $i < $columns; $i++ ) {
-		$gradient_parts[] = $column_color . ' 0%';
-		$gradient_parts[] = $column_color . ' calc(100% - ' . $line_width . ')';
-		$gradient_parts[] = $line_color . ' calc(100% - ' . $line_width . ')';
-		$gradient_parts[] = $line_color . ' 100%';
-	}
-	$gradient = 'repeating-linear-gradient(' . $direction . 'deg, ' . implode( ', ', $gradient_parts ) . ')';
+	$line_color      = get_theme_mod( 'grid_line_line_color', '#eeeeee' );
+	$column_color    = get_theme_mod( 'grid_line_column_color', 'transparent' );
+	$columns         = get_theme_mod( 'grid_line_columns', 12 );
+	$outline         = get_theme_mod( 'grid_line_outline', false );
+	$max_width       = get_theme_mod( 'grid_line_max_width', '100%' );
+	$the_width       = get_theme_mod( 'grid_line_the_width', '100%' );
+	$line_width      = get_theme_mod( 'grid_line_line_width', '1px' );
+	$direction       = get_theme_mod( 'grid_line_direction', 90 );
+	$z_index         = get_theme_mod( 'grid_line_z_index', 0 );
+	$right_display   = get_theme_mod( 'grid_line_right_display', 'none' );
 
 	// Build outline styles
 	$outline_style = '';
@@ -116,21 +107,78 @@ function soda_theme_grid_line_styles() {
 		$outline_style = 'outline: ' . $line_width . ' solid ' . $line_color . ';';
 	}
 
+	// Build right side styles
+	$right_side_style = '';
+	if ( $right_display === 'background' ) {
+		$right_side_style = 'body::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin-right: auto;
+			margin-left: auto;
+			pointer-events: none;
+			z-index: var(--grid-line-z-index, 0);
+			min-height: 100vh;
+			width: calc(var(--grid-line-the-width) - (2 * 0px));
+			max-width: var(--grid-line-max-width, 100%);
+			background-size: calc(100% + var(--grid-line-width, 1px)) 100%;
+			background-image: repeating-linear-gradient(var(--grid-line-direction, 90deg), var(--grid-line-column-color, transparent), var(--grid-line-column-color, transparent) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc(100% / var(--grid-line-columns, 12)));
+		}';
+	} elseif ( $right_display === 'outline' ) {
+		$right_side_style = 'body::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin-right: auto;
+			margin-left: auto;
+			pointer-events: none;
+			z-index: var(--grid-line-z-index, 0);
+			min-height: 100vh;
+			width: calc(var(--grid-line-the-width) - (2 * 0px));
+			max-width: var(--grid-line-max-width, 100%);
+			background-size: calc(100% + var(--grid-line-width, 1px)) 100%;
+			background-image: repeating-linear-gradient(var(--grid-line-direction, 90deg), var(--grid-line-column-color, transparent), var(--grid-line-column-color, transparent) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc(100% / var(--grid-line-columns, 12)));
+			outline: var(--grid-line-width, 1px) solid var(--grid-line-color, #eee);
+		}';
+	}
+
 	?>
 	<style type="text/css">
+		:root {
+			--grid-line-color: <?php echo esc_attr( $line_color ); ?>;
+			--grid-line-column-color: <?php echo esc_attr( $column_color ); ?>;
+			--grid-line-columns: <?php echo (int) $columns; ?>;
+			--grid-line-max-width: <?php echo esc_attr( $max_width ); ?>;
+			--grid-line-the-width: <?php echo esc_attr( $the_width ); ?>;
+			--grid-line-width: <?php echo esc_attr( $line_width ); ?>;
+			--grid-line-direction: <?php echo (int) $direction; ?>deg;
+			--grid-line-z-index: <?php echo (int) $z_index; ?>;
+		}
 		body::before {
-			content: '';
-			position: fixed;
-			inset: 0;
-			width: <?php echo esc_attr( $the_width ); ?>;
-			max-width: <?php echo esc_attr( $max_width ); ?>;
-			margin: 0 auto;
-			background: <?php echo $gradient; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>;
-			background-size: calc(100% / <?php echo (int) $columns; ?>) 100%;
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin-right: auto;
+			margin-left: auto;
 			pointer-events: none;
-			z-index: <?php echo (int) $z_index; ?>;
+			z-index: var(--grid-line-z-index, 0);
+			min-height: 100vh;
+			width: calc(var(--grid-line-the-width) - (2 * 0px));
+			max-width: var(--grid-line-max-width, 100%);
+			background-size: calc(100% + var(--grid-line-width, 1px)) 100%;
+			background-image: repeating-linear-gradient(var(--grid-line-direction, 90deg), var(--grid-line-column-color, transparent), var(--grid-line-column-color, transparent) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc(100% / var(--grid-line-columns, 12)));
 			<?php echo $outline_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		}
+		<?php echo $right_side_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</style>
 	<?php
 }

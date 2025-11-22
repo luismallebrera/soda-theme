@@ -824,3 +824,125 @@ new \Kirki\Field\Slider(
 		),
 	)
 );
+
+/**
+ * Right Side Grid Display
+ */
+new \Kirki\Field\Radio_Buttonset(
+	array(
+		'settings' => 'grid_line_right_display',
+		'label'    => esc_html__( 'Right Side Grid Display', 'soda-theme' ),
+		'section'  => 'soda_theme_grid_line',
+		'default'  => 'none',
+		'choices'  => array(
+			'none'       => esc_html__( 'None', 'soda-theme' ),
+			'background' => esc_html__( 'Background', 'soda-theme' ),
+			'outline'    => esc_html__( 'Outline', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Enable Right Side Grid (Background)
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'    => 'grid_line_right_bg_enable',
+		'label'       => esc_html__( 'Enable Right Side Grid (Background)', 'soda-theme' ),
+		'description' => esc_html__( 'Display a background grid on the right side.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => false,
+		'choices'     => array(
+			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
+			'off' => esc_html__( 'Disabled', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Right Side Grid Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'    => 'grid_line_right_bg_color',
+		'label'       => esc_html__( 'Right Side Background Color', 'soda-theme' ),
+		'description' => esc_html__( 'Color of the right side background grid.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => '#f5f5f5',
+		'choices'     => array(
+			'alpha' => true,
+		),
+	)
+);
+
+/**
+ * Right Side Grid Background Width
+ */
+new \Kirki\Field\Dimension(
+	array(
+		'settings'    => 'grid_line_right_bg_width',
+		'label'       => esc_html__( 'Right Side Background Width', 'soda-theme' ),
+		'description' => esc_html__( 'Width of the right side background grid.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => '50%',
+	)
+);
+
+/**
+ * Enable Right Side Grid (Outline)
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'    => 'grid_line_right_outline_enable',
+		'label'       => esc_html__( 'Enable Right Side Grid (Outline)', 'soda-theme' ),
+		'description' => esc_html__( 'Display an outline grid on the right side.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => false,
+		'choices'     => array(
+			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
+			'off' => esc_html__( 'Disabled', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Right Side Grid Outline Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'    => 'grid_line_right_outline_color',
+		'label'       => esc_html__( 'Right Side Outline Color', 'soda-theme' ),
+		'description' => esc_html__( 'Color of the right side outline grid.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => '#dddddd',
+		'choices'     => array(
+			'alpha' => true,
+		),
+	)
+);
+
+/**
+ * Right Side Grid Outline Width
+ */
+new \Kirki\Field\Dimension(
+	array(
+		'settings'    => 'grid_line_right_outline_width',
+		'label'       => esc_html__( 'Right Side Outline Width', 'soda-theme' ),
+		'description' => esc_html__( 'Width of the right side outline grid.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => '50%',
+	)
+);
+
+/**
+ * Right Side Grid Outline Thickness
+ */
+new \Kirki\Field\Dimension(
+	array(
+		'settings'    => 'grid_line_right_outline_thickness',
+		'label'       => esc_html__( 'Right Side Outline Thickness', 'soda-theme' ),
+		'description' => esc_html__( 'Border thickness of the right side outline.', 'soda-theme' ),
+		'section'     => 'soda_theme_grid_line',
+		'default'     => '1px',
+	)
+);
