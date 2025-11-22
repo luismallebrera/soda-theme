@@ -178,6 +178,13 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Kirki Customizer Framework configuration.
+ */
+if ( file_exists( get_template_directory() . '/inc/kirki-config.php' ) ) {
+	require get_template_directory() . '/inc/kirki-config.php';
+}
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
