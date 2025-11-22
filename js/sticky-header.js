@@ -16,7 +16,7 @@
 		var $logoLink = $('.custom-logo-link');
 		var $stickyLogoData = $('.sticky-logo-data');
 		var headerOffset = $header.offset().top;
-		var scrollThreshold = $body.data('scroll-threshold') || 100;
+		var scrollThreshold = (typeof sodaThemeSettings !== 'undefined') ? sodaThemeSettings.scrollThreshold : 100;
 		var originalLogoSrc = $logo.attr('src');
 		var stickyLogoSrc = $stickyLogoData.data('sticky-logo');
 
@@ -25,8 +25,8 @@
 
 			if (scrollTop > scrollThreshold) {
 				$header.addClass('sticky-header');
-				$body.addClass('scrolled');
-				$header.addClass('scrolled');
+				$body.addClass('scroll');
+				$header.addClass('scroll');
 				
 				// Swap to sticky logo if available
 				if (stickyLogoSrc && $logo.length) {
@@ -34,8 +34,8 @@
 				}
 			} else {
 				$header.removeClass('sticky-header');
-				$body.removeClass('scrolled');
-				$header.removeClass('scrolled');
+				$body.removeClass('scroll');
+				$header.removeClass('scroll');
 				
 				// Restore original logo
 				if (originalLogoSrc && $logo.length) {
