@@ -327,6 +327,203 @@ function soda_theme_customize_register( $wp_customize ) {
 			),
 		)
 	);
+
+	// Header Container Width Type
+	$wp_customize->add_setting(
+		'header_container_width_type',
+		array(
+			'default'           => 'boxed',
+			'sanitize_callback' => 'soda_theme_sanitize_container_width',
+			'transport'         => 'refresh',
+		)
+	);
+
+	$wp_customize->add_control(
+		'header_container_width_type',
+		array(
+			'label'       => __( 'Header Container Width', 'soda-theme' ),
+			'description' => __( 'Choose between boxed or full width container.', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'select',
+			'choices'     => array(
+				'boxed'      => __( 'Boxed (Max Width with Padding)', 'soda-theme' ),
+				'full-width' => __( 'Full Width (Edge to Edge)', 'soda-theme' ),
+			),
+		)
+	);
+
+	// Header Padding Left Unit
+	$wp_customize->add_setting(
+		'header_padding_left_unit',
+		array(
+			'default'           => 'px',
+			'sanitize_callback' => 'soda_theme_sanitize_unit',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'header_padding_left_unit',
+		array(
+			'label'   => __( 'Left Padding Unit', 'soda-theme' ),
+			'section' => 'soda_theme_header_spacing',
+			'type'    => 'select',
+			'choices' => array(
+				'px'  => __( 'px', 'soda-theme' ),
+				'%'   => __( '%', 'soda-theme' ),
+				'vw'  => __( 'vw', 'soda-theme' ),
+			),
+		)
+	);
+
+	// Header Padding Left
+	$wp_customize->add_setting(
+		'header_padding_left',
+		array(
+			'default'           => 16,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'header_padding_left',
+		array(
+			'label'       => __( 'Header Padding Left', 'soda-theme' ),
+			'description' => __( 'Set the left padding for the header container.', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 100,
+				'step' => 1,
+			),
+		)
+	);
+
+	// Header Padding Right Unit
+	$wp_customize->add_setting(
+		'header_padding_right_unit',
+		array(
+			'default'           => 'px',
+			'sanitize_callback' => 'soda_theme_sanitize_unit',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'header_padding_right_unit',
+		array(
+			'label'   => __( 'Right Padding Unit', 'soda-theme' ),
+			'section' => 'soda_theme_header_spacing',
+			'type'    => 'select',
+			'choices' => array(
+				'px'  => __( 'px', 'soda-theme' ),
+				'%'   => __( '%', 'soda-theme' ),
+				'vw'  => __( 'vw', 'soda-theme' ),
+			),
+		)
+	);
+
+	// Header Padding Right
+	$wp_customize->add_setting(
+		'header_padding_right',
+		array(
+			'default'           => 16,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'header_padding_right',
+		array(
+			'label'       => __( 'Header Padding Right', 'soda-theme' ),
+			'description' => __( 'Set the right padding for the header container.', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 100,
+				'step' => 1,
+			),
+		)
+	);
+
+	// Header Container Max Width
+	$wp_customize->add_setting(
+		'header_container_max_width',
+		array(
+			'default'           => 1200,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'header_container_max_width',
+		array(
+			'label'       => __( 'Header Container Max Width (px)', 'soda-theme' ),
+			'description' => __( 'Set the maximum width for the header container (only applies to boxed layout).', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 600,
+				'max'  => 2000,
+				'step' => 10,
+			),
+		)
+	);
+
+	// Header Height
+	$wp_customize->add_setting(
+		'header_height',
+		array(
+			'default'           => 0,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'header_height',
+		array(
+			'label'       => __( 'Header Container Min Height (px)', 'soda-theme' ),
+			'description' => __( 'Set a minimum height for the header container (0 = auto).', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 300,
+				'step' => 5,
+			),
+		)
+	);
+
+	// Sticky Header Height
+	$wp_customize->add_setting(
+		'sticky_header_height',
+		array(
+			'default'           => 0,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'sticky_header_height',
+		array(
+			'label'       => __( 'Sticky Header Container Min Height (px)', 'soda-theme' ),
+			'description' => __( 'Set a minimum height for the sticky header container (0 = auto).', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 150,
+				'step' => 5,
+			),
+		)
+	);
 }
 
 /**
@@ -342,6 +539,35 @@ function soda_theme_sanitize_header_layout( $input ) {
 	}
 	return 'layout-1';
 }
+
+/**
+ * Sanitize container width setting.
+ *
+ * @param string $input The input value.
+ * @return string Sanitized value.
+ */
+function soda_theme_sanitize_container_width( $input ) {
+	$valid = array( 'boxed', 'full-width' );
+	if ( in_array( $input, $valid, true ) ) {
+		return $input;
+	}
+	return 'boxed';
+}
+
+/**
+ * Sanitize unit setting.
+ *
+ * @param string $input The input value.
+ * @return string Sanitized value.
+ */
+function soda_theme_sanitize_unit( $input ) {
+	$valid = array( 'px', '%', 'vw' );
+	if ( in_array( $input, $valid, true ) ) {
+		return $input;
+	}
+	return 'px';
+}
+
 add_action( 'customize_register', 'soda_theme_customize_register' );
 
 /**
@@ -386,8 +612,16 @@ function soda_theme_logo_styles() {
 	$sticky_logo_id            = get_theme_mod( 'sticky_logo' );
 	$header_padding_top        = get_theme_mod( 'header_padding_top', 24 );
 	$header_padding_bottom     = get_theme_mod( 'header_padding_bottom', 24 );
+	$header_padding_left       = get_theme_mod( 'header_padding_left', 16 );
+	$header_padding_right      = get_theme_mod( 'header_padding_right', 16 );
+	$padding_left_unit         = get_theme_mod( 'header_padding_left_unit', 'px' );
+	$padding_right_unit        = get_theme_mod( 'header_padding_right_unit', 'px' );
 	$sticky_padding_top        = get_theme_mod( 'sticky_header_padding_top', 12 );
 	$sticky_padding_bottom     = get_theme_mod( 'sticky_header_padding_bottom', 12 );
+	$container_width_type      = get_theme_mod( 'header_container_width_type', 'boxed' );
+	$container_max_width       = get_theme_mod( 'header_container_max_width', 1200 );
+	$header_height             = get_theme_mod( 'header_height', 0 );
+	$sticky_header_height      = get_theme_mod( 'sticky_header_height', 0 );
 	
 	$css = '<style type="text/css">';
 	
@@ -401,9 +635,34 @@ function soda_theme_logo_styles() {
 		$css .= '.site-header { padding-top: ' . absint( $header_padding_top ) . 'px; padding-bottom: ' . absint( $header_padding_bottom ) . 'px; }';
 	}
 	
+	// Header min height
+	if ( $header_height > 0 ) {
+		$css .= '.site-header .header-container { min-height: ' . absint( $header_height ) . 'px; display: flex; align-items: center; }';
+	}
+	
+	// Header container padding left/right
+	if ( $header_padding_left || $header_padding_right ) {
+		$css .= '.site-header .header-container { padding-left: ' . absint( $header_padding_left ) . esc_attr( $padding_left_unit ) . '; padding-right: ' . absint( $header_padding_right ) . esc_attr( $padding_right_unit ) . '; }';
+	}
+	
+	// Container max width
+	if ( $container_max_width && 'boxed' === $container_width_type ) {
+		$css .= '.site-header .header-container { max-width: ' . absint( $container_max_width ) . 'px; }';
+	}
+	
+	// Full width container
+	if ( 'full-width' === $container_width_type ) {
+		$css .= '.site-header .header-container { max-width: 100%; }';
+	}
+	
 	// Sticky header padding
 	if ( $sticky_padding_top || $sticky_padding_bottom ) {
 		$css .= '.has-sticky-header .site-header.sticky-header { padding-top: ' . absint( $sticky_padding_top ) . 'px; padding-bottom: ' . absint( $sticky_padding_bottom ) . 'px; }';
+	}
+	
+	// Sticky header min height
+	if ( $sticky_header_height > 0 ) {
+		$css .= '.has-sticky-header .site-header.sticky-header .header-container { min-height: ' . absint( $sticky_header_height ) . 'px; }';
 	}
 	
 	// Sticky logo styles

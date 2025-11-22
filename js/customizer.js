@@ -89,4 +89,76 @@
 			$( 'head' ).append( style );
 		} );
 	} );
+
+	// Header Padding Left
+	wp.customize( 'header_padding_left', function( value ) {
+		value.bind( function( to ) {
+			var unit = wp.customize( 'header_padding_left_unit' )();
+			$( '.site-header .header-container' ).css( 'padding-left', to + unit );
+		} );
+	} );
+
+	// Header Padding Left Unit
+	wp.customize( 'header_padding_left_unit', function( value ) {
+		value.bind( function( to ) {
+			var val = wp.customize( 'header_padding_left' )();
+			$( '.site-header .header-container' ).css( 'padding-left', val + to );
+		} );
+	} );
+
+	// Header Padding Right
+	wp.customize( 'header_padding_right', function( value ) {
+		value.bind( function( to ) {
+			var unit = wp.customize( 'header_padding_right_unit' )();
+			$( '.site-header .header-container' ).css( 'padding-right', to + unit );
+		} );
+	} );
+
+	// Header Padding Right Unit
+	wp.customize( 'header_padding_right_unit', function( value ) {
+		value.bind( function( to ) {
+			var val = wp.customize( 'header_padding_right' )();
+			$( '.site-header .header-container' ).css( 'padding-right', val + to );
+		} );
+	} );
+
+	// Header Container Max Width
+	wp.customize( 'header_container_max_width', function( value ) {
+		value.bind( function( to ) {
+			$( '.site-header .header-container' ).css( 'max-width', to + 'px' );
+		} );
+	} );
+
+	// Header Height
+	wp.customize( 'header_height', function( value ) {
+		value.bind( function( to ) {
+			if ( to > 0 ) {
+				$( '.site-header .header-container' ).css( {
+					'min-height': to + 'px',
+					'display': 'flex',
+					'align-items': 'center'
+				} );
+			} else {
+				$( '.site-header .header-container' ).css( {
+					'min-height': '',
+					'display': '',
+					'align-items': ''
+				} );
+			}
+		} );
+	} );
+
+	// Sticky Header Height
+	wp.customize( 'sticky_header_height', function( value ) {
+		value.bind( function( to ) {
+			var style = '';
+			if ( to > 0 ) {
+				style = '<style id="sticky-height-preview">.has-sticky-header .site-header.sticky-header .header-container { min-height: ' + to + 'px; }</style>';
+			}
+			$( '#sticky-height-preview' ).remove();
+			if ( style ) {
+				$( 'head' ).append( style );
+			}
+		} );
+	} );
 }( jQuery ) );
