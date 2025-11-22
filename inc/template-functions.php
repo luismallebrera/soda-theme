@@ -112,7 +112,7 @@ function soda_theme_grid_line_styles() {
 	if ( $right_display === 'background' ) {
 		$right_side_style = 'body::after {
 			content: "";
-			position: absolute;
+			position: fixed;
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -130,7 +130,7 @@ function soda_theme_grid_line_styles() {
 	} elseif ( $right_display === 'outline' ) {
 		$right_side_style = 'body::after {
 			content: "";
-			position: absolute;
+			position: fixed;
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -162,7 +162,7 @@ function soda_theme_grid_line_styles() {
 		}
 		body::before {
 			content: "";
-			position: absolute;
+			position: fixed;
 			top: 0;
 			right: 0;
 			bottom: 0;
