@@ -161,15 +161,16 @@ function soda_theme_scripts() {
 		wp_enqueue_script( 'soda-theme-smooth-scrolling', get_template_directory_uri() . '/js/smooth-scrolling.js', array( 'lenis' ), _S_VERSION, true );
 
 		// Pass smooth scrolling settings to JavaScript
-		$smooth_wheel = get_theme_mod( 'soda_smooth_scrolling_disable_wheel', 'no' ) === 'no' ? 1 : 0;
+		$disable_wheel = get_theme_mod( 'soda_smooth_scrolling_disable_wheel', false );
+		$smooth_wheel  = $disable_wheel ? 0 : 1;
 
 		wp_localize_script( 'soda-theme-smooth-scrolling', 'sodaSmoothScrollingParams', array(
 			'smoothWheel'    => (int) $smooth_wheel,
 			'anchorOffset'   => (int) get_theme_mod( 'soda_smooth_scrolling_anchor_offset', 0 ),
 			'lerp'           => (float) get_theme_mod( 'soda_smooth_scrolling_lerp', 0.1 ),
 			'duration'       => (float) get_theme_mod( 'soda_smooth_scrolling_duration', 1.2 ),
-			'anchorLinks'    => get_theme_mod( 'soda_smooth_scrolling_anchor_links', 'no' ) === 'yes',
-			'gsapSync'       => get_theme_mod( 'soda_smooth_scrolling_gsap', 'no' ) === 'yes',
+			'anchorLinks'    => (bool) get_theme_mod( 'soda_smooth_scrolling_anchor_links', false ),
+			'gsapSync'       => (bool) get_theme_mod( 'soda_smooth_scrolling_gsap', false ),
 		) );
 	}
 

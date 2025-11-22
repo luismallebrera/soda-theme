@@ -472,7 +472,7 @@ new \Kirki\Field\Checkbox_Switch(
 		'label'       => esc_html__( 'Disable Mouse Wheel', 'soda-theme' ),
 		'description' => esc_html__( 'Disable smooth scrolling for mouse wheel.', 'soda-theme' ),
 		'section'     => 'soda_theme_smooth_scrolling',
-		'default'     => 'no',
+		'default'     => false,
 		'choices'     => array(
 			'on'  => esc_html__( 'Yes', 'soda-theme' ),
 			'off' => esc_html__( 'No', 'soda-theme' ),
@@ -489,7 +489,7 @@ new \Kirki\Field\Checkbox_Switch(
 		'label'       => esc_html__( 'Smooth Anchor Links', 'soda-theme' ),
 		'description' => esc_html__( 'Enable smooth scrolling for anchor links.', 'soda-theme' ),
 		'section'     => 'soda_theme_smooth_scrolling',
-		'default'     => 'no',
+		'default'     => false,
 		'choices'     => array(
 			'on'  => esc_html__( 'Yes', 'soda-theme' ),
 			'off' => esc_html__( 'No', 'soda-theme' ),
@@ -506,7 +506,7 @@ new \Kirki\Field\Checkbox_Switch(
 		'label'       => esc_html__( 'Synchronize with GSAP/ScrollTrigger', 'soda-theme' ),
 		'description' => esc_html__( 'Enable GSAP ScrollTrigger synchronization.', 'soda-theme' ),
 		'section'     => 'soda_theme_smooth_scrolling',
-		'default'     => 'no',
+		'default'     => false,
 		'choices'     => array(
 			'on'  => esc_html__( 'Yes', 'soda-theme' ),
 			'off' => esc_html__( 'No', 'soda-theme' ),
