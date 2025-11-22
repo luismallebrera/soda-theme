@@ -451,3 +451,142 @@ new \Kirki\Field\Slider(
 		),
 	)
 );
+
+/**
+ * Smooth Scrolling Section
+ */
+new \Kirki\Section(
+	'soda_theme_smooth_scrolling',
+	array(
+		'title'    => esc_html__( 'Smooth Scrolling (Lenis)', 'soda-theme' ),
+		'priority' => 50,
+	)
+);
+
+/**
+ * Disable Mouse Wheel
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'    => 'soda_smooth_scrolling_disable_wheel',
+		'label'       => esc_html__( 'Disable Mouse Wheel', 'soda-theme' ),
+		'description' => esc_html__( 'Disable smooth scrolling for mouse wheel.', 'soda-theme' ),
+		'section'     => 'soda_theme_smooth_scrolling',
+		'default'     => 'no',
+		'choices'     => array(
+			'on'  => esc_html__( 'Yes', 'soda-theme' ),
+			'off' => esc_html__( 'No', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Smooth Anchor Links
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'    => 'soda_smooth_scrolling_anchor_links',
+		'label'       => esc_html__( 'Smooth Anchor Links', 'soda-theme' ),
+		'description' => esc_html__( 'Enable smooth scrolling for anchor links.', 'soda-theme' ),
+		'section'     => 'soda_theme_smooth_scrolling',
+		'default'     => 'no',
+		'choices'     => array(
+			'on'  => esc_html__( 'Yes', 'soda-theme' ),
+			'off' => esc_html__( 'No', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Synchronize with GSAP/ScrollTrigger
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'    => 'soda_smooth_scrolling_gsap',
+		'label'       => esc_html__( 'Synchronize with GSAP/ScrollTrigger', 'soda-theme' ),
+		'description' => esc_html__( 'Enable GSAP ScrollTrigger synchronization.', 'soda-theme' ),
+		'section'     => 'soda_theme_smooth_scrolling',
+		'default'     => 'no',
+		'choices'     => array(
+			'on'  => esc_html__( 'Yes', 'soda-theme' ),
+			'off' => esc_html__( 'No', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Anchor Link Offset
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'soda_smooth_scrolling_anchor_offset',
+		'label'       => esc_html__( 'Smooth Anchor Link Offset (px)', 'soda-theme' ),
+		'description' => esc_html__( 'Offset for smooth anchor links in pixels.', 'soda-theme' ),
+		'section'     => 'soda_theme_smooth_scrolling',
+		'default'     => 0,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 500,
+			'step' => 1,
+		),
+	)
+);
+
+/**
+ * Linear Interpolation (lerp)
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'soda_smooth_scrolling_lerp',
+		'label'       => esc_html__( 'Linear Interpolation (lerp) Intensity', 'soda-theme' ),
+		'description' => esc_html__( 'Between 0 and 1. Set to 0 to use duration instead. Default: 0.1', 'soda-theme' ),
+		'section'     => 'soda_theme_smooth_scrolling',
+		'default'     => 0.1,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 1,
+			'step' => 0.01,
+		),
+	)
+);
+
+/**
+ * Duration of Scroll Animation
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'soda_smooth_scrolling_duration',
+		'label'       => esc_html__( 'Duration of Scroll Animation (seconds)', 'soda-theme' ),
+		'description' => esc_html__( 'Set lerp to 0 to use this value. Default: 1.2', 'soda-theme' ),
+		'section'     => 'soda_theme_smooth_scrolling',
+		'default'     => 1.2,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 5,
+			'step' => 0.1,
+		),
+	)
+);
+
+/**
+ * Exclude Pages
+ */
+new \Kirki\Field\Select(
+	array(
+		'settings'    => 'soda_smooth_scrolling_exclude_page',
+		'label'       => esc_html__( 'Exclude on These Pages', 'soda-theme' ),
+		'description' => esc_html__( 'Select pages where smooth scrolling should be disabled.', 'soda-theme' ),
+		'section'     => 'soda_theme_smooth_scrolling',
+		'default'     => array(),
+		'multiple'    => 999,
+		'choices'     => array_reduce(
+			get_pages(),
+			function( $carry, $page ) {
+				$carry[ $page->ID ] = $page->post_title;
+				return $carry;
+			},
+			array()
+		),
+	)
+);
+
