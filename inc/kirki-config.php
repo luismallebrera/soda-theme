@@ -1195,7 +1195,6 @@ new \Kirki\Pro\Field\Margin(
 			'bottom' => '0px',
 			'left'   => '0px',
 		),
-		'exclude'   => array( 'margin' ),
 		'transport' => 'postMessage',
 		'output'    => array(
 			array(
