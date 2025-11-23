@@ -262,106 +262,6 @@ function soda_theme_customize_register( $wp_customize ) {
 		)
 	);
 
-	// Header Padding Top
-	$wp_customize->add_setting(
-		'header_padding_top',
-		array(
-			'default'           => 24,
-			'sanitize_callback' => 'absint',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'header_padding_top',
-		array(
-			'label'       => __( 'Header Padding Top (px)', 'soda-theme' ),
-			'description' => __( 'Set the top padding for the header.', 'soda-theme' ),
-			'section'     => 'soda_theme_header_spacing',
-			'type'        => 'number',
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 100,
-				'step' => 1,
-			),
-		)
-	);
-
-	// Header Padding Bottom
-	$wp_customize->add_setting(
-		'header_padding_bottom',
-		array(
-			'default'           => 24,
-			'sanitize_callback' => 'absint',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'header_padding_bottom',
-		array(
-			'label'       => __( 'Header Padding Bottom (px)', 'soda-theme' ),
-			'description' => __( 'Set the bottom padding for the header.', 'soda-theme' ),
-			'section'     => 'soda_theme_header_spacing',
-			'type'        => 'number',
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 100,
-				'step' => 1,
-			),
-		)
-	);
-
-	// Sticky Header Padding Top
-	$wp_customize->add_setting(
-		'sticky_header_padding_top',
-		array(
-			'default'           => 12,
-			'sanitize_callback' => 'absint',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sticky_header_padding_top',
-		array(
-			'label'       => __( 'Sticky Header Padding Top (px)', 'soda-theme' ),
-			'description' => __( 'Set the top padding for the sticky header.', 'soda-theme' ),
-			'section'     => 'soda_theme_header_spacing',
-			'type'        => 'number',
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 50,
-				'step' => 1,
-			),
-		)
-	);
-
-	// Sticky Header Padding Bottom
-	$wp_customize->add_setting(
-		'sticky_header_padding_bottom',
-		array(
-			'default'           => 12,
-			'sanitize_callback' => 'absint',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sticky_header_padding_bottom',
-		array(
-			'label'       => __( 'Sticky Header Padding Bottom (px)', 'soda-theme' ),
-			'description' => __( 'Set the bottom padding for the sticky header.', 'soda-theme' ),
-			'section'     => 'soda_theme_header_spacing',
-			'type'        => 'number',
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 50,
-				'step' => 1,
-			),
-		)
-	);
-
 	// Header Container Width Type
 	$wp_customize->add_setting(
 		'header_container_width_type',
@@ -409,104 +309,6 @@ function soda_theme_customize_register( $wp_customize ) {
 				'step' => 10,
 			),
 			'active_callback' => 'soda_theme_is_boxed_header',
-		)
-	);
-
-	// Header Padding Left Unit
-	$wp_customize->add_setting(
-		'header_padding_left_unit',
-		array(
-			'default'           => 'px',
-			'sanitize_callback' => 'soda_theme_sanitize_unit',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'header_padding_left_unit',
-		array(
-			'label'   => __( 'Left Padding Unit', 'soda-theme' ),
-			'section' => 'soda_theme_header_spacing',
-			'type'    => 'select',
-			'choices' => array(
-				'px'  => __( 'px', 'soda-theme' ),
-				'%'   => __( '%', 'soda-theme' ),
-				'vw'  => __( 'vw', 'soda-theme' ),
-			),
-		)
-	);
-
-	// Header Padding Left
-	$wp_customize->add_setting(
-		'header_padding_left',
-		array(
-			'default'           => 16,
-			'sanitize_callback' => 'absint',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'header_padding_left',
-		array(
-			'label'       => __( 'Header Padding Left', 'soda-theme' ),
-			'description' => __( 'Set the left padding for the header container.', 'soda-theme' ),
-			'section'     => 'soda_theme_header_spacing',
-			'type'        => 'number',
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 100,
-				'step' => 1,
-			),
-		)
-	);
-
-	// Header Padding Right Unit
-	$wp_customize->add_setting(
-		'header_padding_right_unit',
-		array(
-			'default'           => 'px',
-			'sanitize_callback' => 'soda_theme_sanitize_unit',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'header_padding_right_unit',
-		array(
-			'label'   => __( 'Right Padding Unit', 'soda-theme' ),
-			'section' => 'soda_theme_header_spacing',
-			'type'    => 'select',
-			'choices' => array(
-				'px'  => __( 'px', 'soda-theme' ),
-				'%'   => __( '%', 'soda-theme' ),
-				'vw'  => __( 'vw', 'soda-theme' ),
-			),
-		)
-	);
-
-	// Header Padding Right
-	$wp_customize->add_setting(
-		'header_padding_right',
-		array(
-			'default'           => 16,
-			'sanitize_callback' => 'absint',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'header_padding_right',
-		array(
-			'label'       => __( 'Header Padding Right', 'soda-theme' ),
-			'description' => __( 'Set the right padding for the header container.', 'soda-theme' ),
-			'section'     => 'soda_theme_header_spacing',
-			'type'        => 'number',
-			'input_attrs' => array(
-				'min'  => 0,
-				'max'  => 100,
-				'step' => 1,
-			),
 		)
 	);
 
@@ -645,14 +447,6 @@ function soda_theme_logo_styles() {
 	$regular_logo_width        = get_theme_mod( 'regular_logo_width', 150 );
 	$sticky_logo_width         = get_theme_mod( 'sticky_logo_width', 100 );
 	$sticky_logo_id            = get_theme_mod( 'sticky_logo' );
-	$header_padding_top        = get_theme_mod( 'header_padding_top', 24 );
-	$header_padding_bottom     = get_theme_mod( 'header_padding_bottom', 24 );
-	$header_padding_left       = get_theme_mod( 'header_padding_left', 16 );
-	$header_padding_right      = get_theme_mod( 'header_padding_right', 16 );
-	$padding_left_unit         = get_theme_mod( 'header_padding_left_unit', 'px' );
-	$padding_right_unit        = get_theme_mod( 'header_padding_right_unit', 'px' );
-	$sticky_padding_top        = get_theme_mod( 'sticky_header_padding_top', 12 );
-	$sticky_padding_bottom     = get_theme_mod( 'sticky_header_padding_bottom', 12 );
 	$container_width_type      = get_theme_mod( 'header_container_width_type', 'boxed' );
 	$container_max_width       = get_theme_mod( 'header_container_max_width', 1200 );
 	$header_height             = get_theme_mod( 'header_height', 0 );
@@ -665,19 +459,9 @@ function soda_theme_logo_styles() {
 		$css .= '.custom-logo { max-width: ' . absint( $regular_logo_width ) . 'px; height: auto; }';
 	}
 	
-	// Header padding
-	if ( $header_padding_top || $header_padding_bottom ) {
-		$css .= '.site-header { padding-top: ' . absint( $header_padding_top ) . 'px; padding-bottom: ' . absint( $header_padding_bottom ) . 'px; }';
-	}
-	
 	// Header min height
 	if ( $header_height > 0 ) {
 		$css .= '.site-header .header-container { min-height: ' . absint( $header_height ) . 'px; display: flex; align-items: center; }';
-	}
-	
-	// Header container padding left/right
-	if ( $header_padding_left || $header_padding_right ) {
-		$css .= '.site-header .header-container { padding-left: ' . absint( $header_padding_left ) . esc_attr( $padding_left_unit ) . '; padding-right: ' . absint( $header_padding_right ) . esc_attr( $padding_right_unit ) . '; }';
 	}
 	
 	// Container max width
@@ -688,11 +472,6 @@ function soda_theme_logo_styles() {
 	// Full width container
 	if ( 'full-width' === $container_width_type ) {
 		$css .= '.site-header .header-container { max-width: 100%; }';
-	}
-	
-	// Sticky header padding
-	if ( $sticky_padding_top || $sticky_padding_bottom ) {
-		$css .= '.has-sticky-header .site-header.sticky-header { padding-top: ' . absint( $sticky_padding_top ) . 'px; padding-bottom: ' . absint( $sticky_padding_bottom ) . 'px; }';
 	}
 	
 	// Sticky header min height
