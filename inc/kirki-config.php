@@ -1184,23 +1184,21 @@ new \Kirki\Field\Select(
 /**
  * Menu Navigation Padding
  */
-new \Kirki\Pro\Field\Margin(
+new \Kirki\Pro\Field\Padding(
 	array(
 		'settings'  => 'menu_navigation_padding',
 		'label'     => esc_html__( 'Menu Navigation Padding', 'soda-theme' ),
 		'section'   => 'soda_theme_menu_settings',
 		'default'   => array(
-			'top'    => '0px',
-			'right'  => '0px',
-			'bottom' => '0px',
-			'left'   => '0px',
+			'padding-top'    => '0px',
+			'padding-right'  => '0px',
+			'padding-bottom' => '0px',
+			'padding-left'   => '0px',
 		),
-		'exclude'   => array( 'margin' ),
 		'transport' => 'postMessage',
 		'output'    => array(
 			array(
-				'element'  => '.main-navigation',
-				'property' => 'padding',
+				'element' => '.main-navigation',
 			),
 		),
 	)
