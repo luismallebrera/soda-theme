@@ -1182,100 +1182,23 @@ new \Kirki\Field\Select(
 );
 
 /**
- * Menu Navigation Padding Top
+ * Menu Navigation Padding
  */
-new \Kirki\Field\Slider(
+new \Kirki\Pro\Field\Margin(
 	array(
-		'settings'  => 'menu_navigation_padding_top',
-		'label'     => esc_html__( 'Menu Navigation Padding Top', 'soda-theme' ),
+		'settings'  => 'menu_navigation_padding',
+		'label'     => esc_html__( 'Menu Navigation Padding', 'soda-theme' ),
 		'section'   => 'soda_theme_menu_settings',
-		'default'   => 0,
-		'choices'   => array(
-			'min'  => 0,
-			'max'  => 100,
-			'step' => 1,
+		'default'   => array(
+			'top'    => 0,
+			'right'  => 0,
+			'bottom' => 0,
+			'left'   => 0,
 		),
 		'transport' => 'postMessage',
 		'output'    => array(
 			array(
-				'element'  => '.main-navigation',
-				'property' => 'padding-top',
-				'units'    => 'px',
-			),
-		),
-	)
-);
-
-/**
- * Menu Navigation Padding Right
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'  => 'menu_navigation_padding_right',
-		'label'     => esc_html__( 'Menu Navigation Padding Right', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 0,
-		'choices'   => array(
-			'min'  => 0,
-			'max'  => 100,
-			'step' => 1,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.main-navigation',
-				'property' => 'padding-right',
-				'units'    => 'px',
-			),
-		),
-	)
-);
-
-/**
- * Menu Navigation Padding Bottom
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'  => 'menu_navigation_padding_bottom',
-		'label'     => esc_html__( 'Menu Navigation Padding Bottom', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 0,
-		'choices'   => array(
-			'min'  => 0,
-			'max'  => 100,
-			'step' => 1,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.main-navigation',
-				'property' => 'padding-bottom',
-				'units'    => 'px',
-			),
-		),
-	)
-);
-
-/**
- * Menu Navigation Padding Left
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'  => 'menu_navigation_padding_left',
-		'label'     => esc_html__( 'Menu Navigation Padding Left', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 0,
-		'choices'   => array(
-			'min'  => 0,
-			'max'  => 100,
-			'step' => 1,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.main-navigation',
-				'property' => 'padding-left',
-				'units'    => 'px',
+				'element' => '.main-navigation',
 			),
 		),
 	)
