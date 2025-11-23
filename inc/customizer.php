@@ -765,7 +765,23 @@ function soda_theme_logo_styles() {
 	$dropdown_item_gap = get_theme_mod( 'mobile_dropdown_item_gap', 20 );
 	
 	if ( 'custom' === $dropdown_position ) {
-		$css .= '.site-navigation-dropdown { position: fixed; top: ' . absint( $dropdown_top ) . 'px; right: ' . absint( $dropdown_right ) . 'px; left: auto; width: ' . absint( $dropdown_width ) . esc_attr( $dropdown_width_unit ) . '; height: ' . absint( $dropdown_height ) . esc_attr( $dropdown_height_unit ) . '; }';
+		$container_width_type = get_theme_mod( 'header_container_width_type', 'boxed' );
+		$container_max_width = get_theme_mod( 'header_container_max_width', 1200 );
+		
+		// Calculate right position based on container width
+		if ( 'boxed' === $container_width_type ) {
+			// For boxed layout, calculate the right offset to align with max-width container
+			$css .= '@media screen and (min-width: ' . ( absint( $container_max_width ) + 1 ) . 'px) {';
+			$css .= '.site-navigation-dropdown { position: fixed; top: ' . absint( $dropdown_top ) . 'px; right: calc((100vw - ' . absint( $container_max_width ) . 'px) / 2 + ' . absint( $dropdown_right ) . 'px); left: auto; width: ' . absint( $dropdown_width ) . esc_attr( $dropdown_width_unit ) . '; height: ' . absint( $dropdown_height ) . esc_attr( $dropdown_height_unit ) . '; }';
+			$css .= '}';
+			// For screens smaller than container max-width
+			$css .= '@media screen and (max-width: ' . absint( $container_max_width ) . 'px) {';
+			$css .= '.site-navigation-dropdown { position: fixed; top: ' . absint( $dropdown_top ) . 'px; right: ' . absint( $dropdown_right ) . 'px; left: auto; width: ' . absint( $dropdown_width ) . esc_attr( $dropdown_width_unit ) . '; height: ' . absint( $dropdown_height ) . esc_attr( $dropdown_height_unit ) . '; }';
+			$css .= '}';
+		} else {
+			// For full-width layout, use simple right position
+			$css .= '.site-navigation-dropdown { position: fixed; top: ' . absint( $dropdown_top ) . 'px; right: ' . absint( $dropdown_right ) . 'px; left: auto; width: ' . absint( $dropdown_width ) . esc_attr( $dropdown_width_unit ) . '; height: ' . absint( $dropdown_height ) . esc_attr( $dropdown_height_unit ) . '; }';
+		}
 		$css .= '.site-navigation-dropdown .site-navigation-background { width: 100%; height: 100%; }';
 	}
 	
