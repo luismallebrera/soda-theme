@@ -35,8 +35,8 @@
 	const mobileDropdown = document.querySelector( '.site-navigation-dropdown' );
 	const hamburger = document.getElementById( 'hamburger-1' );
 
-	// Toggle the mobile dropdown menu
-	button.addEventListener( 'click', function() {
+	// Toggle function
+	function toggleMobileMenu() {
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
 			if ( hamburger ) {
@@ -55,6 +55,17 @@
 				mobileDropdown.setAttribute( 'aria-hidden', 'false' );
 				document.body.style.overflow = 'hidden';
 			}
+		}
+	}
+
+	// Toggle on click
+	button.addEventListener( 'click', toggleMobileMenu );
+
+	// Toggle on Enter or Space key
+	button.addEventListener( 'keydown', function( event ) {
+		if ( event.key === 'Enter' || event.key === ' ' ) {
+			event.preventDefault();
+			toggleMobileMenu();
 		}
 	} );
 

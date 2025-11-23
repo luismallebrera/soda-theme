@@ -21,7 +21,7 @@
 	
 	<div class="header-navigation-wrapper">
 		<div class="site-navigation-toggle-holder">
-			<button type="button" class="site-navigation-toggle menu-toggle" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
+			<div class="site-navigation-toggle menu-toggle" role="button" tabindex="0" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
 				<?php if ( get_theme_mod( 'mobile_menu_show_text', true ) ) : ?>
 				<span class="menu-text"><?php echo esc_html( get_theme_mod( 'mobile_menu_text', 'MENU' ) ); ?></span>
 				<?php endif; ?>
@@ -30,7 +30,7 @@
 					<span class="line"></span>
 					<span class="line"></span>
 				</div>
-			</button>
+			</div>
 		</div>
 
 		<nav id="site-navigation" class="main-navigation">
