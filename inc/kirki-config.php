@@ -1184,7 +1184,7 @@ new \Kirki\Field\Select(
 /**
  * Menu Navigation Padding
  */
-new \Kirki\Pro\Field\Margin(
+new \Kirki\Pro\Field\Padding(
 	array(
 		'settings'  => 'menu_navigation_padding',
 		'label'     => esc_html__( 'Menu Navigation Padding', 'soda-theme' ),
@@ -1315,7 +1315,7 @@ new \Kirki\Field\Slider(
 /**
  * Menu Link Padding
  */
-new \Kirki\Pro\Field\Margin(
+new \Kirki\Pro\Field\Padding(
 	array(
 		'settings'  => 'menu_link_padding',
 		'label'     => esc_html__( 'Menu Link Padding', 'soda-theme' ),
