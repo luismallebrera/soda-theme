@@ -559,7 +559,6 @@ a:active {
 
 /* Forms
 --------------------------------------------- */
-button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -572,15 +571,12 @@ input[type="submit"] {
 	padding: 0.6em 1em 0.4em;
 }
 
-button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
 	border-color: #ccc #bbb #aaa;
 }
 
-button:active,
-button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="reset"]:active,
