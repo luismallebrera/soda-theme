@@ -377,6 +377,34 @@ function soda_theme_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Header Container Max Width
+	$wp_customize->add_setting(
+		'header_container_max_width',
+		array(
+			'default'           => 1200,
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'header_container_max_width',
+		array(
+			'label'       => __( 'Header Container Max Width (px)', 'soda-theme' ),
+			'description' => __( 'Set the maximum width for the header container (only applies to boxed layout).', 'soda-theme' ),
+			'section'     => 'soda_theme_header_spacing',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 600,
+				'max'  => 2000,
+				'step' => 10,
+			),
+			'active_callback' => function() {
+				return 'boxed' === get_theme_mod( 'header_container_width_type', 'boxed' );
+			},
+		)
+	);
+
 	// Header Padding Left Unit
 	$wp_customize->add_setting(
 		'header_padding_left_unit',
@@ -471,31 +499,6 @@ function soda_theme_customize_register( $wp_customize ) {
 				'min'  => 0,
 				'max'  => 100,
 				'step' => 1,
-			),
-		)
-	);
-
-	// Header Container Max Width
-	$wp_customize->add_setting(
-		'header_container_max_width',
-		array(
-			'default'           => 1200,
-			'sanitize_callback' => 'absint',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'header_container_max_width',
-		array(
-			'label'       => __( 'Header Container Max Width (px)', 'soda-theme' ),
-			'description' => __( 'Set the maximum width for the header container (only applies to boxed layout).', 'soda-theme' ),
-			'section'     => 'soda_theme_header_spacing',
-			'type'        => 'number',
-			'input_attrs' => array(
-				'min'  => 600,
-				'max'  => 2000,
-				'step' => 10,
 			),
 		)
 	);
