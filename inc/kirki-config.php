@@ -983,6 +983,87 @@ new \Kirki\Section(
 );
 
 /**
+ * Mobile Menu Show Text
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'    => 'mobile_menu_show_text',
+		'label'       => esc_html__( 'Show Menu Text', 'soda-theme' ),
+		'description' => esc_html__( 'Display text label next to hamburger icon on mobile menu.', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => true,
+		'choices'     => array(
+			'on'  => esc_html__( 'Yes', 'soda-theme' ),
+			'off' => esc_html__( 'No', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Mobile Menu Text
+ */
+new \Kirki\Field\Text(
+	array(
+		'settings'        => 'mobile_menu_text',
+		'label'           => esc_html__( 'Menu Text', 'soda-theme' ),
+		'description'     => esc_html__( 'Text to display on mobile menu toggle.', 'soda-theme' ),
+		'section'         => 'soda_theme_menu_settings',
+		'default'         => 'MENU',
+		'active_callback' => array(
+			array(
+				'setting'  => 'mobile_menu_show_text',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Menu Toggle Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'mobile_menu_toggle_bg_color',
+		'label'     => esc_html__( 'Toggle Background Color', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => 'rgba(255, 255, 255, 0.45)',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-toggle-holder',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Menu Toggle Text Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'mobile_menu_toggle_text_color',
+		'label'     => esc_html__( 'Toggle Text/Icon Color', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => '#000000',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-toggle-holder .site-navigation-toggle',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
  * Menu Border Bottom
  */
 new \Kirki\Field\Checkbox_Switch(
