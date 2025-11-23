@@ -5,13 +5,6 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	const siteNavigation = document.getElementById( 'site-navigation' );
-
-	// Return early if the navigation doesn't exist.
-	if ( ! siteNavigation ) {
-		return;
-	}
-
 	const button = document.querySelector( '.site-navigation-toggle' );
 
 	// Return early if the button doesn't exist.
@@ -19,16 +12,21 @@
 		return;
 	}
 
-	const menu = siteNavigation.getElementsByTagName( 'ul' )[ 0 ];
+	const siteNavigation = document.getElementById( 'site-navigation' );
+	
+	// Check if we have a main navigation menu (for layout-1, layout-3, layout-4)
+	if ( siteNavigation ) {
+		const menu = siteNavigation.getElementsByTagName( 'ul' )[ 0 ];
 
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
+		// Hide menu toggle button if menu is empty and return early.
+		if ( 'undefined' === typeof menu ) {
+			button.style.display = 'none';
+			return;
+		}
 
-	if ( ! menu.classList.contains( 'nav-menu' ) ) {
-		menu.classList.add( 'nav-menu' );
+		if ( ! menu.classList.contains( 'nav-menu' ) ) {
+			menu.classList.add( 'nav-menu' );
+		}
 	}
 
 	// Mobile dropdown navigation
