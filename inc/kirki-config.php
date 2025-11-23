@@ -357,77 +357,49 @@ new \Kirki\Section(
 );
 
 /**
- * Header Padding Top
+ * Header Padding
  */
-new \Kirki\Field\Slider(
+new \Kirki\Pro\Field\Padding(
 	array(
-		'settings'    => 'header_padding_top',
-		'label'       => esc_html__( 'Header Padding Top (px)', 'soda-theme' ),
-		'description' => esc_html__( 'Set the top padding for the header.', 'soda-theme' ),
+		'settings'    => 'header_padding',
+		'label'       => esc_html__( 'Header Padding', 'soda-theme' ),
+		'description' => esc_html__( 'Set the padding for the header.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_spacing',
-		'default'     => 24,
+		'default'     => array(
+			'top'    => '24px',
+			'bottom' => '24px',
+			'left'   => '0px',
+			'right'  => '0px',
+		),
 		'transport'   => 'postMessage',
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 100,
-			'step' => 1,
+		'output'      => array(
+			array(
+				'element' => '.site-header',
+			),
 		),
 	)
 );
 
 /**
- * Header Padding Bottom
+ * Sticky Header Padding
  */
-new \Kirki\Field\Slider(
+new \Kirki\Pro\Field\Padding(
 	array(
-		'settings'    => 'header_padding_bottom',
-		'label'       => esc_html__( 'Header Padding Bottom (px)', 'soda-theme' ),
-		'description' => esc_html__( 'Set the bottom padding for the header.', 'soda-theme' ),
+		'settings'    => 'sticky_header_padding',
+		'label'       => esc_html__( 'Sticky Header Padding', 'soda-theme' ),
+		'description' => esc_html__( 'Set the padding for the sticky header.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_spacing',
-		'default'     => 24,
-		'transport'   => 'postMessage',
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 100,
-			'step' => 1,
+		'default'     => array(
+			'top'    => '12px',
+			'bottom' => '12px',
+			'left'   => '0px',
+			'right'  => '0px',
 		),
-	)
-);
-
-/**
- * Sticky Header Padding Top
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'    => 'sticky_header_padding_top',
-		'label'       => esc_html__( 'Sticky Header Padding Top (px)', 'soda-theme' ),
-		'description' => esc_html__( 'Set the top padding for the sticky header.', 'soda-theme' ),
-		'section'     => 'soda_theme_header_spacing',
-		'default'     => 12,
 		'transport'   => 'postMessage',
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 50,
-			'step' => 1,
-		),
-	)
-);
-
-/**
- * Sticky Header Padding Bottom
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'    => 'sticky_header_padding_bottom',
-		'label'       => esc_html__( 'Sticky Header Padding Bottom (px)', 'soda-theme' ),
-		'description' => esc_html__( 'Set the bottom padding for the sticky header.', 'soda-theme' ),
-		'section'     => 'soda_theme_header_spacing',
-		'default'     => 12,
-		'transport'   => 'postMessage',
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 50,
-			'step' => 1,
+		'output'      => array(
+			array(
+				'element' => '.has-sticky-header .site-header.sticky-header',
+			),
 		),
 	)
 );
@@ -476,75 +448,25 @@ new \Kirki\Field\Slider(
 );
 
 /**
- * Header Padding Left Unit
+ * Header Container Padding (Left/Right)
  */
-new \Kirki\Field\Radio_Buttonset(
+new \Kirki\Pro\Field\Padding(
 	array(
-		'settings'  => 'header_padding_left_unit',
-		'label'     => esc_html__( 'Left Padding Unit', 'soda-theme' ),
-		'section'   => 'soda_theme_header_spacing',
-		'default'   => 'px',
-		'transport' => 'postMessage',
-		'choices'   => array(
-			'px' => esc_html__( 'px', 'soda-theme' ),
-			'%'  => esc_html__( '%', 'soda-theme' ),
-			'vw' => esc_html__( 'vw', 'soda-theme' ),
-		),
-	)
-);
-
-/**
- * Header Padding Left
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'    => 'header_padding_left',
-		'label'       => esc_html__( 'Header Padding Left', 'soda-theme' ),
-		'description' => esc_html__( 'Set the left padding for the header container.', 'soda-theme' ),
+		'settings'    => 'header_container_padding',
+		'label'       => esc_html__( 'Header Container Padding (Left/Right)', 'soda-theme' ),
+		'description' => esc_html__( 'Set the left and right padding for the header container.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_spacing',
-		'default'     => 16,
-		'transport'   => 'postMessage',
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 100,
-			'step' => 1,
+		'default'     => array(
+			'top'    => '0px',
+			'bottom' => '0px',
+			'left'   => '16px',
+			'right'  => '16px',
 		),
-	)
-);
-
-/**
- * Header Padding Right Unit
- */
-new \Kirki\Field\Radio_Buttonset(
-	array(
-		'settings'  => 'header_padding_right_unit',
-		'label'     => esc_html__( 'Right Padding Unit', 'soda-theme' ),
-		'section'   => 'soda_theme_header_spacing',
-		'default'   => 'px',
-		'transport' => 'postMessage',
-		'choices'   => array(
-			'px' => esc_html__( 'px', 'soda-theme' ),
-			'%'  => esc_html__( '%', 'soda-theme' ),
-			'vw' => esc_html__( 'vw', 'soda-theme' ),
-		),
-	)
-);
-
-/**
- * Header Padding Right
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'    => 'header_padding_right',
-		'label'       => esc_html__( 'Header Padding Right', 'soda-theme' ),
-		'description' => esc_html__( 'Set the right padding for the header container.', 'soda-theme' ),
-		'section'     => 'soda_theme_header_spacing',
-		'default'     => 16,
 		'transport'   => 'postMessage',
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 100,
-			'step' => 1,
+		'output'      => array(
+			array(
+				'element' => '.header-inner',
+			),
 		),
 	)
 );
@@ -1071,38 +993,25 @@ new \Kirki\Field\Color(
 );
 
 /**
- * Mobile Menu Toggle Padding Top/Bottom
+ * Mobile Menu Toggle Padding
  */
-new \Kirki\Field\Slider(
+new \Kirki\Pro\Field\Padding(
 	array(
-		'settings'    => 'mobile_menu_toggle_padding_vertical',
-		'label'       => esc_html__( 'Toggle Padding Top/Bottom (px)', 'soda-theme' ),
+		'settings'    => 'mobile_menu_toggle_padding',
+		'label'       => esc_html__( 'Toggle Padding', 'soda-theme' ),
 		'section'     => 'soda_theme_menu_settings',
-		'default'     => 16,
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 50,
-			'step' => 1,
+		'default'     => array(
+			'top'    => '16px',
+			'bottom' => '16px',
+			'left'   => '21px',
+			'right'  => '21px',
 		),
-		'transport' => 'postMessage',
-	)
-);
-
-/**
- * Mobile Menu Toggle Padding Left/Right
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'    => 'mobile_menu_toggle_padding_horizontal',
-		'label'       => esc_html__( 'Toggle Padding Left/Right (px)', 'soda-theme' ),
-		'section'     => 'soda_theme_menu_settings',
-		'default'     => 21,
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 80,
-			'step' => 1,
+		'transport'   => 'postMessage',
+		'output'      => array(
+			array(
+				'element' => '.site-navigation-toggle-holder',
+			),
 		),
-		'transport' => 'postMessage',
 	)
 );
 
@@ -1624,74 +1533,25 @@ new \Kirki\Field\Radio_Buttonset(
 );
 
 /**
- * Mobile Dropdown Padding Top
+ * Mobile Dropdown Padding
  */
-new \Kirki\Field\Slider(
+new \Kirki\Pro\Field\Padding(
 	array(
-		'settings'    => 'mobile_dropdown_padding_top',
-		'label'       => esc_html__( 'Mobile Dropdown Padding Top (px)', 'soda-theme' ),
+		'settings'    => 'mobile_dropdown_padding',
+		'label'       => esc_html__( 'Mobile Dropdown Padding', 'soda-theme' ),
 		'section'     => 'soda_theme_menu_settings',
-		'default'     => 100,
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 300,
-			'step' => 1,
+		'default'     => array(
+			'top'    => '100px',
+			'bottom' => '40px',
+			'left'   => '40px',
+			'right'  => '40px',
 		),
-		'transport' => 'postMessage',
-	)
-);
-
-/**
- * Mobile Dropdown Padding Bottom
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'    => 'mobile_dropdown_padding_bottom',
-		'label'       => esc_html__( 'Mobile Dropdown Padding Bottom (px)', 'soda-theme' ),
-		'section'     => 'soda_theme_menu_settings',
-		'default'     => 40,
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 300,
-			'step' => 1,
+		'transport'   => 'postMessage',
+		'output'      => array(
+			array(
+				'element' => '.site-navigation-dropdown .mobile-nav-menu',
+			),
 		),
-		'transport' => 'postMessage',
-	)
-);
-
-/**
- * Mobile Dropdown Padding Left
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'    => 'mobile_dropdown_padding_left',
-		'label'       => esc_html__( 'Mobile Dropdown Padding Left (px)', 'soda-theme' ),
-		'section'     => 'soda_theme_menu_settings',
-		'default'     => 40,
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 200,
-			'step' => 1,
-		),
-		'transport' => 'postMessage',
-	)
-);
-
-/**
- * Mobile Dropdown Padding Right
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'    => 'mobile_dropdown_padding_right',
-		'label'       => esc_html__( 'Mobile Dropdown Padding Right (px)', 'soda-theme' ),
-		'section'     => 'soda_theme_menu_settings',
-		'default'     => 40,
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 200,
-			'step' => 1,
-		),
-		'transport' => 'postMessage',
 	)
 );
 

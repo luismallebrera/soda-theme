@@ -729,13 +729,19 @@ function soda_theme_logo_styles() {
 	$css .= '#hamburger-1.is-active .line:nth-child(3) { transform: translateY(-' . $transform_y . ') rotate(-45deg); }';
 	
 	// Mobile menu toggle holder styling
-	$toggle_padding_vertical = get_theme_mod( 'mobile_menu_toggle_padding_vertical', 16 );
-	$toggle_padding_horizontal = get_theme_mod( 'mobile_menu_toggle_padding_horizontal', 21 );
+	$toggle_padding = get_theme_mod( 'mobile_menu_toggle_padding', array(
+		'top'    => '16px',
+		'bottom' => '16px',
+		'left'   => '21px',
+		'right'  => '21px',
+	) );
 	$toggle_border_radius = get_theme_mod( 'mobile_menu_toggle_border_radius', 30 );
 	$toggle_backdrop_blur = get_theme_mod( 'mobile_menu_toggle_backdrop_blur', 8 );
 	$toggle_box_shadow = get_theme_mod( 'mobile_menu_toggle_box_shadow', true );
 	
-	$css .= '.site-navigation-toggle-holder { padding: ' . absint( $toggle_padding_vertical ) . 'px ' . absint( $toggle_padding_horizontal ) . 'px; border-radius: ' . absint( $toggle_border_radius ) . 'px; }';
+	// Build padding string from array
+	$toggle_padding_string = isset( $toggle_padding['top'] ) ? $toggle_padding['top'] . ' ' . $toggle_padding['right'] . ' ' . $toggle_padding['bottom'] . ' ' . $toggle_padding['left'] : '16px 21px 16px 21px';
+	$css .= '.site-navigation-toggle-holder { padding: ' . esc_attr( $toggle_padding_string ) . '; border-radius: ' . absint( $toggle_border_radius ) . 'px; }';
 	
 	if ( $toggle_backdrop_blur > 0 ) {
 		$css .= '.site-navigation-toggle-holder { backdrop-filter: blur(' . absint( $toggle_backdrop_blur ) . 'px); -webkit-backdrop-filter: blur(' . absint( $toggle_backdrop_blur ) . 'px); }';
@@ -768,10 +774,12 @@ function soda_theme_logo_styles() {
 	$dropdown_right = get_theme_mod( 'mobile_dropdown_right', 0 );
 	$dropdown_top = get_theme_mod( 'mobile_dropdown_top', 0 );
 	$dropdown_text_align = get_theme_mod( 'mobile_dropdown_text_align', 'left' );
-	$dropdown_padding_top = get_theme_mod( 'mobile_dropdown_padding_top', 100 );
-	$dropdown_padding_bottom = get_theme_mod( 'mobile_dropdown_padding_bottom', 40 );
-	$dropdown_padding_left = get_theme_mod( 'mobile_dropdown_padding_left', 40 );
-	$dropdown_padding_right = get_theme_mod( 'mobile_dropdown_padding_right', 40 );
+	$dropdown_padding = get_theme_mod( 'mobile_dropdown_padding', array(
+		'top'    => '100px',
+		'bottom' => '40px',
+		'left'   => '40px',
+		'right'  => '40px',
+	) );
 	$dropdown_item_gap = get_theme_mod( 'mobile_dropdown_item_gap', 20 );
 	
 	if ( 'custom' === $dropdown_position ) {
@@ -795,7 +803,9 @@ function soda_theme_logo_styles() {
 		$css .= '.site-navigation-dropdown .site-navigation-background { width: 100%; height: 100%; }';
 	}
 	
-	$css .= '.site-navigation-dropdown .mobile-nav-menu { padding: ' . absint( $dropdown_padding_top ) . 'px ' . absint( $dropdown_padding_right ) . 'px ' . absint( $dropdown_padding_bottom ) . 'px ' . absint( $dropdown_padding_left ) . 'px; gap: ' . absint( $dropdown_item_gap ) . 'px; }';
+	// Build padding string from array
+	$dropdown_padding_string = isset( $dropdown_padding['top'] ) ? $dropdown_padding['top'] . ' ' . $dropdown_padding['right'] . ' ' . $dropdown_padding['bottom'] . ' ' . $dropdown_padding['left'] : '100px 40px 40px 40px';
+	$css .= '.site-navigation-dropdown .mobile-nav-menu { padding: ' . esc_attr( $dropdown_padding_string ) . '; gap: ' . absint( $dropdown_item_gap ) . 'px; }';
 	$css .= '.site-navigation-dropdown .mobile-nav-menu a { text-align: ' . esc_attr( $dropdown_text_align ) . '; }';
 	
 	if ( 'center' === $dropdown_text_align ) {
