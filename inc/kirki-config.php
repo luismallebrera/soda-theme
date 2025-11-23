@@ -1064,6 +1064,95 @@ new \Kirki\Field\Color(
 );
 
 /**
+ * Mobile Menu Toggle Padding Top/Bottom
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_menu_toggle_padding_vertical',
+		'label'       => esc_html__( 'Toggle Padding Top/Bottom (px)', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 16,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 50,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
+ * Mobile Menu Toggle Padding Left/Right
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_menu_toggle_padding_horizontal',
+		'label'       => esc_html__( 'Toggle Padding Left/Right (px)', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 21,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 80,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
+ * Mobile Menu Toggle Border Radius
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_menu_toggle_border_radius',
+		'label'       => esc_html__( 'Toggle Border Radius (px)', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 30,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
+ * Mobile Menu Toggle Backdrop Filter Blur
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_menu_toggle_backdrop_blur',
+		'label'       => esc_html__( 'Toggle Backdrop Blur (px)', 'soda-theme' ),
+		'description' => esc_html__( 'Blur effect for glassmorphism. Set to 0 to disable.', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 8,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 50,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
+ * Mobile Menu Toggle Box Shadow
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings' => 'mobile_menu_toggle_box_shadow',
+		'label'    => esc_html__( 'Toggle Box Shadow', 'soda-theme' ),
+		'section'  => 'soda_theme_menu_settings',
+		'default'  => true,
+		'choices'  => array(
+			'on'  => esc_html__( 'Yes', 'soda-theme' ),
+			'off' => esc_html__( 'No', 'soda-theme' ),
+		),
+	)
+);
+
+/**
  * Mobile Menu Breakpoint
  */
 new \Kirki\Field\Slider(

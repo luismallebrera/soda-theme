@@ -718,6 +718,23 @@ function soda_theme_logo_styles() {
 	$css .= '#hamburger-1.is-active .line:nth-child(1) { transform: translateY(' . $transform_y . ') rotate(45deg); }';
 	$css .= '#hamburger-1.is-active .line:nth-child(3) { transform: translateY(-' . $transform_y . ') rotate(-45deg); }';
 	
+	// Mobile menu toggle holder styling
+	$toggle_padding_vertical = get_theme_mod( 'mobile_menu_toggle_padding_vertical', 16 );
+	$toggle_padding_horizontal = get_theme_mod( 'mobile_menu_toggle_padding_horizontal', 21 );
+	$toggle_border_radius = get_theme_mod( 'mobile_menu_toggle_border_radius', 30 );
+	$toggle_backdrop_blur = get_theme_mod( 'mobile_menu_toggle_backdrop_blur', 8 );
+	$toggle_box_shadow = get_theme_mod( 'mobile_menu_toggle_box_shadow', true );
+	
+	$css .= '.site-navigation-toggle-holder { padding: ' . absint( $toggle_padding_vertical ) . 'px ' . absint( $toggle_padding_horizontal ) . 'px; border-radius: ' . absint( $toggle_border_radius ) . 'px; }';
+	
+	if ( $toggle_backdrop_blur > 0 ) {
+		$css .= '.site-navigation-toggle-holder { backdrop-filter: blur(' . absint( $toggle_backdrop_blur ) . 'px); -webkit-backdrop-filter: blur(' . absint( $toggle_backdrop_blur ) . 'px); }';
+	}
+	
+	if ( $toggle_box_shadow ) {
+		$css .= '.site-navigation-toggle-holder { box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 20px 1px rgba(255, 255, 255, .3); }';
+	}
+	
 	// Mobile menu breakpoint
 	$mobile_breakpoint = get_theme_mod( 'mobile_menu_breakpoint', 768 );
 	$css .= '@media screen and (max-width: ' . ( absint( $mobile_breakpoint ) - 1 ) . 'px) {';
