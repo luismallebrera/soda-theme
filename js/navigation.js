@@ -81,8 +81,9 @@
 	document.addEventListener( 'click', function( event ) {
 		const isClickInside = siteNavigation.contains( event.target );
 		const isClickOnDropdown = mobileDropdown && mobileDropdown.contains( event.target );
+		const isClickOnToggle = button.contains( event.target );
 
-		if ( ! isClickInside && ! isClickOnDropdown ) {
+		if ( ! isClickInside && ! isClickOnDropdown && ! isClickOnToggle ) {
 			siteNavigation.classList.remove( 'toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			if ( mobileDropdown ) {
