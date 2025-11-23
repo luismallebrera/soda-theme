@@ -202,10 +202,17 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Kirki Customizer Framework configuration.
+ * Redux Framework configuration.
  */
-if ( file_exists( get_template_directory() . '/inc/kirki-config.php' ) ) {
-	require get_template_directory() . '/inc/kirki-config.php';
+if ( file_exists( get_template_directory() . '/inc/redux-config-full.php' ) ) {
+	require get_template_directory() . '/inc/redux-config-full.php';
+}
+
+/**
+ * Redux compatibility layer - maps get_theme_mod to Redux
+ */
+if ( file_exists( get_template_directory() . '/inc/redux-compat.php' ) ) {
+	require get_template_directory() . '/inc/redux-compat.php';
 }
 
 /**

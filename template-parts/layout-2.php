@@ -20,8 +20,8 @@
 
 		<div class="site-navigation-toggle-holder">
 			<div class="site-navigation-toggle menu-toggle" role="button" tabindex="0" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
-				<?php if ( get_theme_mod( 'mobile_menu_show_text', true ) ) : ?>
-				<span class="menu-text"><?php echo esc_html( get_theme_mod( 'mobile_menu_text', 'MENU' ) ); ?></span>
+				<?php if ( soda_theme_option( 'mobile_menu_show_text', true ) ) : ?>
+				<span class="menu-text"><?php echo esc_html( soda_theme_option( 'mobile_menu_text', 'MENU' ) ); ?></span>
 				<?php endif; ?>
 				<div class="hamburger" id="hamburger-1">
 					<span class="line"></span>

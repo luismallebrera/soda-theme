@@ -23,15 +23,15 @@ function soda_theme_body_classes( $classes ) {
 	}
 
 	// Add header behavior classes
-	if ( get_theme_mod( 'enable_sticky_header', true ) ) {
+	if ( soda_theme_option( 'enable_sticky_header', true ) ) {
 		$classes[] = 'has-sticky-header';
 	}
 
-	if ( get_theme_mod( 'enable_fixed_header', false ) ) {
+	if ( soda_theme_option( 'enable_fixed_header', false ) ) {
 		$classes[] = 'has-fixed-header';
 	}
 
-	if ( get_theme_mod( 'enable_transparent_header', false ) ) {
+	if ( soda_theme_option( 'enable_transparent_header', false ) ) {
 		$classes[] = 'has-transparent-header';
 	}
 
@@ -54,7 +54,7 @@ add_action( 'wp_head', 'soda_theme_pingback_header' );
  * Remove admin bar margin when fixed header is enabled.
  */
 function soda_theme_remove_admin_bar_margin() {
-	if ( get_theme_mod( 'enable_fixed_header', false ) ) {
+	if ( soda_theme_option( 'enable_fixed_header', false ) ) {
 		echo '<style>html { margin-top: 0 !important; }</style>';
 	}
 }
@@ -64,7 +64,7 @@ add_action( 'wp_head', 'soda_theme_remove_admin_bar_margin', 99 );
  * Display custom logo with sticky logo support.
  */
 function soda_theme_custom_logo() {
-	$sticky_logo_id = get_theme_mod( 'sticky_logo' );
+	$sticky_logo_id = soda_theme_option( 'sticky_logo' );
 	
 	if ( has_custom_logo() ) {
 		the_custom_logo();
@@ -83,23 +83,23 @@ function soda_theme_custom_logo() {
  * Output Grid Line CSS when enabled
  */
 function soda_theme_grid_line_styles() {
-	$grid_line_enable = get_theme_mod( 'grid_line_enable', false );
+	$grid_line_enable = soda_theme_option( 'grid_line_enable', false );
 	
 	if ( ! $grid_line_enable ) {
 		return;
 	}
 
 	// Get all grid line settings
-	$line_color      = get_theme_mod( 'grid_line_line_color', '#eeeeee' );
-	$column_color    = get_theme_mod( 'grid_line_column_color', 'transparent' );
-	$columns         = get_theme_mod( 'grid_line_columns', 12 );
-	$outline         = get_theme_mod( 'grid_line_outline', false );
-	$max_width       = get_theme_mod( 'grid_line_max_width', '100%' );
-	$the_width       = get_theme_mod( 'grid_line_the_width', '100%' );
-	$line_width      = get_theme_mod( 'grid_line_line_width', '1px' );
-	$direction       = get_theme_mod( 'grid_line_direction', 90 );
-	$z_index         = get_theme_mod( 'grid_line_z_index', 0 );
-	$right_display   = get_theme_mod( 'grid_line_right_display', 'none' );
+	$line_color      = soda_theme_option( 'grid_line_line_color', '#eeeeee' );
+	$column_color    = soda_theme_option( 'grid_line_column_color', 'transparent' );
+	$columns         = soda_theme_option( 'grid_line_columns', 12 );
+	$outline         = soda_theme_option( 'grid_line_outline', false );
+	$max_width       = soda_theme_option( 'grid_line_max_width', '100%' );
+	$the_width       = soda_theme_option( 'grid_line_the_width', '100%' );
+	$line_width      = soda_theme_option( 'grid_line_line_width', '1px' );
+	$direction       = soda_theme_option( 'grid_line_direction', 90 );
+	$z_index         = soda_theme_option( 'grid_line_z_index', 0 );
+	$right_display   = soda_theme_option( 'grid_line_right_display', 'none' );
 
 	// Build outline styles
 	$outline_style = '';
@@ -188,8 +188,8 @@ add_action( 'wp_head', 'soda_theme_grid_line_styles' );
  * Output Menu Typography CSS with Elementor global typography variables
  */
 function soda_theme_menu_typography_styles() {
-	$menu_font_family    = get_theme_mod( 'menu_typography_family', 'inherit' );
-	$submenu_font_family = get_theme_mod( 'menu_submenu_typography_family', 'inherit' );
+	$menu_font_family    = soda_theme_option( 'menu_typography_family', 'inherit' );
+	$submenu_font_family = soda_theme_option( 'menu_submenu_typography_family', 'inherit' );
 
 	$menu_font_var    = '';
 	$submenu_font_var = '';
@@ -254,7 +254,7 @@ add_action( 'wp_head', 'soda_theme_menu_typography_styles' );
  * Output Menu Navigation Backdrop Filter CSS
  */
 function soda_theme_menu_navigation_backdrop_filter() {
-	$backdrop_blur = get_theme_mod( 'menu_navigation_backdrop_blur', 0 );
+	$backdrop_blur = soda_theme_option( 'menu_navigation_backdrop_blur', 0 );
 
 	if ( $backdrop_blur > 0 ) {
 		?>

@@ -621,8 +621,8 @@ function soda_theme_customize_preview_js() {
 	
 	// Pass logo width settings to customizer JS
 	$logo_data = array(
-		'regular_logo_width' => get_theme_mod( 'regular_logo_width', 150 ),
-		'sticky_logo_width'  => get_theme_mod( 'sticky_logo_width', 100 ),
+		'regular_logo_width' => soda_theme_option( 'regular_logo_width', 150 ),
+		'sticky_logo_width'  => soda_theme_option( 'sticky_logo_width', 100 ),
 	);
 	wp_localize_script( 'soda-theme-customizer', 'sodaThemeLogoData', $logo_data );
 }
@@ -632,21 +632,21 @@ add_action( 'customize_preview_init', 'soda_theme_customize_preview_js' );
  * Output custom logo styles.
  */
 function soda_theme_logo_styles() {
-	$regular_logo_width        = get_theme_mod( 'regular_logo_width', 150 );
-	$sticky_logo_width         = get_theme_mod( 'sticky_logo_width', 100 );
-	$sticky_logo_id            = get_theme_mod( 'sticky_logo' );
-	$header_padding_top        = get_theme_mod( 'header_padding_top', 24 );
-	$header_padding_bottom     = get_theme_mod( 'header_padding_bottom', 24 );
-	$header_padding_left       = get_theme_mod( 'header_padding_left', 16 );
-	$header_padding_right      = get_theme_mod( 'header_padding_right', 16 );
-	$padding_left_unit         = get_theme_mod( 'header_padding_left_unit', 'px' );
-	$padding_right_unit        = get_theme_mod( 'header_padding_right_unit', 'px' );
-	$sticky_padding_top        = get_theme_mod( 'sticky_header_padding_top', 12 );
-	$sticky_padding_bottom     = get_theme_mod( 'sticky_header_padding_bottom', 12 );
-	$container_width_type      = get_theme_mod( 'header_container_width_type', 'boxed' );
-	$container_max_width       = get_theme_mod( 'header_container_max_width', 1200 );
-	$header_height             = get_theme_mod( 'header_height', 0 );
-	$sticky_header_height      = get_theme_mod( 'sticky_header_height', 0 );
+	$regular_logo_width        = soda_theme_option( 'regular_logo_width', 150 );
+	$sticky_logo_width         = soda_theme_option( 'sticky_logo_width', 100 );
+	$sticky_logo_id            = soda_theme_option( 'sticky_logo' );
+	$header_padding_top        = soda_theme_option( 'header_padding_top', 24 );
+	$header_padding_bottom     = soda_theme_option( 'header_padding_bottom', 24 );
+	$header_padding_left       = soda_theme_option( 'header_padding_left', 16 );
+	$header_padding_right      = soda_theme_option( 'header_padding_right', 16 );
+	$padding_left_unit         = soda_theme_option( 'header_padding_left_unit', 'px' );
+	$padding_right_unit        = soda_theme_option( 'header_padding_right_unit', 'px' );
+	$sticky_padding_top        = soda_theme_option( 'sticky_header_padding_top', 12 );
+	$sticky_padding_bottom     = soda_theme_option( 'sticky_header_padding_bottom', 12 );
+	$container_width_type      = soda_theme_option( 'header_container_width_type', 'boxed' );
+	$container_max_width       = soda_theme_option( 'header_container_max_width', 1200 );
+	$header_height             = soda_theme_option( 'header_height', 0 );
+	$sticky_header_height      = soda_theme_option( 'sticky_header_height', 0 );
 	
 	$css = '<style type="text/css">';
 	
@@ -699,16 +699,16 @@ function soda_theme_logo_styles() {
 	}
 	
 	// Sticky header border
-	$enable_sticky_border = get_theme_mod( 'enable_sticky_header_border', false );
+	$enable_sticky_border = soda_theme_option( 'enable_sticky_header_border', false );
 	if ( $enable_sticky_border ) {
 		$css .= '.has-transparent-header.has-sticky-header .site-header.sticky-header { border-bottom-style: solid; }';
 	}
 	
 	// Hamburger icon styling
-	$hamburger_width = get_theme_mod( 'hamburger_line_width', 25 );
-	$hamburger_height = get_theme_mod( 'hamburger_line_height', 2 );
-	$hamburger_color = get_theme_mod( 'hamburger_line_color', '#ecf0f1' );
-	$hamburger_scale = get_theme_mod( 'hamburger_scale', 1 );
+	$hamburger_width = soda_theme_option( 'hamburger_line_width', 25 );
+	$hamburger_height = soda_theme_option( 'hamburger_line_height', 2 );
+	$hamburger_color = soda_theme_option( 'hamburger_line_color', '#ecf0f1' );
+	$hamburger_scale = soda_theme_option( 'hamburger_scale', 1 );
 	
 	$css .= '.hamburger .line { width: ' . absint( $hamburger_width ) . 'px; height: ' . absint( $hamburger_height ) . 'px; background-color: ' . esc_attr( $hamburger_color ) . '; }';
 	$css .= '#hamburger-1 { transform: scale(' . floatval( $hamburger_scale ) . '); }';
@@ -719,7 +719,7 @@ function soda_theme_logo_styles() {
 	$css .= '#hamburger-1.is-active .line:nth-child(3) { transform: translateY(-' . $transform_y . ') rotate(-45deg); }';
 	
 	// Mobile menu breakpoint
-	$mobile_breakpoint = get_theme_mod( 'mobile_menu_breakpoint', 768 );
+	$mobile_breakpoint = soda_theme_option( 'mobile_menu_breakpoint', 768 );
 	$css .= '@media screen and (max-width: ' . ( absint( $mobile_breakpoint ) - 1 ) . 'px) {';
 	$css .= '.main-navigation { display: none !important; }';
 	$css .= '.menu-toggle, .site-navigation-toggle-holder { display: block; }';

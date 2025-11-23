@@ -27,7 +27,7 @@
 
 	<?php
 	// Get the selected header layout from customizer
-	$header_layout = get_theme_mod( 'header_layout_style', 'layout-1' );
+	$header_layout = soda_theme_option( 'header_layout_style', 'layout-1' );
 	
 	// Load the appropriate header layout template
 	get_template_part( 'template-parts/layout', str_replace( 'layout-', '', $header_layout ) );
