@@ -44,6 +44,10 @@
 				mobileDropdown.setAttribute( 'aria-hidden', 'true' );
 				document.body.style.overflow = '';
 			}
+			// Resume Lenis smooth scrolling
+			if ( window.lenis ) {
+				window.lenis.start();
+			}
 		} else {
 			button.setAttribute( 'aria-expanded', 'true' );
 			if ( hamburger ) {
@@ -52,6 +56,10 @@
 			if ( mobileDropdown ) {
 				mobileDropdown.setAttribute( 'aria-hidden', 'false' );
 				document.body.style.overflow = 'hidden';
+			}
+			// Stop Lenis smooth scrolling when dropdown is open
+			if ( window.lenis ) {
+				window.lenis.stop();
 			}
 		}
 	}
@@ -78,6 +86,10 @@
 				}
 				mobileDropdown.setAttribute( 'aria-hidden', 'true' );
 				document.body.style.overflow = '';
+				// Resume Lenis smooth scrolling
+				if ( window.lenis ) {
+					window.lenis.start();
+				}
 			} );
 		}
 
@@ -91,6 +103,10 @@
 				}
 				mobileDropdown.setAttribute( 'aria-hidden', 'true' );
 				document.body.style.overflow = '';
+				// Resume Lenis smooth scrolling
+				if ( window.lenis ) {
+					window.lenis.start();
+				}
 			} );
 		}
 	}
