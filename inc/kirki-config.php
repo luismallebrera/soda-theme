@@ -1190,10 +1190,10 @@ new \Kirki\Pro\Field\Padding(
 		'label'     => esc_html__( 'Menu Navigation Padding', 'soda-theme' ),
 		'section'   => 'soda_theme_menu_settings',
 		'default'   => array(
-			'top'    => 0,
-			'right'  => 0,
-			'bottom' => 0,
-			'left'   => 0,
+			'padding-top'    => '0px',
+			'padding-right'  => '0px',
+			'padding-bottom' => '0px',
+			'padding-left'   => '0px',
 		),
 		'transport' => 'postMessage',
 		'output'    => array(
@@ -1321,10 +1321,10 @@ new \Kirki\Pro\Field\Padding(
 		'label'     => esc_html__( 'Menu Link Padding', 'soda-theme' ),
 		'section'   => 'soda_theme_menu_settings',
 		'default'   => array(
-			'top'    => 0,
-			'right'  => 0,
-			'bottom' => 0,
-			'left'   => 0,
+			'padding-top'    => '0px',
+			'padding-right'  => '0px',
+			'padding-bottom' => '0px',
+			'padding-left'   => '0px',
 		),
 		'transport' => 'postMessage',
 		'output'    => array(
