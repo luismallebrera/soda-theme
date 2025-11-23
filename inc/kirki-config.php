@@ -1337,23 +1337,129 @@ new \Kirki\Field\Slider(
 /**
  * Mobile Dropdown Font Family
  */
-new \Kirki\Field\Typography(
+new \Kirki\Field\Select(
 	array(
-		'settings'  => 'mobile_dropdown_typography',
-		'label'     => esc_html__( 'Mobile Dropdown Typography', 'soda-theme' ),
+		'settings' => 'mobile_dropdown_font_family',
+		'label'    => esc_html__( 'Mobile Dropdown Font Family', 'soda-theme' ),
+		'section'  => 'soda_theme_menu_settings',
+		'default'  => 'inherit',
+		'choices'  => array(
+			'inherit'    => esc_html__( 'Inherit', 'soda-theme' ),
+			'primary'    => esc_html__( 'Primary', 'soda-theme' ),
+			'secondary'  => esc_html__( 'Secondary', 'soda-theme' ),
+			'text'       => esc_html__( 'Text', 'soda-theme' ),
+			'accent'     => esc_html__( 'Accent', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Font Size
+ */
+new \Kirki\Field\Dimension(
+	array(
+		'settings'  => 'mobile_dropdown_font_size',
+		'label'     => esc_html__( 'Mobile Dropdown Font Size', 'soda-theme' ),
 		'section'   => 'soda_theme_menu_settings',
-		'default'   => array(
-			'font-family'    => 'inherit',
-			'variant'        => '600',
-			'font-size'      => '24px',
-			'line-height'    => '1.5',
-			'letter-spacing' => '0',
-			'text-transform' => 'none',
+		'default'   => '24px',
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-dropdown .mobile-nav-menu a',
+				'property' => 'font-size',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Font Weight
+ */
+new \Kirki\Field\Select(
+	array(
+		'settings'  => 'mobile_dropdown_font_weight',
+		'label'     => esc_html__( 'Mobile Dropdown Font Weight', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => '600',
+		'choices'   => array(
+			'100' => esc_html__( '100 - Thin', 'soda-theme' ),
+			'200' => esc_html__( '200 - Extra Light', 'soda-theme' ),
+			'300' => esc_html__( '300 - Light', 'soda-theme' ),
+			'400' => esc_html__( '400 - Normal', 'soda-theme' ),
+			'500' => esc_html__( '500 - Medium', 'soda-theme' ),
+			'600' => esc_html__( '600 - Semi Bold', 'soda-theme' ),
+			'700' => esc_html__( '700 - Bold', 'soda-theme' ),
+			'800' => esc_html__( '800 - Extra Bold', 'soda-theme' ),
+			'900' => esc_html__( '900 - Black', 'soda-theme' ),
 		),
 		'transport' => 'postMessage',
 		'output'    => array(
 			array(
-				'element' => '.site-navigation-dropdown .mobile-nav-menu a',
+				'element'  => '.site-navigation-dropdown .mobile-nav-menu a',
+				'property' => 'font-weight',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Text Transform
+ */
+new \Kirki\Field\Select(
+	array(
+		'settings'  => 'mobile_dropdown_text_transform',
+		'label'     => esc_html__( 'Mobile Dropdown Text Transform', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => 'none',
+		'choices'   => array(
+			'none'       => esc_html__( 'None', 'soda-theme' ),
+			'uppercase'  => esc_html__( 'Uppercase', 'soda-theme' ),
+			'lowercase'  => esc_html__( 'Lowercase', 'soda-theme' ),
+			'capitalize' => esc_html__( 'Capitalize', 'soda-theme' ),
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-dropdown .mobile-nav-menu a',
+				'property' => 'text-transform',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Line Height
+ */
+new \Kirki\Field\Dimension(
+	array(
+		'settings'  => 'mobile_dropdown_line_height',
+		'label'     => esc_html__( 'Mobile Dropdown Line Height', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => '1.5',
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-dropdown .mobile-nav-menu a',
+				'property' => 'line-height',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Letter Spacing
+ */
+new \Kirki\Field\Dimension(
+	array(
+		'settings'  => 'mobile_dropdown_letter_spacing',
+		'label'     => esc_html__( 'Mobile Dropdown Letter Spacing', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => '0px',
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-dropdown .mobile-nav-menu a',
+				'property' => 'letter-spacing',
 			),
 		),
 	)
