@@ -724,11 +724,19 @@ textarea {
 }
 
 /* Add padding to body when header is sticky */
+body.admin-bar.has-sticky-header .site-header {
+	top: 32px;
+}
+
 body.admin-bar.has-sticky-header .site-header.sticky-header {
 	top: 32px;
 }
 
 @media screen and (max-width: 782px) {
+	body.admin-bar.has-sticky-header .site-header {
+		top: 46px;
+	}
+	
 	body.admin-bar.has-sticky-header .site-header.sticky-header {
 		top: 46px;
 	}
