@@ -857,36 +857,20 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 	}
 }
 
-/* Layout 3 - Stacked (Logo Above Menu) */
-.header-layout-3 .header-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
+/* Layout 3 - With Scroll Behavior (Logo Left, Menu Right - like Layout 1) */
+/* Layout 3 inherits flexbox from common header-container styles */
 .header-layout-3 .site-branding {
 	margin-bottom: 0;
 	display: flex;
 }
 
-.header-layout-3 .main-navigation {
-	width: 100%;
-	text-align: center;
-}
-
-/* Layout 3: Initially hide toggle, show main navigation */
+/* Layout 3: Initially hide toggle, show main navigation (controlled by JS based on scroll) */
 .header-layout-3 .site-navigation-toggle-holder {
 	display: none;
 }
 
 .header-layout-3 .main-navigation {
 	display: block;
-}
-
-@media screen and (min-width: 768px) {
-	.header-layout-3 .main-navigation ul {
-		justify-content: center;
-	}
 }
 
 /* Layout 4 - Full Width (Menu Below Logo) */

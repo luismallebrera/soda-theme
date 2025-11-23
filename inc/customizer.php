@@ -725,7 +725,9 @@ function soda_theme_logo_styles() {
 	$css .= '.menu-toggle, .site-navigation-toggle-holder { display: block; }';
 	$css .= '}';
 	$css .= '@media screen and (min-width: ' . absint( $mobile_breakpoint ) . 'px) {';
-	$css .= '.menu-toggle, .site-navigation-toggle-holder { display: none !important; }';
+	// Exclude layout-2 and layout-3 from hiding the toggle at the breakpoint
+	// Layout-2 always shows the toggle, layout-3 shows toggle based on scroll position
+	$css .= '.header-layout-1 .menu-toggle, .header-layout-1 .site-navigation-toggle-holder, .header-layout-4 .menu-toggle, .header-layout-4 .site-navigation-toggle-holder { display: none !important; }';
 	$css .= '.main-navigation { display: block; }';
 	$css .= '.main-navigation ul { display: flex; }';
 	$css .= '}';

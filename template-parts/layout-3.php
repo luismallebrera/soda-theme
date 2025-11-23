@@ -1,6 +1,6 @@
 <?php
 /**
- * Header Layout 3 - Stacked (Logo Above Menu)
+ * Header Layout 3 - With Scroll Behavior (Logo Left, Menu Right)
  *
  * @package soda-theme
  */
