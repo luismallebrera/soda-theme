@@ -36,8 +36,6 @@
 
 	// Toggle the mobile dropdown menu
 	button.addEventListener( 'click', function() {
-		siteNavigation.classList.toggle( 'toggled' );
-
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
 			if ( mobileDropdown ) {
@@ -58,7 +56,6 @@
 		const background = mobileDropdown.querySelector( '.site-navigation-background' );
 		if ( background ) {
 			background.addEventListener( 'click', function() {
-				siteNavigation.classList.remove( 'toggled' );
 				button.setAttribute( 'aria-expanded', 'false' );
 				mobileDropdown.setAttribute( 'aria-hidden', 'true' );
 				document.body.style.overflow = '';
@@ -69,7 +66,6 @@
 		const mobileLinks = mobileDropdown.querySelectorAll( 'a' );
 		for ( const link of mobileLinks ) {
 			link.addEventListener( 'click', function() {
-				siteNavigation.classList.remove( 'toggled' );
 				button.setAttribute( 'aria-expanded', 'false' );
 				mobileDropdown.setAttribute( 'aria-hidden', 'true' );
 				document.body.style.overflow = '';
@@ -79,12 +75,10 @@
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
 	document.addEventListener( 'click', function( event ) {
-		const isClickInside = siteNavigation.contains( event.target );
 		const isClickOnDropdown = mobileDropdown && mobileDropdown.contains( event.target );
 		const isClickOnToggle = button.contains( event.target );
 
-		if ( ! isClickInside && ! isClickOnDropdown && ! isClickOnToggle ) {
-			siteNavigation.classList.remove( 'toggled' );
+		if ( ! isClickOnDropdown && ! isClickOnToggle ) {
 			button.setAttribute( 'aria-expanded', 'false' );
 			if ( mobileDropdown ) {
 				mobileDropdown.setAttribute( 'aria-hidden', 'true' );
