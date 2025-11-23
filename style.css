@@ -662,6 +662,7 @@ textarea {
 .site-header .header-container {
 	max-width: 1200px;
 	margin: 0 auto;
+	transition: all 0.5s;
 }
 
 .site-branding {
