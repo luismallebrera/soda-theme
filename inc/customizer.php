@@ -715,8 +715,8 @@ function soda_theme_logo_styles() {
 	
 	// Calculate transform values based on line height and spacing
 	$transform_y = ( $hamburger_height + 4 ) . 'px';
-	$css .= '#hamburger-1.is-active .line:nth-child(1) { -webkit-transform: translateY(' . $transform_y . ') rotate(45deg); -ms-transform: translateY(' . $transform_y . ') rotate(45deg); -o-transform: translateY(' . $transform_y . ') rotate(45deg); transform: translateY(' . $transform_y . ') rotate(45deg); }';
-	$css .= '#hamburger-1.is-active .line:nth-child(3) { -webkit-transform: translateY(-' . $transform_y . ') rotate(-45deg); -ms-transform: translateY(-' . $transform_y . ') rotate(-45deg); -o-transform: translateY(-' . $transform_y . ') rotate(-45deg); transform: translateY(-' . $transform_y . ') rotate(-45deg); }';
+	$css .= '#hamburger-1.is-active .line:nth-child(1) { transform: translateY(' . $transform_y . ') rotate(45deg); }';
+	$css .= '#hamburger-1.is-active .line:nth-child(3) { transform: translateY(-' . $transform_y . ') rotate(-45deg); }';
 	
 	// Mobile menu breakpoint
 	$mobile_breakpoint = get_theme_mod( 'mobile_menu_breakpoint', 768 );
