@@ -20,15 +20,16 @@
 	</div><!-- .header-container -->
 	
 	<div class="header-navigation-wrapper">
+		<div class="site-navigation-toggle-holder">
+			<button type="button" class="site-navigation-toggle menu-toggle" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
+				<?php if ( get_theme_mod( 'mobile_menu_show_text', true ) ) : ?>
+				<span class="menu-text"><?php echo esc_html( get_theme_mod( 'mobile_menu_text', 'MENU' ) ); ?></span>
+				<?php endif; ?>
+				<span class="site-navigation-toggle-icon" aria-hidden="true"></span>
+			</button>
+		</div>
+
 		<nav id="site-navigation" class="main-navigation">
-			<div class="site-navigation-toggle-holder">
-				<button type="button" class="site-navigation-toggle menu-toggle" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
-					<?php if ( get_theme_mod( 'mobile_menu_show_text', true ) ) : ?>
-					<span class="menu-text"><?php echo esc_html( get_theme_mod( 'mobile_menu_text', 'MENU' ) ); ?></span>
-					<?php endif; ?>
-					<span class="site-navigation-toggle-icon" aria-hidden="true"></span>
-				</button>
-			</div>
 			<?php
 			wp_nav_menu(
 				array(
