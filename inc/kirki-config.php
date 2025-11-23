@@ -372,16 +372,6 @@ new \Kirki\Pro\Field\Padding(
 			'right'  => '0px',
 		),
 		'transport'   => 'postMessage',
-		'choices'     => array(
-			'controls' => array(
-				'unit' => array(
-					'px'  => 'px',
-					'em'  => 'em',
-					'rem' => 'rem',
-					'%'   => '%',
-				),
-			),
-		),
 		'output'      => array(
 			array(
 				'element' => '.site-header',
@@ -1209,10 +1199,9 @@ new \Kirki\Field\Radio_Buttonset(
 		'settings'        => 'mobile_dropdown_width_unit',
 		'label'           => esc_html__( 'Mobile Dropdown Width Unit', 'soda-theme' ),
 		'section'         => 'soda_theme_menu_settings',
-		'default'         => '%',
+		'default'         => 'vw',
 		'choices'         => array(
 			'px' => esc_html__( 'px', 'soda-theme' ),
-			'%'  => esc_html__( '%', 'soda-theme' ),
 			'vw' => esc_html__( 'vw', 'soda-theme' ),
 		),
 		'active_callback' => array(
