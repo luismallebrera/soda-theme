@@ -6,6 +6,15 @@
  */
 
 /**
+ * Check if header container width type is boxed.
+ *
+ * @return bool
+ */
+function soda_theme_is_boxed_header() {
+	return 'boxed' === get_theme_mod( 'header_container_width_type', 'boxed' );
+}
+
+/**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
@@ -399,9 +408,7 @@ function soda_theme_customize_register( $wp_customize ) {
 				'max'  => 2000,
 				'step' => 10,
 			),
-			'active_callback' => function() {
-				return 'boxed' === get_theme_mod( 'header_container_width_type', 'boxed' );
-			},
+			'active_callback' => 'soda_theme_is_boxed_header',
 		)
 	);
 
