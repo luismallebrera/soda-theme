@@ -450,6 +450,32 @@ new \Kirki\Field\Radio_Buttonset(
 );
 
 /**
+ * Header Container Max Width
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'        => 'header_container_max_width',
+		'label'           => esc_html__( 'Header Container Max Width (px)', 'soda-theme' ),
+		'description'     => esc_html__( 'Set the maximum width for the header container (only applies to boxed layout).', 'soda-theme' ),
+		'section'         => 'soda_theme_header_spacing',
+		'default'         => 1200,
+		'transport'       => 'postMessage',
+		'choices'         => array(
+			'min'  => 600,
+			'max'  => 2000,
+			'step' => 10,
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'header_container_width_type',
+				'operator' => '===',
+				'value'    => 'boxed',
+			),
+		),
+	)
+);
+
+/**
  * Header Padding Left Unit
  */
 new \Kirki\Field\Radio_Buttonset(
@@ -519,25 +545,6 @@ new \Kirki\Field\Slider(
 			'min'  => 0,
 			'max'  => 100,
 			'step' => 1,
-		),
-	)
-);
-
-/**
- * Header Container Max Width
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'    => 'header_container_max_width',
-		'label'       => esc_html__( 'Header Container Max Width (px)', 'soda-theme' ),
-		'description' => esc_html__( 'Set the maximum width for the header container (only applies to boxed layout).', 'soda-theme' ),
-		'section'     => 'soda_theme_header_spacing',
-		'default'     => 1200,
-		'transport'   => 'postMessage',
-		'choices'     => array(
-			'min'  => 600,
-			'max'  => 2000,
-			'step' => 10,
 		),
 	)
 );
