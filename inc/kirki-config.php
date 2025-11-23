@@ -165,6 +165,134 @@ new \Kirki\Field\Checkbox_Switch(
 );
 
 /**
+ * Enable Sticky Header Box Shadow
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'        => 'enable_sticky_header_shadow',
+		'label'           => esc_html__( 'Enable Sticky Header Box Shadow', 'soda-theme' ),
+		'description'     => esc_html__( 'Add a shadow below the sticky header.', 'soda-theme' ),
+		'section'         => 'soda_theme_header_behavior',
+		'default'         => true,
+		'choices'         => array(
+			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
+			'off' => esc_html__( 'Disabled', 'soda-theme' ),
+		),
+		'transport'       => 'postMessage',
+		'output'          => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header',
+				'property' => 'box-shadow',
+				'value_pattern' => '0 2px 5px rgba(0, 0, 0, 0.1)',
+				'exclude'  => array( false ),
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_sticky_header',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Enable Sticky Header Border Bottom
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'        => 'enable_sticky_header_border',
+		'label'           => esc_html__( 'Enable Sticky Header Border Bottom', 'soda-theme' ),
+		'description'     => esc_html__( 'Add a border at the bottom of the sticky header.', 'soda-theme' ),
+		'section'         => 'soda_theme_header_behavior',
+		'default'         => false,
+		'choices'         => array(
+			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
+			'off' => esc_html__( 'Disabled', 'soda-theme' ),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_sticky_header',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Sticky Header Border Bottom Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'        => 'sticky_header_border_color',
+		'label'           => esc_html__( 'Sticky Header Border Bottom Color', 'soda-theme' ),
+		'section'         => 'soda_theme_header_behavior',
+		'default'         => '#e0e0e0',
+		'choices'         => array(
+			'alpha' => true,
+		),
+		'transport'       => 'postMessage',
+		'output'          => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header',
+				'property' => 'border-bottom-color',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_sticky_header',
+				'operator' => '==',
+				'value'    => true,
+			),
+			array(
+				'setting'  => 'enable_sticky_header_border',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Sticky Header Border Bottom Width
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'        => 'sticky_header_border_width',
+		'label'           => esc_html__( 'Sticky Header Border Bottom Width (px)', 'soda-theme' ),
+		'section'         => 'soda_theme_header_behavior',
+		'default'         => 1,
+		'transport'       => 'postMessage',
+		'choices'         => array(
+			'min'  => 1,
+			'max'  => 10,
+			'step' => 1,
+		),
+		'output'          => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header',
+				'property' => 'border-bottom-width',
+				'units'    => 'px',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_sticky_header',
+				'operator' => '==',
+				'value'    => true,
+			),
+			array(
+				'setting'  => 'enable_sticky_header_border',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
  * Enable Fixed Header
  */
 new \Kirki\Field\Checkbox_Switch(
@@ -212,110 +340,6 @@ new \Kirki\Field\Slider(
 			'min'  => 0,
 			'max'  => 500,
 			'step' => 10,
-		),
-	)
-);
-
-/**
- * Enable Sticky Header Box Shadow
- */
-new \Kirki\Field\Checkbox_Switch(
-	array(
-		'settings'    => 'enable_sticky_header_shadow',
-		'label'       => esc_html__( 'Enable Sticky Header Box Shadow', 'soda-theme' ),
-		'description' => esc_html__( 'Add a shadow below the sticky header.', 'soda-theme' ),
-		'section'     => 'soda_theme_header_behavior',
-		'default'     => true,
-		'choices'     => array(
-			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
-			'off' => esc_html__( 'Disabled', 'soda-theme' ),
-		),
-		'transport'   => 'postMessage',
-		'output'      => array(
-			array(
-				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header',
-				'property' => 'box-shadow',
-				'value_pattern' => '0 2px 5px rgba(0, 0, 0, 0.1)',
-				'exclude'  => array( false ),
-			),
-		),
-	)
-);
-
-/**
- * Enable Sticky Header Border Bottom
- */
-new \Kirki\Field\Checkbox_Switch(
-	array(
-		'settings'    => 'enable_sticky_header_border',
-		'label'       => esc_html__( 'Enable Sticky Header Border Bottom', 'soda-theme' ),
-		'description' => esc_html__( 'Add a border at the bottom of the sticky header.', 'soda-theme' ),
-		'section'     => 'soda_theme_header_behavior',
-		'default'     => false,
-		'choices'     => array(
-			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
-			'off' => esc_html__( 'Disabled', 'soda-theme' ),
-		),
-	)
-);
-
-/**
- * Sticky Header Border Bottom Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'        => 'sticky_header_border_color',
-		'label'           => esc_html__( 'Sticky Header Border Bottom Color', 'soda-theme' ),
-		'section'         => 'soda_theme_header_behavior',
-		'default'         => '#e0e0e0',
-		'choices'         => array(
-			'alpha' => true,
-		),
-		'transport'       => 'postMessage',
-		'output'          => array(
-			array(
-				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header',
-				'property' => 'border-bottom-color',
-			),
-		),
-		'active_callback' => array(
-			array(
-				'setting'  => 'enable_sticky_header_border',
-				'operator' => '==',
-				'value'    => true,
-			),
-		),
-	)
-);
-
-/**
- * Sticky Header Border Bottom Width
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'        => 'sticky_header_border_width',
-		'label'           => esc_html__( 'Sticky Header Border Bottom Width (px)', 'soda-theme' ),
-		'section'         => 'soda_theme_header_behavior',
-		'default'         => 1,
-		'transport'       => 'postMessage',
-		'choices'         => array(
-			'min'  => 1,
-			'max'  => 10,
-			'step' => 1,
-		),
-		'output'          => array(
-			array(
-				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header',
-				'property' => 'border-bottom-width',
-				'units'    => 'px',
-			),
-		),
-		'active_callback' => array(
-			array(
-				'setting'  => 'enable_sticky_header_border',
-				'operator' => '==',
-				'value'    => true,
-			),
 		),
 	)
 );
