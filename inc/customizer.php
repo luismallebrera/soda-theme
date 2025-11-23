@@ -811,7 +811,100 @@ function soda_theme_customizer_controls_styles() {
 			display: flex;
 			flex-wrap: wrap;
 		}
+		
+		/* Custom control title styling */
+		span.customize-control-title {
+			margin-left: -12px;
+			padding: 10px 0px 10px 10px;
+			background-color: #fff;
+			margin-right: -12px;
+			border-bottom: 1px solid #c2c2c2;
+			border-top: 1px solid #c2c2c2;
+			margin-bottom: 15px;
+			text-transform: uppercase;
+			font-size: 12px;
+		}
+		
+		/* Color picker styling */
+		.customize-control-kirki-react-colorful .kirki-control-left-col {
+			width: 90%;
+			width: calc(100%);
+			padding-right: 0;
+			margin-right: -35px;
+		}
+		
+		.customize-control-kirki-react-colorful .kirki-trigger-circle-wrapper {
+			width: 29px;
+			height: 29px;
+			border: 1px solid #ccc;
+			border-radius: 0;
+			justify-content: center;
+			align-items: center;
+			padding: 2px;
+			display: flex;
+			position: relative;
+			top: -2px;
+		}
+		
+		.customize-control-kirki-react-colorful .kirki-trigger-circle {
+			width: 21px;
+			height: 21px;
+			cursor: pointer;
+			background-size: 10px;
+			border: none;
+			border-radius: 0;
+			padding: 0;
+			display: block;
+			position: relative;
+		}
+		
+		.customize-control-kirki-react-colorful .kirki-color-preview {
+			width: 100%;
+			height: 100%;
+			border-width: 0;
+			border-radius: 0;
+			display: block;
+		}
+		
+		.customize-control-kirki-react-colorful .kirki-control-right-col {
+			width: 45px;
+			justify-content: flex-end;
+			display: flex;
+			padding: 8px 0;
+			margin-right: -8px;
+		}
+		
+		/* Toggle switch styling */
+		.kirki-toggle-switch-input:checked+.kirki-toggle-switch-label:after {
+			background-color: #ffffff;
+			transform: translate3d(100%, -50%, 0);
+			border: 1px solid #b4b9be;
+		}
+		
+		.kirki-toggle-switch-label:before {
+			background-color: #ffffff;
+			border: 1px solid #b4b9be;
+			border-radius: 8px;
+			height: 14px;
+			width: 37px;
+		}
+		
+		/* Slider styling */
+		.customize-control-kirki-slider .kirki-control-slider {
+			position: relative;
+			top: -1px;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			height: 9px;
+			border-radius: 2.5px;
+			background-color: #ffffff;
+			outline: none;
+			-webkit-appearance: none;
+			border: 1px solid #b4b9be;
+		}
 	</style>
 	<?php
 }
 add_action( 'customize_controls_print_styles', 'soda_theme_customizer_controls_styles' );
+
