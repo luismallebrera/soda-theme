@@ -849,7 +849,8 @@ new \Kirki\Section(
 	'soda_theme_menu_settings',
 	array(
 		'title'    => esc_html__( 'Menu Settings', 'soda-theme' ),
-		'priority' => 70,
+		'panel'    => 'soda_theme_header_panel',
+		'priority' => 50,
 	)
 );
 
