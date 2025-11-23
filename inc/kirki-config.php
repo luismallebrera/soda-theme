@@ -359,19 +359,23 @@ new \Kirki\Section(
 /**
  * Header Padding
  */
-new \Kirki\Pro\Field\Padding(
+new \Kirki\Field\Dimensions(
 	array(
 		'settings'    => 'header_padding',
 		'label'       => esc_html__( 'Header Padding', 'soda-theme' ),
-		'description' => esc_html__( 'Set the padding for the header.', 'soda-theme' ),
+		'description' => esc_html__( 'Set the top and bottom padding for the site-header.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_spacing',
 		'default'     => array(
-			'top'    => '24px',
-			'bottom' => '24px',
-			'left'   => '0px',
-			'right'  => '0px',
+			'padding-top'    => '24px',
+			'padding-bottom' => '24px',
 		),
-		'transport'   => 'postMessage',
+		'choices'     => array(
+			'labels' => array(
+				'padding-top'    => esc_html__( 'Top', 'soda-theme' ),
+				'padding-bottom' => esc_html__( 'Bottom', 'soda-theme' ),
+			),
+		),
+		'transport'   => 'auto',
 		'output'      => array(
 			array(
 				'element' => '.site-header',
@@ -383,19 +387,23 @@ new \Kirki\Pro\Field\Padding(
 /**
  * Sticky Header Padding
  */
-new \Kirki\Pro\Field\Padding(
+new \Kirki\Field\Dimensions(
 	array(
 		'settings'    => 'sticky_header_padding',
 		'label'       => esc_html__( 'Sticky Header Padding', 'soda-theme' ),
-		'description' => esc_html__( 'Set the padding for the sticky header.', 'soda-theme' ),
+		'description' => esc_html__( 'Set the top and bottom padding for the sticky site-header.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_spacing',
 		'default'     => array(
-			'top'    => '12px',
-			'bottom' => '12px',
-			'left'   => '0px',
-			'right'  => '0px',
+			'padding-top'    => '12px',
+			'padding-bottom' => '12px',
 		),
-		'transport'   => 'postMessage',
+		'choices'     => array(
+			'labels' => array(
+				'padding-top'    => esc_html__( 'Top', 'soda-theme' ),
+				'padding-bottom' => esc_html__( 'Bottom', 'soda-theme' ),
+			),
+		),
+		'transport'   => 'auto',
 		'output'      => array(
 			array(
 				'element' => '.has-sticky-header .site-header.sticky-header',
@@ -448,24 +456,64 @@ new \Kirki\Field\Slider(
 );
 
 /**
- * Header Container Padding (Left/Right)
+ * Header Inner Padding
  */
-new \Kirki\Pro\Field\Padding(
+new \Kirki\Field\Dimensions(
 	array(
-		'settings'    => 'header_container_padding',
-		'label'       => esc_html__( 'Header Container Padding (Left/Right)', 'soda-theme' ),
-		'description' => esc_html__( 'Set the left and right padding for the header container.', 'soda-theme' ),
+		'settings'    => 'header_inner_padding',
+		'label'       => esc_html__( 'Header Inner Padding', 'soda-theme' ),
+		'description' => esc_html__( 'Set the padding for the header-container.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_spacing',
 		'default'     => array(
-			'top'    => '0px',
-			'bottom' => '0px',
-			'left'   => '16px',
-			'right'  => '16px',
+			'padding-top'    => '0px',
+			'padding-right'  => '16px',
+			'padding-bottom' => '0px',
+			'padding-left'   => '16px',
 		),
-		'transport'   => 'postMessage',
+		'choices'     => array(
+			'labels' => array(
+				'padding-top'    => esc_html__( 'Top', 'soda-theme' ),
+				'padding-right'  => esc_html__( 'Right', 'soda-theme' ),
+				'padding-bottom' => esc_html__( 'Bottom', 'soda-theme' ),
+				'padding-left'   => esc_html__( 'Left', 'soda-theme' ),
+			),
+		),
+		'transport'   => 'auto',
 		'output'      => array(
 			array(
-				'element' => '.header-inner',
+				'element' => '.header-container',
+			),
+		),
+	)
+);
+
+/**
+ * Sticky Header Inner Padding
+ */
+new \Kirki\Field\Dimensions(
+	array(
+		'settings'    => 'sticky_header_inner_padding',
+		'label'       => esc_html__( 'Sticky Header Inner Padding', 'soda-theme' ),
+		'description' => esc_html__( 'Set the padding for the sticky header-container.', 'soda-theme' ),
+		'section'     => 'soda_theme_header_spacing',
+		'default'     => array(
+			'padding-top'    => '0px',
+			'padding-right'  => '16px',
+			'padding-bottom' => '0px',
+			'padding-left'   => '16px',
+		),
+		'choices'     => array(
+			'labels' => array(
+				'padding-top'    => esc_html__( 'Top', 'soda-theme' ),
+				'padding-right'  => esc_html__( 'Right', 'soda-theme' ),
+				'padding-bottom' => esc_html__( 'Bottom', 'soda-theme' ),
+				'padding-left'   => esc_html__( 'Left', 'soda-theme' ),
+			),
+		),
+		'transport'   => 'auto',
+		'output'      => array(
+			array(
+				'element' => '.has-sticky-header .site-header.sticky-header .header-container',
 			),
 		),
 	)
