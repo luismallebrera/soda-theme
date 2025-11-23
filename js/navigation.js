@@ -12,10 +12,10 @@
 		return;
 	}
 
-	const button = siteNavigation.getElementsByTagName( 'button' )[ 0 ];
+	const button = document.querySelector( '.site-navigation-toggle' );
 
 	// Return early if the button doesn't exist.
-	if ( 'undefined' === typeof button ) {
+	if ( ! button ) {
 		return;
 	}
 
