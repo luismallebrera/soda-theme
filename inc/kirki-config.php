@@ -1390,100 +1390,23 @@ new \Kirki\Field\Slider(
 );
 
 /**
- * Menu Link Padding Top
+ * Menu Link Padding
  */
-new \Kirki\Field\Slider(
+new \Kirki\Pro\Field\Margin(
 	array(
-		'settings'  => 'menu_link_padding_top',
-		'label'     => esc_html__( 'Menu Link Padding Top', 'soda-theme' ),
+		'settings'  => 'menu_link_padding',
+		'label'     => esc_html__( 'Menu Link Padding', 'soda-theme' ),
 		'section'   => 'soda_theme_menu_settings',
-		'default'   => 0,
-		'choices'   => array(
-			'min'  => 0,
-			'max'  => 50,
-			'step' => 1,
+		'default'   => array(
+			'top'    => 0,
+			'right'  => 0,
+			'bottom' => 0,
+			'left'   => 0,
 		),
 		'transport' => 'postMessage',
 		'output'    => array(
 			array(
-				'element'  => '.main-navigation a',
-				'property' => 'padding-top',
-				'units'    => 'px',
-			),
-		),
-	)
-);
-
-/**
- * Menu Link Padding Right
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'  => 'menu_link_padding_right',
-		'label'     => esc_html__( 'Menu Link Padding Right', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 0,
-		'choices'   => array(
-			'min'  => 0,
-			'max'  => 50,
-			'step' => 1,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.main-navigation a',
-				'property' => 'padding-right',
-				'units'    => 'px',
-			),
-		),
-	)
-);
-
-/**
- * Menu Link Padding Bottom
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'  => 'menu_link_padding_bottom',
-		'label'     => esc_html__( 'Menu Link Padding Bottom', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 0,
-		'choices'   => array(
-			'min'  => 0,
-			'max'  => 50,
-			'step' => 1,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.main-navigation a',
-				'property' => 'padding-bottom',
-				'units'    => 'px',
-			),
-		),
-	)
-);
-
-/**
- * Menu Link Padding Left
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'  => 'menu_link_padding_left',
-		'label'     => esc_html__( 'Menu Link Padding Left', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 0,
-		'choices'   => array(
-			'min'  => 0,
-			'max'  => 50,
-			'step' => 1,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.main-navigation a',
-				'property' => 'padding-left',
-				'units'    => 'px',
+				'element' => '.main-navigation a',
 			),
 		),
 	)
