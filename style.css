@@ -1019,17 +1019,17 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 }
 
 #hamburger-1.is-active .line:nth-child(1) {
-	-webkit-transform: translateY(13px) rotate(45deg);
-	-ms-transform: translateY(13px) rotate(45deg);
-	-o-transform: translateY(13px) rotate(45deg);
-	transform: translateY(13px) rotate(45deg);
+	-webkit-transform: translateY(6.5px) rotate(45deg);
+	-ms-transform: translateY(6.5px) rotate(45deg);
+	-o-transform: translateY(6.5px) rotate(45deg);
+	transform: translateY(6.5px) rotate(45deg);
 }
 
 #hamburger-1.is-active .line:nth-child(3) {
-	-webkit-transform: translateY(-13px) rotate(-45deg);
-	-ms-transform: translateY(-13px) rotate(-45deg);
-	-o-transform: translateY(-13px) rotate(-45deg);
-	transform: translateY(-13px) rotate(-45deg);
+	-webkit-transform: translateY(-6.5px) rotate(-45deg);
+	-ms-transform: translateY(-6.5px) rotate(-45deg);
+	-o-transform: translateY(-6.5px) rotate(-45deg);
+	transform: translateY(-6.5px) rotate(-45deg);
 }
 
 /* Mobile Navigation Dropdown */
