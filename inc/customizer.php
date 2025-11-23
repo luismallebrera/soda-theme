@@ -705,8 +705,8 @@ function soda_theme_logo_styles() {
 	}
 	
 	// Hamburger icon styling
-	$hamburger_width = get_theme_mod( 'hamburger_line_width', 50 );
-	$hamburger_height = get_theme_mod( 'hamburger_line_height', 5 );
+	$hamburger_width = get_theme_mod( 'hamburger_line_width', 25 );
+	$hamburger_height = get_theme_mod( 'hamburger_line_height', 2 );
 	$hamburger_color = get_theme_mod( 'hamburger_line_color', '#ecf0f1' );
 	$hamburger_scale = get_theme_mod( 'hamburger_scale', 1 );
 	
@@ -714,7 +714,7 @@ function soda_theme_logo_styles() {
 	$css .= '#hamburger-1 { transform: scale(' . floatval( $hamburger_scale ) . '); }';
 	
 	// Calculate transform values based on line height and spacing
-	$transform_y = ( $hamburger_height + 8 ) . 'px';
+	$transform_y = ( $hamburger_height + 4 ) . 'px';
 	$css .= '#hamburger-1.is-active .line:nth-child(1) { -webkit-transform: translateY(' . $transform_y . ') rotate(45deg); -ms-transform: translateY(' . $transform_y . ') rotate(45deg); -o-transform: translateY(' . $transform_y . ') rotate(45deg); transform: translateY(' . $transform_y . ') rotate(45deg); }';
 	$css .= '#hamburger-1.is-active .line:nth-child(3) { -webkit-transform: translateY(-' . $transform_y . ') rotate(-45deg); -ms-transform: translateY(-' . $transform_y . ') rotate(-45deg); -o-transform: translateY(-' . $transform_y . ') rotate(-45deg); transform: translateY(-' . $transform_y . ') rotate(-45deg); }';
 	

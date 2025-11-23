@@ -1090,7 +1090,7 @@ new \Kirki\Field\Slider(
 		'label'       => esc_html__( 'Hamburger Line Width (px)', 'soda-theme' ),
 		'description' => esc_html__( 'Width of the hamburger menu icon lines.', 'soda-theme' ),
 		'section'     => 'soda_theme_menu_settings',
-		'default'     => 50,
+		'default'     => 25,
 		'choices'     => array(
 			'min'  => 20,
 			'max'  => 80,
@@ -1108,7 +1108,7 @@ new \Kirki\Field\Slider(
 		'label'       => esc_html__( 'Hamburger Line Height (px)', 'soda-theme' ),
 		'description' => esc_html__( 'Height/thickness of the hamburger menu icon lines.', 'soda-theme' ),
 		'section'     => 'soda_theme_menu_settings',
-		'default'     => 5,
+		'default'     => 2,
 		'choices'     => array(
 			'min'  => 1,
 			'max'  => 10,
