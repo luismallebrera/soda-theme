@@ -732,6 +732,33 @@ function soda_theme_logo_styles() {
 	$css .= '.main-navigation ul { display: flex; }';
 	$css .= '}';
 	
+	// Mobile dropdown styling
+	$dropdown_position = get_theme_mod( 'mobile_dropdown_position', 'fullscreen' );
+	$dropdown_width = get_theme_mod( 'mobile_dropdown_width', 100 );
+	$dropdown_height = get_theme_mod( 'mobile_dropdown_height', 100 );
+	$dropdown_right = get_theme_mod( 'mobile_dropdown_right', 0 );
+	$dropdown_top = get_theme_mod( 'mobile_dropdown_top', 0 );
+	$dropdown_text_align = get_theme_mod( 'mobile_dropdown_text_align', 'left' );
+	$dropdown_padding_top = get_theme_mod( 'mobile_dropdown_padding_top', 100 );
+	$dropdown_padding_bottom = get_theme_mod( 'mobile_dropdown_padding_bottom', 40 );
+	$dropdown_padding_left = get_theme_mod( 'mobile_dropdown_padding_left', 40 );
+	$dropdown_padding_right = get_theme_mod( 'mobile_dropdown_padding_right', 40 );
+	$dropdown_item_gap = get_theme_mod( 'mobile_dropdown_item_gap', 20 );
+	
+	if ( 'custom' === $dropdown_position ) {
+		$css .= '.site-navigation-dropdown { position: fixed; top: ' . absint( $dropdown_top ) . 'px; right: ' . absint( $dropdown_right ) . 'px; left: auto; width: ' . absint( $dropdown_width ) . '%; height: ' . absint( $dropdown_height ) . 'vh; }';
+		$css .= '.site-navigation-dropdown .site-navigation-background { width: 100%; height: 100%; }';
+	}
+	
+	$css .= '.site-navigation-dropdown .mobile-nav-menu { padding: ' . absint( $dropdown_padding_top ) . 'px ' . absint( $dropdown_padding_right ) . 'px ' . absint( $dropdown_padding_bottom ) . 'px ' . absint( $dropdown_padding_left ) . 'px; gap: ' . absint( $dropdown_item_gap ) . 'px; }';
+	$css .= '.site-navigation-dropdown .mobile-nav-menu a { text-align: ' . esc_attr( $dropdown_text_align ) . '; }';
+	
+	if ( 'center' === $dropdown_text_align ) {
+		$css .= '.site-navigation-dropdown .mobile-nav-menu li { text-align: center; }';
+	} elseif ( 'right' === $dropdown_text_align ) {
+		$css .= '.site-navigation-dropdown .mobile-nav-menu li { text-align: right; }';
+	}
+	
 	$css .= '</style>';
 	
 	echo $css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

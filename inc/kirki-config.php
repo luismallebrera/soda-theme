@@ -1149,6 +1149,322 @@ new \Kirki\Field\Slider(
 );
 
 /**
+ * Mobile Dropdown Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'mobile_dropdown_bg_color',
+		'label'     => esc_html__( 'Mobile Dropdown Background Color', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => 'rgba(0, 0, 0, 0.8)',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-dropdown .site-navigation-background',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Position
+ */
+new \Kirki\Field\Radio(
+	array(
+		'settings' => 'mobile_dropdown_position',
+		'label'    => esc_html__( 'Mobile Dropdown Position', 'soda-theme' ),
+		'section'  => 'soda_theme_menu_settings',
+		'default'  => 'fullscreen',
+		'choices'  => array(
+			'fullscreen' => esc_html__( 'Fullscreen', 'soda-theme' ),
+			'custom'     => esc_html__( 'Custom Position (Right/Top)', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Width
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'        => 'mobile_dropdown_width',
+		'label'           => esc_html__( 'Mobile Dropdown Width (%)', 'soda-theme' ),
+		'description'     => esc_html__( 'Width of the dropdown menu container.', 'soda-theme' ),
+		'section'         => 'soda_theme_menu_settings',
+		'default'         => 100,
+		'choices'         => array(
+			'min'  => 20,
+			'max'  => 100,
+			'step' => 1,
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'mobile_dropdown_position',
+				'operator' => '===',
+				'value'    => 'custom',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Height
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'        => 'mobile_dropdown_height',
+		'label'           => esc_html__( 'Mobile Dropdown Height (%)', 'soda-theme' ),
+		'description'     => esc_html__( 'Height of the dropdown menu container.', 'soda-theme' ),
+		'section'         => 'soda_theme_menu_settings',
+		'default'         => 100,
+		'choices'         => array(
+			'min'  => 20,
+			'max'  => 100,
+			'step' => 1,
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'mobile_dropdown_position',
+				'operator' => '===',
+				'value'    => 'custom',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Right Position
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'        => 'mobile_dropdown_right',
+		'label'           => esc_html__( 'Mobile Dropdown Right Position (px)', 'soda-theme' ),
+		'description'     => esc_html__( 'Distance from the right edge.', 'soda-theme' ),
+		'section'         => 'soda_theme_menu_settings',
+		'default'         => 0,
+		'choices'         => array(
+			'min'  => 0,
+			'max'  => 500,
+			'step' => 1,
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'mobile_dropdown_position',
+				'operator' => '===',
+				'value'    => 'custom',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Top Position
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'        => 'mobile_dropdown_top',
+		'label'           => esc_html__( 'Mobile Dropdown Top Position (px)', 'soda-theme' ),
+		'description'     => esc_html__( 'Distance from the top edge.', 'soda-theme' ),
+		'section'         => 'soda_theme_menu_settings',
+		'default'         => 0,
+		'choices'         => array(
+			'min'  => 0,
+			'max'  => 500,
+			'step' => 1,
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'mobile_dropdown_position',
+				'operator' => '===',
+				'value'    => 'custom',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Font Family
+ */
+new \Kirki\Field\Typography(
+	array(
+		'settings'  => 'mobile_dropdown_typography',
+		'label'     => esc_html__( 'Mobile Dropdown Typography', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => array(
+			'font-family'    => 'inherit',
+			'variant'        => '600',
+			'font-size'      => '24px',
+			'line-height'    => '1.5',
+			'letter-spacing' => '0',
+			'text-transform' => 'none',
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element' => '.site-navigation-dropdown .mobile-nav-menu a',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Text Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'mobile_dropdown_text_color',
+		'label'     => esc_html__( 'Mobile Dropdown Text Color', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => '#ffffff',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-dropdown .mobile-nav-menu a',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Text Hover Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'mobile_dropdown_text_hover_color',
+		'label'     => esc_html__( 'Mobile Dropdown Text Hover Color', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => '#ffffff',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-dropdown .mobile-nav-menu a:hover, .site-navigation-dropdown .mobile-nav-menu .current-menu-item > a',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Text Alignment
+ */
+new \Kirki\Field\Radio_Buttonset(
+	array(
+		'settings' => 'mobile_dropdown_text_align',
+		'label'    => esc_html__( 'Mobile Dropdown Text Alignment', 'soda-theme' ),
+		'section'  => 'soda_theme_menu_settings',
+		'default'  => 'left',
+		'choices'  => array(
+			'left'   => esc_html__( 'Left', 'soda-theme' ),
+			'center' => esc_html__( 'Center', 'soda-theme' ),
+			'right'  => esc_html__( 'Right', 'soda-theme' ),
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
+ * Mobile Dropdown Padding Top
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_dropdown_padding_top',
+		'label'       => esc_html__( 'Mobile Dropdown Padding Top (px)', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 100,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 300,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
+ * Mobile Dropdown Padding Bottom
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_dropdown_padding_bottom',
+		'label'       => esc_html__( 'Mobile Dropdown Padding Bottom (px)', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 40,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 300,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
+ * Mobile Dropdown Padding Left
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_dropdown_padding_left',
+		'label'       => esc_html__( 'Mobile Dropdown Padding Left (px)', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 40,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 200,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
+ * Mobile Dropdown Padding Right
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_dropdown_padding_right',
+		'label'       => esc_html__( 'Mobile Dropdown Padding Right (px)', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 40,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 200,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
+ * Mobile Dropdown Item Gap
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_dropdown_item_gap',
+		'label'       => esc_html__( 'Mobile Dropdown Item Gap (px)', 'soda-theme' ),
+		'description' => esc_html__( 'Space between menu items.', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 20,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
  * Menu Border Bottom
  */
 new \Kirki\Field\Checkbox_Switch(
