@@ -1195,6 +1195,7 @@ new \Kirki\Pro\Field\Padding(
 			'padding-bottom' => '0px',
 			'padding-left'   => '0px',
 		),
+		'exclude'   => array( 'margin' ),
 		'transport' => 'postMessage',
 		'output'    => array(
 			array(
