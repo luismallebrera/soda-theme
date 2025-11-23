@@ -909,6 +909,7 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+	justify-content: flex-end;
 }
 
 .main-navigation ul ul {
