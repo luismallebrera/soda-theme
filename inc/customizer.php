@@ -704,6 +704,18 @@ function soda_theme_logo_styles() {
 		$css .= '.has-transparent-header.has-sticky-header .site-header.sticky-header { border-bottom-style: solid; }';
 	}
 	
+	// Hamburger icon styling
+	$hamburger_width = get_theme_mod( 'hamburger_line_width', 50 );
+	$hamburger_height = get_theme_mod( 'hamburger_line_height', 5 );
+	$hamburger_color = get_theme_mod( 'hamburger_line_color', '#ecf0f1' );
+	
+	$css .= '.hamburger .line { width: ' . absint( $hamburger_width ) . 'px; height: ' . absint( $hamburger_height ) . 'px; background-color: ' . esc_attr( $hamburger_color ) . '; }';
+	
+	// Calculate transform values based on line height and spacing
+	$transform_y = ( $hamburger_height + 8 ) . 'px';
+	$css .= '#hamburger-1.is-active .line:nth-child(1) { -webkit-transform: translateY(' . $transform_y . ') rotate(45deg); -ms-transform: translateY(' . $transform_y . ') rotate(45deg); -o-transform: translateY(' . $transform_y . ') rotate(45deg); transform: translateY(' . $transform_y . ') rotate(45deg); }';
+	$css .= '#hamburger-1.is-active .line:nth-child(3) { -webkit-transform: translateY(-' . $transform_y . ') rotate(-45deg); -ms-transform: translateY(-' . $transform_y . ') rotate(-45deg); -o-transform: translateY(-' . $transform_y . ') rotate(-45deg); transform: translateY(-' . $transform_y . ') rotate(-45deg); }';
+	
 	// Mobile menu breakpoint
 	$mobile_breakpoint = get_theme_mod( 'mobile_menu_breakpoint', 768 );
 	$css .= '@media screen and (max-width: ' . ( absint( $mobile_breakpoint ) - 1 ) . 'px) {';

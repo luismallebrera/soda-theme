@@ -1082,6 +1082,55 @@ new \Kirki\Field\Slider(
 );
 
 /**
+ * Hamburger Line Width
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'hamburger_line_width',
+		'label'       => esc_html__( 'Hamburger Line Width (px)', 'soda-theme' ),
+		'description' => esc_html__( 'Width of the hamburger menu icon lines.', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 50,
+		'choices'     => array(
+			'min'  => 20,
+			'max'  => 80,
+			'step' => 1,
+		),
+	)
+);
+
+/**
+ * Hamburger Line Height
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'hamburger_line_height',
+		'label'       => esc_html__( 'Hamburger Line Height (px)', 'soda-theme' ),
+		'description' => esc_html__( 'Height/thickness of the hamburger menu icon lines.', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 5,
+		'choices'     => array(
+			'min'  => 1,
+			'max'  => 10,
+			'step' => 1,
+		),
+	)
+);
+
+/**
+ * Hamburger Line Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'    => 'hamburger_line_color',
+		'label'       => esc_html__( 'Hamburger Line Color', 'soda-theme' ),
+		'description' => esc_html__( 'Color of the hamburger menu icon lines.', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => '#ecf0f1',
+	)
+);
+
+/**
  * Menu Border Bottom
  */
 new \Kirki\Field\Checkbox_Switch(

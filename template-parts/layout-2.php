@@ -23,7 +23,11 @@
 				<?php if ( get_theme_mod( 'mobile_menu_show_text', true ) ) : ?>
 				<span class="menu-text"><?php echo esc_html( get_theme_mod( 'mobile_menu_text', 'MENU' ) ); ?></span>
 				<?php endif; ?>
-				<span class="site-navigation-toggle-icon" aria-hidden="true"></span>
+				<div class="hamburger" id="hamburger-1">
+					<span class="line"></span>
+					<span class="line"></span>
+					<span class="line"></span>
+				</div>
 			</button>
 		</div>
 
