@@ -821,7 +821,6 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 /* Transparent header becomes solid on scroll */
 .has-transparent-header.has-sticky-header .site-header.sticky-header {
 	background: #fff;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Layout 1 - Default (Logo Left, Menu Right) */

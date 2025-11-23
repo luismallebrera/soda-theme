@@ -698,6 +698,12 @@ function soda_theme_logo_styles() {
 		$css .= '.custom-logo-link { background-size: contain; background-repeat: no-repeat; background-position: center; display: inline-block; }';
 	}
 	
+	// Sticky header border
+	$enable_sticky_border = get_theme_mod( 'enable_sticky_header_border', false );
+	if ( $enable_sticky_border ) {
+		$css .= '.has-transparent-header.has-sticky-header .site-header.sticky-header { border-bottom-style: solid; }';
+	}
+	
 	$css .= '</style>';
 	
 	echo $css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
