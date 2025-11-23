@@ -372,6 +372,16 @@ new \Kirki\Pro\Field\Padding(
 			'right'  => '0px',
 		),
 		'transport'   => 'postMessage',
+		'choices'     => array(
+			'controls' => array(
+				'unit' => array(
+					'px'  => 'px',
+					'em'  => 'em',
+					'rem' => 'rem',
+					'%'   => '%',
+				),
+			),
+		),
 		'output'      => array(
 			array(
 				'element' => '.site-header',
