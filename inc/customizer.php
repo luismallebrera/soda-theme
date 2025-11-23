@@ -735,7 +735,9 @@ function soda_theme_logo_styles() {
 	// Mobile dropdown styling
 	$dropdown_position = get_theme_mod( 'mobile_dropdown_position', 'fullscreen' );
 	$dropdown_width = get_theme_mod( 'mobile_dropdown_width', 100 );
+	$dropdown_width_unit = get_theme_mod( 'mobile_dropdown_width_unit', '%' );
 	$dropdown_height = get_theme_mod( 'mobile_dropdown_height', 100 );
+	$dropdown_height_unit = get_theme_mod( 'mobile_dropdown_height_unit', 'vh' );
 	$dropdown_right = get_theme_mod( 'mobile_dropdown_right', 0 );
 	$dropdown_top = get_theme_mod( 'mobile_dropdown_top', 0 );
 	$dropdown_text_align = get_theme_mod( 'mobile_dropdown_text_align', 'left' );
@@ -746,7 +748,7 @@ function soda_theme_logo_styles() {
 	$dropdown_item_gap = get_theme_mod( 'mobile_dropdown_item_gap', 20 );
 	
 	if ( 'custom' === $dropdown_position ) {
-		$css .= '.site-navigation-dropdown { position: fixed; top: ' . absint( $dropdown_top ) . 'px; right: ' . absint( $dropdown_right ) . 'px; left: auto; width: ' . absint( $dropdown_width ) . '%; height: ' . absint( $dropdown_height ) . 'vh; }';
+		$css .= '.site-navigation-dropdown { position: fixed; top: ' . absint( $dropdown_top ) . 'px; right: ' . absint( $dropdown_right ) . 'px; left: auto; width: ' . absint( $dropdown_width ) . esc_attr( $dropdown_width_unit ) . '; height: ' . absint( $dropdown_height ) . esc_attr( $dropdown_height_unit ) . '; }';
 		$css .= '.site-navigation-dropdown .site-navigation-background { width: 100%; height: 100%; }';
 	}
 	

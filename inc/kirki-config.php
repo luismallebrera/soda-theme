@@ -1187,19 +1187,67 @@ new \Kirki\Field\Radio(
 );
 
 /**
+ * Mobile Dropdown Width Unit
+ */
+new \Kirki\Field\Radio_Buttonset(
+	array(
+		'settings'        => 'mobile_dropdown_width_unit',
+		'label'           => esc_html__( 'Mobile Dropdown Width Unit', 'soda-theme' ),
+		'section'         => 'soda_theme_menu_settings',
+		'default'         => '%',
+		'choices'         => array(
+			'px' => esc_html__( 'px', 'soda-theme' ),
+			'%'  => esc_html__( '%', 'soda-theme' ),
+			'vw' => esc_html__( 'vw', 'soda-theme' ),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'mobile_dropdown_position',
+				'operator' => '===',
+				'value'    => 'custom',
+			),
+		),
+	)
+);
+
+/**
  * Mobile Dropdown Width
  */
 new \Kirki\Field\Slider(
 	array(
 		'settings'        => 'mobile_dropdown_width',
-		'label'           => esc_html__( 'Mobile Dropdown Width (%)', 'soda-theme' ),
+		'label'           => esc_html__( 'Mobile Dropdown Width', 'soda-theme' ),
 		'description'     => esc_html__( 'Width of the dropdown menu container.', 'soda-theme' ),
 		'section'         => 'soda_theme_menu_settings',
 		'default'         => 100,
 		'choices'         => array(
-			'min'  => 20,
-			'max'  => 100,
+			'min'  => 1,
+			'max'  => 2000,
 			'step' => 1,
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'mobile_dropdown_position',
+				'operator' => '===',
+				'value'    => 'custom',
+			),
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Height Unit
+ */
+new \Kirki\Field\Radio_Buttonset(
+	array(
+		'settings'        => 'mobile_dropdown_height_unit',
+		'label'           => esc_html__( 'Mobile Dropdown Height Unit', 'soda-theme' ),
+		'section'         => 'soda_theme_menu_settings',
+		'default'         => 'vh',
+		'choices'         => array(
+			'px' => esc_html__( 'px', 'soda-theme' ),
+			'%'  => esc_html__( '%', 'soda-theme' ),
+			'vh' => esc_html__( 'vh', 'soda-theme' ),
 		),
 		'active_callback' => array(
 			array(
@@ -1217,13 +1265,13 @@ new \Kirki\Field\Slider(
 new \Kirki\Field\Slider(
 	array(
 		'settings'        => 'mobile_dropdown_height',
-		'label'           => esc_html__( 'Mobile Dropdown Height (%)', 'soda-theme' ),
+		'label'           => esc_html__( 'Mobile Dropdown Height', 'soda-theme' ),
 		'description'     => esc_html__( 'Height of the dropdown menu container.', 'soda-theme' ),
 		'section'         => 'soda_theme_menu_settings',
 		'default'         => 100,
 		'choices'         => array(
-			'min'  => 20,
-			'max'  => 100,
+			'min'  => 1,
+			'max'  => 2000,
 			'step' => 1,
 		),
 		'active_callback' => array(
