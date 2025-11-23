@@ -958,6 +958,91 @@ new \Kirki\Field\Select(
 );
 
 /**
+ * Menu Navigation Padding
+ */
+new \Kirki\Field\Dimensions(
+	array(
+		'settings'    => 'menu_navigation_padding',
+		'label'       => esc_html__( 'Menu Navigation Padding', 'soda-theme' ),
+		'description' => esc_html__( 'Set padding for the main navigation container', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => array(
+			'padding-top'    => '0px',
+			'padding-right'  => '0px',
+			'padding-bottom' => '0px',
+			'padding-left'   => '0px',
+		),
+		'transport'   => 'postMessage',
+		'output'      => array(
+			array(
+				'element' => '.main-navigation',
+			),
+		),
+	)
+);
+
+/**
+ * Menu Navigation Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'menu_navigation_bg_color',
+		'label'     => esc_html__( 'Menu Navigation Background Color', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => 'transparent',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.main-navigation',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
+/**
+ * Menu Navigation Box Shadow
+ */
+new \Kirki\Field\Text(
+	array(
+		'settings'    => 'menu_navigation_box_shadow',
+		'label'       => esc_html__( 'Menu Navigation Box Shadow', 'soda-theme' ),
+		'description' => esc_html__( 'Example: 0 2px 5px rgba(0,0,0,0.1)', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 'none',
+		'transport'   => 'postMessage',
+		'output'      => array(
+			array(
+				'element'  => '.main-navigation',
+				'property' => 'box-shadow',
+			),
+		),
+	)
+);
+
+/**
+ * Menu Navigation Backdrop Filter Blur
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'menu_navigation_backdrop_blur',
+		'label'       => esc_html__( 'Menu Navigation Backdrop Blur', 'soda-theme' ),
+		'description' => esc_html__( 'Blur amount in pixels for backdrop filter', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 0,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 50,
+			'step' => 1,
+		),
+		'transport'   => 'postMessage',
+	)
+);
+
+/**
  * Menu Background Color
  */
 new \Kirki\Field\Color(

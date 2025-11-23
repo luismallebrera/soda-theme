@@ -249,3 +249,22 @@ function soda_theme_menu_typography_styles() {
 	}
 }
 add_action( 'wp_head', 'soda_theme_menu_typography_styles' );
+
+/**
+ * Output Menu Navigation Backdrop Filter CSS
+ */
+function soda_theme_menu_navigation_backdrop_filter() {
+	$backdrop_blur = get_theme_mod( 'menu_navigation_backdrop_blur', 0 );
+
+	if ( $backdrop_blur > 0 ) {
+		?>
+		<style type="text/css">
+			.main-navigation {
+				backdrop-filter: blur(<?php echo (int) $backdrop_blur; ?>px);
+				-webkit-backdrop-filter: blur(<?php echo (int) $backdrop_blur; ?>px);
+			}
+		</style>
+		<?php
+	}
+}
+add_action( 'wp_head', 'soda_theme_menu_navigation_backdrop_filter' );
