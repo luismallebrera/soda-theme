@@ -1507,6 +1507,28 @@ new \Kirki\Field\Color(
 );
 
 /**
+ * Sticky Header Menu Link Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'sticky_header_menu_link_color',
+		'label'     => esc_html__( 'Sticky Header Menu Link Color', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => '#333333',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header .main-navigation a',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
  * Enable Right Side Grid (Background)
  */
 new \Kirki\Field\Checkbox_Switch(
