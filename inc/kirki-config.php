@@ -1131,6 +1131,24 @@ new \Kirki\Field\Color(
 );
 
 /**
+ * Hamburger Scale
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'hamburger_scale',
+		'label'       => esc_html__( 'Hamburger Scale', 'soda-theme' ),
+		'description' => esc_html__( 'Scale/size of the entire hamburger icon.', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 1,
+		'choices'     => array(
+			'min'  => 0.5,
+			'max'  => 3,
+			'step' => 0.1,
+		),
+	)
+);
+
+/**
  * Menu Border Bottom
  */
 new \Kirki\Field\Checkbox_Switch(

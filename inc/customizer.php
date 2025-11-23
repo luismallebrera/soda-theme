@@ -708,8 +708,10 @@ function soda_theme_logo_styles() {
 	$hamburger_width = get_theme_mod( 'hamburger_line_width', 50 );
 	$hamburger_height = get_theme_mod( 'hamburger_line_height', 5 );
 	$hamburger_color = get_theme_mod( 'hamburger_line_color', '#ecf0f1' );
+	$hamburger_scale = get_theme_mod( 'hamburger_scale', 1 );
 	
 	$css .= '.hamburger .line { width: ' . absint( $hamburger_width ) . 'px; height: ' . absint( $hamburger_height ) . 'px; background-color: ' . esc_attr( $hamburger_color ) . '; }';
+	$css .= '#hamburger-1 { transform: scale(' . floatval( $hamburger_scale ) . '); }';
 	
 	// Calculate transform values based on line height and spacing
 	$transform_y = ( $hamburger_height + 8 ) . 'px';
