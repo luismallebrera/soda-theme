@@ -920,51 +920,39 @@ new \Kirki\Field\Text(
 );
 
 /**
- * Menu Typography
+ * Menu Typography Font Family
  */
-new \Kirki\Field\Typography(
+new \Kirki\Field\Select(
 	array(
-		'settings'  => 'menu_typography',
-		'label'     => esc_html__( 'Typography', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => array(
-			'font-family'    => 'inherit',
-			'variant'        => 'regular',
-			'font-size'      => '16px',
-			'line-height'    => '1.5',
-			'letter-spacing' => '0',
-			'text-transform' => 'none',
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element' => '.main-navigation a',
-			),
+		'settings' => 'menu_typography_family',
+		'label'    => esc_html__( 'Menu Font Family', 'soda-theme' ),
+		'section'  => 'soda_theme_menu_settings',
+		'default'  => 'inherit',
+		'choices'  => array(
+			'inherit'    => esc_html__( 'Inherit', 'soda-theme' ),
+			'primary'    => esc_html__( 'Primary', 'soda-theme' ),
+			'secondary'  => esc_html__( 'Secondary', 'soda-theme' ),
+			'text'       => esc_html__( 'Text', 'soda-theme' ),
+			'accent'     => esc_html__( 'Accent', 'soda-theme' ),
 		),
 	)
 );
 
 /**
- * Sub Menu Typography
+ * Sub Menu Typography Font Family
  */
-new \Kirki\Field\Typography(
+new \Kirki\Field\Select(
 	array(
-		'settings'  => 'menu_submenu_typography',
-		'label'     => esc_html__( 'Sub Menu Typography', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => array(
-			'font-family'    => 'inherit',
-			'variant'        => 'regular',
-			'font-size'      => '14px',
-			'line-height'    => '1.5',
-			'letter-spacing' => '0',
-			'text-transform' => 'none',
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element' => '.main-navigation .sub-menu a',
-			),
+		'settings' => 'menu_submenu_typography_family',
+		'label'    => esc_html__( 'Sub Menu Font Family', 'soda-theme' ),
+		'section'  => 'soda_theme_menu_settings',
+		'default'  => 'inherit',
+		'choices'  => array(
+			'inherit'    => esc_html__( 'Inherit', 'soda-theme' ),
+			'primary'    => esc_html__( 'Primary', 'soda-theme' ),
+			'secondary'  => esc_html__( 'Secondary', 'soda-theme' ),
+			'text'       => esc_html__( 'Text', 'soda-theme' ),
+			'accent'     => esc_html__( 'Accent', 'soda-theme' ),
 		),
 	)
 );

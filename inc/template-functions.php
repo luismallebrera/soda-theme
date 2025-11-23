@@ -183,3 +183,69 @@ function soda_theme_grid_line_styles() {
 	<?php
 }
 add_action( 'wp_head', 'soda_theme_grid_line_styles' );
+
+/**
+ * Output Menu Typography CSS with Elementor global typography variables
+ */
+function soda_theme_menu_typography_styles() {
+	$menu_font_family    = get_theme_mod( 'menu_typography_family', 'inherit' );
+	$submenu_font_family = get_theme_mod( 'menu_submenu_typography_family', 'inherit' );
+
+	$menu_font_var    = '';
+	$submenu_font_var = '';
+
+	// Map selection to Elementor CSS variable
+	switch ( $menu_font_family ) {
+		case 'primary':
+			$menu_font_var = 'var(--e-global-typography-primary-font-family)';
+			break;
+		case 'secondary':
+			$menu_font_var = 'var(--e-global-typography-secondary-font-family)';
+			break;
+		case 'text':
+			$menu_font_var = 'var(--e-global-typography-text-font-family)';
+			break;
+		case 'accent':
+			$menu_font_var = 'var(--e-global-typography-accent-font-family)';
+			break;
+		default:
+			$menu_font_var = 'inherit';
+			break;
+	}
+
+	switch ( $submenu_font_family ) {
+		case 'primary':
+			$submenu_font_var = 'var(--e-global-typography-primary-font-family)';
+			break;
+		case 'secondary':
+			$submenu_font_var = 'var(--e-global-typography-secondary-font-family)';
+			break;
+		case 'text':
+			$submenu_font_var = 'var(--e-global-typography-text-font-family)';
+			break;
+		case 'accent':
+			$submenu_font_var = 'var(--e-global-typography-accent-font-family)';
+			break;
+		default:
+			$submenu_font_var = 'inherit';
+			break;
+	}
+
+	if ( $menu_font_family !== 'inherit' || $submenu_font_family !== 'inherit' ) {
+		?>
+		<style type="text/css">
+			<?php if ( $menu_font_family !== 'inherit' ) : ?>
+			.main-navigation a {
+				font-family: <?php echo $menu_font_var; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>;
+			}
+			<?php endif; ?>
+			<?php if ( $submenu_font_family !== 'inherit' ) : ?>
+			.main-navigation .sub-menu a {
+				font-family: <?php echo $submenu_font_var; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>;
+			}
+			<?php endif; ?>
+		</style>
+		<?php
+	}
+}
+add_action( 'wp_head', 'soda_theme_menu_typography_styles' );
