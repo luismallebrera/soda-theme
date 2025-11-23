@@ -781,12 +781,6 @@ body.admin-bar.has-fixed-header .site-header {
 	border-bottom: none;
 }
 
-.has-transparent-header .site-header .site-title a,
-.has-transparent-header .site-header .main-navigation a {
-	color: #fff;
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
 .has-transparent-header .site-description {
 	color: rgba(255, 255, 255, 0.9);
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
