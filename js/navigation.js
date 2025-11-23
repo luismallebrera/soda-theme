@@ -31,24 +31,64 @@
 		menu.classList.add( 'nav-menu' );
 	}
 
-	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
+	// Mobile dropdown navigation
+	const mobileDropdown = document.querySelector( '.site-navigation-dropdown' );
+
+	// Toggle the mobile dropdown menu
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
+			if ( mobileDropdown ) {
+				mobileDropdown.setAttribute( 'aria-hidden', 'true' );
+				document.body.style.overflow = '';
+			}
 		} else {
 			button.setAttribute( 'aria-expanded', 'true' );
+			if ( mobileDropdown ) {
+				mobileDropdown.setAttribute( 'aria-hidden', 'false' );
+				document.body.style.overflow = 'hidden';
+			}
 		}
 	} );
+
+	// Close mobile dropdown when clicking on background
+	if ( mobileDropdown ) {
+		const background = mobileDropdown.querySelector( '.site-navigation-background' );
+		if ( background ) {
+			background.addEventListener( 'click', function() {
+				siteNavigation.classList.remove( 'toggled' );
+				button.setAttribute( 'aria-expanded', 'false' );
+				mobileDropdown.setAttribute( 'aria-hidden', 'true' );
+				document.body.style.overflow = '';
+			} );
+		}
+
+		// Close mobile dropdown when clicking on a menu link
+		const mobileLinks = mobileDropdown.querySelectorAll( 'a' );
+		for ( const link of mobileLinks ) {
+			link.addEventListener( 'click', function() {
+				siteNavigation.classList.remove( 'toggled' );
+				button.setAttribute( 'aria-expanded', 'false' );
+				mobileDropdown.setAttribute( 'aria-hidden', 'true' );
+				document.body.style.overflow = '';
+			} );
+		}
+	}
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
 	document.addEventListener( 'click', function( event ) {
 		const isClickInside = siteNavigation.contains( event.target );
+		const isClickOnDropdown = mobileDropdown && mobileDropdown.contains( event.target );
 
-		if ( ! isClickInside ) {
+		if ( ! isClickInside && ! isClickOnDropdown ) {
 			siteNavigation.classList.remove( 'toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
+			if ( mobileDropdown ) {
+				mobileDropdown.setAttribute( 'aria-hidden', 'true' );
+				document.body.style.overflow = '';
+			}
 		}
 	} );
 

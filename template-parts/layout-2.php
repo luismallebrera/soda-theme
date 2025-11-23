@@ -36,5 +36,18 @@
 			);
 			?>
 		</nav><!-- #site-navigation -->
+
+		<nav class="site-navigation-dropdown" aria-label="Mobile menu" aria-hidden="true">
+			<div class="site-navigation-background"></div>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'mobile-menu',
+					'menu_class'     => 'mobile-nav-menu',
+				)
+			);
+			?>
+		</nav><!-- .site-navigation-dropdown -->
 	</div><!-- .header-container -->
 </header><!-- #masthead -->
