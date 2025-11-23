@@ -1064,6 +1064,24 @@ new \Kirki\Field\Color(
 );
 
 /**
+ * Mobile Menu Breakpoint
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_menu_breakpoint',
+		'label'       => esc_html__( 'Mobile Menu Breakpoint (px)', 'soda-theme' ),
+		'description' => esc_html__( 'Screen width at which the mobile menu toggle appears and desktop menu hides.', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 768,
+		'choices'     => array(
+			'min'  => 320,
+			'max'  => 1440,
+			'step' => 1,
+		),
+	)
+);
+
+/**
  * Menu Border Bottom
  */
 new \Kirki\Field\Checkbox_Switch(

@@ -704,6 +704,18 @@ function soda_theme_logo_styles() {
 		$css .= '.has-transparent-header.has-sticky-header .site-header.sticky-header { border-bottom-style: solid; }';
 	}
 	
+	// Mobile menu breakpoint
+	$mobile_breakpoint = get_theme_mod( 'mobile_menu_breakpoint', 768 );
+	$css .= '@media screen and (max-width: ' . ( absint( $mobile_breakpoint ) - 1 ) . 'px) {';
+	$css .= '.main-navigation ul { display: none; }';
+	$css .= '.main-navigation.toggled ul { display: block; }';
+	$css .= '.menu-toggle, .site-navigation-toggle-holder { display: block; }';
+	$css .= '}';
+	$css .= '@media screen and (min-width: ' . absint( $mobile_breakpoint ) . 'px) {';
+	$css .= '.menu-toggle, .site-navigation-toggle-holder { display: none !important; }';
+	$css .= '.main-navigation ul { display: flex; }';
+	$css .= '}';
+	
 	$css .= '</style>';
 	
 	echo $css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
