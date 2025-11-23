@@ -363,16 +363,20 @@ new \Kirki\Field\Dimensions(
 	array(
 		'settings'    => 'header_padding',
 		'label'       => esc_html__( 'Header Padding', 'soda-theme' ),
-		'description' => esc_html__( 'Set the top and bottom padding for the site-header.', 'soda-theme' ),
+		'description' => esc_html__( 'Set the padding for the site-header.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_spacing',
 		'default'     => array(
 			'padding-top'    => '24px',
+			'padding-right'  => '0px',
 			'padding-bottom' => '24px',
+			'padding-left'   => '0px',
 		),
 		'choices'     => array(
 			'labels' => array(
 				'padding-top'    => esc_html__( 'Top', 'soda-theme' ),
+				'padding-right'  => esc_html__( 'Right', 'soda-theme' ),
 				'padding-bottom' => esc_html__( 'Bottom', 'soda-theme' ),
+				'padding-left'   => esc_html__( 'Left', 'soda-theme' ),
 			),
 		),
 		'transport'   => 'auto',
@@ -391,16 +395,20 @@ new \Kirki\Field\Dimensions(
 	array(
 		'settings'    => 'sticky_header_padding',
 		'label'       => esc_html__( 'Sticky Header Padding', 'soda-theme' ),
-		'description' => esc_html__( 'Set the top and bottom padding for the sticky site-header.', 'soda-theme' ),
+		'description' => esc_html__( 'Set the padding for the sticky site-header.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_spacing',
 		'default'     => array(
 			'padding-top'    => '12px',
+			'padding-right'  => '0px',
 			'padding-bottom' => '12px',
+			'padding-left'   => '0px',
 		),
 		'choices'     => array(
 			'labels' => array(
 				'padding-top'    => esc_html__( 'Top', 'soda-theme' ),
+				'padding-right'  => esc_html__( 'Right', 'soda-theme' ),
 				'padding-bottom' => esc_html__( 'Bottom', 'soda-theme' ),
+				'padding-left'   => esc_html__( 'Left', 'soda-theme' ),
 			),
 		),
 		'transport'   => 'auto',
