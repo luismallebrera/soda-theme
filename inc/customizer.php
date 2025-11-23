@@ -703,3 +703,19 @@ function soda_theme_logo_styles() {
 	echo $css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 add_action( 'wp_head', 'soda_theme_logo_styles' );
+
+/**
+ * Add custom CSS to Customizer controls
+ */
+function soda_theme_customizer_controls_styles() {
+	?>
+	<style type="text/css">
+		.customize-control-kirki-margin .kirki-control-fields,
+		.customize-control-kirki-padding .kirki-control-fields {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	</style>
+	<?php
+}
+add_action( 'customize_controls_print_styles', 'soda_theme_customizer_controls_styles' );
