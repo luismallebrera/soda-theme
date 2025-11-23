@@ -215,3 +215,19 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Enqueue Inter font for WordPress admin.
+ */
+function soda_theme_admin_font() {
+	echo '<style>
+		body, input, textarea, select, button {
+			font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+		}
+	</style>';
+	echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
+	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+	echo '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">';
+}
+add_action( 'admin_head', 'soda_theme_admin_font' );
+add_action( 'login_head', 'soda_theme_admin_font' );
+
