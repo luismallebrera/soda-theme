@@ -694,6 +694,8 @@ textarea {
 .custom-logo {
 	display: block;
 	height: auto;
+	width: 100%;
+	max-width: 100%;
 	transition: all 0.3s ease;
 }
 
@@ -829,7 +831,7 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 
 	.header-layout-1 .site-branding {
 		margin-bottom: 0;
-		flex: 0 1 auto;
+		display: flex;
 	}
 
 	.header-layout-1 .main-navigation {
@@ -844,7 +846,8 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 }
 
 .header-layout-2 .site-branding {
-	margin: 0 auto 1.5em;
+	margin-bottom: 0;
+	display: flex;
 }
 
 .header-layout-2 .main-navigation {
@@ -866,8 +869,8 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 }
 
 .header-layout-3 .site-branding {
-	text-align: center;
-	margin-bottom: 1.5em;
+	margin-bottom: 0;
+	display: flex;
 }
 
 .header-layout-3 .main-navigation {
@@ -883,8 +886,8 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 
 /* Layout 4 - Full Width (Menu Below Logo) */
 .header-layout-4 .site-branding {
-	text-align: center;
-	padding: 1em 0;
+	margin-bottom: 0;
+	display: flex;
 }
 
 .header-layout-4 .header-navigation-wrapper {

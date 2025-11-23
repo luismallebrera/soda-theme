@@ -1365,6 +1365,31 @@ new \Kirki\Field\Color(
 );
 
 /**
+ * Menu Navigation Border Radius
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'  => 'menu_navigation_border_radius',
+		'label'     => esc_html__( 'Menu Navigation Border Radius', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => 0,
+		'choices'   => array(
+			'min'  => 0,
+			'max'  => 50,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.main-navigation',
+				'property' => 'border-radius',
+				'units'    => 'px',
+			),
+		),
+	)
+);
+
+/**
  * Menu Link Padding Top
  */
 new \Kirki\Field\Slider(
