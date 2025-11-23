@@ -1477,24 +1477,100 @@ new \Kirki\Field\Select(
 );
 
 /**
- * Menu Navigation Padding
+ * Menu Navigation Padding Top
  */
-new \Kirki\Pro\Field\Margin(
+new \Kirki\Field\Slider(
 	array(
-		'settings'  => 'menu_navigation_padding',
-		'label'     => esc_html__( 'Menu Navigation Padding', 'soda-theme' ),
+		'settings'  => 'menu_navigation_padding_top',
+		'label'     => esc_html__( 'Menu Navigation Padding Top', 'soda-theme' ),
 		'section'   => 'soda_theme_menu_settings',
-		'default'   => array(
-			'top'    => '0px',
-			'right'  => '0px',
-			'bottom' => '0px',
-			'left'   => '0px',
+		'default'   => 0,
+		'choices'   => array(
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 1,
 		),
 		'transport' => 'postMessage',
 		'output'    => array(
 			array(
 				'element'  => '.main-navigation',
-				'property' => 'padding',
+				'property' => 'padding-top',
+				'units'    => 'px',
+			),
+		),
+	)
+);
+
+/**
+ * Menu Navigation Padding Right
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'  => 'menu_navigation_padding_right',
+		'label'     => esc_html__( 'Menu Navigation Padding Right', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => 0,
+		'choices'   => array(
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.main-navigation',
+				'property' => 'padding-right',
+				'units'    => 'px',
+			),
+		),
+	)
+);
+
+/**
+ * Menu Navigation Padding Bottom
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'  => 'menu_navigation_padding_bottom',
+		'label'     => esc_html__( 'Menu Navigation Padding Bottom', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => 0,
+		'choices'   => array(
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.main-navigation',
+				'property' => 'padding-bottom',
+				'units'    => 'px',
+			),
+		),
+	)
+);
+
+/**
+ * Menu Navigation Padding Left
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'  => 'menu_navigation_padding_left',
+		'label'     => esc_html__( 'Menu Navigation Padding Left', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => 0,
+		'choices'   => array(
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.main-navigation',
+				'property' => 'padding-left',
+				'units'    => 'px',
 			),
 		),
 	)
