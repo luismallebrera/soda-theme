@@ -14,9 +14,12 @@
 		var stickyLogoSrc = $stickyLogoData.data('sticky-logo');
 		var hasStickyHeader = $body.hasClass('has-sticky-header');
 		var hasFixedHeader = $body.hasClass('has-fixed-header');
+		var isLayout3 = $header.hasClass('header-layout-3');
+		var $mainNav = $('#site-navigation');
+		var $toggleHolder = $('.site-navigation-toggle-holder');
 		
 		// Only proceed if sticky or fixed header is enabled
-		if (!hasStickyHeader && !hasFixedHeader) {
+		if (!hasStickyHeader && !hasFixedHeader && !isLayout3) {
 			return;
 		}
 
@@ -26,6 +29,12 @@
 			if (scrollTop > scrollThreshold) {
 				$body.addClass('scroll');
 				$header.addClass('scroll');
+				
+				// Layout 3 specific behavior: swap main-navigation with toggle
+				if (isLayout3) {
+					$mainNav.hide();
+					$toggleHolder.show();
+				}
 				
 				// Add sticky-header class and swap logo only if sticky header is enabled
 				if (hasStickyHeader) {
@@ -39,6 +48,12 @@
 			} else {
 				$body.removeClass('scroll');
 				$header.removeClass('scroll');
+				
+				// Layout 3 specific behavior: restore main-navigation, hide toggle
+				if (isLayout3) {
+					$mainNav.show();
+					$toggleHolder.hide();
+				}
 				
 				// Remove sticky-header class and restore logo only if sticky header is enabled
 				if (hasStickyHeader) {
