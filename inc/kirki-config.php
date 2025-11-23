@@ -1065,6 +1065,30 @@ new \Kirki\Field\Color(
 );
 
 /**
+ * Menu Link Padding
+ */
+new \Kirki\Field\Dimensions(
+	array(
+		'settings'    => 'menu_link_padding',
+		'label'       => esc_html__( 'Menu Link Padding', 'soda-theme' ),
+		'description' => esc_html__( 'Set padding for menu links', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => array(
+			'padding-top'    => '0px',
+			'padding-right'  => '0px',
+			'padding-bottom' => '0px',
+			'padding-left'   => '0px',
+		),
+		'transport'   => 'postMessage',
+		'output'      => array(
+			array(
+				'element' => '.main-navigation a',
+			),
+		),
+	)
+);
+
+/**
  * Enable Custom Link Color
  */
 new \Kirki\Field\Checkbox_Switch(
