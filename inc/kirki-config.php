@@ -1529,6 +1529,50 @@ new \Kirki\Field\Color(
 );
 
 /**
+ * Sticky Header Menu Link Color (Hover)
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'sticky_header_menu_link_color_hover',
+		'label'     => esc_html__( 'Sticky Header Menu Link Color (Hover)', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => '#000000',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header .main-navigation a:hover',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Sticky Header Menu Link Color (Active)
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'sticky_header_menu_link_color_active',
+		'label'     => esc_html__( 'Sticky Header Menu Link Color (Active)', 'soda-theme' ),
+		'section'   => 'soda_theme_menu_settings',
+		'default'   => '#333333',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header .main-navigation .current-menu-item > a',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
  * Enable Right Side Grid (Background)
  */
 new \Kirki\Field\Checkbox_Switch(
