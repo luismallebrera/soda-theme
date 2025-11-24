@@ -701,6 +701,106 @@ new \Kirki\Section(
 );
 
 /**
+ * Action Button Section
+ */
+new \Kirki\Section(
+	'soda_theme_action_button',
+	array(
+		'title'    => esc_html__( 'Action Button', 'soda-theme' ),
+		'panel'    => 'soda_theme_header_panel',
+		'priority' => 42,
+	)
+);
+
+/**
+ * Enable Action Button
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'    => 'enable_action_button',
+		'label'       => esc_html__( 'Enable Action Button', 'soda-theme' ),
+		'description' => esc_html__( 'Display an action button in the header navigation area.', 'soda-theme' ),
+		'section'     => 'soda_theme_action_button',
+		'priority'    => 10,
+		'default'     => false,
+		'choices'     => array(
+			'on'  => esc_html__( 'Yes', 'soda-theme' ),
+			'off' => esc_html__( 'No', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_1',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 15,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Action Button Text
+ */
+new \Kirki\Field\Text(
+	array(
+		'settings'        => 'action_button_text',
+		'label'           => esc_html__( 'Button Text', 'soda-theme' ),
+		'description'     => esc_html__( 'Enter the text for the action button.', 'soda-theme' ),
+		'section'         => 'soda_theme_action_button',
+		'priority'        => 20,
+		'default'         => esc_html__( 'Contact', 'soda-theme' ),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_action_button',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_2',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 25,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Action Button URL
+ */
+new \Kirki\Field\URL(
+	array(
+		'settings'        => 'action_button_url',
+		'label'           => esc_html__( 'Button URL', 'soda-theme' ),
+		'description'     => esc_html__( 'Enter the URL for the action button.', 'soda-theme' ),
+		'section'         => 'soda_theme_action_button',
+		'priority'        => 30,
+		'default'         => '#',
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_action_button',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
  * Color Settings Section
  */
 new \Kirki\Section(

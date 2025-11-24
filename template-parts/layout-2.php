@@ -34,6 +34,12 @@
 			</div>
 		</div>
 
+		<?php if ( get_theme_mod( 'enable_action_button', false ) ) : ?>
+			<a href="<?php echo esc_url( get_theme_mod( 'action_button_url', '#' ) ); ?>" class="action-button">
+				<?php echo esc_html( get_theme_mod( 'action_button_text', 'Contact' ) ); ?>
+			</a>
+		<?php endif; ?>
+
 		<nav class="site-navigation-dropdown" aria-label="Mobile menu" aria-hidden="true">
 			<div class="site-navigation-background"></div>
 			<?php

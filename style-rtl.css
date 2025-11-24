@@ -647,6 +647,34 @@ textarea {
 
 /* Navigation
 --------------------------------------------- */
+
+/* Action Button */
+.action-button {
+	display: inline-block;
+	padding: 0.5em 1.5em;
+	background: #0073aa;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 4px;
+	font-weight: 600;
+	transition: background 0.3s ease;
+	margin-right: 1em;
+}
+
+.action-button:hover,
+.action-button:focus {
+	background: #005a87;
+	color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+	.action-button {
+		display: none;
+	}
+}
+
+/* End Action Button */
+
 .main-navigation {
 	display: block;
 	width: 100%;

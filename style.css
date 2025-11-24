@@ -893,6 +893,59 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 
 /* End Header Layouts */
 
+/* Action Button */
+.action-button {
+	display: inline-block;
+	padding: 0.5em 1.5em;
+	background: #0073aa;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 4px;
+	font-weight: 600;
+	transition: background 0.3s ease;
+	margin-left: 1em;
+}
+
+.action-button:hover,
+.action-button:focus {
+	background: #005a87;
+	color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+	.action-button {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.header-layout-1 .header-container {
+		display: flex;
+		align-items: center;
+	}
+
+	.header-layout-3 .header-container {
+		display: flex;
+		align-items: center;
+	}
+	
+	.header-layout-2 .action-button {
+		margin: 1em 0 0 0;
+	}
+	
+	.header-layout-4 .header-navigation-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.header-layout-4 .main-navigation {
+		margin: 0;
+	}
+}
+
+/* End Action Button */
+
 .main-navigation {
 	display: block;
 	width: 100%;
