@@ -3,16 +3,12 @@
  * Kirki Customizer Configuration
  *
 
-}
-
-/**
- * Add Kirki configuration.
- */
-Kirki::add_config(
-	'soda_theme_config',
-	array(
-		'capability' => 'edit_theme_options',
+	1823		return $this->get_settings();
+	1824	}
 		'option_type' => 'theme_mod',
+	)
+);
+
 	)
 );
 
@@ -1589,6 +1585,240 @@ new \Kirki\Field\Text(
 				'property' => 'box-shadow',
 			),
 		),
+	)
+);
+
+	/**
+	 * SUBMENU NAVIGATION
+	 */
+	new \Kirki\Pro\Field\Headline(
+		array(
+			'settings' => 'submenu_navigation_headline',
+			'label'    => esc_html__( 'SUBMENU NAVIGATION', 'soda-theme' ),
+			'section'  => 'soda_theme_color_settings',
+			'priority' => 142,
+			'choices'  => array(
+				'background-color' => '#00a0d2',
+				'color'            => '#ffffff',
+			),
+		)
+	);
+
+	/**
+	 * Submenu Navigation Background Color
+	 */
+	new \Kirki\Field\Color(
+		array(
+			'settings'  => 'submenu_navigation_bg_color',
+			'label'     => esc_html__( 'Submenu Navigation Background', 'soda-theme' ),
+			'section'   => 'soda_theme_color_settings',
+			'priority'  => 143,
+			'default'   => 'transparent',
+			'choices'   => array(
+				'alpha' => true,
+			),
+			'transport' => 'postMessage',
+			'output'    => array(
+				array(
+					'element'  => '.main-navigation .sub-menu, .main-navigation ul.sub-menu',
+					'property' => 'background-color',
+				),
+			),
+		)
+	);
+
+	/**
+	 * Divider
+	 */
+	new \Kirki\Pro\Field\Divider(
+		array(
+			'settings' => 'color_divider_submenu_1',
+			'section'  => 'soda_theme_color_settings',
+			'priority' => 144,
+			'choices'  => array(
+				'color' => '#dcdcdc',
+			),
+		)
+	);
+
+	/**
+	 * Sticky Submenu Navigation Background Color
+	 */
+	new \Kirki\Field\Color(
+		array(
+			'settings'  => 'sticky_submenu_navigation_bg_color',
+			'label'     => esc_html__( 'Sticky Submenu Navigation Background', 'soda-theme' ),
+			'section'   => 'soda_theme_color_settings',
+			'priority'  => 145,
+			'default'   => 'transparent',
+			'choices'   => array(
+				'alpha' => true,
+			),
+			'transport' => 'postMessage',
+			'output'    => array(
+				array(
+					'element'  => '.has-sticky-header .site-header.sticky-header .main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation ul.sub-menu',
+					'property' => 'background-color',
+				),
+			),
+		)
+	);
+
+	/**
+	 * Divider
+	 */
+	new \Kirki\Pro\Field\Divider(
+		array(
+			'settings' => 'color_divider_submenu_2',
+			'section'  => 'soda_theme_color_settings',
+			'priority' => 146,
+			'choices'  => array(
+				'color' => '#dcdcdc',
+			),
+		)
+	);
+
+	/**
+	 * Submenu Navigation Border Width
+	 */
+	new \Kirki\Field\Dimensions(
+		array(
+			'settings'  => 'submenu_navigation_border',
+			'label'     => esc_html__( 'Submenu Navigation Border Width', 'soda-theme' ),
+			'section'   => 'soda_theme_color_settings',
+			'priority'  => 147,
+			'default'   => array(
+				'border-top-width'    => '0px',
+				'border-right-width'  => '0px',
+				'border-bottom-width' => '0px',
+				'border-left-width'   => '0px',
+			),
+			'choices'   => array(
+				'labels' => array(
+					'border-top-width'    => esc_html__( 'Top', 'soda-theme' ),
+					'border-right-width'  => esc_html__( 'Right', 'soda-theme' ),
+					'border-bottom-width' => esc_html__( 'Bottom', 'soda-theme' ),
+					'border-left-width'   => esc_html__( 'Left', 'soda-theme' ),
+				),
+			),
+			'transport' => 'postMessage',
+			'output'    => array(
+				array(
+					'element'  => '.main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu',
+					'property' => 'border-style',
+					'value'    => 'solid',
+				),
+				array(
+					'element' => '.main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu',
+				),
+			),
+		)
+	);
+
+	/**
+	 * Divider
+	 */
+	new \Kirki\Pro\Field\Divider(
+		array(
+			'settings' => 'color_divider_submenu_3',
+			'section'  => 'soda_theme_color_settings',
+			'priority' => 148,
+			'choices'  => array(
+				'color' => '#dcdcdc',
+			),
+		)
+	);
+
+	/**
+	 * Submenu Navigation Border Radius
+	 */
+	new \Kirki\Field\Slider(
+		array(
+			'settings'  => 'submenu_navigation_border_radius',
+			'label'     => esc_html__( 'Submenu Navigation Border Radius (px)', 'soda-theme' ),
+			'section'   => 'soda_theme_color_settings',
+			'priority'  => 149,
+			'default'   => 0,
+			'choices'   => array(
+				'min'  => 0,
+				'max'  => 100,
+				'step' => 1,
+			),
+			'transport' => 'postMessage',
+			'output'    => array(
+				array(
+					'element'  => '.main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu',
+					'property' => 'border-radius',
+					'units'    => 'px',
+				),
+			),
+		)
+	);
+
+	/**
+	 * Divider
+	 */
+	new \Kirki\Pro\Field\Divider(
+		array(
+			'settings' => 'color_divider_submenu_4',
+			'section'  => 'soda_theme_color_settings',
+			'priority' => 150,
+			'choices'  => array(
+				'color' => '#dcdcdc',
+			),
+		)
+	);
+
+	/**
+	 * Submenu Navigation Backdrop Filter Blur
+	 */
+	new \Kirki\Field\Slider(
+		array(
+			'settings'  => 'submenu_navigation_backdrop_blur',
+			'label'     => esc_html__( 'Submenu Navigation Backdrop Blur (px)', 'soda-theme' ),
+			'section'   => 'soda_theme_color_settings',
+			'priority'  => 151,
+			'default'   => 0,
+			'choices'   => array(
+				'min'  => 0,
+				'max'  => 50,
+				'step' => 1,
+			),
+			'transport' => 'postMessage',
+		)
+	);
+
+	/**
+	 * Divider
+	 */
+	new \Kirki\Pro\Field\Divider(
+		array(
+			'settings' => 'color_divider_submenu_5',
+			'section'  => 'soda_theme_color_settings',
+			'priority' => 152,
+			'choices'  => array(
+				'color' => '#dcdcdc',
+			),
+		)
+	);
+
+	/**
+	 * Submenu Navigation Box Shadow
+	 */
+new \Kirki\Field\Text(
+    array(
+        'settings'  => 'submenu_navigation_box_shadow',
+        'label'     => esc_html__( 'Submenu Navigation Box Shadow', 'soda-theme' ),
+        'section'   => 'soda_theme_color_settings',
+        'priority'  => 153,
+        'default'   => '',
+        'transport' => 'postMessage',
+        'output'    => array(
+            array(
+                'element'  => '.main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu',
+                'property' => 'box-shadow',
+            ),
+        ),
 	)
 );
 
