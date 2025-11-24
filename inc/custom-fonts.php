@@ -150,69 +150,69 @@ if ( ! class_exists( 'Soda_Theme_Add_Custom_Fonts' ) ) {
 	 */
 	public function custom_fonts( $fonts ) {
 
-			$custom_fonts = get_option( 'soda_theme_custom_fonts' );
+		$custom_fonts = get_option( 'soda_theme_custom_fonts' );
 
-			if ( ! empty( $custom_fonts ) ) {
+		if ( ! empty( $custom_fonts ) ) {
 
-				$fonts['families']['custom_fonts'] = array(
-					'text'     => esc_html__( 'Custom Fonts', 'soda-theme' ),
-					'children' => array(),
+			$fonts['families']['custom_fonts'] = array(
+				'text'     => esc_html__( 'Custom Fonts', 'soda-theme' ),
+				'children' => array(),
+			);
+
+			foreach ( $custom_fonts as $font => $key ) {
+
+				$fonts['families']['custom_fonts']['children'][] = array(
+					'id'   => $font,
+					'text' => $font,
 				);
 
-				foreach ( $custom_fonts as $font => $key ) {
-
-					$fonts['families']['custom_fonts']['children'][] = array(
-						'id'   => $font,
-						'text' => $font,
-					);
-
-					// Add all font weights for custom fonts
-					$fonts['variants'][ $font ] = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
-
-				}
+				// Add all font weights for custom fonts
+				$fonts['variants'][ $font ] = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
 
 			}
 
-			return $fonts;
-
 		}
 
-		/**
-		 * Typekit fonts
-		 */
-		public function typekit_fonts( $fonts ) {
-
-			$typekit_data = get_option( 'custom-typekit-fonts' );
-
-			if ( ! empty( $typekit_data ) && isset( $typekit_data['custom-typekit-font-details'] ) ) {
-
-				$typekit_fonts = $typekit_data['custom-typekit-font-details'];
-
-				$fonts['families']['typekit_fonts'] = array(
-					'text'     => esc_html__( 'TypeKit Fonts', 'soda-theme' ),
-					'children' => array(),
-				);
-
-				foreach ( $typekit_fonts as $font ) {
-
-					$id = $font['slug'];
-
-					$fonts['families']['typekit_fonts']['children'][] = array(
-						'id'   => $font['slug'],
-						'text' => $font['family'],
-					);
-
-					$fonts['variants'][ $id ] = $font['weights'];
-
-				}
-
-			}
-
-			return $fonts;
-
-		}
+		return $fonts;
 
 	}
+
+	/**
+	 * Typekit fonts
+	 */
+	public function typekit_fonts( $fonts ) {
+
+		$typekit_data = get_option( 'custom-typekit-fonts' );
+
+		if ( ! empty( $typekit_data ) && isset( $typekit_data['custom-typekit-font-details'] ) ) {
+
+			$typekit_fonts = $typekit_data['custom-typekit-font-details'];
+
+			$fonts['families']['typekit_fonts'] = array(
+				'text'     => esc_html__( 'TypeKit Fonts', 'soda-theme' ),
+				'children' => array(),
+			);
+
+			foreach ( $typekit_fonts as $font ) {
+
+				$id = $font['slug'];
+
+				$fonts['families']['typekit_fonts']['children'][] = array(
+					'id'   => $font['slug'],
+					'text' => $font['family'],
+				);
+
+				$fonts['variants'][ $id ] = $font['weights'];
+
+			}
+
+		}
+
+		return $fonts;
+
+	}
+
+}
 
 	return Soda_Theme_Add_Custom_Fonts::instance();
 
