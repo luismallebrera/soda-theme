@@ -23,11 +23,6 @@
 			return;
 		}
 
-		// For sticky header, add sticky-header class immediately (header is always fixed)
-		if (hasStickyHeader) {
-			$header.addClass('sticky-header');
-		}
-
 		$(window).on('scroll', function() {
 			var scrollTop = $(window).scrollTop();
 
@@ -41,8 +36,10 @@
 					$toggleHolder.show();
 				}
 				
-				// Swap logo after scroll threshold if sticky header is enabled
+				// Add sticky-header class and swap logo only if sticky header is enabled
 				if (hasStickyHeader) {
+					$header.addClass('sticky-header');
+					
 					// Swap to sticky logo if available
 					if (stickyLogoSrc && $logo.length) {
 						$logo.attr('src', stickyLogoSrc);
@@ -58,8 +55,10 @@
 					$toggleHolder.hide();
 				}
 				
-				// Restore logo when scrolled back up (sticky-header class remains)
+				// Remove sticky-header class and restore logo only if sticky header is enabled
 				if (hasStickyHeader) {
+					$header.removeClass('sticky-header');
+					
 					// Restore original logo
 					if (originalLogoSrc && $logo.length) {
 						$logo.attr('src', originalLogoSrc);
