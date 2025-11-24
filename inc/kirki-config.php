@@ -18,67 +18,42 @@ if ( ! class_exists( 'Kirki' ) ) {
 /**
  * Add Kirki configuration.
  */
-add_action( 'customize_controls_enqueue_scripts', function() {
+
+add_action( 'customize_controls_print_styles', function() {
 	?>
 	<style>
-		/* Target both the specific control IDs and the generic Kirki headline control
-		 * to ensure we override the default `.customize-control-kirki-headline` rules.
+		/* Strongly target the Kirki Headline controls and the specific controls
+		 * requested by the user. This prints as late as possible in the
+		 * Customizer controls panel to ensure it overrides other styles.
 		 */
 
-		/* Reset the container so our styled inner box lines up correctly */
-		.customize-control-kirki-headline,
-		#customize-control-header_container_headline,
-		#customize-control-menu_navigation_headline,
-		#customize-control-mobile_toggle_headline,
-		#customize-control-mobile_dropdown_headline {
-			background-color: transparent !important;
-			left: 0 !important;
-			width: auto !important;
-			padding: 0 !important;
-			position: relative !important;
-		}
-
-		/* Exact headline box styles requested (high specificity + !important)
-		 * - padding: 10px 10px 11px
-		 * - background: #00a0d2
-		 * - border-left: 0
-		 * - margin: 10px -5px
-		 * - color: #fff
-		 * - text-transform: uppercase
-		 * - text-align: center
-		 * - border-radius: 6px
-		 */
-		.customize-control-kirki-headline .kirki-control-form,
-		#customize-control-header_container_headline .kirki-control-form,
-		#customize-control-menu_navigation_headline .kirki-control-form,
-		#customize-control-mobile_toggle_headline .kirki-control-form,
-		#customize-control-mobile_dropdown_headline .kirki-control-form {
-			padding: 10px 10px 11px !important;
+		.customize-control-kirki-headline {
 			background: #00a0d2 !important;
-			border-left: 0 !important;
-			margin: 10px -5px !important;
-			color: #fff !important;
-			text-transform: uppercase !important;
-			text-align: center !important;
 			border-radius: 6px !important;
-			font-weight: bold !important;
+			margin: 10px -5px !important;
+			overflow: visible !important;
 		}
-
-		/* Ensure the title within the control uses the white color.
-		 * Add extra specificity to override Kirki/Customizer defaults.
-		 */
+		#customize-control-header_container_headline,
 		.customize-control-kirki-headline .customize-control-title,
-		.customize-control-kirki-headline .kirki-control-label .customize-control-title,
-		.customize-control-kirki-headline .kirki-control-form .customize-control-title,
 		#customize-control-header_container_headline .customize-control-title,
 		#customize-control-menu_navigation_headline .customize-control-title,
 		#customize-control-mobile_toggle_headline .customize-control-title,
 		#customize-control-mobile_dropdown_headline .customize-control-title {
 			color: #fff !important;
+			padding: 10px 10px 11px !important;
+			text-transform: uppercase !important;
+			text-align: center !important;
+			border-left: 0 !important;
+			display: block !important;
+			margin: 0 !important;
+		}
+		.customize-control-kirki-headline .kirki-control-label .customize-control-title,
+		.customize-control-kirki-headline .kirki-control-form .customize-control-title {
+			color: #fff !important;
 		}
 	</style>
 	<?php
-}, 999 );
+}, 9999 );
 /**
  * Add Logo Settings Panel
  */
