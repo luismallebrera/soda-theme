@@ -695,14 +695,17 @@ textarea {
 	transition: all 0.3s ease;
 }
 
-/* Sticky Header */
-.has-sticky-header .site-header.sticky-header {
+/* Sticky Header - Always Fixed */
+.has-sticky-header .site-header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 999;
+	transition: all 0.3s ease;
 }
+
+/* Visual changes after scroll threshold (via .scroll class on body/header) */
 
 .has-sticky-header .site-header.sticky-header .site-title {
 	font-size: 1.4em;
