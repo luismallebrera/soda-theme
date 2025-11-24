@@ -2065,6 +2065,38 @@ new \Kirki\Field\Text(
 	)
 );
 
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'menu_navigation_divider_separator',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 141,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Enable Menu Item Separators
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'    => 'enable_menu_separators',
+		'label'       => esc_html__( 'Enable Menu Item Separators', 'soda-theme' ),
+		'description' => esc_html__( 'Add vertical line separators between menu items.', 'soda-theme' ),
+		'section'     => 'soda_theme_color_settings',
+		'priority'    => 141,
+		'default'     => false,
+		'choices'     => array(
+			'on'  => esc_html__( 'Yes', 'soda-theme' ),
+			'off' => esc_html__( 'No', 'soda-theme' ),
+		),
+	)
+);
+
 	/**
 	 * SUBMENU NAVIGATION
 	 */

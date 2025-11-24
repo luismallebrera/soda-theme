@@ -740,6 +740,20 @@ textarea {
 	text-decoration: none;
 }
 
+/* Menu Item Separators */
+body.has-menu-separators .main-navigation ul > li:not(:last-child)::after {
+	content: '|';
+	margin: 0 0.5em;
+	color: currentColor;
+	opacity: 0.3;
+}
+
+@media screen and (max-width: 767px) {
+	body.has-menu-separators .main-navigation ul > li::after {
+		display: none;
+	}
+}
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {

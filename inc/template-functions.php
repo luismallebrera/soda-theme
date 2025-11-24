@@ -35,6 +35,11 @@ function soda_theme_body_classes( $classes ) {
 		$classes[] = 'has-transparent-header';
 	}
 
+	// Add menu separators class
+	if ( get_theme_mod( 'enable_menu_separators', false ) ) {
+		$classes[] = 'has-menu-separators';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'soda_theme_body_classes' );
