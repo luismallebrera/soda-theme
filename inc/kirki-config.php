@@ -873,7 +873,24 @@ new \Kirki\Field\Dimensions(
 				'value'    => 'solid',
 			),
 			array(
-				'element' => '.header-container, .has-sticky-header .site-header.sticky-header .header-container',
+				'element'  => '.header-container, .has-sticky-header .site-header.sticky-header .header-container',
+				'property' => 'border-top-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.header-container, .has-sticky-header .site-header.sticky-header .header-container',
+				'property' => 'border-right-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.header-container, .has-sticky-header .site-header.sticky-header .header-container',
+				'property' => 'border-bottom-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.header-container, .has-sticky-header .site-header.sticky-header .header-container',
+				'property' => 'border-left-width',
+				'units'    => 'px',
 			),
 		),
 	)
@@ -1140,7 +1157,24 @@ new \Kirki\Field\Dimensions(
 				'value'    => 'solid',
 			),
 			array(
-				'element' => '.site-branding',
+				'element'  => '.site-branding',
+				'property' => 'border-top-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.site-branding',
+				'property' => 'border-right-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.site-branding',
+				'property' => 'border-bottom-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.site-branding',
+				'property' => 'border-left-width',
+				'units'    => 'px',
 			),
 		),
 	)
@@ -1441,7 +1475,24 @@ new \Kirki\Field\Dimensions(
 				'value'    => 'solid',
 			),
 			array(
-				'element' => '.main-navigation, .has-sticky-header .site-header.sticky-header .main-navigation',
+				'element'  => '.main-navigation, .has-sticky-header .site-header.sticky-header .main-navigation',
+				'property' => 'border-top-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.main-navigation, .has-sticky-header .site-header.sticky-header .main-navigation',
+				'property' => 'border-right-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.main-navigation, .has-sticky-header .site-header.sticky-header .main-navigation',
+				'property' => 'border-bottom-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.main-navigation, .has-sticky-header .site-header.sticky-header .main-navigation',
+				'property' => 'border-left-width',
+				'units'    => 'px',
 			),
 		),
 	)
@@ -1709,7 +1760,24 @@ new \Kirki\Field\Text(
 					'value'    => 'solid',
 				),
 				array(
-					'element' => '.main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu',
+					'element'  => '.main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu',
+					'property' => 'border-top-width',
+					'units'    => 'px',
+				),
+				array(
+					'element'  => '.main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu',
+					'property' => 'border-right-width',
+					'units'    => 'px',
+				),
+				array(
+					'element'  => '.main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu',
+					'property' => 'border-bottom-width',
+					'units'    => 'px',
+				),
+				array(
+					'element'  => '.main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu',
+					'property' => 'border-left-width',
+					'units'    => 'px',
 				),
 			),
 		)
@@ -1956,7 +2024,24 @@ new \Kirki\Field\Dimensions(
 				'value'    => 'solid',
 			),
 			array(
-				'element' => '.site-navigation-toggle-holder, .has-sticky-header .site-header.sticky-header .site-navigation-toggle-holder',
+				'element'  => '.site-navigation-toggle-holder, .has-sticky-header .site-header.sticky-header .site-navigation-toggle-holder',
+				'property' => 'border-top-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.site-navigation-toggle-holder, .has-sticky-header .site-header.sticky-header .site-navigation-toggle-holder',
+				'property' => 'border-right-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.site-navigation-toggle-holder, .has-sticky-header .site-header.sticky-header .site-navigation-toggle-holder',
+				'property' => 'border-bottom-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.site-navigation-toggle-holder, .has-sticky-header .site-header.sticky-header .site-navigation-toggle-holder',
+				'property' => 'border-left-width',
+				'units'    => 'px',
 			),
 		),
 	)
@@ -2240,7 +2325,24 @@ new \Kirki\Field\Dimensions(
 				'value'    => 'solid',
 			),
 			array(
-				'element' => '.site-navigation-dropdown .site-navigation-background',
+				'element'  => '.site-navigation-dropdown .site-navigation-background',
+				'property' => 'border-top-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.site-navigation-dropdown .site-navigation-background',
+				'property' => 'border-right-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.site-navigation-dropdown .site-navigation-background',
+				'property' => 'border-bottom-width',
+				'units'    => 'px',
+			),
+			array(
+				'element'  => '.site-navigation-dropdown .site-navigation-background',
+				'property' => 'border-left-width',
+				'units'    => 'px',
 			),
 		),
 	)
