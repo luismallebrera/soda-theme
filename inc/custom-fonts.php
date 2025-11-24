@@ -318,6 +318,10 @@ function soda_theme_debug_custom_fonts() {
 	} else {
 		$debug_info['families_detected'] = 'NONE - No custom fonts detected';
 	}
+	
+	// Test what soda_theme_fonts_choices returns
+	$test_choices = apply_filters( 'soda_theme_fonts_choices', array() );
+	$debug_info['kirki_fonts_output'] = $test_choices;
 
 	echo '<div class="notice notice-info" style="padding: 15px;"><h2 style="margin-top: 0;">🔍 Soda Theme Custom Fonts Debug</h2>';
 	echo '<p><strong>This debug box shows what custom fonts are detected by the theme.</strong></p>';
