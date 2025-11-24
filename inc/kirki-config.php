@@ -2434,6 +2434,7 @@ new \Kirki\Field\Typography(
 			'variant' => array(
 				'300',
 				'regular',
+				'400',
 				'500',
 				'600',
 				'700',
@@ -2470,6 +2471,7 @@ new \Kirki\Field\Typography(
 			'variant' => array(
 				'300',
 				'regular',
+				'400',
 				'500',
 				'600',
 				'700',
