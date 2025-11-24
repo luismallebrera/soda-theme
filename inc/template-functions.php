@@ -95,7 +95,11 @@ function soda_theme_grid_line_styles() {
 	$columns         = get_theme_mod( 'grid_line_columns', 12 );
 	$outline         = get_theme_mod( 'grid_line_outline', false );
 	$max_width       = get_theme_mod( 'grid_line_max_width', '100%' );
-	$the_width       = get_theme_mod( 'grid_line_the_width', '100%' );
+	$the_width       = get_theme_mod( 'grid_line_the_width', array(
+		'desktop' => array( 'width' => '100%' ),
+		'tablet'  => array( 'width' => '100%' ),
+		'mobile'  => array( 'width' => '100%' ),
+	) );
 	$line_width      = get_theme_mod( 'grid_line_line_width', '1px' );
 	$direction       = get_theme_mod( 'grid_line_direction', 90 );
 	$z_index         = get_theme_mod( 'grid_line_z_index', 0 );
@@ -159,6 +163,25 @@ function soda_theme_grid_line_styles() {
 			--grid-line-direction: <?php echo (int) $direction; ?>deg;
 			--grid-line-z-index: <?php echo (int) $z_index; ?>;
 		}
+		
+		@media (min-width: 1024px) {
+			:root {
+				--grid-line-width: <?php echo isset( $the_width['desktop']['width'] ) ? esc_attr( $the_width['desktop']['width'] ) : '100%'; ?>;
+			}
+		}
+		
+		@media (min-width: 768px) and (max-width: 1023px) {
+			:root {
+				--grid-line-width: <?php echo isset( $the_width['tablet']['width'] ) ? esc_attr( $the_width['tablet']['width'] ) : '100%'; ?>;
+			}
+		}
+		
+		@media (max-width: 767px) {
+			:root {
+				--grid-line-width: <?php echo isset( $the_width['mobile']['width'] ) ? esc_attr( $the_width['mobile']['width'] ) : '100%'; ?>;
+			}
+		}
+		
 		body::before {
 			content: "";
 			position: fixed;
