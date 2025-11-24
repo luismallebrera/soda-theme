@@ -58,58 +58,83 @@ function soda_theme_customizer_headline_styles() {
 		(function(){
 			'use strict';
 			function moveControlsIntoWrapper(startId, endId, wrapperClass) {
-				var start = document.getElementById('customize-control-' + startId);
-				var end = document.getElementById('customize-control-' + endId);
-				if (!start || !end) return false;
+				try {
+					var start = document.getElementById('customize-control-' + startId);
+					var end = document.getElementById('customize-control-' + endId);
+					if (!start || !end) return false;
 
-				// Create wrapper element with the requested classes
-				var wrapper = document.createElement('div');
-				wrapper.className = wrapperClass;
+					// Ensure both elements share the same parent
+					var parent = start.parentNode;
+					if (!parent || end.parentNode !== parent) return false;
 
-				// Insert wrapper after the start placeholder
-				var parent = start.parentNode;
-				if (!parent) return false;
-				parent.insertBefore(wrapper, start.nextSibling);
+					// Create wrapper element with the requested classes
+					var wrapper = document.createElement('div');
+					wrapper.className = wrapperClass;
 
-				// Move all sibling elements between start and end into the wrapper
-				var node = start.nextElementSibling;
-				var moved = false;
-				while (node && node !== end) {
-					var next = node.nextElementSibling;
-					wrapper.appendChild(node);
-					node = next;
-					moved = true;
+					// Insert wrapper before the end placeholder (so we don't rely on nextSibling types)
+					parent.insertBefore(wrapper, end);
+
+					// Move all nodes between start and end (skip text/comment nodes)
+					var node = start.nextSibling;
+					var moved = false;
+					while (node && node !== end) {
+						var next = node.nextSibling;
+						if (node.nodeType === 1) {
+							wrapper.appendChild(node);
+							moved = true;
+						}
+						node = next;
+					}
+
+					// Remove placeholder controls if still present
+					if (start.parentNode) start.parentNode.removeChild(start);
+					if (end.parentNode) end.parentNode.removeChild(end);
+
+					return moved;
+				} catch (e) {
+					if (window.console && console.error) console.error('moveControlsIntoWrapper error', e);
+					return false;
 				}
-
-				// Remove the placeholder controls if present
-				if (start.parentNode) start.parentNode.removeChild(start);
-				if (end.parentNode) end.parentNode.removeChild(end);
-
-				return moved;
 			}
 
 			function runGroupingOnce() {
 				return moveControlsIntoWrapper('menu_navigation_wrapper_start', 'menu_navigation_wrapper_end', 'soda-customizer-section soda-menu-navigation');
 			}
 
-			// Try immediately, then retry a few times in case Kirki renders asynchronously.
 			var attempts = 0;
-			var maxAttempts = 12;
+			var maxAttempts = 20;
 			var retryDelay = 250; // ms
+			var observer = null;
 
 			function tryRun() {
 				attempts++;
-				if (runGroupingOnce()) return;
+				var ok = false;
+				try {
+					ok = runGroupingOnce();
+				} catch (e) {
+					if (window.console && console.error) console.error('tryRun error', e);
+				}
+				if (ok) {
+					// Success — stop observing further mutations
+					if (observer) {
+						try { observer.disconnect(); } catch (e) {}
+					}
+					return;
+				}
 				if (attempts < maxAttempts) setTimeout(tryRun, retryDelay);
 			}
 
 			tryRun();
 
-			// Also observe DOM mutations so we can react when controls are inserted later.
-			var observer = new MutationObserver(function() {
-				tryRun();
-			});
-			observer.observe(document.body, { childList: true, subtree: true });
+			// Observe DOM changes so we can react when Kirki inserts controls later.
+			try {
+				observer = new MutationObserver(function(mutations) {
+					tryRun();
+				});
+				observer.observe(document.body, { childList: true, subtree: true });
+			} catch (e) {
+				if (window.console && console.error) console.error('MutationObserver error', e);
+			}
 		})();
 		</script>
 		<?php
