@@ -837,9 +837,9 @@ new \Kirki\Field\Color(
  */
 new \Kirki\Pro\Field\Divider(
 	array(
-		'settings' => 'color_divider_9',
+		'settings' => 'color_divider_11',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 105,
+		'priority' => 125,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -854,7 +854,7 @@ new \Kirki\Pro\Field\Padding(
 		'settings'  => 'menu_navigation_border',
 		'label'     => esc_html__( 'Menu Navigation Border (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority'  => 110,
+		'priority'  => 130,
 		'default'   => array(
 			'border-top'    => '0px',
 			'border-right'  => '0px',
@@ -875,9 +875,9 @@ new \Kirki\Pro\Field\Padding(
  */
 new \Kirki\Pro\Field\Divider(
 	array(
-		'settings' => 'color_divider_10',
+		'settings' => 'color_divider_12',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 115,
+		'priority' => 135,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -892,7 +892,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'menu_navigation_border_radius',
 		'label'     => esc_html__( 'Menu Navigation Border Radius (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority'  => 120,
+		'priority'  => 140,
 		'default'   => 0,
 		'choices'   => array(
 			'min'  => 0,
@@ -915,9 +915,9 @@ new \Kirki\Field\Slider(
  */
 new \Kirki\Pro\Field\Divider(
 	array(
-		'settings' => 'color_divider_11',
+		'settings' => 'color_divider_13',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 125,
+		'priority' => 145,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -932,7 +932,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'menu_navigation_backdrop_blur',
 		'label'     => esc_html__( 'Menu Navigation Backdrop Blur (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority'  => 130,
+		'priority'  => 150,
 		'default'   => 0,
 		'choices'   => array(
 			'min'  => 0,
@@ -948,9 +948,9 @@ new \Kirki\Field\Slider(
  */
 new \Kirki\Pro\Field\Divider(
 	array(
-		'settings' => 'color_divider_12',
+		'settings' => 'color_divider_14',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 135,
+		'priority' => 155,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -965,7 +965,7 @@ new \Kirki\Field\Text(
 		'settings'  => 'menu_navigation_box_shadow',
 		'label'     => esc_html__( 'Menu Navigation Box Shadow', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority'  => 140,
+		'priority'  => 160,
 		'default'   => '',
 		'transport' => 'postMessage',
 		'output'    => array(
@@ -982,9 +982,9 @@ new \Kirki\Field\Text(
  */
 new \Kirki\Pro\Field\Divider(
 	array(
-		'settings' => 'color_divider_13',
+		'settings' => 'color_divider_15',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 145,
+		'priority' => 165,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -999,7 +999,7 @@ new \Kirki\Pro\Field\Headline(
 		'settings' => 'mobile_toggle_headline',
 		'label'    => esc_html__( 'MOBILE TOGGLE', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 150,
+		'priority' => 170,
 	)
 );
 
@@ -1011,7 +1011,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'mobile_menu_toggle_bg_color',
 		'label'     => esc_html__( 'Mobile Toggle Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 155,
+		'priority'  => 175,
 		'default'   => 'rgba(255, 255, 255, 0.45)',
 		'choices'   => array(
 			'alpha' => true,
@@ -1033,7 +1033,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_16',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 160,
+		'priority' => 180,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1048,7 +1048,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'sticky_mobile_menu_toggle_bg_color',
 		'label'     => esc_html__( 'Sticky Mobile Toggle Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 165,
+		'priority'  => 185,
 		'default'   => 'rgba(255, 255, 255, 0.45)',
 		'choices'   => array(
 			'alpha' => true,
@@ -1070,7 +1070,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_17',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 170,
+		'priority' => 190,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1085,7 +1085,7 @@ new \Kirki\Pro\Field\Padding(
 		'settings'  => 'mobile_toggle_border',
 		'label'     => esc_html__( 'Mobile Toggle Border (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 175,
+		'priority'  => 195,
 		'default'   => array(
 			'border-top'    => '0px',
 			'border-right'  => '0px',
@@ -1108,7 +1108,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_18',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 180,
+		'priority' => 200,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1123,7 +1123,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'mobile_toggle_border_radius',
 		'label'     => esc_html__( 'Mobile Toggle Border Radius (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 185,
+		'priority'  => 205,
 		'default'   => 0,
 		'choices'   => array(
 			'min'  => 0,
@@ -1148,7 +1148,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_19',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 190,
+		'priority' => 210,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1163,7 +1163,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'mobile_toggle_backdrop_blur',
 		'label'     => esc_html__( 'Mobile Toggle Backdrop Blur (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 195,
+		'priority'  => 215,
 		'default'   => 0,
 		'choices'   => array(
 			'min'  => 0,
@@ -1181,7 +1181,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_20',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 200,
+		'priority' => 220,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1196,7 +1196,7 @@ new \Kirki\Field\Text(
 		'settings'  => 'mobile_toggle_box_shadow',
 		'label'     => esc_html__( 'Mobile Toggle Box Shadow', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 205,
+		'priority'  => 225,
 		'default'   => '',
 		'transport' => 'postMessage',
 		'output'    => array(
@@ -1215,7 +1215,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_21',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 210,
+		'priority' => 230,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1230,7 +1230,7 @@ new \Kirki\Pro\Field\Headline(
 		'settings' => 'mobile_dropdown_headline',
 		'label'    => esc_html__( 'MOBILE DROPDOWN', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 215,
+		'priority' => 235,
 	)
 );
 
@@ -1242,7 +1242,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'mobile_dropdown_bg_color',
 		'label'     => esc_html__( 'Mobile Dropdown Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 220,
+		'priority'  => 240,
 		'default'   => 'rgba(0, 0, 0, 0.8)',
 		'choices'   => array(
 			'alpha' => true,
@@ -1264,7 +1264,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_22',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 225,
+		'priority' => 245,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1279,7 +1279,7 @@ new \Kirki\Pro\Field\Padding(
 		'settings'  => 'mobile_dropdown_border',
 		'label'     => esc_html__( 'Mobile Dropdown Border (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 230,
+		'priority'  => 250,
 		'default'   => array(
 			'border-top'    => '0px',
 			'border-right'  => '0px',
@@ -1302,7 +1302,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_23',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 235,
+		'priority' => 255,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1317,7 +1317,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'mobile_dropdown_border_radius',
 		'label'     => esc_html__( 'Mobile Dropdown Border Radius (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 240,
+		'priority'  => 260,
 		'default'   => 0,
 		'choices'   => array(
 			'min'  => 0,
@@ -1342,7 +1342,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_24',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 245,
+		'priority' => 265,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1357,7 +1357,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'mobile_dropdown_backdrop_blur',
 		'label'     => esc_html__( 'Mobile Dropdown Backdrop Blur (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 250,
+		'priority'  => 270,
 		'default'   => 0,
 		'choices'   => array(
 			'min'  => 0,
@@ -1375,7 +1375,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_25',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 255,
+		'priority' => 275,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1390,7 +1390,7 @@ new \Kirki\Field\Text(
 		'settings'  => 'mobile_dropdown_box_shadow',
 		'label'     => esc_html__( 'Mobile Dropdown Box Shadow', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 260,
+		'priority'  => 280,
 		'default'   => '',
 		'transport' => 'postMessage',
 		'output'    => array(
@@ -1409,7 +1409,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_26',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 265,
+		'priority' => 285,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1424,7 +1424,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'mobile_menu_toggle_text_color',
 		'label'     => esc_html__( 'Mobile Toggle Text/Icon', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 270,
+		'priority'  => 290,
 		'default'   => '#000000',
 		'choices'   => array(
 			'alpha' => true,
@@ -1446,7 +1446,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_27',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 275,
+		'priority' => 295,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1461,7 +1461,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'hamburger_line_color',
 		'label'     => esc_html__( 'Hamburger Icon Lines', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 280,
+		'priority'  => 300,
 		'default'   => '#ecf0f1',
 	)
 );
@@ -1473,7 +1473,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_28',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 285,
+		'priority' => 305,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1488,7 +1488,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'mobile_dropdown_text_color',
 		'label'     => esc_html__( 'Mobile Dropdown Text', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 290,
+		'priority'  => 310,
 		'default'   => '#ffffff',
 		'choices'   => array(
 			'alpha' => true,
@@ -1510,7 +1510,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_29',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 295,
+		'priority' => 315,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1525,7 +1525,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'mobile_dropdown_text_hover_color',
 		'label'     => esc_html__( 'Mobile Dropdown Hover', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 300,
+		'priority'  => 320,
 		'default'   => '#ffffff',
 		'choices'   => array(
 			'alpha' => true,
@@ -1547,7 +1547,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_30',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 305,
+		'priority' => 325,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1562,7 +1562,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'menu_border_bottom_color',
 		'label'     => esc_html__( 'Header Border Bottom', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 310,
+		'priority'  => 330,
 		'default'   => '#F0F0F0',
 		'choices'   => array(
 			'alpha' => true,
@@ -1584,7 +1584,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_31',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 315,
+		'priority' => 335,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1599,7 +1599,7 @@ new \Kirki\Field\Checkbox_Switch(
 		'settings' => 'menu_solid_link_custom',
 		'label'    => esc_html__( 'Enable Custom Link Colors', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 320,
+		'priority' => 340,
 		'default'  => false,
 		'choices'  => array(
 			'on'  => esc_html__( 'Yes', 'soda-theme' ),
@@ -1615,7 +1615,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_32',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 325,
+		'priority' => 345,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1630,7 +1630,7 @@ new \Kirki\Field\Color(
 		'settings'        => 'menu_link_color_regular',
 		'label'           => esc_html__( 'Menu Link (Regular)', 'soda-theme' ),
 		'section'         => 'soda_theme_color_settings',
-		'priority' => 330,
+		'priority'        => 350,
 		'default'         => '#656565',
 		'choices'         => array(
 			'alpha' => true,
@@ -1659,7 +1659,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_33',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 335,
+		'priority' => 355,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1674,7 +1674,7 @@ new \Kirki\Field\Color(
 		'settings'        => 'menu_link_color_hover',
 		'label'           => esc_html__( 'Menu Link (Hover)', 'soda-theme' ),
 		'section'         => 'soda_theme_color_settings',
-		'priority' => 340,
+		'priority'        => 360,
 		'default'         => '#252525',
 		'choices'         => array(
 			'alpha' => true,
@@ -1703,7 +1703,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_34',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 345,
+		'priority' => 365,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1718,7 +1718,7 @@ new \Kirki\Field\Color(
 		'settings'        => 'menu_link_color_active',
 		'label'           => esc_html__( 'Menu Link (Active)', 'soda-theme' ),
 		'section'         => 'soda_theme_color_settings',
-		'priority' => 350,
+		'priority'        => 370,
 		'default'         => '#656565',
 		'choices'         => array(
 			'alpha' => true,
@@ -1747,7 +1747,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_35',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 355,
+		'priority' => 375,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1762,7 +1762,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'menu_transparent_link_color_regular',
 		'label'     => esc_html__( 'Transparent Link (Regular)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 360,
+		'priority'  => 380,
 		'default'   => 'rgba(255,255,255,1)',
 		'choices'   => array(
 			'alpha' => true,
@@ -1784,7 +1784,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_36',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 365,
+		'priority' => 385,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1799,7 +1799,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'menu_transparent_link_color_hover',
 		'label'     => esc_html__( 'Transparent Link (Hover)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 370,
+		'priority'  => 390,
 		'default'   => 'rgba(255,255,255,.5)',
 		'choices'   => array(
 			'alpha' => true,
@@ -1821,7 +1821,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_37',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 375,
+		'priority' => 395,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1836,7 +1836,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'menu_transparent_link_color_active',
 		'label'     => esc_html__( 'Transparent Link (Active)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 380,
+		'priority'  => 400,
 		'default'   => 'rgba(255,255,255,.5)',
 		'choices'   => array(
 			'alpha' => true,
@@ -1858,7 +1858,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_38',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 385,
+		'priority' => 405,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1873,7 +1873,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'sticky_header_menu_link_color',
 		'label'     => esc_html__( 'Sticky Menu Link (Regular)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 390,
+		'priority'  => 410,
 		'default'   => '#333333',
 		'choices'   => array(
 			'alpha' => true,
@@ -1895,7 +1895,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_39',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 395,
+		'priority' => 415,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1910,7 +1910,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'sticky_header_menu_link_color_hover',
 		'label'     => esc_html__( 'Sticky Menu Link (Hover)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 400,
+		'priority'  => 420,
 		'default'   => '#000000',
 		'choices'   => array(
 			'alpha' => true,
@@ -1932,7 +1932,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_40',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 405,
+		'priority' => 425,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1947,7 +1947,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'sticky_header_menu_link_color_active',
 		'label'     => esc_html__( 'Sticky Menu Link (Active)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 410,
+		'priority'  => 430,
 		'default'   => '#333333',
 		'choices'   => array(
 			'alpha' => true,
@@ -1969,7 +1969,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_41',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 415,
+		'priority' => 435,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -1984,7 +1984,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'sticky_header_bg_color',
 		'label'     => esc_html__( 'Sticky Header Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 420,
+		'priority'  => 440,
 		'default'   => '#ffffff',
 		'choices'   => array(
 			'alpha' => true,
@@ -2006,7 +2006,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_42',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 425,
+		'priority' => 445,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
