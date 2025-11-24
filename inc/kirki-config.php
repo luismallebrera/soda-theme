@@ -46,6 +46,75 @@ function soda_theme_customizer_headline_styles() {
 	echo '</style>';
 }
 
+	/**
+	 * Add JS to group controls between wrapper placeholders into a single wrapper.
+	 * This moves the rendered <li> controls between the start/end placeholders
+	 * into a wrapper div so fields appear visually grouped in the Customizer.
+	 */
+	add_action( 'customize_controls_print_footer_scripts', 'soda_theme_customizer_grouping_scripts' );
+	function soda_theme_customizer_grouping_scripts() {
+		?>
+		<script>
+		(function(){
+			'use strict';
+			function moveControlsIntoWrapper(startId, endId, wrapperClass) {
+				var start = document.getElementById('customize-control-' + startId);
+				var end = document.getElementById('customize-control-' + endId);
+				if (!start || !end) return false;
+
+				// Create wrapper element with the requested classes
+				var wrapper = document.createElement('div');
+				wrapper.className = wrapperClass;
+
+				// Insert wrapper after the start placeholder
+				var parent = start.parentNode;
+				if (!parent) return false;
+				parent.insertBefore(wrapper, start.nextSibling);
+
+				// Move all sibling elements between start and end into the wrapper
+				var node = start.nextElementSibling;
+				var moved = false;
+				while (node && node !== end) {
+					var next = node.nextElementSibling;
+					wrapper.appendChild(node);
+					node = next;
+					moved = true;
+				}
+
+				// Remove the placeholder controls if present
+				if (start.parentNode) start.parentNode.removeChild(start);
+				if (end.parentNode) end.parentNode.removeChild(end);
+
+				return moved;
+			}
+
+			function runGroupingOnce() {
+				return moveControlsIntoWrapper('menu_navigation_wrapper_start', 'menu_navigation_wrapper_end', 'soda-customizer-section soda-menu-navigation');
+			}
+
+			// Try immediately, then retry a few times in case Kirki renders asynchronously.
+			var attempts = 0;
+			var maxAttempts = 12;
+			var retryDelay = 250; // ms
+
+			function tryRun() {
+				attempts++;
+				if (runGroupingOnce()) return;
+				if (attempts < maxAttempts) setTimeout(tryRun, retryDelay);
+			}
+
+			tryRun();
+
+			// Also observe DOM mutations so we can react when controls are inserted later.
+			var observer = new MutationObserver(function() {
+				tryRun();
+			});
+			observer.observe(document.body, { childList: true, subtree: true });
+		})();
+		</script>
+		<?php
+	}
+
 /**
  * Add Logo Settings Panel
  */
