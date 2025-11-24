@@ -52,6 +52,14 @@ add_action( 'customize_controls_print_styles', function() {
 			color: #fff !important;
 		}
 
+		/* Make soda-customizer-section wrappers visible for debugging/verification */
+		.soda-customizer-section {
+			border: 1px dashed rgba(0,0,0,0.12) !important;
+			background: rgba(0,160,210,0.03) !important;
+			padding: 8px 12px !important;
+			margin: 6px 0 !important;
+		}
+
 		/* Style Kirki divider controls to match the requested HR appearance */
 		.customize-control-kirki-divider,
 		.customize-control-kirki-pro-divider,
