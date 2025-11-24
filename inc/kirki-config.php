@@ -920,7 +920,7 @@ new \Kirki\Field\Dimensions(
 		'output'      => array(
 			array(
 				'element'     => 'body',
-				'property'    => '--grid-line-the-width',
+				'property'    => '--grid-line-width',
 				'media_query' => array(
 					'desktop' => '@media (min-width: 1024px)',
 					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
