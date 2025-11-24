@@ -49,6 +49,10 @@ function soda_theme_customizer_headline_styles() {
 	echo '    list-style: none !important;';
 	echo '}';
 
+	echo '.control-section-kirki-default, .control-section-kirki-outer {';
+	echo '    min-height: auto !important;';
+	echo '}';
+
 	echo '</style>';
 }
 
