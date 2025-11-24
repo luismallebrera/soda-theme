@@ -249,13 +249,18 @@ function soda_theme_kirki_fonts_choices( $settings = array() ) {
  * Example: wp-admin/index.php?soda_debug_fonts=1
  */
 function soda_theme_debug_custom_fonts() {
+	// Temporarily remove all checks to test
+	echo '<div class="notice notice-error" style="border: 5px solid red; padding: 20px; margin: 20px 0;"><h1 style="color: red;">🔴 FUNCTION RUNS - NO CHECKS</h1><p>If you see this, the function is executing!</p></div>';
+	
 	if ( ! current_user_can( 'manage_options' ) ) {
+		echo '<div class="notice notice-error"><p>❌ Stopped: No manage_options capability</p></div>';
 		return;
 	}
 	
 	// Only show if debug parameter is set
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	if ( ! isset( $_GET['soda_debug_fonts'] ) || empty( $_GET['soda_debug_fonts'] ) ) {
+		echo '<div class="notice notice-error"><p>❌ Stopped: Parameter not set or empty</p></div>';
 		return;
 	}
 	
