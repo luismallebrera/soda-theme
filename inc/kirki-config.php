@@ -1024,6 +1024,148 @@ new \Kirki\Field\Text(
 	)
 );
 
+/**
+ * LOGO BOX
+ */
+new \Kirki\Pro\Field\Headline(
+	array(
+		'settings' => 'logo_box_headline',
+		'label'    => esc_html__( 'LOGO BOX', 'soda-theme' ),
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 76,
+		'choices'  => array(
+			'background-color' => '#00a0d2',
+			'color'            => '#ffffff',
+		),
+	)
+);
+
+/**
+ * Logo Box Background
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'logo_box_bg_color',
+		'label'     => esc_html__( 'Logo Box Background', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 77,
+		'default'   => 'transparent',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-branding',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
+/**
+ * Logo Box Border Width
+ */
+new \Kirki\Field\Dimensions(
+	array(
+		'settings'  => 'logo_box_border',
+		'label'     => esc_html__( 'Logo Box Border Width', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 78,
+		'default'   => array(
+			'border-top-width'    => '0px',
+			'border-right-width'  => '0px',
+			'border-bottom-width' => '0px',
+			'border-left-width'   => '0px',
+		),
+		'choices'   => array(
+			'labels' => array(
+				'border-top-width'    => esc_html__( 'Top', 'soda-theme' ),
+				'border-right-width'  => esc_html__( 'Right', 'soda-theme' ),
+				'border-bottom-width' => esc_html__( 'Bottom', 'soda-theme' ),
+				'border-left-width'   => esc_html__( 'Left', 'soda-theme' ),
+			),
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-branding',
+				'property' => 'border-style',
+				'value'    => 'solid',
+			),
+			array(
+				'element' => '.site-branding',
+			),
+		),
+	)
+);
+
+/**
+ * Logo Box Border Radius
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'  => 'logo_box_border_radius',
+		'label'     => esc_html__( 'Logo Box Border Radius (px)', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 79,
+		'default'   => 0,
+		'choices'   => array(
+			'min'  => 0,
+			'max'  => 100,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-branding',
+				'property' => 'border-radius',
+				'units'    => 'px',
+			),
+		),
+	)
+);
+
+/**
+ * Logo Box Backdrop Blur
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'  => 'logo_box_backdrop_blur',
+		'label'     => esc_html__( 'Logo Box Backdrop Blur (px)', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 80,
+		'default'   => 0,
+		'choices'   => array(
+			'min'  => 0,
+			'max'  => 50,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+	)
+);
+
+/**
+ * Logo Box Box Shadow
+ */
+new \Kirki\Field\Text(
+	array(
+		'settings'  => 'logo_box_box_shadow',
+		'label'     => esc_html__( 'Logo Box Box Shadow', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 81,
+		'default'   => '',
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-branding',
+				'property' => 'box-shadow',
+			),
+		),
+	)
+);
+
+
 		/**
 		 * MENU NAVIGATION - wrapper end
 		 */
