@@ -685,13 +685,7 @@ new \Kirki\Section(
 		'title'    => esc_html__( 'Color Settings', 'soda-theme' ),
 		'panel'    => 'soda_theme_header_panel',
 		'priority' => 45,
-		// Add tabs so controls can be organized into labeled tabs inside this section.
-		'tabs'     => array(
-			'header_container'  => array( 'label' => esc_html__( 'Header Container', 'soda-theme' ) ),
-			'menu_navigation'    => array( 'label' => esc_html__( 'Menu Navigation', 'soda-theme' ) ),
-			'mobile_toggle'      => array( 'label' => esc_html__( 'Mobile Toggle', 'soda-theme' ) ),
-			'mobile_dropdown'    => array( 'label' => esc_html__( 'Mobile Dropdown', 'soda-theme' ) ),
-		),
+		'priority' => 45,
 	)
 );
 
@@ -742,7 +736,6 @@ new \Kirki\Pro\Field\Headline(
 		'settings' => 'header_container_headline',
 		'label'    => esc_html__( 'HEADER CONTAINER', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
-		'tab'      => 'header_container',
 		'priority' => 20,
 		'choices'  => array(
 			'background-color' => '#00a0d2',
@@ -759,7 +752,6 @@ new \Kirki\Field\Color(
 		'settings'  => 'header_container_bg_color',
 		'label'     => esc_html__( 'Header Container Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'header_container',
 		'priority'  => 25,
 		'default'   => 'transparent',
 		'choices'   => array(
@@ -797,7 +789,6 @@ new \Kirki\Field\Color(
 		'settings'  => 'sticky_header_container_bg_color',
 		'label'     => esc_html__( 'Sticky Header Container Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'header_container',
 		'priority'  => 35,
 		'default'   => 'transparent',
 		'choices'   => array(
@@ -835,7 +826,6 @@ new \Kirki\Field\Dimensions(
 		'settings'  => 'header_container_border',
 		'label'     => esc_html__( 'Header Container Border Width', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'header_container',
 		'priority'  => 45,
 		'default'   => array(
 			'border-top-width'    => '0px',
@@ -887,7 +877,6 @@ new \Kirki\Field\Color(
 		'settings'  => 'header_container_border_color',
 		'label'     => esc_html__( 'Header Container Border Color', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'header_container',
 		'priority'  => 48,
 		'default'   => '#000000',
 		'transport' => 'postMessage',
@@ -922,7 +911,6 @@ new \Kirki\Field\Slider(
 		'settings'  => 'header_container_border_radius',
 		'label'     => esc_html__( 'Header Container Border Radius (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'header_container',
 		'priority'  => 55,
 		'default'   => 0,
 		'choices'   => array(
@@ -963,7 +951,6 @@ new \Kirki\Field\Slider(
 		'settings'  => 'header_container_backdrop_blur',
 		'label'     => esc_html__( 'Header Container Backdrop Blur (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'header_container',
 		'priority'  => 65,
 		'default'   => 0,
 		'choices'   => array(
@@ -997,7 +984,6 @@ new \Kirki\Field\Text(
 		'settings'  => 'header_container_box_shadow',
 		'label'     => esc_html__( 'Header Container Box Shadow', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'header_container',
 		'priority'  => 75,
 		'default'   => '',
 		'transport' => 'postMessage',
@@ -1047,7 +1033,6 @@ new \Kirki\Pro\Field\Headline(
 		'settings' => 'menu_navigation_headline',
 		'label'    => esc_html__( 'MENU NAVIGATION', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
-		'tab'      => 'menu_navigation',
 		'priority' => 85,
 		'choices'  => array(
 			'background-color' => '#00a0d2',
@@ -1063,7 +1048,6 @@ new \Kirki\Field\Custom(
 	array(
 		'settings' => 'menu_navigation_wrapper_start',
 		'section'  => 'soda_theme_color_settings',
-		'tab'      => 'menu_navigation',
 		'priority' => 84,
 		'default'  => '<div class="soda-customizer-section soda-menu-navigation">',
 	)
@@ -1078,7 +1062,6 @@ new \Kirki\Field\Color(
 		'settings'  => 'menu_navigation_bg_color',
 		'label'     => esc_html__( 'Menu Navigation Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'menu_navigation',
 		'priority'  => 90,
 		'default'   => 'transparent',
 		'choices'   => array(
@@ -1116,7 +1099,6 @@ new \Kirki\Field\Color(
 		'settings'  => 'sticky_menu_navigation_bg_color',
 		'label'     => esc_html__( 'Sticky Menu Navigation Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'menu_navigation',
 		'priority'  => 100,
 		'default'   => 'transparent',
 		'choices'   => array(
@@ -1154,7 +1136,6 @@ new \Kirki\Field\Dimensions(
 		'settings'  => 'menu_navigation_border',
 		'label'     => esc_html__( 'Menu Navigation Border Width', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'menu_navigation',
 		'priority'  => 110,
 		'default'   => array(
 			'border-top-width'    => '0px',
@@ -1206,7 +1187,6 @@ new \Kirki\Field\Color(
 		'settings'  => 'menu_navigation_border_color',
 		'label'     => esc_html__( 'Menu Navigation Border Color', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'menu_navigation',
 		'priority'  => 113,
 		'default'   => '#000000',
 		'transport' => 'postMessage',
@@ -1241,7 +1221,6 @@ new \Kirki\Field\Slider(
 		'settings'  => 'menu_navigation_border_radius',
 		'label'     => esc_html__( 'Menu Navigation Border Radius (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'tab'       => 'menu_navigation',
 		'priority'  => 120,
 		'default'   => 0,
 		'choices'   => array(
