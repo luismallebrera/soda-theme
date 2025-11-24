@@ -328,3 +328,15 @@ function soda_theme_debug_custom_fonts() {
 
 // Always hook the debug function (it only shows when ?soda_debug_fonts=1 is in URL)
 add_action( 'admin_notices', 'soda_theme_debug_custom_fonts' );
+
+/**
+ * Quick test function - Shows a simple message to confirm theme is active
+ * Remove this after confirming the theme files are loaded
+ */
+function soda_theme_test_notice() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	echo '<div class="notice notice-success"><p><strong>✓ Soda Theme is active and loaded!</strong> To see custom fonts debug, add <code>?soda_debug_fonts=1</code> to the URL.</p></div>';
+}
+add_action( 'admin_notices', 'soda_theme_test_notice' );
