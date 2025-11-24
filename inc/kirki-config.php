@@ -2288,7 +2288,7 @@ new \Kirki\Field\Custom(
 		'settings' => 'desktop_menu_header',
 		'section'  => 'soda_theme_navigation_typography',
 		'priority' => 5,
-		'default'  => '<div style="padding: 13px 10px 17px; background: #2171b1; border-left: 3px solid #ef1b3f; margin: 10px -12px; color: #fff; text-transform: uppercase;"><strong>' . esc_html__( 'Desktop Menu', 'soda-theme' ) . '</strong></div>',
+		'default'  => '<div style="padding: 10px 10px 11px; background: #00a0d2; border-left: 0; margin: 10px -5px; color: #fff; text-transform: uppercase; text-align: center; border-radius: 6px;"><strong>' . esc_html__( 'Desktop Menu', 'soda-theme' ) . '</strong></div>',
 	)
 );
 
@@ -2402,7 +2402,7 @@ new \Kirki\Field\Custom(
 		'settings' => 'mobile_toggle_header',
 		'section'  => 'soda_theme_navigation_typography',
 		'priority' => 25,
-		'default'  => '<div style="padding: 13px 10px 17px; background: #2171b1; border-left: 3px solid #ef1b3f; margin: 10px -12px; color: #fff; text-transform: uppercase;"><strong>' . esc_html__( 'Mobile Menu Toggle', 'soda-theme' ) . '</strong></div>',
+		'default'  => '<div style="padding: 10px 10px 11px; background: #00a0d2; border-left: 0; margin: 10px -5px; color: #fff; text-transform: uppercase; text-align: center; border-radius: 6px;"><strong>' . esc_html__( 'Mobile Menu Toggle', 'soda-theme' ) . '</strong></div>',
 	)
 );
 
@@ -2465,7 +2465,7 @@ new \Kirki\Field\Custom(
 		'settings' => 'mobile_dropdown_header',
 		'section'  => 'soda_theme_navigation_typography',
 		'priority' => 35,
-		'default'  => '<div style="padding: 13px 10px 17px; background: #2171b1; border-left: 3px solid #ef1b3f; margin: 10px -12px; color: #fff; text-transform: uppercase;"><strong>' . esc_html__( 'Mobile Menu Dropdown', 'soda-theme' ) . '</strong></div>',
+		'default'  => '<div style="padding: 10px 10px 11px; background: #00a0d2; border-left: 0; margin: 10px -5px; color: #fff; text-transform: uppercase; text-align: center; border-radius: 6px;"><strong>' . esc_html__( 'Mobile Menu Dropdown', 'soda-theme' ) . '</strong></div>',
 	)
 );
 
