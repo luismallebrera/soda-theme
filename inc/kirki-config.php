@@ -938,7 +938,10 @@ new \Kirki\Pro\Field\Headline(
 		'section'  => 'soda_theme_action_button',
 		'priority' => 40,
 		'label'    => esc_html__( 'ACTION BUTTON', 'soda-theme' ),
-		'choices'  => soda_theme_customizer_headline_styles(),
+		'choices'  => array(
+			'background-color' => '#00a0d2',
+			'color'            => '#ffffff',
+		),
 	)
 );
 
