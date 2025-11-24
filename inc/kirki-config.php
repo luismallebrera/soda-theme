@@ -2330,6 +2330,19 @@ new \Kirki\Field\Typography(
 );
 
 /**
+ * Menu Font Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'menu_typography_divider',
+		'section'  => 'soda_theme_navigation_typography',
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
  * Submenu Font
  */
 new \Kirki\Field\Typography(
@@ -2362,6 +2375,19 @@ new \Kirki\Field\Typography(
 			array(
 				'element' => '.main-navigation .sub-menu a, .site-navigation .sub-menu a',
 			),
+		),
+	)
+);
+
+/**
+ * Submenu Font Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'submenu_typography_divider',
+		'section'  => 'soda_theme_navigation_typography',
+		'choices'  => array(
+			'color' => '#dcdcdc',
 		),
 	)
 );
@@ -2416,6 +2442,19 @@ new \Kirki\Field\Typography(
 );
 
 /**
+ * Toggle Font Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'toggle_typography_divider',
+		'section'  => 'soda_theme_navigation_typography',
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
  * Mobile Menu Dropdown Header
  */
 new \Kirki\Field\Custom(
@@ -2460,6 +2499,19 @@ new \Kirki\Field\Typography(
 			array(
 				'element' => '.site-navigation-dropdown .mobile-nav-menu a',
 			),
+		),
+	)
+);
+
+/**
+ * Mobile Menu Font Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'mobile_menu_typography_divider',
+		'section'  => 'soda_theme_navigation_typography',
+		'choices'  => array(
+			'color' => '#dcdcdc',
 		),
 	)
 );
