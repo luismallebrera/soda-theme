@@ -100,8 +100,8 @@ if ( ! class_exists( 'Soda_Theme_Add_Custom_Fonts' ) ) {
 			}
 		}
 
-		// Method 3: Query custom font posts directly
-		if ( empty( $elementor_fonts ) && did_action( 'elementor/loaded' ) ) {
+		// Method 3: Query custom font posts directly (ALWAYS try this, not just if elementor loaded)
+		if ( empty( $elementor_fonts ) ) {
 			$font_posts = get_posts(
 				array(
 					'post_type'      => 'elementor_font',
@@ -239,6 +239,13 @@ function soda_theme_kirki_fonts_choices( $settings = array() ) {
 		
 		// Build fonts array by calling methods directly
 		$fonts_list = array();
+		
+		// Debug: check what each method returns
+		if ( isset( $_GET['soda_debug_fonts'] ) ) {
+			$test1 = $instance->elementor_custom_fonts( array() );
+			error_log( 'Elementor fonts method returned: ' . print_r( $test1, true ) );
+		}
+		
 		$fonts_list = $instance->elementor_custom_fonts( $fonts_list );
 		$fonts_list = $instance->custom_fonts( $fonts_list );
 		$fonts_list = $instance->typekit_fonts( $fonts_list );
