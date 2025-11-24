@@ -51,6 +51,18 @@ add_action( 'customize_controls_print_styles', function() {
 		.customize-control-kirki-headline .kirki-control-form .customize-control-title {
 			color: #fff !important;
 		}
+
+		/* Style Kirki divider controls to match the requested HR appearance */
+		.customize-control-kirki-divider,
+		.customize-control-kirki-pro-divider,
+		.kirki-divider,
+		.kirki-control-divider,
+		.customize-control .kirki-divider,
+		.customize-control .kirki-divider hr {
+			border-top: 1px solid #797979 !important;
+			border-bottom: 1px solid #f8f8f8 !important;
+			margin: 10px -12px !important;
+		}
 	</style>
 	<?php
 }, 9999 );
