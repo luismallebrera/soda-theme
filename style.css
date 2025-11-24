@@ -826,7 +826,7 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 
 	.header-layout-1 .main-navigation {
 		width: auto;
-		flex: 0 1 auto;
+		flex: auto;
 	}
 }
 
