@@ -258,6 +258,9 @@ function soda_theme_debug_custom_fonts() {
 	if ( ! isset( $_GET['soda_debug_fonts'] ) || $_GET['soda_debug_fonts'] != '1' ) {
 		return;
 	}
+	
+	// Force output to test if function runs
+	echo '<div class="notice notice-warning" style="border-left-color: #ff0000; border-width: 5px;"><h2>🔴 DEBUG FUNCTION IS RUNNING!</h2></div>';
 
 	// Check what's detected
 	$debug_info = array();
@@ -327,7 +330,7 @@ function soda_theme_debug_custom_fonts() {
 }
 
 // Always hook the debug function (it only shows when ?soda_debug_fonts=1 is in URL)
-add_action( 'admin_notices', 'soda_theme_debug_custom_fonts' );
+add_action( 'admin_notices', 'soda_theme_debug_custom_fonts', 5 );
 
 /**
  * Quick test function - Shows a simple message to confirm theme is active
@@ -337,6 +340,13 @@ function soda_theme_test_notice() {
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
 	}
+	
+	// Only show if NOT debugging
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( isset( $_GET['soda_debug_fonts'] ) && $_GET['soda_debug_fonts'] == '1' ) {
+		return; // Don't show this notice when debug is active
+	}
+	
 	echo '<div class="notice notice-success"><p><strong>✓ Soda Theme is active and loaded!</strong> To see custom fonts debug, add <code>?soda_debug_fonts=1</code> to the URL.</p></div>';
 }
-add_action( 'admin_notices', 'soda_theme_test_notice' );
+add_action( 'admin_notices', 'soda_theme_test_notice', 10 );
