@@ -365,11 +365,26 @@ new \Kirki\Field\Dimensions(
 		'label'       => esc_html__( 'Header Padding', 'soda-theme' ),
 		'description' => esc_html__( 'Set the padding for the site-header.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_spacing',
+		'responsive'  => true,
 		'default'     => array(
-			'padding-top'    => '24px',
-			'padding-right'  => '0px',
-			'padding-bottom' => '24px',
-			'padding-left'   => '0px',
+			'desktop' => array(
+				'padding-top'    => '24px',
+				'padding-right'  => '0px',
+				'padding-bottom' => '24px',
+				'padding-left'   => '0px',
+			),
+			'tablet'  => array(
+				'padding-top'    => '20px',
+				'padding-right'  => '0px',
+				'padding-bottom' => '20px',
+				'padding-left'   => '0px',
+			),
+			'mobile'  => array(
+				'padding-top'    => '16px',
+				'padding-right'  => '0px',
+				'padding-bottom' => '16px',
+				'padding-left'   => '0px',
+			),
 		),
 		'choices'     => array(
 			'labels' => array(
@@ -379,11 +394,15 @@ new \Kirki\Field\Dimensions(
 				'padding-left'   => esc_html__( 'Left', 'soda-theme' ),
 			),
 		),
-			'responsive'  => true,
-	'transport'   => 'auto',
+		'transport'   => 'auto',
 		'output'      => array(
 			array(
-				'element' => '.site-header',
+				'element'     => '.site-header',
+				'media_query' => array(
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				),
 			),
 		),
 	)
@@ -398,11 +417,26 @@ new \Kirki\Field\Dimensions(
 		'label'       => esc_html__( 'Sticky Header Padding', 'soda-theme' ),
 		'description' => esc_html__( 'Set the padding for the sticky site-header.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_spacing',
+		'responsive'  => true,
 		'default'     => array(
-			'padding-top'    => '12px',
-			'padding-right'  => '0px',
-			'padding-bottom' => '12px',
-			'padding-left'   => '0px',
+			'desktop' => array(
+				'padding-top'    => '12px',
+				'padding-right'  => '0px',
+				'padding-bottom' => '12px',
+				'padding-left'   => '0px',
+			),
+			'tablet'  => array(
+				'padding-top'    => '10px',
+				'padding-right'  => '0px',
+				'padding-bottom' => '10px',
+				'padding-left'   => '0px',
+			),
+			'mobile'  => array(
+				'padding-top'    => '8px',
+				'padding-right'  => '0px',
+				'padding-bottom' => '8px',
+				'padding-left'   => '0px',
+			),
 		),
 		'choices'     => array(
 			'labels' => array(
@@ -415,7 +449,12 @@ new \Kirki\Field\Dimensions(
 		'transport'   => 'auto',
 		'output'      => array(
 			array(
-				'element' => '.has-sticky-header .site-header.sticky-header',
+				'element'     => '.has-sticky-header .site-header.sticky-header',
+				'media_query' => array(
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				),
 			),
 		),
 	)
