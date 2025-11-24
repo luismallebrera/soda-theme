@@ -151,6 +151,9 @@ function soda_theme_scripts() {
 		'scrollThreshold' => get_theme_mod( 'scroll_threshold', 100 ),
 	) );
 
+	// Enqueue mobile submenu toggle script
+	wp_enqueue_script( 'soda-theme-mobile-submenu', get_template_directory_uri() . '/js/mobile-submenu.js', array(), _S_VERSION, true );
+
 	// Smooth scrolling (Lenis)
 	$enable_smooth_scrolling = get_theme_mod( 'enable_smooth_scrolling', false );
 	$exclude_pages           = get_theme_mod( 'soda_smooth_scrolling_exclude_page', array() );

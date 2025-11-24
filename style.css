@@ -1254,6 +1254,55 @@ body.has-submenu-separators .main-navigation ul ul li:not(:last-child) {
 	padding-left: 20px;
 }
 
+/* Dropdown Submenu Styles */
+.site-navigation-dropdown .mobile-nav-menu .menu-item-has-children {
+	position: relative;
+}
+
+.site-navigation-dropdown .mobile-nav-menu .menu-item-has-children > a {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.site-navigation-dropdown .mobile-nav-menu .submenu-toggle {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+.site-navigation-dropdown .mobile-nav-menu .submenu-toggle::after {
+	content: '+';
+	font-size: 24px;
+	color: #fff;
+	transition: transform 0.3s ease;
+}
+
+.site-navigation-dropdown .mobile-nav-menu .menu-item-has-children.submenu-open .submenu-toggle::after {
+	content: '−';
+}
+
+.site-navigation-dropdown .mobile-nav-menu .sub-menu {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease-out;
+	padding-left: 20px;
+}
+
+.site-navigation-dropdown .mobile-nav-menu .menu-item-has-children.submenu-open > .sub-menu {
+	max-height: 1000px;
+	transition: max-height 0.5s ease-in;
+}
+
+.site-navigation-dropdown .mobile-nav-menu .sub-menu a {
+	font-size: 18px;
+	padding: 10px 0;
+}
+
 .site-main .comment-navigation,
 .site-main
 .posts-navigation,
