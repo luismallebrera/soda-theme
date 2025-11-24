@@ -27,6 +27,30 @@ Kirki::add_config(
 );
 
 /**
+ * Add custom CSS for Color Settings Headlines
+ */
+add_action( 'customize_controls_enqueue_scripts', function() {
+	?>
+	<style>
+		#customize-control-header_container_headline .kirki-control-form,
+		#customize-control-menu_navigation_headline .kirki-control-form,
+		#customize-control-mobile_toggle_headline .kirki-control-form,
+		#customize-control-mobile_dropdown_headline .kirki-control-form {
+			padding: 10px 10px 11px;
+			background: #00a0d2 !important;
+			border-left: 0;
+			margin: 10px -12px;
+			color: #fff !important;
+			text-transform: uppercase;
+			text-align: center;
+			border-radius: 6px;
+			font-weight: bold;
+		}
+	</style>
+	<?php
+} );
+
+/**
  * Add Logo Settings Panel
  */
 new \Kirki\Panel(
