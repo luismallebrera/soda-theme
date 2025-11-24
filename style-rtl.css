@@ -741,11 +741,17 @@ textarea {
 }
 
 /* Menu Item Separators */
+body.has-menu-separators .main-navigation ul > li {
+	display: inline-flex;
+	align-items: center;
+}
+
 body.has-menu-separators .main-navigation ul > li:not(:last-child)::after {
-	content: '|';
-	margin: 0 0.5em;
+	content: '⁄';
+	margin: 0 0.75em;
 	color: currentColor;
-	opacity: 0.3;
+	opacity: 0.4;
+	display: inline-block;
 }
 
 @media screen and (max-width: 767px) {
