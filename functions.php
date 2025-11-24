@@ -221,7 +221,8 @@ if ( file_exists( get_template_directory() . '/inc/custom-fonts.php' ) ) {
 	add_action( 'admin_notices', function() {
 		if ( current_user_can( 'manage_options' ) ) {
 			$loaded = function_exists( 'soda_theme_debug_custom_fonts' ) ? 'YES ✓' : 'NO ✗';
-			echo '<div class="notice notice-info"><p><strong>Custom Fonts File:</strong> Loaded | <strong>Debug Function:</strong> ' . $loaded . '</p></div>';
+			$param_set = isset( $_GET['soda_debug_fonts'] ) ? 'YES (value: ' . esc_html( $_GET['soda_debug_fonts'] ) . ')' : 'NO';
+			echo '<div class="notice notice-info"><p><strong>Custom Fonts File:</strong> Loaded | <strong>Debug Function:</strong> ' . $loaded . ' | <strong>URL Parameter:</strong> ' . $param_set . '</p></div>';
 		}
 	}, 2 );
 } else {
