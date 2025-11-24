@@ -202,19 +202,19 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Kirki Customizer Framework configuration.
- */
-if ( file_exists( get_template_directory() . '/inc/kirki-config.php' ) ) {
-	require get_template_directory() . '/inc/kirki-config.php';
-}
-
-/**
  * Custom Fonts integration for Kirki.
  * 
  * To debug custom fonts detection, add ?soda_debug_fonts=1 to any admin URL
  * Example: wp-admin/index.php?soda_debug_fonts=1
  */
 require get_template_directory() . '/inc/custom-fonts.php';
+
+/**
+ * Kirki Customizer Framework configuration.
+ */
+if ( file_exists( get_template_directory() . '/inc/kirki-config.php' ) ) {
+	require get_template_directory() . '/inc/kirki-config.php';
+}
 
 // Debug helper - manually call debug function when parameter is set
 add_action( 'admin_notices', function() {
