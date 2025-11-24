@@ -254,16 +254,20 @@ function soda_theme_debug_custom_fonts() {
 	}
 	
 	// Only show if debug parameter is set
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	if ( ! isset( $_GET['soda_debug_fonts'] ) || $_GET['soda_debug_fonts'] != '1' ) {
 		return;
 	}
 
 	// Check what's detected
 	$debug_info = array();
+	
+	$debug_info['debug_active'] = 'YES - Debug is working!';
+	$debug_info['current_url'] = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : 'unknown';
 
 	// Check Elementor
 	if ( did_action( 'elementor/loaded' ) ) {
-		$debug_info['elementor_loaded'] = true;
+		$debug_info['elementor_loaded'] = 'YES';
 		$debug_info['elementor_fonts_option'] = get_option( 'elementor_custom_fonts', 'not found' );
 		
 		// Check for font posts
@@ -274,23 +278,24 @@ function soda_theme_debug_custom_fonts() {
 				'post_status'    => 'publish',
 			)
 		);
-		$debug_info['elementor_font_posts'] = count( $font_posts ) . ' posts found';
+		$debug_info['elementor_font_posts_count'] = count( $font_posts );
 		if ( ! empty( $font_posts ) ) {
+			$debug_info['elementor_font_names'] = array();
 			foreach ( $font_posts as $post ) {
-				$debug_info['font_post_' . $post->ID] = get_the_title( $post->ID );
+				$debug_info['elementor_font_names'][] = get_the_title( $post->ID );
 			}
 		}
 	} else {
-		$debug_info['elementor_loaded'] = false;
+		$debug_info['elementor_loaded'] = 'NO - Elementor not detected';
 	}
 
 	// Check Custom Fonts plugin
 	if ( class_exists( 'Bsf_Custom_Fonts_Render' ) ) {
-		$debug_info['custom_fonts_plugin'] = true;
+		$debug_info['custom_fonts_plugin'] = 'YES';
 		$fonts = Bsf_Custom_Fonts_Render::get_instance()->get_existing_font_posts();
 		$debug_info['custom_fonts_count'] = count( $fonts );
 	} else {
-		$debug_info['custom_fonts_plugin'] = false;
+		$debug_info['custom_fonts_plugin'] = 'NO - Custom Fonts plugin not detected';
 	}
 
 	// Check what's stored
@@ -299,11 +304,26 @@ function soda_theme_debug_custom_fonts() {
 
 	// Check the final fonts list
 	$fonts_list = apply_filters( 'soda_theme_fonts_list', array() );
-	$debug_info['families_detected'] = isset( $fonts_list['families'] ) ? array_keys( $fonts_list['families'] ) : 'none';
+	if ( isset( $fonts_list['families'] ) && ! empty( $fonts_list['families'] ) ) {
+		$debug_info['families_detected'] = array_keys( $fonts_list['families'] );
+		$debug_info['total_fonts_count'] = count( $fonts_list['families'] );
+	} else {
+		$debug_info['families_detected'] = 'NONE - No custom fonts detected';
+	}
 
-	echo '<div class="notice notice-info"><h3>Soda Theme Custom Fonts Debug</h3><pre>';
+	echo '<div class="notice notice-info" style="padding: 15px;"><h2 style="margin-top: 0;">🔍 Soda Theme Custom Fonts Debug</h2>';
+	echo '<p><strong>This debug box shows what custom fonts are detected by the theme.</strong></p>';
+	echo '<pre style="background: #f5f5f5; padding: 15px; overflow: auto; max-height: 500px;">';
 	print_r( $debug_info );
-	echo '</pre><p><strong>To see this debug info:</strong> Add <code>?soda_debug_fonts=1</code> to any admin URL</p><p><strong>Example:</strong> <a href="' . admin_url( 'index.php?soda_debug_fonts=1' ) . '">Click here to see debug</a></p></div>';
+	echo '</pre>';
+	echo '<p><strong>Need help?</strong> Check if:</p>';
+	echo '<ul>';
+	echo '<li>Elementor Pro is installed and active (required for custom fonts)</li>';
+	echo '<li>You have added custom fonts in Elementor > Custom Fonts</li>';
+	echo '<li>Font posts are published (not draft)</li>';
+	echo '</ul>';
+	echo '<p><a href="' . esc_url( admin_url( 'admin.php?page=elementor-custom-fonts' ) ) . '" class="button">Go to Elementor Custom Fonts</a></p>';
+	echo '</div>';
 }
 
 // Always hook the debug function (it only shows when ?soda_debug_fonts=1 is in URL)
