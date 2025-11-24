@@ -31,15 +31,18 @@ function soda_theme_customizer_headline_styles() {
 	echo '}';
 
 	echo '.customize-control-kirki-headline, .customize-control-kirki-headline .control-label {';
-	echo '    padding: 10px 10px 11px !important;';
+	echo '    padding: 15px 10px 16px !important;';
 	echo '    background: #00a0d2 !important;';
 	echo '    border-left: 0 !important;';
 	echo '    margin: 0 !important;';
 	echo '    color: #fff !important;';
 	echo '    text-transform: uppercase !important;';
 	echo '    text-align: center !important;';
-	echo '    border-radius: 6px !important;';
+	echo '    border-radius: 0px !important;';
 	echo '    margin-bottom: 20px !important;';
+	echo '    left: -12px;';
+	echo '    position: relative;';
+	echo '    width: calc(100% + 24px);';
 	echo '}';
 
 	echo '</style>';
