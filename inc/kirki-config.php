@@ -469,6 +469,738 @@ new \Kirki\Section(
 );
 
 /**
+ * Color Settings Section
+ */
+new \Kirki\Section(
+	'soda_theme_color_settings',
+	array(
+		'title'    => esc_html__( 'Color Settings', 'soda-theme' ),
+		'panel'    => 'soda_theme_header_panel',
+		'priority' => 45,
+	)
+);
+
+/**
+ * Color Settings Header
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'color_settings_header',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 5,
+		'default'  => '<div style="padding: 10px 10px 11px; background: #00a0d2; border-left: 0; margin: 10px -5px; color: #fff; text-transform: uppercase; text-align: center; border-radius: 6px;"><strong>' . esc_html__( 'Menu Colors', 'soda-theme' ) . '</strong></div>',
+	)
+);
+
+/**
+ * Mobile Menu Toggle Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'mobile_menu_toggle_bg_color',
+		'label'     => esc_html__( 'Mobile Toggle Background', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 10,
+		'default'   => 'rgba(255, 255, 255, 0.45)',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-toggle-holder',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_1',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 15,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Mobile Menu Toggle Text Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'mobile_menu_toggle_text_color',
+		'label'     => esc_html__( 'Mobile Toggle Text/Icon', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 20,
+		'default'   => '#000000',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-toggle-holder .site-navigation-toggle',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_2',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 25,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Hamburger Line Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'hamburger_line_color',
+		'label'     => esc_html__( 'Hamburger Icon Lines', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 30,
+		'default'   => '#ecf0f1',
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_3',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 35,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'mobile_dropdown_bg_color',
+		'label'     => esc_html__( 'Mobile Dropdown Background', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 40,
+		'default'   => 'rgba(0, 0, 0, 0.8)',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-dropdown .site-navigation-background',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_4',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 45,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Text Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'mobile_dropdown_text_color',
+		'label'     => esc_html__( 'Mobile Dropdown Text', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 50,
+		'default'   => '#ffffff',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-dropdown .mobile-nav-menu a',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_5',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 55,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Mobile Dropdown Text Hover Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'mobile_dropdown_text_hover_color',
+		'label'     => esc_html__( 'Mobile Dropdown Hover', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 60,
+		'default'   => '#ffffff',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-dropdown .mobile-nav-menu a:hover, .site-navigation-dropdown .mobile-nav-menu .current-menu-item > a',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_6',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 65,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Menu Border Bottom Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'menu_border_bottom_color',
+		'label'     => esc_html__( 'Header Border Bottom', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 70,
+		'default'   => '#F0F0F0',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-header',
+				'property' => 'border-bottom-color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_7',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 75,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Menu Navigation Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'menu_navigation_bg_color',
+		'label'     => esc_html__( 'Menu Navigation Background', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 80,
+		'default'   => 'transparent',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.main-navigation',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_8',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 85,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Menu Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'menu_bg_color',
+		'label'     => esc_html__( 'Header Background', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 90,
+		'default'   => '#ffffff',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-header',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_9',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 95,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Enable Custom Link Color
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings' => 'menu_solid_link_custom',
+		'label'    => esc_html__( 'Enable Custom Link Colors', 'soda-theme' ),
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 96,
+		'default'  => false,
+		'choices'  => array(
+			'on'  => esc_html__( 'Yes', 'soda-theme' ),
+			'off' => esc_html__( 'No', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_9b',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 97,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Menu Link Color (Regular)
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'        => 'menu_link_color_regular',
+		'label'           => esc_html__( 'Menu Link (Regular)', 'soda-theme' ),
+		'section'         => 'soda_theme_color_settings',
+		'priority'        => 100,
+		'default'         => '#656565',
+		'choices'         => array(
+			'alpha' => true,
+		),
+		'transport'       => 'postMessage',
+		'output'          => array(
+			array(
+				'element'  => '.main-navigation a',
+				'property' => 'color',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'menu_solid_link_custom',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_10',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 105,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Menu Link Color (Hover)
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'        => 'menu_link_color_hover',
+		'label'           => esc_html__( 'Menu Link (Hover)', 'soda-theme' ),
+		'section'         => 'soda_theme_color_settings',
+		'priority'        => 110,
+		'default'         => '#252525',
+		'choices'         => array(
+			'alpha' => true,
+		),
+		'transport'       => 'postMessage',
+		'output'          => array(
+			array(
+				'element'  => '.main-navigation a:hover',
+				'property' => 'color',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'menu_solid_link_custom',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_11',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 115,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Menu Link Color (Active)
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'        => 'menu_link_color_active',
+		'label'           => esc_html__( 'Menu Link (Active)', 'soda-theme' ),
+		'section'         => 'soda_theme_color_settings',
+		'priority'        => 120,
+		'default'         => '#656565',
+		'choices'         => array(
+			'alpha' => true,
+		),
+		'transport'       => 'postMessage',
+		'output'          => array(
+			array(
+				'element'  => '.main-navigation .current-menu-item > a',
+				'property' => 'color',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'menu_solid_link_custom',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_12',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 125,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Transparent Menu Link Color (Regular)
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'menu_transparent_link_color_regular',
+		'label'     => esc_html__( 'Transparent Link (Regular)', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 130,
+		'default'   => 'rgba(255,255,255,1)',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-transparent-header .main-navigation a',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_13',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 135,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Transparent Menu Link Color (Hover)
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'menu_transparent_link_color_hover',
+		'label'     => esc_html__( 'Transparent Link (Hover)', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 140,
+		'default'   => 'rgba(255,255,255,.5)',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-transparent-header .main-navigation a:hover',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_14',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 145,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Transparent Menu Link Color (Active)
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'menu_transparent_link_color_active',
+		'label'     => esc_html__( 'Transparent Link (Active)', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 150,
+		'default'   => 'rgba(255,255,255,.5)',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-transparent-header .main-navigation .current-menu-item > a',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_15',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 155,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Sticky Header Menu Link Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'sticky_header_menu_link_color',
+		'label'     => esc_html__( 'Sticky Menu Link (Regular)', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 160,
+		'default'   => '#333333',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header .main-navigation a',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_16',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 165,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Sticky Header Menu Link Color (Hover)
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'sticky_header_menu_link_color_hover',
+		'label'     => esc_html__( 'Sticky Menu Link (Hover)', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 170,
+		'default'   => '#000000',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header .main-navigation a:hover',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_17',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 175,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Sticky Header Menu Link Color (Active)
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'sticky_header_menu_link_color_active',
+		'label'     => esc_html__( 'Sticky Menu Link (Active)', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 180,
+		'default'   => '#333333',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header .main-navigation .current-menu-item > a',
+				'property' => 'color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_18',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 185,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
  * Header Padding
  */
 new \Kirki\Field\Dimensions(
@@ -1198,50 +1930,6 @@ new \Kirki\Field\Text(
 );
 
 /**
- * Mobile Menu Toggle Background Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'mobile_menu_toggle_bg_color',
-		'label'     => esc_html__( 'Toggle Background Color', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 'rgba(255, 255, 255, 0.45)',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.site-navigation-toggle-holder',
-				'property' => 'background-color',
-			),
-		),
-	)
-);
-
-/**
- * Mobile Menu Toggle Text Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'mobile_menu_toggle_text_color',
-		'label'     => esc_html__( 'Toggle Text/Icon Color', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => '#000000',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.site-navigation-toggle-holder .site-navigation-toggle',
-				'property' => 'color',
-			),
-		),
-	)
-);
-
-/**
  * Mobile Menu Toggle Padding
  */
 new \Kirki\Pro\Field\Padding(
@@ -1398,19 +2086,6 @@ new \Kirki\Field\Slider(
 );
 
 /**
- * Hamburger Line Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'    => 'hamburger_line_color',
-		'label'       => esc_html__( 'Hamburger Line Color', 'soda-theme' ),
-		'description' => esc_html__( 'Color of the hamburger menu icon lines.', 'soda-theme' ),
-		'section'     => 'soda_theme_menu_settings',
-		'default'     => '#ecf0f1',
-	)
-);
-
-/**
  * Hamburger Scale
  */
 new \Kirki\Field\Slider(
@@ -1424,28 +2099,6 @@ new \Kirki\Field\Slider(
 			'min'  => 0.5,
 			'max'  => 3,
 			'step' => 0.1,
-		),
-	)
-);
-
-/**
- * Mobile Dropdown Background Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'mobile_dropdown_bg_color',
-		'label'     => esc_html__( 'Mobile Dropdown Background Color', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 'rgba(0, 0, 0, 0.8)',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.site-navigation-dropdown .site-navigation-background',
-				'property' => 'background-color',
-			),
 		),
 	)
 );
@@ -1614,50 +2267,6 @@ new \Kirki\Field\Slider(
 );
 
 /**
- * Mobile Dropdown Text Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'mobile_dropdown_text_color',
-		'label'     => esc_html__( 'Mobile Dropdown Text Color', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => '#ffffff',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.site-navigation-dropdown .mobile-nav-menu a',
-				'property' => 'color',
-			),
-		),
-	)
-);
-
-/**
- * Mobile Dropdown Text Hover Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'mobile_dropdown_text_hover_color',
-		'label'     => esc_html__( 'Mobile Dropdown Text Hover Color', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => '#ffffff',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.site-navigation-dropdown .mobile-nav-menu a:hover, .site-navigation-dropdown .mobile-nav-menu .current-menu-item > a',
-				'property' => 'color',
-			),
-		),
-	)
-);
-
-/**
  * Mobile Dropdown Text Alignment
  */
 new \Kirki\Field\Radio_Buttonset(
@@ -1729,28 +2338,6 @@ new \Kirki\Field\Checkbox_Switch(
 		'choices'  => array(
 			'on'  => esc_html__( 'Yes', 'soda-theme' ),
 			'off' => esc_html__( 'No', 'soda-theme' ),
-		),
-	)
-);
-
-/**
- * Menu Border Bottom Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'menu_border_bottom_color',
-		'label'     => esc_html__( 'Border Bottom Color', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => '#F0F0F0',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.site-header',
-				'property' => 'border-bottom-color',
-			),
 		),
 	)
 );
@@ -1830,28 +2417,6 @@ new \Kirki\Pro\Field\Padding(
 );
 
 /**
- * Menu Navigation Background Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'menu_navigation_bg_color',
-		'label'     => esc_html__( 'Menu Navigation Background Color', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 'transparent',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.main-navigation',
-				'property' => 'background-color',
-			),
-		),
-	)
-);
-
-/**
  * Menu Navigation Box Shadow
  */
 new \Kirki\Field\Text(
@@ -1887,28 +2452,6 @@ new \Kirki\Field\Slider(
 			'step' => 1,
 		),
 		'transport'   => 'postMessage',
-	)
-);
-
-/**
- * Menu Background Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'menu_bg_color',
-		'label'     => esc_html__( 'Background Color', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => '#ffffff',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.site-header',
-				'property' => 'background-color',
-			),
-		),
 	)
 );
 
@@ -1955,241 +2498,6 @@ new \Kirki\Pro\Field\Padding(
 		'output'    => array(
 			array(
 				'element' => '.main-navigation a',
-			),
-		),
-	)
-);
-
-/**
- * Enable Custom Link Color
- */
-new \Kirki\Field\Checkbox_Switch(
-	array(
-		'settings' => 'menu_solid_link_custom',
-		'label'    => esc_html__( 'Enable Custom Link Color', 'soda-theme' ),
-		'section'  => 'soda_theme_menu_settings',
-		'default'  => false,
-		'choices'  => array(
-			'on'  => esc_html__( 'Yes', 'soda-theme' ),
-			'off' => esc_html__( 'No', 'soda-theme' ),
-		),
-	)
-);
-
-/**
- * Menu Link Color (Regular)
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'        => 'menu_link_color_regular',
-		'label'           => esc_html__( 'Link Color (Regular)', 'soda-theme' ),
-		'section'         => 'soda_theme_menu_settings',
-		'default'         => '#656565',
-		'choices'         => array(
-			'alpha' => true,
-		),
-		'transport'       => 'postMessage',
-		'output'          => array(
-			array(
-				'element'  => '.main-navigation a',
-				'property' => 'color',
-			),
-		),
-		'active_callback' => array(
-			array(
-				'setting'  => 'menu_solid_link_custom',
-				'operator' => '==',
-				'value'    => true,
-			),
-		),
-	)
-);
-
-/**
- * Menu Link Color (Hover)
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'        => 'menu_link_color_hover',
-		'label'           => esc_html__( 'Link Color (Hover)', 'soda-theme' ),
-		'section'         => 'soda_theme_menu_settings',
-		'default'         => '#252525',
-		'choices'         => array(
-			'alpha' => true,
-		),
-		'transport'       => 'postMessage',
-		'output'          => array(
-			array(
-				'element'  => '.main-navigation a:hover',
-				'property' => 'color',
-			),
-		),
-		'active_callback' => array(
-			array(
-				'setting'  => 'menu_solid_link_custom',
-				'operator' => '==',
-				'value'    => true,
-			),
-		),
-	)
-);
-
-/**
- * Menu Link Color (Active)
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'        => 'menu_link_color_active',
-		'label'           => esc_html__( 'Link Color (Active)', 'soda-theme' ),
-		'section'         => 'soda_theme_menu_settings',
-		'default'         => '#656565',
-		'choices'         => array(
-			'alpha' => true,
-		),
-		'transport'       => 'postMessage',
-		'output'          => array(
-			array(
-				'element'  => '.main-navigation .current-menu-item > a',
-				'property' => 'color',
-			),
-		),
-		'active_callback' => array(
-			array(
-				'setting'  => 'menu_solid_link_custom',
-				'operator' => '==',
-				'value'    => true,
-			),
-		),
-	)
-);
-
-/**
- * Transparent Menu Link Color (Regular)
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'menu_transparent_link_color_regular',
-		'label'     => esc_html__( 'Transparent Link Color (Regular)', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 'rgba(255,255,255,1)',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.has-transparent-header .main-navigation a',
-				'property' => 'color',
-			),
-		),
-	)
-);
-
-/**
- * Transparent Menu Link Color (Hover)
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'menu_transparent_link_color_hover',
-		'label'     => esc_html__( 'Transparent Link Color (Hover)', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 'rgba(255,255,255,.5)',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.has-transparent-header .main-navigation a:hover',
-				'property' => 'color',
-			),
-		),
-	)
-);
-
-/**
- * Transparent Menu Link Color (Active)
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'menu_transparent_link_color_active',
-		'label'     => esc_html__( 'Transparent Link Color (Active)', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 'rgba(255,255,255,.5)',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.has-transparent-header .main-navigation .current-menu-item > a',
-				'property' => 'color',
-			),
-		),
-	)
-);
-
-/**
- * Sticky Header Menu Link Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'sticky_header_menu_link_color',
-		'label'     => esc_html__( 'Sticky Header Menu Link Color', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => '#333333',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header .main-navigation a',
-				'property' => 'color',
-			),
-		),
-	)
-);
-
-/**
- * Sticky Header Menu Link Color (Hover)
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'sticky_header_menu_link_color_hover',
-		'label'     => esc_html__( 'Sticky Header Menu Link Color (Hover)', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => '#000000',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header .main-navigation a:hover',
-				'property' => 'color',
-			),
-		),
-	)
-);
-
-/**
- * Sticky Header Menu Link Color (Active)
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'sticky_header_menu_link_color_active',
-		'label'     => esc_html__( 'Sticky Header Menu Link Color (Active)', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => '#333333',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header .main-navigation .current-menu-item > a',
-				'property' => 'color',
 			),
 		),
 	)
