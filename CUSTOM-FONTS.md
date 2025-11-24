@@ -135,17 +135,57 @@ array(
 
 ## Troubleshooting
 
-**Custom fonts not appearing?**
-1. Make sure the Custom Fonts plugin is installed and activated
-2. Verify you've added fonts in the plugin settings
-3. Clear any caching (browser, WordPress, CDN)
-4. Check that you're using the `soda_theme_fonts_choices` filter in your Typography field
+### Debug Mode
 
-**Fonts not loading on frontend?**
-1. Check that font files are properly uploaded
+If fonts aren't appearing, enable debug mode to see what's detected:
+
+1. Add this line to your `functions.php` (temporarily):
+```php
+add_action( 'admin_notices', 'soda_theme_debug_custom_fonts' );
+```
+
+2. Go to WordPress admin - you'll see a debug notice showing:
+   - Whether Elementor is loaded
+   - How many font posts are found
+   - What fonts are stored in options
+   - Which font families are detected
+
+3. Remove the debug line when done
+
+### Common Issues
+
+**Elementor fonts not appearing?**
+1. **Check Elementor Pro is active** - Custom fonts require Elementor Pro
+2. Go to **Elementor > Custom Fonts** and verify fonts are added
+3. Make sure font status is "Published", not "Draft"
+4. Try re-saving your fonts in Elementor
+5. Clear Elementor cache: **Elementor > Tools > Regenerate CSS & Data**
+
+**Custom Fonts plugin fonts not appearing?**
+1. Make sure the Custom Fonts plugin is installed and activated
+2. Verify you've added fonts in **Appearance > Custom Fonts**
+3. Check that font posts are published
+4. Clear any caching (browser, WordPress, CDN)
+
+**Fonts appear in customizer but not loading on frontend?**
+1. Check that font files are properly uploaded in Elementor/Custom Fonts
 2. Verify font weights are assigned correctly
-3. Inspect browser console for any loading errors
-4. Ensure the output CSS selector is correct
+3. Inspect browser console for any 404 or loading errors
+4. Ensure the output CSS selector is correct in your Typography field
+
+**Fonts work in Elementor but not in Kirki?**
+1. Make sure you're using the `soda_theme_fonts_choices` filter in your Typography field
+2. Check the debug output to see if fonts are detected
+3. Try clearing all caches and regenerating Elementor CSS
+
+### Still Having Issues?
+
+Enable debug mode (see above) and check:
+- `elementor_loaded` should be `true` if Elementor is active
+- `elementor_font_posts` should show count > 0 if you have fonts
+- `families_detected` should include `elementor_fonts` or `custom_fonts`
+
+If fonts are detected in debug but not showing in customizer, it's likely a caching issue.
 
 ## Credits
 
