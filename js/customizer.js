@@ -161,4 +161,16 @@
 			}
 		} );
 	} );
+
+	// Header Container Backdrop Filter Blur
+	wp.customize( 'header_container_backdrop_blur', function( value ) {
+		value.bind( function( to ) {
+			var blur = to + 'px';
+			var backdropFilter = to > 0 ? 'blur(' + blur + ')' : 'none';
+			$( '.header-container, .has-sticky-header .site-header.sticky-header .header-container' ).css( {
+				'backdrop-filter': backdropFilter,
+				'-webkit-backdrop-filter': backdropFilter
+			} );
+		} );
+	} );
 }( jQuery ) );
