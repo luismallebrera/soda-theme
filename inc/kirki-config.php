@@ -18,21 +18,15 @@ if ( ! class_exists( 'Kirki' ) ) {
 /**
  * Add Kirki configuration.
  */
-Kirki::add_config(
-	'soda_theme_config',
-	array(
-		'capability'  => 'edit_theme_options',
-		'option_type' => 'theme_mod',
-	)
-);
-
-/**
- * Add custom CSS for Color Settings Headlines
- */
 add_action( 'customize_controls_enqueue_scripts', function() {
 	?>
 	<style>
-		/* Reset container positioning so we can apply the original headline style */
+		/* Target both the specific control IDs and the generic Kirki headline control
+		 * to ensure we override the default `.customize-control-kirki-headline` rules.
+		 */
+
+		/* Reset the container so our styled inner box lines up correctly */
+		.customize-control-kirki-headline,
 		#customize-control-header_container_headline,
 		#customize-control-menu_navigation_headline,
 		#customize-control-mobile_toggle_headline,
@@ -44,7 +38,17 @@ add_action( 'customize_controls_enqueue_scripts', function() {
 			position: relative !important;
 		}
 
-		/* Apply the exact styles you requested to the headline control area */
+		/* Exact headline box styles requested (high specificity + !important)
+		 * - padding: 10px 10px 11px
+		 * - background: #00a0d2
+		 * - border-left: 0
+		 * - margin: 10px -5px
+		 * - color: #fff
+		 * - text-transform: uppercase
+		 * - text-align: center
+		 * - border-radius: 6px
+		 */
+		.customize-control-kirki-headline .kirki-control-form,
 		#customize-control-header_container_headline .kirki-control-form,
 		#customize-control-menu_navigation_headline .kirki-control-form,
 		#customize-control-mobile_toggle_headline .kirki-control-form,
@@ -60,17 +64,17 @@ add_action( 'customize_controls_enqueue_scripts', function() {
 			font-weight: bold !important;
 		}
 
-		/* Ensure the headline title text inherits the white color */
+		/* Ensure the title within the control uses the white color */
+		.customize-control-kirki-headline .customize-control-title,
 		#customize-control-header_container_headline .customize-control-title,
 		#customize-control-menu_navigation_headline .customize-control-title,
 		#customize-control-mobile_toggle_headline .customize-control-title,
 		#customize-control-mobile_dropdown_headline .customize-control-title {
-			color: inherit !important;
+			color: #fff !important;
 		}
 	</style>
 	<?php
 } );
-
 /**
  * Add Logo Settings Panel
  */
