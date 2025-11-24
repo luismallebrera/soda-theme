@@ -793,6 +793,13 @@ body.admin-bar.has-fixed-header .site-header {
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* Transparent + Sticky Header (fixed position) */
+.has-transparent-header.has-sticky-header .site-header {
+	position: fixed;
+	background: transparent;
+	box-shadow: none;
+}
+
 /* Transparent + Fixed Header */
 .has-transparent-header.has-fixed-header .site-header {
 	position: fixed;
