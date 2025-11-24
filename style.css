@@ -976,6 +976,16 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 	justify-content: flex-end;
 }
 
+.main-navigation ul,
+.main-navigation ul ul,
+.main-navigation li {
+	list-style-type: none;
+	list-style: none;
+	margin-block-start: 0;
+	margin-block-end: 0;
+	padding-inline-start: 0;
+}
+
 .main-navigation ul ul {
 	float: left;
 	position: absolute;
