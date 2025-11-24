@@ -869,12 +869,22 @@ new \Kirki\Field\Typography(
 		'section'         => 'soda_theme_action_button',
 		'priority'        => 35,
 		'default'         => array(
-			'font-family'    => '',
+			'font-family'    => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
 			'variant'        => '600',
 			'font-size'      => '16px',
 			'line-height'    => '1.5',
 			'letter-spacing' => '0',
 			'text-transform' => 'none',
+		),
+		'choices'         => array(
+			'fonts' => soda_theme_get_custom_fonts_for_kirki(),
+			'variant' => array(
+				'300',
+				'regular',
+				'500',
+				'600',
+				'700',
+			),
 		),
 		'transport'       => 'auto',
 		'output'          => array(
