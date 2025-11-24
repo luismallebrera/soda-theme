@@ -41,6 +41,14 @@ function soda_theme_customizer_headline_styles() {
 	echo '    width: calc(100% + 24px);';
 	echo '}';
 
+	echo '#accordion-section-soda_theme_smooth_scrolling {';
+	echo '    padding-bottom: 0 !important;';
+	echo '}';
+
+	echo '#accordion-section-soda_theme_smooth_scrolling .accordion-section-content {';
+	echo '    padding-bottom: 15px !important;';
+	echo '}';
+
 	echo '</style>';
 }
 
