@@ -236,9 +236,15 @@ function soda_theme_kirki_fonts_choices( $settings = array() ) {
 	// Make sure the class is instantiated
 	if ( class_exists( 'Soda_Theme_Add_Custom_Fonts' ) ) {
 		$instance = Soda_Theme_Add_Custom_Fonts::instance();
+		
+		// Build fonts array by calling methods directly
+		$fonts_list = array();
+		$fonts_list = $instance->elementor_custom_fonts( $fonts_list );
+		$fonts_list = $instance->custom_fonts( $fonts_list );
+		$fonts_list = $instance->typekit_fonts( $fonts_list );
+	} else {
+		$fonts_list = apply_filters( 'soda_theme_fonts_list', array() );
 	}
-
-	$fonts_list = apply_filters( 'soda_theme_fonts_list', array() );
 
 	if ( empty( $fonts_list ) || ! isset( $fonts_list['families'] ) ) {
 		return $settings;
