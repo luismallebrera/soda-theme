@@ -754,6 +754,10 @@ body.has-menu-separators .main-navigation ul > li:not(:last-child)::after {
 	display: inline-block;
 }
 
+body.has-menu-separators .main-navigation ul ul li::after {
+	display: none !important;
+}
+
 @media screen and (max-width: 767px) {
 	body.has-menu-separators .main-navigation ul > li::after {
 		display: none;
