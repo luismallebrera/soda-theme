@@ -1039,7 +1039,6 @@ new \Kirki\Pro\Field\Headline(
 		),
 	)
 );
-
 /**
  * Logo Box Background
  */
@@ -1064,6 +1063,57 @@ new \Kirki\Field\Color(
 );
 
 /**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'logo_box_divider_1',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 78,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Logo Box Sticky Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'sticky_logo_box_bg_color',
+		'label'     => esc_html__( 'Logo Box Sticky Background', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 79,
+		'default'   => 'transparent',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-sticky-header .site-header.sticky-header .site-branding',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'logo_box_divider_2',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 80,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
  * Logo Box Border Width
  */
 new \Kirki\Field\Dimensions(
@@ -1071,7 +1121,7 @@ new \Kirki\Field\Dimensions(
 		'settings'  => 'logo_box_border',
 		'label'     => esc_html__( 'Logo Box Border Width', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority'  => 78,
+		'priority'  => 81,
 		'default'   => array(
 			'border-top-width'    => '0px',
 			'border-right-width'  => '0px',
@@ -1101,6 +1151,57 @@ new \Kirki\Field\Dimensions(
 );
 
 /**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'logo_box_divider_3',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 82,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Logo Box Border Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'logo_box_border_color',
+		'label'     => esc_html__( 'Logo Box Border Color', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 83,
+		'default'   => '#000000',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-branding',
+				'property' => 'border-color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'logo_box_divider_4',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 84,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
  * Logo Box Border Radius
  */
 new \Kirki\Field\Slider(
@@ -1108,7 +1209,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'logo_box_border_radius',
 		'label'     => esc_html__( 'Logo Box Border Radius (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority'  => 79,
+		'priority'  => 85,
 		'default'   => 0,
 		'choices'   => array(
 			'min'  => 0,
@@ -1127,6 +1228,20 @@ new \Kirki\Field\Slider(
 );
 
 /**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'logo_box_divider_5',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 86,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
  * Logo Box Backdrop Blur
  */
 new \Kirki\Field\Slider(
@@ -1134,7 +1249,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'logo_box_backdrop_blur',
 		'label'     => esc_html__( 'Logo Box Backdrop Blur (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority'  => 80,
+		'priority'  => 87,
 		'default'   => 0,
 		'choices'   => array(
 			'min'  => 0,
@@ -1146,6 +1261,20 @@ new \Kirki\Field\Slider(
 );
 
 /**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'logo_box_divider_6',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 88,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
  * Logo Box Box Shadow
  */
 new \Kirki\Field\Text(
@@ -1153,59 +1282,13 @@ new \Kirki\Field\Text(
 		'settings'  => 'logo_box_box_shadow',
 		'label'     => esc_html__( 'Logo Box Box Shadow', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority'  => 81,
+		'priority'  => 89,
 		'default'   => '',
 		'transport' => 'postMessage',
 		'output'    => array(
 			array(
 				'element'  => '.site-branding',
 				'property' => 'box-shadow',
-			),
-		),
-	)
-);
-
-/**
- * Logo Box Border Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'logo_box_border_color',
-		'label'     => esc_html__( 'Logo Box Border Color', 'soda-theme' ),
-		'section'   => 'soda_theme_color_settings',
-		'priority'  => 82,
-		'default'   => '#000000',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.site-branding',
-				'property' => 'border-color',
-			),
-		),
-	)
-);
-
-/**
- * Logo Box Sticky Background Color
- */
-new \Kirki\Field\Color(
-	array(
-		'settings'  => 'sticky_logo_box_bg_color',
-		'label'     => esc_html__( 'Logo Box Sticky Background', 'soda-theme' ),
-		'section'   => 'soda_theme_color_settings',
-		'priority'  => 83,
-		'default'   => 'transparent',
-		'choices'   => array(
-			'alpha' => true,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.has-sticky-header .site-header.sticky-header .site-branding',
-				'property' => 'background-color',
 			),
 		),
 	)
