@@ -869,8 +869,6 @@ new \Kirki\Field\Dimensions(
 		'output'    => array(
 			array(
 				'element'  => '.header-container, .has-sticky-header .site-header.sticky-header .header-container',
-				'property' => 'border-style',
-				'value'    => 'solid',
 			),
 		),
 	)
@@ -1133,8 +1131,6 @@ new \Kirki\Field\Dimensions(
 		'output'    => array(
 			array(
 				'element'  => '.site-branding',
-				'property' => 'border-style',
-				'value'    => 'solid',
 			),
 		),
 	)
@@ -1431,8 +1427,6 @@ new \Kirki\Field\Dimensions(
 		'output'    => array(
 			array(
 				'element'  => '.main-navigation, .has-sticky-header .site-header.sticky-header .main-navigation',
-				'property' => 'border-style',
-				'value'    => 'solid',
 			),
 		),
 	)
@@ -1696,8 +1690,6 @@ new \Kirki\Field\Text(
 		'output'    => array(
 			array(
 				'element'  => '.main-navigation .sub-menu, .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu',
-				'property' => 'border-style',
-				'value'    => 'solid',
 			),
 		),
 	)
@@ -1938,8 +1930,6 @@ new \Kirki\Field\Dimensions(
 		'output'    => array(
 			array(
 				'element'  => '.site-navigation-toggle-holder, .has-sticky-header .site-header.sticky-header .site-navigation-toggle-holder',
-				'property' => 'border-style',
-				'value'    => 'solid',
 			),
 		),
 	)
@@ -2219,8 +2209,6 @@ new \Kirki\Field\Dimensions(
 		'output'    => array(
 			array(
 				'element'  => '.site-navigation-dropdown .site-navigation-background',
-				'property' => 'border-style',
-				'value'    => 'solid',
 			),
 		),
 	)
