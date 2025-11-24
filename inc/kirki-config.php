@@ -986,7 +986,7 @@ new \Kirki\Field\Slider(
 		'section'     => 'soda_theme_grid_line',
 		'default'     => 0,
 		'choices'     => array(
-			'min'  => 0,
+			'min'  => -9999,
 			'max'  => 9999,
 			'step' => 1,
 		),
