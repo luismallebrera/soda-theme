@@ -239,3 +239,13 @@ function soda_theme_admin_font() {
 add_action( 'admin_head', 'soda_theme_admin_font' );
 add_action( 'login_head', 'soda_theme_admin_font' );
 
+/**
+ * TEMPORARY TEST - Shows theme is active
+ */
+function soda_theme_test_active() {
+	if ( is_admin() && current_user_can( 'manage_options' ) ) {
+		echo '<div class="notice notice-warning" style="border-left-color: #00ff00;"><p><strong>🟢 SODA THEME IS ACTIVE - functions.php loaded!</strong></p></div>';
+	}
+}
+add_action( 'admin_notices', 'soda_theme_test_active', 1 );
+
