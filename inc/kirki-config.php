@@ -2661,6 +2661,91 @@ new \Kirki\Section(
 );
 
 /**
+ * Navigation Typography Section
+ */
+new \Kirki\Section(
+	'soda_theme_navigation_typography',
+	array(
+		'title'       => esc_html__( 'Navigation Typography', 'soda-theme' ),
+		'panel'       => 'soda_theme_typography_panel',
+		'priority'    => 15,
+		'description' => esc_html__( 'Typography settings for menu and submenu items.', 'soda-theme' ),
+	)
+);
+
+/**
+ * Menu Font Family
+ */
+new \Kirki\Field\Typography(
+	array(
+		'settings' => 'menu_typography',
+		'label'    => esc_html__( 'Menu Font Family', 'soda-theme' ),
+		'section'  => 'soda_theme_navigation_typography',
+		'priority' => 10,
+		'transport'   => 'auto',
+		'default'  => array(
+			'font-family'    => 'inherit',
+			'variant'        => 'regular',
+			'font-size'      => '1rem',
+			'line-height'    => '1.6',
+			'letter-spacing' => '0',
+			'text-transform' => 'none',
+		),
+		'choices'  => array(
+			'fonts' => soda_theme_get_custom_fonts_for_kirki(),
+			'variant' => array(
+				'300',
+				'regular',
+				'500',
+				'600',
+				'700',
+			),
+		),
+		'output'   => array(
+			array(
+				'element' => '.main-navigation a, .site-navigation a',
+			),
+		),
+	)
+);
+
+/**
+ * Submenu Font Family
+ */
+new \Kirki\Field\Typography(
+	array(
+		'settings' => 'submenu_typography',
+		'label'    => esc_html__( 'Submenu Font Family', 'soda-theme' ),
+		'section'  => 'soda_theme_navigation_typography',
+		'priority' => 20,
+		'transport'   => 'auto',
+		'default'  => array(
+			'font-family'    => 'inherit',
+			'variant'        => 'regular',
+			'font-size'      => '0.9rem',
+			'line-height'    => '1.6',
+			'letter-spacing' => '0',
+			'text-transform' => 'none',
+		),
+		'choices'  => array(
+			'fonts' => soda_theme_get_custom_fonts_for_kirki(),
+			'variant' => array(
+				'300',
+				'regular',
+				'500',
+				'600',
+				'700',
+			),
+		),
+		'output'   => array(
+			array(
+				'element' => '.main-navigation .sub-menu a, .site-navigation .sub-menu a',
+			),
+		),
+	)
+);
+
+/**
  * H1 Typography
  */
 new \Kirki\Field\Typography(
