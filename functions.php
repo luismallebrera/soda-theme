@@ -214,7 +214,23 @@ if ( file_exists( get_template_directory() . '/inc/kirki-config.php' ) ) {
  * To debug custom fonts detection, add ?soda_debug_fonts=1 to any admin URL
  * Example: wp-admin/index.php?soda_debug_fonts=1
  */
-require get_template_directory() . '/inc/custom-fonts.php';
+if ( file_exists( get_template_directory() . '/inc/custom-fonts.php' ) ) {
+	require get_template_directory() . '/inc/custom-fonts.php';
+	
+	// Test that file loaded
+	add_action( 'admin_notices', function() {
+		if ( current_user_can( 'manage_options' ) ) {
+			$loaded = function_exists( 'soda_theme_debug_custom_fonts' ) ? 'YES ✓' : 'NO ✗';
+			echo '<div class="notice notice-info"><p><strong>Custom Fonts File:</strong> Loaded | <strong>Debug Function:</strong> ' . $loaded . '</p></div>';
+		}
+	}, 2 );
+} else {
+	add_action( 'admin_notices', function() {
+		if ( current_user_can( 'manage_options' ) ) {
+			echo '<div class="notice notice-error"><p><strong>ERROR:</strong> custom-fonts.php file not found!</p></div>';
+		}
+	});
+}
 
 /**
  * Load Jetpack compatibility file.
