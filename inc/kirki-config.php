@@ -2486,6 +2486,43 @@ new \Kirki\Field\Typography(
 );
 
 /**
+ * Mobile Menu Text Typography
+ */
+new \Kirki\Field\Typography(
+	array(
+		'settings' => 'mobile_menu_text_typography',
+		'label'    => esc_html__( 'Mobile Menu Text Typography', 'soda-theme' ),
+		'section'  => 'soda_theme_navigation_typography',
+		'priority' => 30,
+		'transport'   => 'auto',
+		'default'  => array(
+			'font-family'    => 'inherit',
+			'variant'        => 'regular',
+			'font-size'      => '0.875rem',
+			'line-height'    => '1',
+			'letter-spacing' => '0',
+			'text-transform' => 'uppercase',
+		),
+		'choices'  => array(
+			'fonts' => soda_theme_get_custom_fonts_for_kirki(),
+			'variant' => array(
+				'300',
+				'regular',
+				'400',
+				'500',
+				'600',
+				'700',
+			),
+		),
+		'output'   => array(
+			array(
+				'element' => '.site-navigation-toggle .menu-text',
+			),
+		),
+	)
+);
+
+/**
  * H1 Typography
  */
 new \Kirki\Field\Typography(
