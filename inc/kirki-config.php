@@ -944,7 +944,7 @@ new \Kirki\Field\Dimension(
 		'output'      => array(
 			array(
 				'element'  => 'body',
-				'property' => '--grid-line-width',
+				'property' => '--grid-line-thickness',
 			),
 		),
 	)

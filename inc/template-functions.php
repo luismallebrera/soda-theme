@@ -122,10 +122,10 @@ function soda_theme_grid_line_styles() {
 			pointer-events: none;
 			z-index: var(--grid-line-z-index, 0);
 			min-height: 100vh;
-			width: calc(var(--grid-line-the-width) - (2 * 0px));
+			width: calc(var(--grid-line-width) - (2 * 0px));
 			max-width: var(--grid-line-max-width, 100%);
-			background-size: calc(100% + var(--grid-line-width, 1px)) 100%;
-			background-image: repeating-linear-gradient(var(--grid-line-direction, 90deg), var(--grid-line-column-color, transparent), var(--grid-line-column-color, transparent) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc(100% / var(--grid-line-columns, 12)));
+			background-size: calc(100% + var(--grid-line-thickness, 1px)) 100%;
+			background-image: repeating-linear-gradient(var(--grid-line-direction, 90deg), var(--grid-line-column-color, transparent), var(--grid-line-column-color, transparent) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-thickness, 1px)), var(--grid-line-color, #eee) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-thickness, 1px)), var(--grid-line-color, #eee) calc(100% / var(--grid-line-columns, 12)));
 		}';
 	} elseif ( $right_display === 'outline' ) {
 		$right_side_style = 'body::after {
@@ -140,10 +140,10 @@ function soda_theme_grid_line_styles() {
 			pointer-events: none;
 			z-index: var(--grid-line-z-index, 0);
 			min-height: 100vh;
-			width: calc(var(--grid-line-the-width) - (2 * 0px));
+			width: calc(var(--grid-line-width) - (2 * 0px));
 			max-width: var(--grid-line-max-width, 100%);
-			background-size: calc(100% + var(--grid-line-width, 1px)) 100%;
-			background-image: repeating-linear-gradient(var(--grid-line-direction, 90deg), var(--grid-line-column-color, transparent), var(--grid-line-column-color, transparent) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc(100% / var(--grid-line-columns, 12)));
+			background-size: calc(100% + var(--grid-line-thickness, 1px)) 100%;
+			background-image: repeating-linear-gradient(var(--grid-line-direction, 90deg), var(--grid-line-column-color, transparent), var(--grid-line-column-color, transparent) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-thickness, 1px)), var(--grid-line-color, #eee) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-thickness, 1px)), var(--grid-line-color, #eee) calc(100% / var(--grid-line-columns, 12)));
 			outline: var(--grid-line-width, 1px) solid var(--grid-line-color, #eee);
 		}';
 	}
@@ -155,8 +155,8 @@ function soda_theme_grid_line_styles() {
 			--grid-line-column-color: <?php echo esc_attr( $column_color ); ?>;
 			--grid-line-columns: <?php echo (int) $columns; ?>;
 			--grid-line-max-width: <?php echo esc_attr( $max_width ); ?>;
-			--grid-line-the-width: <?php echo esc_attr( $the_width ); ?>;
-			--grid-line-width: <?php echo esc_attr( $line_width ); ?>;
+			--grid-line-width: <?php echo esc_attr( $the_width ); ?>;
+			--grid-line-thickness: <?php echo esc_attr( $line_width ); ?>;
 			--grid-line-direction: <?php echo (int) $direction; ?>deg;
 			--grid-line-z-index: <?php echo (int) $z_index; ?>;
 		}
@@ -172,10 +172,10 @@ function soda_theme_grid_line_styles() {
 			pointer-events: none;
 			z-index: var(--grid-line-z-index, 0);
 			min-height: 100vh;
-			width: calc(var(--grid-line-the-width) - (2 * 0px));
+			width: calc(var(--grid-line-width) - (2 * 0px));
 			max-width: var(--grid-line-max-width, 100%);
-			background-size: calc(100% + var(--grid-line-width, 1px)) 100%;
-			background-image: repeating-linear-gradient(var(--grid-line-direction, 90deg), var(--grid-line-column-color, transparent), var(--grid-line-column-color, transparent) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-width, 1px)), var(--grid-line-color, #eee) calc(100% / var(--grid-line-columns, 12)));
+			background-size: calc(100% + var(--grid-line-thickness, 1px)) 100%;
+			background-image: repeating-linear-gradient(var(--grid-line-direction, 90deg), var(--grid-line-column-color, transparent), var(--grid-line-column-color, transparent) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-thickness, 1px)), var(--grid-line-color, #eee) calc((100% / var(--grid-line-columns, 12)) - var(--grid-line-thickness, 1px)), var(--grid-line-color, #eee) calc(100% / var(--grid-line-columns, 12)));
 			<?php echo $outline_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		}
 		<?php echo $right_side_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
