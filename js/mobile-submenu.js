@@ -17,7 +17,9 @@
 		const menuItems = dropdownMenu.querySelectorAll('.menu-item-has-children');
 		
 		menuItems.forEach(function(item) {
-			const link = item.querySelector('> a');
+			// Find the direct child link
+			const links = item.querySelectorAll('a');
+			const link = links.length > 0 ? links[0] : null;
 			
 			if (!link) {
 				return;
