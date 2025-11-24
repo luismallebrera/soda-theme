@@ -558,6 +558,19 @@ new \Kirki\Pro\Field\Divider(
 );
 
 /**
+ * HEADER CONTAINER - wrapper start
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'header_container_wrapper_start',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 19,
+		'default'  => '<div class="soda-customizer-section soda-header-container">',
+	)
+);
+
+
+/**
  * HEADER CONTAINER
  */
 new \Kirki\Pro\Field\Headline(
@@ -825,6 +838,32 @@ new \Kirki\Field\Text(
 	)
 );
 
+		/**
+		 * MENU NAVIGATION - wrapper end
+		 */
+		new \Kirki\Field\Custom(
+			array(
+				'settings' => 'menu_navigation_wrapper_end',
+				'section'  => 'soda_theme_color_settings',
+				'priority' => 149,
+				'default'  => '</div>',
+			)
+		);
+
+
+		/**
+		 * HEADER CONTAINER - wrapper end
+		 */
+		new \Kirki\Field\Custom(
+			array(
+				'settings' => 'header_container_wrapper_end',
+				'section'  => 'soda_theme_color_settings',
+				'priority' => 79,
+				'default'  => '</div>',
+			)
+		);
+
+
 /**
  * Divider
  */
@@ -854,6 +893,19 @@ new \Kirki\Pro\Field\Headline(
 		),
 	)
 );
+
+/**
+ * MENU NAVIGATION - wrapper start
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'menu_navigation_wrapper_start',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 84,
+		'default'  => '<div class="soda-customizer-section soda-menu-navigation">',
+	)
+);
+
 
 /**
  * Menu Navigation Background Color
@@ -1124,6 +1176,19 @@ new \Kirki\Pro\Field\Headline(
 );
 
 /**
+ * MOBILE TOGGLE - wrapper start
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'mobile_toggle_wrapper_start',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 149,
+		'default'  => '<div class="soda-customizer-section soda-mobile-toggle">',
+	)
+);
+
+
+/**
  * Mobile Menu Toggle Background Color
  */
 new \Kirki\Field\Color(
@@ -1390,6 +1455,19 @@ new \Kirki\Pro\Field\Divider(
 );
 
 /**
+ * MOBILE TOGGLE - wrapper end
+ */
+new \Kirki\Field\Custom(
+    array(
+        'settings' => 'mobile_toggle_wrapper_end',
+        'section'  => 'soda_theme_color_settings',
+        'priority' => 209,
+        'default'  => '</div>',
+    )
+);
+
+
+/**
  * MOBILE DROPDOWN
  */
 new \Kirki\Pro\Field\Headline(
@@ -1404,6 +1482,19 @@ new \Kirki\Pro\Field\Headline(
 		),
 	)
 );
+
+/**
+ * MOBILE DROPDOWN - wrapper start
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'mobile_dropdown_wrapper_start',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 214,
+		'default'  => '<div class="soda-customizer-section soda-mobile-dropdown">',
+	)
+);
+
 
 /**
  * Mobile Dropdown Background Color
@@ -1441,6 +1532,19 @@ new \Kirki\Pro\Field\Divider(
 		),
 	)
 );
+
+/**
+ * MOBILE DROPDOWN - wrapper end
+ */
+new \Kirki\Field\Custom(
+    array(
+        'settings' => 'mobile_dropdown_wrapper_end',
+        'section'  => 'soda_theme_color_settings',
+        'priority' => 224,
+        'default'  => '</div>',
+    )
+);
+
 
 /**
  * Mobile Dropdown Border
