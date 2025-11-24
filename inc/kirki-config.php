@@ -54,10 +54,11 @@ add_action( 'customize_controls_print_styles', function() {
 
 		/* Make soda-customizer-section wrappers visible for debugging/verification */
 		.soda-customizer-section {
-			border: 1px dashed rgba(0,0,0,0.12) !important;
-			background: rgba(0,160,210,0.03) !important;
-			padding: 8px 12px !important;
-			margin: 6px 0 !important;
+			border: 1px solid rgba(0,160,210,0.18) !important;
+			background: rgba(0,160,210,0.10) !important;
+			padding: 12px 14px !important;
+			margin: 8px 0 !important;
+			box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset !important;
 		}
 
 		/* Style Kirki divider controls to match the requested HR appearance */
