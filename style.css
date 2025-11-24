@@ -702,7 +702,6 @@ textarea {
 	left: 0;
 	right: 0;
 	z-index: 999;
-	background: #fff;
 }
 
 .has-sticky-header .site-header.sticky-header .site-title {
