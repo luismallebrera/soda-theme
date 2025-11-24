@@ -659,6 +659,8 @@ textarea {
 	line-height: inherit !important;
 	letter-spacing: inherit !important;
 	text-transform: inherit !important;
+	padding: inherit !important;
+	border-width: inherit !important;
 }
 
 .action-button:hover,

@@ -845,7 +845,6 @@ new \Kirki\Pro\Field\Padding(
 		'output'          => array(
 			array(
 				'element' => '.action-button',
-				'suffix'  => ' !important',
 			),
 		),
 		'active_callback' => array(
@@ -1059,7 +1058,6 @@ new \Kirki\Field\Dimensions(
 		'output'          => array(
 			array(
 				'element' => '.action-button',
-				'suffix'  => ' !important',
 			),
 		),
 		'active_callback' => array(
