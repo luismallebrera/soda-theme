@@ -245,11 +245,16 @@ function soda_theme_kirki_fonts_choices( $settings = array() ) {
 }
 
 /**
- * Debug helper - Add to check what fonts are detected
- * Add this to your functions.php temporarily: add_action('admin_notices', 'soda_theme_debug_custom_fonts');
+ * Debug helper - Add ?soda_debug_fonts=1 to any admin URL to see debug info
+ * Example: wp-admin/index.php?soda_debug_fonts=1
  */
 function soda_theme_debug_custom_fonts() {
 	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	
+	// Only show if debug parameter is set
+	if ( ! isset( $_GET['soda_debug_fonts'] ) || $_GET['soda_debug_fonts'] != '1' ) {
 		return;
 	}
 
@@ -298,5 +303,8 @@ function soda_theme_debug_custom_fonts() {
 
 	echo '<div class="notice notice-info"><h3>Soda Theme Custom Fonts Debug</h3><pre>';
 	print_r( $debug_info );
-	echo '</pre><p><strong>To use debug:</strong> Add this to functions.php: <code>add_action(\'admin_notices\', \'soda_theme_debug_custom_fonts\');</code></p></div>';
+	echo '</pre><p><strong>To see this debug info:</strong> Add <code>?soda_debug_fonts=1</code> to any admin URL</p><p><strong>Example:</strong> <a href="' . admin_url( 'index.php?soda_debug_fonts=1' ) . '">Click here to see debug</a></p></div>';
 }
+
+// Always hook the debug function (it only shows when ?soda_debug_fonts=1 is in URL)
+add_action( 'admin_notices', 'soda_theme_debug_custom_fonts' );

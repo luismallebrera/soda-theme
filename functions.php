@@ -211,12 +211,10 @@ if ( file_exists( get_template_directory() . '/inc/kirki-config.php' ) ) {
 /**
  * Custom Fonts integration for Kirki.
  * 
- * To debug custom fonts detection, uncomment the line below:
- * add_action( 'admin_notices', 'soda_theme_debug_custom_fonts' );
+ * To debug custom fonts detection, add ?soda_debug_fonts=1 to any admin URL
+ * Example: wp-admin/index.php?soda_debug_fonts=1
  */
 require get_template_directory() . '/inc/custom-fonts.php';
-// Uncomment to debug custom fonts:
-// add_action( 'admin_notices', 'soda_theme_debug_custom_fonts' );
 
 /**
  * Load Jetpack compatibility file.
