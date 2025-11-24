@@ -907,12 +907,12 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 }
 
 .main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
 	position: absolute;
 	top: 100%;
 	left: -999em;
 	z-index: 99999;
+	flex-direction: column;
 }
 
 .main-navigation ul ul ul {
