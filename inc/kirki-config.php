@@ -2281,6 +2281,18 @@ new \Kirki\Section(
 );
 
 /**
+ * Desktop Menu Header
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'desktop_menu_header',
+		'section'  => 'soda_theme_navigation_typography',
+		'priority' => 5,
+		'default'  => '<div style="padding: 15px 10px; background: #f0f0f0; border-left: 3px solid #2271b1; margin: 10px 0;"><strong>' . esc_html__( 'Desktop Menu', 'soda-theme' ) . '</strong></div>',
+	)
+);
+
+/**
  * Menu Font
  */
 new \Kirki\Field\Typography(
@@ -2355,6 +2367,18 @@ new \Kirki\Field\Typography(
 );
 
 /**
+ * Mobile Menu Toggle Header
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'mobile_toggle_header',
+		'section'  => 'soda_theme_navigation_typography',
+		'priority' => 25,
+		'default'  => '<div style="padding: 15px 10px; background: #f0f0f0; border-left: 3px solid #2271b1; margin: 20px 0 10px 0;"><strong>' . esc_html__( 'Mobile Menu Toggle', 'soda-theme' ) . '</strong></div>',
+	)
+);
+
+/**
  * Toggle Font
  */
 new \Kirki\Field\Typography(
@@ -2388,6 +2412,18 @@ new \Kirki\Field\Typography(
 				'element' => '.site-navigation-toggle .menu-text',
 			),
 		),
+	)
+);
+
+/**
+ * Mobile Menu Dropdown Header
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'mobile_dropdown_header',
+		'section'  => 'soda_theme_navigation_typography',
+		'priority' => 35,
+		'default'  => '<div style="padding: 15px 10px; background: #f0f0f0; border-left: 3px solid #2271b1; margin: 20px 0 10px 0;"><strong>' . esc_html__( 'Mobile Menu Dropdown', 'soda-theme' ) . '</strong></div>',
 	)
 );
 
