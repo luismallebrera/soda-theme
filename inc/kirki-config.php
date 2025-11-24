@@ -1066,6 +1066,26 @@ new \Kirki\Field\Text(
 );
 
 /**
+ * Mobile Menu Close Text
+ */
+new \Kirki\Field\Text(
+	array(
+		'settings'        => 'mobile_menu_close_text',
+		'label'           => esc_html__( 'Menu Close Text', 'soda-theme' ),
+		'description'     => esc_html__( 'Text to display when mobile menu is open.', 'soda-theme' ),
+		'section'         => 'soda_theme_menu_settings',
+		'default'         => 'CLOSE',
+		'active_callback' => array(
+			array(
+				'setting'  => 'mobile_menu_show_text',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
  * Mobile Menu Toggle Background Color
  */
 new \Kirki\Field\Color(

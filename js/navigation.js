@@ -37,6 +37,7 @@
 	function toggleMobileMenu() {
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
+			button.classList.remove( 'toggled' );
 			if ( hamburger ) {
 				hamburger.classList.remove( 'is-active' );
 			}
@@ -50,6 +51,7 @@
 			}
 		} else {
 			button.setAttribute( 'aria-expanded', 'true' );
+			button.classList.add( 'toggled' );
 			if ( hamburger ) {
 				hamburger.classList.add( 'is-active' );
 			}

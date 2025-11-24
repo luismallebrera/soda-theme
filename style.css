@@ -980,10 +980,49 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 	gap: 10px;
 }
 
+/* Menu Text Wrapper with Perspective */
+.site-navigation-toggle-holder .menu-text-wrapper {
+	perspective: 6em;
+	display: inline-block;
+	position: relative;
+}
+
+/* Menu Text Base Styles */
 .site-navigation-toggle-holder .menu-text {
 	font-weight: 600;
 	font-size: 14px;
 	letter-spacing: 1px;
+	display: inline-block;
+}
+
+/* First Text (Default State - Visible) */
+.site-navigation-toggle-holder .menu-text:nth-child(1) {
+	transform-origin: top;
+	transition: transform 0.55s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.35s linear 0.2s;
+}
+
+/* Second Text (Default State - Hidden) */
+.site-navigation-toggle-holder .menu-text:nth-child(2) {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	transform: rotateX(-90deg) scaleX(0.9) translate3d(0, 10px, 0);
+	transform-origin: bottom;
+	transition: transform 0.55s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.35s linear 0.2s;
+}
+
+/* Open State - First Text (Hide) */
+.site-navigation-toggle.toggled .menu-text:nth-child(1) {
+	opacity: 0;
+	transform: rotateX(90deg) scaleX(0.9) translate3d(0, -10px, 0);
+}
+
+/* Open State - Second Text (Show) */
+.site-navigation-toggle.toggled .menu-text:nth-child(2) {
+	opacity: 1;
+	transform: rotateX(0deg) scaleX(1) translateZ(0);
+	transition: transform 0.75s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.35s linear 0.3s;
 }
 
 /* Hamburger Icon */
