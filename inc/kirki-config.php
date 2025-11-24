@@ -18,6 +18,26 @@ Kirki::add_config(
 
 /**
  * Re-add customizer Headline styling (cyan boxed headline)
+ * Only prints CSS into the Customizer controls area; no JS.
+ */
+add_action( 'customize_controls_print_styles', 'soda_theme_customizer_headline_styles' );
+function soda_theme_customizer_headline_styles() {
+	echo '<style>';
+	echo '.customize-control-kirki-headline, .customize-control-kirki-headline .control-label {';
+	echo 'padding: 10px 10px 11px;';
+	echo 'background: #00a0d2;';
+	echo 'border-left: 0;';
+	echo 'margin: 10px -5px;';
+	echo 'color: #fff;';
+	echo 'text-transform: uppercase;';
+	echo 'text-align: center;';
+	echo 'border-radius: 6px;';
+	echo '}';
+	echo '</style>';
+}
+
+/**
+ * Re-add customizer Headline styling (cyan boxed headline)
  * This only affects the Customizer controls area.
  */
 /* Removed custom Customizer CSS and grouping JS to fix runtime error / white page. */
