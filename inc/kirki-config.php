@@ -2629,17 +2629,15 @@ new \Kirki\Field\Typography(
 			'letter-spacing' => '0',
 			'text-transform' => 'none',
 		),
-		'choices'  => apply_filters(
-			'soda_theme_fonts_choices',
-			array(
-				'variant' => array(
-					'300',
-					'regular',
-					'500',
-					'600',
-					'700',
-				),
-			)
+		'choices'  => array(
+			'fonts' => soda_theme_get_custom_fonts_for_kirki(),
+			'variant' => array(
+				'300',
+				'regular',
+				'500',
+				'600',
+				'700',
+			),
 		),
 		'output'   => array(
 			array(
@@ -2679,19 +2677,17 @@ new \Kirki\Field\Typography(
 			'letter-spacing' => '0',
 			'text-transform' => 'none',
 		),
-		'choices'  => apply_filters(
-			'soda_theme_fonts_choices',
-			array(
-				'variant' => array(
-					'300',
-					'regular',
-					'500',
-					'600',
-					'700',
-					'800',
-					'900',
-				),
-			)
+		'choices'  => array(
+			'fonts' => soda_theme_get_custom_fonts_for_kirki(),
+			'variant' => array(
+				'300',
+				'regular',
+				'500',
+				'600',
+				'700',
+				'800',
+				'900',
+			),
 		),
 		'output'   => array(
 			array(
@@ -2718,19 +2714,17 @@ new \Kirki\Field\Typography(
 			'letter-spacing' => '0',
 			'text-transform' => 'none',
 		),
-		'choices'  => apply_filters(
-			'soda_theme_fonts_choices',
-			array(
-				'variant' => array(
-					'300',
-					'regular',
-					'500',
-					'600',
-					'700',
-					'800',
-					'900',
-				),
-			)
+		'choices'  => array(
+			'fonts' => soda_theme_get_custom_fonts_for_kirki(),
+			'variant' => array(
+				'300',
+				'regular',
+				'500',
+				'600',
+				'700',
+				'800',
+				'900',
+			),
 		),
 		'output'   => array(
 			array(
@@ -2757,19 +2751,17 @@ new \Kirki\Field\Typography(
 			'letter-spacing' => '0',
 			'text-transform' => 'none',
 		),
-		'choices'  => apply_filters(
-			'soda_theme_fonts_choices',
-			array(
-				'variant' => array(
-					'300',
-					'regular',
-					'500',
-					'600',
-					'700',
-					'800',
-					'900',
-				),
-			)
+		'choices'  => array(
+			'fonts' => soda_theme_get_custom_fonts_for_kirki(),
+			'variant' => array(
+				'300',
+				'regular',
+				'500',
+				'600',
+				'700',
+				'800',
+				'900',
+			),
 		),
 		'output'   => array(
 			array(

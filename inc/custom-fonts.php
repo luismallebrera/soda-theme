@@ -229,6 +229,50 @@ if ( ! class_exists( 'Soda_Theme_Add_Custom_Fonts' ) ) {
 add_filter( 'soda_theme_fonts_choices', 'soda_theme_kirki_fonts_choices' );
 
 /**
+ * Get custom fonts for Kirki - called directly when building Customizer
+ */
+function soda_theme_get_custom_fonts_for_kirki() {
+	// Query Elementor fonts directly
+	$font_posts = get_posts(
+		array(
+			'post_type'      => 'elementor_font',
+			'posts_per_page' => -1,
+			'post_status'    => 'publish',
+			'suppress_filters' => true,
+		)
+	);
+
+	if ( empty( $font_posts ) ) {
+		return array(); // Return empty if no fonts
+	}
+
+	$fonts_array = array(
+		'google'   => array(),
+		'families' => array(
+			'elementor_fonts' => array(
+				'text'     => esc_html__( 'Elementor Custom Fonts', 'soda-theme' ),
+				'children' => array(),
+			),
+		),
+		'variants' => array(),
+	);
+
+	foreach ( $font_posts as $post ) {
+		$font_name = get_the_title( $post->ID );
+		if ( ! empty( $font_name ) ) {
+			$fonts_array['families']['elementor_fonts']['children'][] = array(
+				'id'   => $font_name,
+				'text' => $font_name,
+			);
+			// Add all font weights
+			$fonts_array['variants'][ $font_name ] = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
+		}
+	}
+
+	return $fonts_array;
+}
+
+/**
  * Add support for custom fonts in Kirki
  */
 function soda_theme_kirki_fonts_choices( $settings = array() ) {
@@ -245,8 +289,14 @@ function soda_theme_kirki_fonts_choices( $settings = array() ) {
 			'post_type'      => 'elementor_font',
 			'posts_per_page' => -1,
 			'post_status'    => 'publish',
+			'suppress_filters' => true, // Bypass filters that might interfere
 		)
 	);
+	
+	// Debug log to see what we get
+	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+		error_log( 'Kirki filter called - Font posts found: ' . count( $font_posts ) );
+	}
 
 	if ( ! empty( $font_posts ) ) {
 		$fonts_list['families']['elementor_fonts'] = array(
