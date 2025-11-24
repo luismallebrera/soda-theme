@@ -2,17 +2,7 @@
 /**
  * Kirki Customizer Configuration
  *
- * @package soda-theme
- */
 
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
-// Do not proceed if Kirki does not exist.
-if ( ! class_exists( 'Kirki' ) ) {
-	return;
 }
 
 /**
@@ -30,115 +20,7 @@ Kirki::add_config(
  * Re-add customizer Headline styling (cyan boxed headline)
  * This only affects the Customizer controls area.
  */
-add_action( 'customize_controls_print_styles', 'soda_theme_customizer_headline_styles' );
-function soda_theme_customizer_headline_styles() {
-	echo '<style>';
-	echo ".customize-control-kirki-headline, .customize-control-kirki-headline .control-label {";
-	echo 'padding: 10px 10px 11px;';
-	echo 'background: #00a0d2;';
-	echo 'border-left: 0;';
-	echo 'margin: 10px -5px;';
-	echo 'color: #fff;';
-	echo 'text-transform: uppercase;';
-	echo 'text-align: center;';
-	echo 'border-radius: 6px;';
-	echo '}';
-	echo '</style>';
-}
-
-	/**
-	 * Add JS to group controls between wrapper placeholders into a single wrapper.
-	 * This moves the rendered <li> controls between the start/end placeholders
-	 * into a wrapper div so fields appear visually grouped in the Customizer.
-	 */
-	add_action( 'customize_controls_print_footer_scripts', 'soda_theme_customizer_grouping_scripts' );
-	function soda_theme_customizer_grouping_scripts() {
-		?>
-		<script>
-		(function(){
-			'use strict';
-			function moveControlsIntoWrapper(startId, endId, wrapperClass) {
-				try {
-					var start = document.getElementById('customize-control-' + startId);
-					var end = document.getElementById('customize-control-' + endId);
-					if (!start || !end) return false;
-
-					// Ensure both elements share the same parent
-					var parent = start.parentNode;
-					if (!parent || end.parentNode !== parent) return false;
-
-					// Create wrapper element with the requested classes
-					var wrapper = document.createElement('div');
-					wrapper.className = wrapperClass;
-
-					// Insert wrapper before the end placeholder (so we don't rely on nextSibling types)
-					parent.insertBefore(wrapper, end);
-
-					// Move all nodes between start and end (skip text/comment nodes)
-					var node = start.nextSibling;
-					var moved = false;
-					while (node && node !== end) {
-						var next = node.nextSibling;
-						if (node.nodeType === 1) {
-							wrapper.appendChild(node);
-							moved = true;
-						}
-						node = next;
-					}
-
-					// Remove placeholder controls if still present
-					if (start.parentNode) start.parentNode.removeChild(start);
-					if (end.parentNode) end.parentNode.removeChild(end);
-
-					return moved;
-				} catch (e) {
-					if (window.console && console.error) console.error('moveControlsIntoWrapper error', e);
-					return false;
-				}
-			}
-
-			function runGroupingOnce() {
-				return moveControlsIntoWrapper('menu_navigation_wrapper_start', 'menu_navigation_wrapper_end', 'soda-customizer-section soda-menu-navigation');
-			}
-
-			var attempts = 0;
-			var maxAttempts = 20;
-			var retryDelay = 250; // ms
-			var observer = null;
-
-			function tryRun() {
-				attempts++;
-				var ok = false;
-				try {
-					ok = runGroupingOnce();
-				} catch (e) {
-					if (window.console && console.error) console.error('tryRun error', e);
-				}
-				if (ok) {
-					// Success — stop observing further mutations
-					if (observer) {
-						try { observer.disconnect(); } catch (e) {}
-					}
-					return;
-				}
-				if (attempts < maxAttempts) setTimeout(tryRun, retryDelay);
-			}
-
-			tryRun();
-
-			// Observe DOM changes so we can react when Kirki inserts controls later.
-			try {
-				observer = new MutationObserver(function(mutations) {
-					tryRun();
-				});
-				observer.observe(document.body, { childList: true, subtree: true });
-			} catch (e) {
-				if (window.console && console.error) console.error('MutationObserver error', e);
-			}
-		})();
-		</script>
-		<?php
-	}
+/* Removed custom Customizer CSS and grouping JS to fix runtime error / white page. */
 
 /**
  * Add Logo Settings Panel
@@ -1154,19 +1036,6 @@ new \Kirki\Pro\Field\Headline(
 		),
 	)
 );
-
-/**
- * MENU NAVIGATION - wrapper start
- */
-new \Kirki\Field\Custom(
-	array(
-		'settings' => 'menu_navigation_wrapper_start',
-		'section'  => 'soda_theme_color_settings',
-		'priority' => 84,
-		'default'  => '<div class="soda-customizer-section soda-menu-navigation">',
-	)
-);
-
 
 /**
  * Menu Navigation Background Color
