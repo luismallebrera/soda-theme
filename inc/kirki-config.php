@@ -2486,7 +2486,7 @@ new \Kirki\Pro\Field\Headline(
 		'settings' => 'mobile_toggle_headline',
 		'label'    => esc_html__( 'MOBILE TOGGLE', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 150,
+		'priority' => 165,
 		'choices'  => array(
 			'background-color' => '#00a0d2',
 			'color'            => '#ffffff',
@@ -2501,7 +2501,7 @@ new \Kirki\Field\Custom(
 	array(
 		'settings' => 'mobile_toggle_wrapper_start',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 149,
+		'priority' => 164,
 		'default'  => '<div class="soda-customizer-section soda-mobile-toggle">',
 	)
 );
@@ -2515,7 +2515,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'mobile_menu_toggle_bg_color',
 		'label'     => esc_html__( 'Mobile Toggle Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 155,
+		'priority' => 166,
 		'default'   => 'rgba(255, 255, 255, 0.45)',
 		'choices'   => array(
 			'alpha' => true,
@@ -2537,7 +2537,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_16',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 160,
+		'priority' => 168,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -2552,7 +2552,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'sticky_mobile_menu_toggle_bg_color',
 		'label'     => esc_html__( 'Sticky Mobile Toggle Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 165,
+		'priority' => 170,
 		'default'   => 'rgba(255, 255, 255, 0.45)',
 		'choices'   => array(
 			'alpha' => true,
@@ -2574,7 +2574,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_17',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 170,
+		'priority' => 172,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -2589,7 +2589,7 @@ new \Kirki\Field\Dimensions(
 		'settings'  => 'mobile_toggle_border',
 		'label'     => esc_html__( 'Mobile Toggle Border Width', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 175,
+		'priority' => 174,
 		'default'   => array(
 			'border-top-width'    => '0px',
 			'border-right-width'  => '0px',
@@ -2620,7 +2620,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_18a',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 177,
+		'priority' => 176,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -2669,7 +2669,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'mobile_toggle_border_radius',
 		'label'     => esc_html__( 'Mobile Toggle Border Radius (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 185,
+		'priority' => 182,
 		'default'   => 0,
 		'choices'   => array(
 			'min'  => 0,
@@ -2694,7 +2694,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_19',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 190,
+		'priority' => 184,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -2709,7 +2709,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'mobile_toggle_backdrop_blur',
 		'label'     => esc_html__( 'Mobile Toggle Backdrop Blur (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 195,
+		'priority' => 186,
 		'default'   => 0,
 		'choices'   => array(
 			'min'  => 0,
@@ -2727,7 +2727,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_20',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 200,
+		'priority' => 188,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -2742,7 +2742,7 @@ new \Kirki\Field\Text(
 		'settings'  => 'mobile_toggle_box_shadow',
 		'label'     => esc_html__( 'Mobile Toggle Box Shadow', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
-		'priority' => 205,
+		'priority' => 190,
 		'default'   => '',
 		'transport' => 'postMessage',
 		'output'    => array(
@@ -2761,7 +2761,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'color_divider_21',
 		'section'  => 'soda_theme_color_settings',
-		'priority' => 210,
+		'priority' => 192,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -2775,7 +2775,7 @@ new \Kirki\Field\Custom(
     array(
         'settings' => 'mobile_toggle_wrapper_end',
         'section'  => 'soda_theme_color_settings',
-        'priority' => 209,
+        'priority' => 191,
         'default'  => '</div>',
     )
 );
