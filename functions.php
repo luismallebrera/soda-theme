@@ -209,6 +209,11 @@ if ( file_exists( get_template_directory() . '/inc/kirki-config.php' ) ) {
 }
 
 /**
+ * Custom Fonts integration for Kirki.
+ */
+require get_template_directory() . '/inc/custom-fonts.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {

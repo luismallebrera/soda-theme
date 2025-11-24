@@ -2580,3 +2580,201 @@ new \Kirki\Field\Dimension(
 		'default'     => '1px',
 	)
 );
+
+/**
+ * ============================================================
+ * Typography Settings
+ * ============================================================
+ */
+
+/**
+ * Typography Panel
+ */
+new \Kirki\Panel(
+	'soda_theme_typography_panel',
+	array(
+		'priority'    => 31,
+		'title'       => esc_html__( 'Typography', 'soda-theme' ),
+		'description' => esc_html__( 'Customize typography settings. Custom fonts from Elementor and other plugins will appear here.', 'soda-theme' ),
+	)
+);
+
+/**
+ * Body Typography Section
+ */
+new \Kirki\Section(
+	'soda_theme_body_typography',
+	array(
+		'title'       => esc_html__( 'Body Typography', 'soda-theme' ),
+		'panel'       => 'soda_theme_typography_panel',
+		'priority'    => 10,
+		'description' => esc_html__( 'Typography settings for body text. Custom fonts from Elementor will appear in the font family dropdown.', 'soda-theme' ),
+	)
+);
+
+/**
+ * Body Typography
+ */
+new \Kirki\Field\Typography(
+	array(
+		'settings' => 'body_typography',
+		'label'    => esc_html__( 'Body Typography', 'soda-theme' ),
+		'section'  => 'soda_theme_body_typography',
+		'priority' => 10,
+		'default'  => array(
+			'font-family'    => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+			'variant'        => 'regular',
+			'font-size'      => '16px',
+			'line-height'    => '1.6',
+			'letter-spacing' => '0',
+			'text-transform' => 'none',
+		),
+		'choices'  => apply_filters(
+			'soda_theme_fonts_choices',
+			array(
+				'variant' => array(
+					'300',
+					'regular',
+					'500',
+					'600',
+					'700',
+				),
+			)
+		),
+		'output'   => array(
+			array(
+				'element' => 'body',
+			),
+		),
+	)
+);
+
+/**
+ * Headings Typography Section
+ */
+new \Kirki\Section(
+	'soda_theme_headings_typography',
+	array(
+		'title'       => esc_html__( 'Headings Typography', 'soda-theme' ),
+		'panel'       => 'soda_theme_typography_panel',
+		'priority'    => 20,
+		'description' => esc_html__( 'Typography settings for headings (H1-H6). Custom fonts from Elementor will appear in the font family dropdown.', 'soda-theme' ),
+	)
+);
+
+/**
+ * H1 Typography
+ */
+new \Kirki\Field\Typography(
+	array(
+		'settings' => 'h1_typography',
+		'label'    => esc_html__( 'H1 Typography', 'soda-theme' ),
+		'section'  => 'soda_theme_headings_typography',
+		'priority' => 10,
+		'default'  => array(
+			'font-family'    => 'inherit',
+			'variant'        => '700',
+			'font-size'      => '2.5rem',
+			'line-height'    => '1.2',
+			'letter-spacing' => '0',
+			'text-transform' => 'none',
+		),
+		'choices'  => apply_filters(
+			'soda_theme_fonts_choices',
+			array(
+				'variant' => array(
+					'300',
+					'regular',
+					'500',
+					'600',
+					'700',
+					'800',
+					'900',
+				),
+			)
+		),
+		'output'   => array(
+			array(
+				'element' => 'h1',
+			),
+		),
+	)
+);
+
+/**
+ * H2 Typography
+ */
+new \Kirki\Field\Typography(
+	array(
+		'settings' => 'h2_typography',
+		'label'    => esc_html__( 'H2 Typography', 'soda-theme' ),
+		'section'  => 'soda_theme_headings_typography',
+		'priority' => 20,
+		'default'  => array(
+			'font-family'    => 'inherit',
+			'variant'        => '700',
+			'font-size'      => '2rem',
+			'line-height'    => '1.3',
+			'letter-spacing' => '0',
+			'text-transform' => 'none',
+		),
+		'choices'  => apply_filters(
+			'soda_theme_fonts_choices',
+			array(
+				'variant' => array(
+					'300',
+					'regular',
+					'500',
+					'600',
+					'700',
+					'800',
+					'900',
+				),
+			)
+		),
+		'output'   => array(
+			array(
+				'element' => 'h2',
+			),
+		),
+	)
+);
+
+/**
+ * H3 Typography
+ */
+new \Kirki\Field\Typography(
+	array(
+		'settings' => 'h3_typography',
+		'label'    => esc_html__( 'H3 Typography', 'soda-theme' ),
+		'section'  => 'soda_theme_headings_typography',
+		'priority' => 30,
+		'default'  => array(
+			'font-family'    => 'inherit',
+			'variant'        => '700',
+			'font-size'      => '1.75rem',
+			'line-height'    => '1.4',
+			'letter-spacing' => '0',
+			'text-transform' => 'none',
+		),
+		'choices'  => apply_filters(
+			'soda_theme_fonts_choices',
+			array(
+				'variant' => array(
+					'300',
+					'regular',
+					'500',
+					'600',
+					'700',
+					'800',
+					'900',
+				),
+			)
+		),
+		'output'   => array(
+			array(
+				'element' => 'h3',
+			),
+		),
+	)
+);
