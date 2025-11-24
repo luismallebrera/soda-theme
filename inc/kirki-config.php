@@ -180,6 +180,42 @@ add_action( 'customize_controls_print_footer_scripts', function() {
 			);
 		} );
 	} )( jQuery );
+
+	// Re-run grouping when Customizer dynamically updates controls (Kirki may render controls after initial load)
+	( function( $ ) {
+		$( function() {
+			var runCount = 0;
+			var maxRuns = 8;
+			var debounce;
+			function tryGrouping() {
+				if ( runCount >= maxRuns ) {
+					return;
+				}
+				runCount++;
+				// Reuse the same moveControlsIntoWrapper function above by triggering a tiny timeout
+				// since the function is declared in the same footer script scope it will be available.
+				if ( typeof moveControlsIntoWrapper === 'function' ) {
+					moveControlsIntoWrapper( 'header_container_wrapper_start', 'header_container_wrapper_end', [ '#customize-control-header_container_headline' ], 'soda-header-container' );
+					moveControlsIntoWrapper( 'menu_navigation_wrapper_start', 'menu_navigation_wrapper_end', [ '#customize-control-menu_navigation_headline' ], 'soda-menu-navigation' );
+					moveControlsIntoWrapper( 'mobile_toggle_wrapper_start', 'mobile_toggle_wrapper_end', [ '#customize-control-mobile_toggle_headline' ], 'soda-mobile-toggle' );
+					moveControlsIntoWrapper( 'mobile_dropdown_wrapper_start', 'mobile_dropdown_wrapper_end', [ '#customize-control-mobile_dropdown_headline' ], 'soda-mobile-dropdown' );
+				}
+			}
+
+			// Observe the main controls container for changes and debounce grouping attempts
+			var target = document.querySelector( '#sub-accordion-section-soda_theme_color_settings' ) || document.body;
+			var observer = new MutationObserver( function( mutations ) {
+				clearTimeout( debounce );
+				debounce = setTimeout( tryGrouping, 200 );
+			} );
+			observer.observe( target, { childList: true, subtree: true } );
+
+			// Final safety: run a few times spaced out in case rendering is delayed
+			setTimeout( tryGrouping, 300 );
+			setTimeout( tryGrouping, 800 );
+			setTimeout( tryGrouping, 1600 );
+		} );
+	} )( jQuery );
 	</script>
 	<?php
 }, 1000 );
