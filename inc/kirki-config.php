@@ -1868,7 +1868,7 @@ new \Kirki\Section(
 	array(
 		'title'    => esc_html__( 'Menu Settings', 'soda-theme' ),
 		'panel'    => 'soda_theme_header_panel',
-		'priority' => 50,
+		'priority' => 60,
 	)
 );
 
@@ -2694,8 +2694,8 @@ new \Kirki\Section(
 	'soda_theme_navigation_typography',
 	array(
 		'title'       => esc_html__( 'Navigation Typography', 'soda-theme' ),
-		'panel'       => 'soda_theme_typography_panel',
-		'priority'    => 15,
+		'panel'       => 'soda_theme_header_panel',
+		'priority'    => 50,
 		'description' => esc_html__( 'Typography settings for menu and submenu items.', 'soda-theme' ),
 	)
 );
