@@ -894,17 +894,38 @@ new \Kirki\Field\Dimension(
 /**
  * Grid Width
  */
-new \Kirki\Field\Dimension(
+new \Kirki\Field\Dimensions(
 	array(
 		'settings'    => 'grid_line_the_width',
 		'label'       => esc_html__( 'Grid Width', 'soda-theme' ),
 		'description' => esc_html__( 'Width of the grid container.', 'soda-theme' ),
 		'section'     => 'soda_theme_grid_line',
-		'default'     => '100%',
+		'responsive'  => true,
+		'default'     => array(
+			'desktop' => array(
+				'width' => '100%',
+			),
+			'tablet'  => array(
+				'width' => '100%',
+			),
+			'mobile'  => array(
+				'width' => '100%',
+			),
+		),
+		'choices'     => array(
+			'labels' => array(
+				'width' => esc_html__( 'Width', 'soda-theme' ),
+			),
+		),
 		'output'      => array(
 			array(
-				'element'  => 'body',
-				'property' => '--grid-line-the-width',
+				'element'     => 'body',
+				'property'    => '--grid-line-the-width',
+				'media_query' => array(
+					'desktop' => '@media (min-width: 1024px)',
+					'tablet'  => '@media (min-width: 768px) and (max-width: 1023px)',
+					'mobile'  => '@media (max-width: 767px)',
+				),
 			),
 		),
 	)
