@@ -1165,6 +1165,52 @@ new \Kirki\Field\Text(
 	)
 );
 
+/**
+ * Logo Box Border Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'logo_box_border_color',
+		'label'     => esc_html__( 'Logo Box Border Color', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 82,
+		'default'   => '#000000',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-branding',
+				'property' => 'border-color',
+			),
+		),
+	)
+);
+
+/**
+ * Logo Box Sticky Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'sticky_logo_box_bg_color',
+		'label'     => esc_html__( 'Logo Box Sticky Background', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 83,
+		'default'   => 'transparent',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-sticky-header .site-header.sticky-header .site-branding',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
 
 		/**
 		 * MENU NAVIGATION - wrapper end
