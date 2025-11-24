@@ -82,20 +82,102 @@ add_action( 'customize_controls_print_footer_scripts', function() {
 	<script>
 	( function( $ ) {
 		$( function() {
-			var ids = [
-				'#customize-control-header_container_headline',
-				'#customize-control-header_container_bg_color',
-				'#customize-control-sticky_header_container_bg_color',
-				'#customize-control-header_container_border',
-				'#customize-control-header_container_border_color',
-				'#customize-control-header_container_border_radius',
-				'#customize-control-header_container_backdrop_blur',
-				'#customize-control-header_container_box_shadow'
-			];
-			var $els = $( ids.join( ', ' ) );
-			if ( $els.length ) {
-				$els.wrapAll( '<div class="soda-customizer-section soda-header-container"></div>' );
+			/**
+			 * Helper: move all li controls between startId and endId into the
+			 * wrapper DIV printed by the Custom field inside the start li.
+			 * If the start/end placeholders don't exist, fall back to wrapping by IDs.
+			 */
+			function moveControlsIntoWrapper( startId, endId, fallbackIds, wrapperClass ) {
+				var $startLi = $( '#customize-control-' + startId );
+				var $endLi   = $( '#customize-control-' + endId );
+
+				// If a start li with a .soda-customizer-section exists, use it
+				if ( $startLi.length && $startLi.find( '.soda-customizer-section' ).length ) {
+					var $wrapper = $startLi.find( '.soda-customizer-section' ).first();
+					// Collect all sibling lis after the start until the end li and move them into the wrapper
+					var $toMove = $startLi.nextUntil( $endLi );
+					if ( $toMove.length ) {
+						// Append the controls into the wrapper for visual grouping
+						$toMove.appendTo( $wrapper );
+						$wrapper.addClass( wrapperClass );
+					}
+					return true;
+				}
+
+				// Fallback: wrap specific control IDs (previous behaviour)
+				var $els = $( fallbackIds.join( ', ' ) );
+				if ( $els.length ) {
+					$els.wrapAll( '<div class="soda-customizer-section ' + wrapperClass + '"></div>' );
+					return true;
+				}
+				return false;
 			}
+
+			// Header Container group (uses start/end placeholders: header_container_wrapper_start/_end)
+			moveControlsIntoWrapper(
+				'header_container_wrapper_start',
+				'header_container_wrapper_end',
+				[
+					'#customize-control-header_container_headline',
+					'#customize-control-header_container_bg_color',
+					'#customize-control-sticky_header_container_bg_color',
+					'#customize-control-header_container_border',
+					'#customize-control-header_container_border_color',
+					'#customize-control-header_container_border_radius',
+					'#customize-control-header_container_backdrop_blur',
+					'#customize-control-header_container_box_shadow'
+				],
+				'soda-header-container'
+			);
+
+			// Menu Navigation group
+			moveControlsIntoWrapper(
+				'menu_navigation_wrapper_start',
+				'menu_navigation_wrapper_end',
+				[
+					'#customize-control-menu_navigation_headline',
+					'#customize-control-menu_navigation_bg_color',
+					'#customize-control-menu_navigation_border',
+					'#customize-control-menu_navigation_border_color',
+					'#customize-control-menu_navigation_border_radius',
+					'#customize-control-menu_navigation_backdrop_blur',
+					'#customize-control-menu_navigation_box_shadow',
+					'#customize-control-menu_navigation_bg_color'
+				],
+				'soda-menu-navigation'
+			);
+
+			// Mobile Toggle group
+			moveControlsIntoWrapper(
+				'mobile_toggle_wrapper_start',
+				'mobile_toggle_wrapper_end',
+				[
+					'#customize-control-mobile_toggle_headline',
+					'#customize-control-mobile_menu_toggle_bg_color',
+					'#customize-control-mobile_toggle_border',
+					'#customize-control-mobile_toggle_border_color',
+					'#customize-control-mobile_toggle_border_radius',
+					'#customize-control-mobile_toggle_backdrop_blur',
+					'#customize-control-mobile_toggle_box_shadow'
+				],
+				'soda-mobile-toggle'
+			);
+
+			// Mobile Dropdown group
+			moveControlsIntoWrapper(
+				'mobile_dropdown_wrapper_start',
+				'mobile_dropdown_wrapper_end',
+				[
+					'#customize-control-mobile_dropdown_headline',
+					'#customize-control-mobile_dropdown_bg_color',
+					'#customize-control-mobile_dropdown_border',
+					'#customize-control-mobile_dropdown_border_color',
+					'#customize-control-mobile_dropdown_border_radius',
+					'#customize-control-mobile_dropdown_backdrop_blur',
+					'#customize-control-mobile_dropdown_box_shadow'
+				],
+				'soda-mobile-dropdown'
+			);
 		} );
 	} )( jQuery );
 	</script>
