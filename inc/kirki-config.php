@@ -379,7 +379,8 @@ new \Kirki\Field\Dimensions(
 				'padding-left'   => esc_html__( 'Left', 'soda-theme' ),
 			),
 		),
-		'transport'   => 'auto',
+			'responsive'  => true,
+	'transport'   => 'auto',
 		'output'      => array(
 			array(
 				'element' => '.site-header',
