@@ -75,6 +75,32 @@ add_action( 'customize_controls_print_styles', function() {
 	</style>
 	<?php
 }, 9999 );
+
+// Wrap specific Header Container controls into a single visual group
+add_action( 'customize_controls_print_footer_scripts', function() {
+	?>
+	<script>
+	( function( $ ) {
+		$( function() {
+			var ids = [
+				'#customize-control-header_container_headline',
+				'#customize-control-header_container_bg_color',
+				'#customize-control-sticky_header_container_bg_color',
+				'#customize-control-header_container_border',
+				'#customize-control-header_container_border_color',
+				'#customize-control-header_container_border_radius',
+				'#customize-control-header_container_backdrop_blur',
+				'#customize-control-header_container_box_shadow'
+			];
+			var $els = $( ids.join( ', ' ) );
+			if ( $els.length ) {
+				$els.wrapAll( '<div class="soda-customizer-section soda-header-container"></div>' );
+			}
+		} );
+	} )( jQuery );
+	</script>
+	<?php
+}, 1000 );
 /**
  * Add Logo Settings Panel
  */
@@ -566,17 +592,6 @@ new \Kirki\Pro\Field\Divider(
 	)
 );
 
-/**
- * HEADER CONTAINER - wrapper start
- */
-new \Kirki\Field\Custom(
-	array(
-		'settings' => 'header_container_wrapper_start',
-		'section'  => 'soda_theme_color_settings',
-		'priority' => 19,
-		'default'  => '<div class="soda-customizer-section soda-header-container">',
-	)
-);
 
 
 /**
@@ -860,17 +875,6 @@ new \Kirki\Field\Text(
 		);
 
 
-		/**
-		 * HEADER CONTAINER - wrapper end
-		 */
-		new \Kirki\Field\Custom(
-			array(
-				'settings' => 'header_container_wrapper_end',
-				'section'  => 'soda_theme_color_settings',
-				'priority' => 79,
-				'default'  => '</div>',
-			)
-		);
 
 
 /**
