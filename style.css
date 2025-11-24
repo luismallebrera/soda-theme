@@ -905,37 +905,13 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 /* Action Button */
 .action-button {
 	display: inline-block !important;
-	padding-top: 8px !important;
-	padding-right: 10px !important;
-	padding-bottom: 8px !important;
-	padding-left: 10px !important;
-	font-family: TITLE !important;
-	font-size: 16px !important;
-	font-weight: 600 !important;
-	line-height: 1.5 !important;
-	text-transform: none !important;
-	background-color: #0073aa !important;
-	color: #fff !important;
 	text-decoration: none !important;
-	border-top-width: 0px !important;
-	border-right-width: 0px !important;
-	border-bottom-width: 0px !important;
-	border-left-width: 0px !important;
-	backdrop-filter: blur(0px) !important;
-	-webkit-border-radius: 0px !important;
-	-moz-border-radius: 0px !important;
-	border-radius: 0px !important;
-	-webkit-box-shadow: none !important;
-	-moz-box-shadow: none !important;
-	box-shadow: none !important;
-	transition: background 0.3s ease !important;
 	margin-left: 1em !important;
 }
 
 .action-button:hover,
 .action-button:focus {
-	background: #005a87 !important;
-	color: #fff !important;
+	text-decoration: none !important;
 }
 
 @media screen and (max-width: 767px) {
