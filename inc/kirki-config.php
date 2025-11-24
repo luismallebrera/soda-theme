@@ -64,8 +64,12 @@ add_action( 'customize_controls_enqueue_scripts', function() {
 			font-weight: bold !important;
 		}
 
-		/* Ensure the title within the control uses the white color */
+		/* Ensure the title within the control uses the white color.
+		 * Add extra specificity to override Kirki/Customizer defaults.
+		 */
 		.customize-control-kirki-headline .customize-control-title,
+		.customize-control-kirki-headline .kirki-control-label .customize-control-title,
+		.customize-control-kirki-headline .kirki-control-form .customize-control-title,
 		#customize-control-header_container_headline .customize-control-title,
 		#customize-control-menu_navigation_headline .customize-control-title,
 		#customize-control-mobile_toggle_headline .customize-control-title,
@@ -74,7 +78,7 @@ add_action( 'customize_controls_enqueue_scripts', function() {
 		}
 	</style>
 	<?php
-} );
+}, 999 );
 /**
  * Add Logo Settings Panel
  */
