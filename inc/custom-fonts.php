@@ -233,27 +233,42 @@ add_filter( 'soda_theme_fonts_choices', 'soda_theme_kirki_fonts_choices' );
  */
 function soda_theme_kirki_fonts_choices( $settings = array() ) {
 
-	// Make sure the class is instantiated
-	if ( class_exists( 'Soda_Theme_Add_Custom_Fonts' ) ) {
-		$instance = Soda_Theme_Add_Custom_Fonts::instance();
-		
-		// Build fonts array by calling methods directly
-		$fonts_list = array();
-		
-		// Debug: check what each method returns
-		if ( isset( $_GET['soda_debug_fonts'] ) ) {
-			$test1 = $instance->elementor_custom_fonts( array() );
-			error_log( 'Elementor fonts method returned: ' . print_r( $test1, true ) );
+	// Build fonts array by calling methods directly
+	$fonts_list = array(
+		'families' => array(),
+		'variants' => array(),
+	);
+	
+	// Query Elementor fonts directly (works even in Customizer)
+	$font_posts = get_posts(
+		array(
+			'post_type'      => 'elementor_font',
+			'posts_per_page' => -1,
+			'post_status'    => 'publish',
+		)
+	);
+
+	if ( ! empty( $font_posts ) ) {
+		$fonts_list['families']['elementor_fonts'] = array(
+			'text'     => esc_html__( 'Elementor Custom Fonts', 'soda-theme' ),
+			'children' => array(),
+		);
+
+		foreach ( $font_posts as $post ) {
+			$font_name = get_the_title( $post->ID );
+			if ( ! empty( $font_name ) ) {
+				$fonts_list['families']['elementor_fonts']['children'][] = array(
+					'id'   => $font_name,
+					'text' => $font_name,
+				);
+				// Add all font weights
+				$fonts_list['variants'][ $font_name ] = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
+			}
 		}
-		
-		$fonts_list = $instance->elementor_custom_fonts( $fonts_list );
-		$fonts_list = $instance->custom_fonts( $fonts_list );
-		$fonts_list = $instance->typekit_fonts( $fonts_list );
-	} else {
-		$fonts_list = apply_filters( 'soda_theme_fonts_list', array() );
 	}
 
-	if ( empty( $fonts_list ) || ! isset( $fonts_list['families'] ) ) {
+	// If no custom fonts found, just return original settings
+	if ( empty( $fonts_list['families'] ) ) {
 		return $settings;
 	}
 
@@ -261,13 +276,11 @@ function soda_theme_kirki_fonts_choices( $settings = array() ) {
 		'fonts' => array(
 			'google'   => array(),
 			'families' => $fonts_list['families'],
-			'variants' => isset( $fonts_list['variants'] ) ? $fonts_list['variants'] : array(),
+			'variants' => $fonts_list['variants'],
 		),
 	);
 
-	$fonts_settings = array_merge( (array) $settings, (array) $fonts_settings );
-
-	return $fonts_settings;
+	return array_merge( (array) $settings, (array) $fonts_settings );
 }
 
 /**
