@@ -221,8 +221,18 @@ if ( file_exists( get_template_directory() . '/inc/custom-fonts.php' ) ) {
 	add_action( 'admin_notices', function() {
 		if ( current_user_can( 'manage_options' ) ) {
 			$loaded = function_exists( 'soda_theme_debug_custom_fonts' ) ? 'YES ✓' : 'NO ✗';
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$param_set = isset( $_GET['soda_debug_fonts'] ) ? 'YES (value: ' . esc_html( $_GET['soda_debug_fonts'] ) . ')' : 'NO';
 			echo '<div class="notice notice-info"><p><strong>Custom Fonts File:</strong> Loaded | <strong>Debug Function:</strong> ' . $loaded . ' | <strong>URL Parameter:</strong> ' . $param_set . '</p></div>';
+			
+			// If parameter is set, call the debug function directly
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( isset( $_GET['soda_debug_fonts'] ) && ! empty( $_GET['soda_debug_fonts'] ) ) {
+				echo '<div class="notice notice-warning" style="border: 3px solid orange;"><p><strong>⚠️ Manually calling debug function...</strong></p></div>';
+				if ( function_exists( 'soda_theme_debug_custom_fonts' ) ) {
+					soda_theme_debug_custom_fonts();
+				}
+			}
 		}
 	}, 2 );
 } else {
