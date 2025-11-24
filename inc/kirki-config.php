@@ -51,6 +51,18 @@ new \Kirki\Section(
 );
 
 /**
+ * Logo Settings Header
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'logo_settings_header',
+		'section'  => 'soda_theme_logo_settings',
+		'priority' => 5,
+		'default'  => '<div style="padding: 10px 10px 11px; background: #00a0d2; border-left: 0; margin: 10px -5px; color: #fff; text-transform: uppercase; text-align: center; border-radius: 6px;"><strong>' . esc_html__( 'Logo Configuration', 'soda-theme' ) . '</strong></div>',
+	)
+);
+
+/**
  * Sticky Logo Upload
  */
 new \Kirki\Field\Image(
@@ -60,8 +72,23 @@ new \Kirki\Field\Image(
 		'description' => esc_html__( 'Upload a logo to be displayed when the header is sticky/scrolled.', 'soda-theme' ),
 		'section'     => 'soda_theme_logo_settings',
 		'default'     => '',
+		'priority'    => 10,
 		'choices'     => array(
 			'save_as' => 'id',
+		),
+	)
+);
+
+/**
+ * Sticky Logo Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'sticky_logo_divider',
+		'section'  => 'soda_theme_logo_settings',
+		'priority' => 15,
+		'choices'  => array(
+			'color' => '#dcdcdc',
 		),
 	)
 );
@@ -76,11 +103,26 @@ new \Kirki\Field\Slider(
 		'description' => esc_html__( 'Set the width for the regular logo.', 'soda-theme' ),
 		'section'     => 'soda_theme_logo_settings',
 		'default'     => 150,
+		'priority'    => 20,
 		'transport'   => 'postMessage',
 		'choices'     => array(
 			'min'  => 50,
 			'max'  => 500,
 			'step' => 5,
+		),
+	)
+);
+
+/**
+ * Regular Logo Width Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'regular_logo_width_divider',
+		'section'  => 'soda_theme_logo_settings',
+		'priority' => 25,
+		'choices'  => array(
+			'color' => '#dcdcdc',
 		),
 	)
 );
@@ -95,11 +137,26 @@ new \Kirki\Field\Slider(
 		'description' => esc_html__( 'Set the width for the sticky header logo.', 'soda-theme' ),
 		'section'     => 'soda_theme_logo_settings',
 		'default'     => 100,
+		'priority'    => 30,
 		'transport'   => 'postMessage',
 		'choices'     => array(
 			'min'  => 50,
 			'max'  => 300,
 			'step' => 5,
+		),
+	)
+);
+
+/**
+ * Sticky Logo Width Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'sticky_logo_width_divider',
+		'section'  => 'soda_theme_logo_settings',
+		'priority' => 35,
+		'choices'  => array(
+			'color' => '#dcdcdc',
 		),
 	)
 );
@@ -117,6 +174,18 @@ new \Kirki\Section(
 );
 
 /**
+ * Header Layout Header
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'header_layout_header',
+		'section'  => 'soda_theme_header_layout',
+		'priority' => 5,
+		'default'  => '<div style="padding: 10px 10px 11px; background: #00a0d2; border-left: 0; margin: 10px -5px; color: #fff; text-transform: uppercase; text-align: center; border-radius: 6px;"><strong>' . esc_html__( 'Layout Style', 'soda-theme' ) . '</strong></div>',
+	)
+);
+
+/**
  * Header Layout Style
  */
 new \Kirki\Field\Radio_Image(
@@ -125,12 +194,27 @@ new \Kirki\Field\Radio_Image(
 		'label'       => esc_html__( 'Header Layout Style', 'soda-theme' ),
 		'description' => esc_html__( 'Choose your preferred header layout style.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_layout',
+		'priority'    => 10,
 		'default'     => 'layout-1',
 		'choices'     => array(
 			'layout-1' => get_template_directory_uri() . '/images/layout-1.png',
 			'layout-2' => get_template_directory_uri() . '/images/layout-2.png',
 			'layout-3' => get_template_directory_uri() . '/images/layout-3.png',
 			'layout-4' => get_template_directory_uri() . '/images/layout-4.png',
+		),
+	)
+);
+
+/**
+ * Header Layout Style Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'header_layout_style_divider',
+		'section'  => 'soda_theme_header_layout',
+		'priority' => 15,
+		'choices'  => array(
+			'color' => '#dcdcdc',
 		),
 	)
 );
@@ -144,6 +228,18 @@ new \Kirki\Section(
 		'title'    => esc_html__( 'Header Behavior', 'soda-theme' ),
 		'panel'    => 'soda_theme_header_panel',
 		'priority' => 30,
+	)
+);
+
+/**
+ * Header Behavior Header
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'header_behavior_header',
+		'section'  => 'soda_theme_header_behavior',
+		'priority' => 5,
+		'default'  => '<div style="padding: 10px 10px 11px; background: #00a0d2; border-left: 0; margin: 10px -5px; color: #fff; text-transform: uppercase; text-align: center; border-radius: 6px;"><strong>' . esc_html__( 'Behavior Options', 'soda-theme' ) . '</strong></div>',
 	)
 );
 
