@@ -30,9 +30,6 @@ function soda_theme_customizer_headline_styles() {
 	echo '    margin-left: 10px;';
 	echo '}';
 
-	// Reset any admin/CSS that forces a boxed white headline (make our styles authoritative)
-	echo '#customize-theme-controls .customize-control-kirki-headline { background: transparent !important; left: auto !important; padding: 0 !important; position: static !important; width: auto !important; }';
-
 	echo '.customize-control-kirki-headline, .customize-control-kirki-headline .control-label {';
 	echo '    padding: 10px 10px 11px !important;';
 	echo '    background: #00a0d2 !important;';
