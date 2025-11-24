@@ -173,4 +173,40 @@
 			} );
 		} );
 	} );
+
+	// Menu Navigation Backdrop Filter Blur
+	wp.customize( 'menu_navigation_backdrop_blur', function( value ) {
+		value.bind( function( to ) {
+			var blur = to + 'px';
+			var backdropFilter = to > 0 ? 'blur(' + blur + ')' : 'none';
+			$( '.main-navigation, .has-sticky-header .site-header.sticky-header .main-navigation' ).css( {
+				'backdrop-filter': backdropFilter,
+				'-webkit-backdrop-filter': backdropFilter
+			} );
+		} );
+	} );
+
+	// Mobile Toggle Backdrop Filter Blur
+	wp.customize( 'mobile_toggle_backdrop_blur', function( value ) {
+		value.bind( function( to ) {
+			var blur = to + 'px';
+			var backdropFilter = to > 0 ? 'blur(' + blur + ')' : 'none';
+			$( '.site-navigation-toggle-holder, .has-sticky-header .site-header.sticky-header .site-navigation-toggle-holder' ).css( {
+				'backdrop-filter': backdropFilter,
+				'-webkit-backdrop-filter': backdropFilter
+			} );
+		} );
+	} );
+
+	// Mobile Dropdown Backdrop Filter Blur
+	wp.customize( 'mobile_dropdown_backdrop_blur', function( value ) {
+		value.bind( function( to ) {
+			var blur = to + 'px';
+			var backdropFilter = to > 0 ? 'blur(' + blur + ')' : 'none';
+			$( '.site-navigation-dropdown .site-navigation-background' ).css( {
+				'backdrop-filter': backdropFilter,
+				'-webkit-backdrop-filter': backdropFilter
+			} );
+		} );
+	} );
 }( jQuery ) );
