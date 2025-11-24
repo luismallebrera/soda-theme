@@ -653,6 +653,12 @@ textarea {
 	display: inline-block !important;
 	text-decoration: none !important;
 	margin-right: 1em !important;
+	font-family: inherit !important;
+	font-size: inherit !important;
+	font-weight: inherit !important;
+	line-height: inherit !important;
+	letter-spacing: inherit !important;
+	text-transform: inherit !important;
 }
 
 .action-button:hover,

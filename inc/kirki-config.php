@@ -903,7 +903,6 @@ new \Kirki\Field\Typography(
 		'output'          => array(
 			array(
 				'element'   => '.action-button',
-				'suffix'    => ' !important',
 			),
 		),
 		'active_callback' => array(
