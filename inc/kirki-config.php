@@ -23,16 +23,25 @@ Kirki::add_config(
 add_action( 'customize_controls_print_styles', 'soda_theme_customizer_headline_styles' );
 function soda_theme_customizer_headline_styles() {
 	echo '<style>';
-	echo '.customize-control-kirki-headline, .customize-control-kirki-headline .control-label {';
-	echo 'padding: 10px 10px 11px;';
-	echo 'background: #00a0d2;';
-	echo 'border-left: 0;';
-	echo 'margin: 10px -5px;';
-	echo 'color: #fff;';
-	echo 'text-transform: uppercase;';
-	echo 'text-align: center;';
-	echo 'border-radius: 6px;';
+	echo '#customize-theme-controls .customize-pane-child.open {';
+	echo '    overflow: visible;';
+	echo '    background-color: #fff;';
+	echo '    width: calc(100% - 20px);';
+	echo '    margin-left: 10px;';
 	echo '}';
+
+	echo '.customize-control-kirki-headline, .customize-control-kirki-headline .control-label {';
+	echo '    padding: 10px 10px 11px;';
+	echo '    background: #00a0d2;';
+	echo '    border-left: 0;';
+	echo '    margin: 0;';
+	echo '    color: #fff;';
+	echo '    text-transform: uppercase;';
+	echo '    text-align: center;';
+	echo '    border-radius: 6px;';
+	echo '    margin-bottom: 20px;';
+	echo '}';
+
 	echo '</style>';
 }
 
