@@ -81,6 +81,14 @@ if ( ! class_exists( 'Soda_Theme_Add_Custom_Fonts' ) ) {
 	 */
 	public function elementor_custom_fonts( $fonts ) {
 
+		// Initialize fonts array structure if not set
+		if ( ! isset( $fonts['families'] ) ) {
+			$fonts['families'] = array();
+		}
+		if ( ! isset( $fonts['variants'] ) ) {
+			$fonts['variants'] = array();
+		}
+
 		// Method 1: Check Elementor's custom fonts option
 		$elementor_fonts = get_option( 'elementor_custom_fonts', array() );
 
@@ -227,19 +235,19 @@ function soda_theme_kirki_fonts_choices( $settings = array() ) {
 
 	$fonts_list = apply_filters( 'soda_theme_fonts_list', array() );
 
-	if ( ! $fonts_list ) {
+	if ( empty( $fonts_list ) || ! isset( $fonts_list['families'] ) ) {
 		return $settings;
 	}
 
 	$fonts_settings = array(
 		'fonts' => array(
 			'google'   => array(),
-			'families' => isset( $fonts_list['families'] ) ? $fonts_list['families'] : null,
-			'variants' => isset( $fonts_list['variants'] ) ? $fonts_list['variants'] : null,
+			'families' => $fonts_list['families'],
+			'variants' => isset( $fonts_list['variants'] ) ? $fonts_list['variants'] : array(),
 		),
 	);
 
-	$fonts_settings = array_merge( (array) $fonts_settings, (array) $settings );
+	$fonts_settings = array_merge( (array) $settings, (array) $fonts_settings );
 
 	return $fonts_settings;
 }
@@ -249,23 +257,15 @@ function soda_theme_kirki_fonts_choices( $settings = array() ) {
  * Example: wp-admin/index.php?soda_debug_fonts=1
  */
 function soda_theme_debug_custom_fonts() {
-	// Temporarily remove all checks to test
-	echo '<div class="notice notice-error" style="border: 5px solid red; padding: 20px; margin: 20px 0;"><h1 style="color: red;">🔴 FUNCTION RUNS - NO CHECKS</h1><p>If you see this, the function is executing!</p></div>';
-	
 	if ( ! current_user_can( 'manage_options' ) ) {
-		echo '<div class="notice notice-error"><p>❌ Stopped: No manage_options capability</p></div>';
 		return;
 	}
 	
 	// Only show if debug parameter is set
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	if ( ! isset( $_GET['soda_debug_fonts'] ) || empty( $_GET['soda_debug_fonts'] ) ) {
-		echo '<div class="notice notice-error"><p>❌ Stopped: Parameter not set or empty</p></div>';
 		return;
 	}
-	
-	// Force output to test if function runs
-	echo '<div class="notice notice-warning" style="border-left-color: #ff0000; border-width: 5px;"><h2>🔴 DEBUG FUNCTION IS RUNNING!</h2></div>';
 
 	// Check what's detected
 	$debug_info = array();
@@ -337,21 +337,4 @@ function soda_theme_debug_custom_fonts() {
 // Always hook the debug function (it only shows when ?soda_debug_fonts=1 is in URL)
 add_action( 'admin_notices', 'soda_theme_debug_custom_fonts', 5 );
 
-/**
- * Quick test function - Shows a simple message to confirm theme is active
- * Remove this after confirming the theme files are loaded
- */
-function soda_theme_test_notice() {
-	if ( ! current_user_can( 'manage_options' ) ) {
-		return;
-	}
-	
-	// Only show if NOT debugging
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-	if ( isset( $_GET['soda_debug_fonts'] ) && ! empty( $_GET['soda_debug_fonts'] ) ) {
-		return; // Don't show this notice when debug is active
-	}
-	
-	echo '<div class="notice notice-success"><p><strong>✓ Soda Theme is active and loaded!</strong> To see custom fonts debug, add <code>?soda_debug_fonts=1</code> to the URL.</p></div>';
-}
-add_action( 'admin_notices', 'soda_theme_test_notice', 10 );
+

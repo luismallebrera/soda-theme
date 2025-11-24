@@ -214,34 +214,7 @@ if ( file_exists( get_template_directory() . '/inc/kirki-config.php' ) ) {
  * To debug custom fonts detection, add ?soda_debug_fonts=1 to any admin URL
  * Example: wp-admin/index.php?soda_debug_fonts=1
  */
-if ( file_exists( get_template_directory() . '/inc/custom-fonts.php' ) ) {
-	require get_template_directory() . '/inc/custom-fonts.php';
-	
-	// Test that file loaded
-	add_action( 'admin_notices', function() {
-		if ( current_user_can( 'manage_options' ) ) {
-			$loaded = function_exists( 'soda_theme_debug_custom_fonts' ) ? 'YES ✓' : 'NO ✗';
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$param_set = isset( $_GET['soda_debug_fonts'] ) ? 'YES (value: ' . esc_html( $_GET['soda_debug_fonts'] ) . ')' : 'NO';
-			echo '<div class="notice notice-info"><p><strong>Custom Fonts File:</strong> Loaded | <strong>Debug Function:</strong> ' . $loaded . ' | <strong>URL Parameter:</strong> ' . $param_set . '</p></div>';
-			
-			// If parameter is set, call the debug function directly
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			if ( isset( $_GET['soda_debug_fonts'] ) && ! empty( $_GET['soda_debug_fonts'] ) ) {
-				echo '<div class="notice notice-warning" style="border: 3px solid orange;"><p><strong>⚠️ Manually calling debug function...</strong></p></div>';
-				if ( function_exists( 'soda_theme_debug_custom_fonts' ) ) {
-					soda_theme_debug_custom_fonts();
-				}
-			}
-		}
-	}, 2 );
-} else {
-	add_action( 'admin_notices', function() {
-		if ( current_user_can( 'manage_options' ) ) {
-			echo '<div class="notice notice-error"><p><strong>ERROR:</strong> custom-fonts.php file not found!</p></div>';
-		}
-	});
-}
+require get_template_directory() . '/inc/custom-fonts.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -266,13 +239,5 @@ function soda_theme_admin_font() {
 add_action( 'admin_head', 'soda_theme_admin_font' );
 add_action( 'login_head', 'soda_theme_admin_font' );
 
-/**
- * TEMPORARY TEST - Shows theme is active
- */
-function soda_theme_test_active() {
-	if ( is_admin() && current_user_can( 'manage_options' ) ) {
-		echo '<div class="notice notice-warning" style="border-left-color: #00ff00;"><p><strong>🟢 SODA THEME IS ACTIVE - functions.php loaded!</strong></p></div>';
-	}
-}
-add_action( 'admin_notices', 'soda_theme_test_active', 1 );
+
 
