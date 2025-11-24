@@ -18,42 +18,43 @@
  */
 add_action( 'customize_controls_print_styles', 'soda_theme_customizer_headline_styles' );
 function soda_theme_customizer_headline_styles() {
-	echo '<style>';
-	echo '#customize-theme-controls .customize-pane-child.open {';
-	echo '    overflow: visible;';
-	echo '    background-color: #fff;';
-	echo '    width: calc(100% - 20px);';
-	echo '    margin-left: 10px;';
-	echo '}';
+	?>
+	<style>
+	#customize-theme-controls .customize-pane-child.open {
+		overflow: visible;
+		background-color: #fff;
+		width: calc(100% - 20px);
+		margin-left: 10px;
+	}
 
-	echo '.customize-control-kirki-headline, .customize-control-kirki-headline .control-label {';
-	echo '    padding: 15px 10px 16px !important;';
-	echo '    background: #00a0d2 !important;';
-	echo '    border-left: 0 !important;';
-	echo '    margin: 0 !important;';
-	echo '    color: #fff !important;';
-	echo '    text-transform: uppercase !important;';
-	echo '    text-align: center !important;';
-	echo '    border-radius: 0px !important;';
-	echo '    margin-bottom: 20px !important;';
-	echo '    left: -12px;';
-	echo '    position: relative;';
-	echo '    width: calc(100% + 24px);';
-	echo '}';
+	.customize-control-kirki-headline, .customize-control-kirki-headline .control-label {
+		padding: 15px 10px 16px !important;
+		background: #00a0d2 !important;
+		border-left: 0 !important;
+		margin: 0 !important;
+		color: #fff !important;
+		text-transform: uppercase !important;
+		text-align: center !important;
+		border-radius: 0px !important;
+		margin-bottom: 20px !important;
+		left: -12px;
+		position: relative;
+		width: calc(100% + 24px);
+	}
 
-	echo '#customize-controls ul {';
-	echo '    list-style: none !important;';
-	echo '}';
+	#customize-controls ul {
+		list-style: none !important;
+	}
 
-	echo '#customize-controls ol {';
-	echo '    list-style: none !important;';
-	echo '}';
+	#customize-controls ol {
+		list-style: none !important;
+	}
 
-	echo '.control-section-kirki-default, .control-section-kirki-outer {';
-	echo '    min-height: auto !important;';
-	echo '}';
-
-	echo '</style>';
+	.control-section-kirki-default, .control-section-kirki-outer {
+		min-height: auto !important;
+	}
+	</style>
+	<?php
 }
 
 /**
