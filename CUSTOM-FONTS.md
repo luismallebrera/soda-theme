@@ -139,18 +139,24 @@ array(
 
 If fonts aren't appearing, enable debug mode to see what's detected:
 
-1. Add this line to your `functions.php` (temporarily):
-```php
-add_action( 'admin_notices', 'soda_theme_debug_custom_fonts' );
-```
-
-2. Go to WordPress admin - you'll see a debug notice showing:
+1. Open `functions.php` in your theme
+2. Find the line that says `require get_template_directory() . '/inc/custom-fonts.php';`
+3. Right after that line, you'll see a commented debug line:
+   ```php
+   // Uncomment to debug custom fonts:
+   // add_action( 'admin_notices', 'soda_theme_debug_custom_fonts' );
+   ```
+4. Uncomment it (remove the `//` from the second line):
+   ```php
+   // Uncomment to debug custom fonts:
+   add_action( 'admin_notices', 'soda_theme_debug_custom_fonts' );
+   ```
+5. Save and go to WordPress admin - you'll see a debug notice showing:
    - Whether Elementor is loaded
    - How many font posts are found
    - What fonts are stored in options
    - Which font families are detected
-
-3. Remove the debug line when done
+6. Comment it back out when done (add `//` back)
 
 ### Common Issues
 
