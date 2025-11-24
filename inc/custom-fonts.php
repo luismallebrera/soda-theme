@@ -255,7 +255,7 @@ function soda_theme_debug_custom_fonts() {
 	
 	// Only show if debug parameter is set
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-	if ( ! isset( $_GET['soda_debug_fonts'] ) || $_GET['soda_debug_fonts'] != '1' ) {
+	if ( ! isset( $_GET['soda_debug_fonts'] ) || empty( $_GET['soda_debug_fonts'] ) ) {
 		return;
 	}
 	
@@ -343,7 +343,7 @@ function soda_theme_test_notice() {
 	
 	// Only show if NOT debugging
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-	if ( isset( $_GET['soda_debug_fonts'] ) && $_GET['soda_debug_fonts'] == '1' ) {
+	if ( isset( $_GET['soda_debug_fonts'] ) && ! empty( $_GET['soda_debug_fonts'] ) ) {
 		return; // Don't show this notice when debug is active
 	}
 	
