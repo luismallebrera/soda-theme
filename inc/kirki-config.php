@@ -32,19 +32,29 @@ Kirki::add_config(
 add_action( 'customize_controls_enqueue_scripts', function() {
 	?>
 	<style>
+		#customize-control-header_container_headline,
+		#customize-control-menu_navigation_headline,
+		#customize-control-mobile_toggle_headline,
+		#customize-control-mobile_dropdown_headline {
+			background-color: transparent !important;
+			left: 0 !important;
+			width: 100% !important;
+			padding: 0 !important;
+			position: relative !important;
+		}
 		#customize-control-header_container_headline .kirki-control-form,
 		#customize-control-menu_navigation_headline .kirki-control-form,
 		#customize-control-mobile_toggle_headline .kirki-control-form,
 		#customize-control-mobile_dropdown_headline .kirki-control-form {
-			padding: 10px 10px 11px;
+			padding: 10px 10px 11px !important;
 			background: #00a0d2 !important;
-			border-left: 0;
-			margin: 10px -12px;
+			border-left: 0 !important;
+			margin: 10px -12px !important;
 			color: #fff !important;
-			text-transform: uppercase;
-			text-align: center;
-			border-radius: 6px;
-			font-weight: bold;
+			text-transform: uppercase !important;
+			text-align: center !important;
+			border-radius: 6px !important;
+			font-weight: bold !important;
 		}
 	</style>
 	<?php
