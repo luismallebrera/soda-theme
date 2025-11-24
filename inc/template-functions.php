@@ -40,6 +40,11 @@ function soda_theme_body_classes( $classes ) {
 		$classes[] = 'has-menu-separators';
 	}
 
+	// Add submenu separators class
+	if ( get_theme_mod( 'enable_submenu_separators', false ) ) {
+		$classes[] = 'has-submenu-separators';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'soda_theme_body_classes' );
@@ -64,6 +69,17 @@ function soda_theme_remove_admin_bar_margin() {
 	}
 }
 add_action( 'wp_head', 'soda_theme_remove_admin_bar_margin', 99 );
+
+/**
+ * Output submenu separator color as CSS variable.
+ */
+function soda_theme_submenu_separator_styles() {
+	if ( get_theme_mod( 'enable_submenu_separators', false ) ) {
+		$separator_color = get_theme_mod( 'submenu_separator_color', '#dcdcdc' );
+		echo '<style>:root { --submenu-separator-color: ' . esc_attr( $separator_color ) . '; }</style>';
+	}
+}
+add_action( 'wp_head', 'soda_theme_submenu_separator_styles' );
 
 /**
  * Display custom logo with sticky logo support.

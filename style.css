@@ -1049,6 +1049,16 @@ body.has-menu-separators .main-navigation ul > li:not(:last-child)::after {
 	}
 }
 
+/* Submenu Item Vertical Separators */
+body.has-submenu-separators .main-navigation ul ul li:not(:last-child) {
+	border-bottom: 1px solid #dcdcdc;
+}
+
+body.has-submenu-separators .main-navigation ul ul li:not(:last-child) {
+	border-bottom-color: var(--submenu-separator-color, #dcdcdc);
+}
+
+
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {

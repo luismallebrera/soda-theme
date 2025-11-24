@@ -2325,6 +2325,160 @@ new \Kirki\Field\Text(
 );
 
 /**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_submenu_6',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 154,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Submenu Link Text Alignment
+ */
+new \Kirki\Field\Radio_Buttonset(
+	array(
+		'settings'  => 'submenu_link_text_align',
+		'label'     => esc_html__( 'Submenu Link Text Alignment', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 155,
+		'default'   => 'left',
+		'choices'   => array(
+			'left'   => esc_html__( 'Left', 'soda-theme' ),
+			'center' => esc_html__( 'Center', 'soda-theme' ),
+			'right'  => esc_html__( 'Right', 'soda-theme' ),
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.main-navigation ul ul a',
+				'property' => 'text-align',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_submenu_7',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 156,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Submenu Link Padding
+ */
+new \Kirki\Field\Dimensions(
+	array(
+		'settings'  => 'submenu_link_padding',
+		'label'     => esc_html__( 'Submenu Link Padding', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 157,
+		'default'   => array(
+			'padding-top'    => '10px',
+			'padding-right'  => '20px',
+			'padding-bottom' => '10px',
+			'padding-left'   => '20px',
+		),
+		'choices'   => array(
+			'labels' => array(
+				'padding-top'    => esc_html__( 'Top', 'soda-theme' ),
+				'padding-right'  => esc_html__( 'Right', 'soda-theme' ),
+				'padding-bottom' => esc_html__( 'Bottom', 'soda-theme' ),
+				'padding-left'   => esc_html__( 'Left', 'soda-theme' ),
+			),
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element' => '.main-navigation ul ul a',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_submenu_8',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 158,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Enable Submenu Vertical Separators
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'  => 'enable_submenu_separators',
+		'label'     => esc_html__( 'Enable Submenu Vertical Separators', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 159,
+		'default'   => false,
+		'choices'   => array(
+			'on'  => esc_html__( 'Yes', 'soda-theme' ),
+			'off' => esc_html__( 'No', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_submenu_9',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 160,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Submenu Separator Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'        => 'submenu_separator_color',
+		'label'           => esc_html__( 'Submenu Separator Color', 'soda-theme' ),
+		'section'         => 'soda_theme_color_settings',
+		'priority'        => 161,
+		'default'         => '#dcdcdc',
+		'choices'         => array(
+			'alpha' => true,
+		),
+		'transport'       => 'postMessage',
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_submenu_separators',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
  * MOBILE TOGGLE
  */
 new \Kirki\Pro\Field\Headline(
