@@ -2281,12 +2281,12 @@ new \Kirki\Section(
 );
 
 /**
- * Menu Font Family
+ * Menu Font
  */
 new \Kirki\Field\Typography(
 	array(
 		'settings' => 'menu_typography',
-		'label'    => esc_html__( 'Menu Font Family', 'soda-theme' ),
+		'label'    => esc_html__( 'Menu Font', 'soda-theme' ),
 		'section'  => 'soda_theme_navigation_typography',
 		'priority' => 10,
 		'transport'   => 'auto',
@@ -2318,12 +2318,12 @@ new \Kirki\Field\Typography(
 );
 
 /**
- * Submenu Font Family
+ * Submenu Font
  */
 new \Kirki\Field\Typography(
 	array(
 		'settings' => 'submenu_typography',
-		'label'    => esc_html__( 'Submenu Font Family', 'soda-theme' ),
+		'label'    => esc_html__( 'Submenu Font', 'soda-theme' ),
 		'section'  => 'soda_theme_navigation_typography',
 		'priority' => 20,
 		'transport'   => 'auto',
@@ -2355,12 +2355,12 @@ new \Kirki\Field\Typography(
 );
 
 /**
- * Mobile Menu Text Typography
+ * Toggle Font
  */
 new \Kirki\Field\Typography(
 	array(
 		'settings' => 'mobile_menu_text_typography',
-		'label'    => esc_html__( 'Mobile Menu Text Typography', 'soda-theme' ),
+		'label'    => esc_html__( 'Toggle Font', 'soda-theme' ),
 		'section'  => 'soda_theme_navigation_typography',
 		'priority' => 30,
 		'transport'   => 'auto',
@@ -2392,12 +2392,12 @@ new \Kirki\Field\Typography(
 );
 
 /**
- * Mobile Dropdown Typography
+ * Mobile Menu Font
  */
 new \Kirki\Field\Typography(
 	array(
 		'settings' => 'mobile_dropdown_typography',
-		'label'    => esc_html__( 'Mobile Dropdown Typography', 'soda-theme' ),
+		'label'    => esc_html__( 'Mobile Menu Font', 'soda-theme' ),
 		'section'  => 'soda_theme_navigation_typography',
 		'priority' => 40,
 		'transport'   => 'auto',
