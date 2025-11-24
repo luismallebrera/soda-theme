@@ -32,16 +32,19 @@ Kirki::add_config(
 add_action( 'customize_controls_enqueue_scripts', function() {
 	?>
 	<style>
+		/* Reset container positioning so we can apply the original headline style */
 		#customize-control-header_container_headline,
 		#customize-control-menu_navigation_headline,
 		#customize-control-mobile_toggle_headline,
 		#customize-control-mobile_dropdown_headline {
 			background-color: transparent !important;
 			left: 0 !important;
-			width: 100% !important;
+			width: auto !important;
 			padding: 0 !important;
 			position: relative !important;
 		}
+
+		/* Apply the exact styles you requested to the headline control area */
 		#customize-control-header_container_headline .kirki-control-form,
 		#customize-control-menu_navigation_headline .kirki-control-form,
 		#customize-control-mobile_toggle_headline .kirki-control-form,
@@ -49,12 +52,20 @@ add_action( 'customize_controls_enqueue_scripts', function() {
 			padding: 10px 10px 11px !important;
 			background: #00a0d2 !important;
 			border-left: 0 !important;
-			margin: 10px -12px !important;
+			margin: 10px -5px !important;
 			color: #fff !important;
 			text-transform: uppercase !important;
 			text-align: center !important;
 			border-radius: 6px !important;
 			font-weight: bold !important;
+		}
+
+		/* Ensure the headline title text inherits the white color */
+		#customize-control-header_container_headline .customize-control-title,
+		#customize-control-menu_navigation_headline .customize-control-title,
+		#customize-control-mobile_toggle_headline .customize-control-title,
+		#customize-control-mobile_dropdown_headline .customize-control-title {
+			color: inherit !important;
 		}
 	</style>
 	<?php
