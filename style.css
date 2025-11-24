@@ -922,10 +922,18 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 		display: flex;
 		align-items: center;
 	}
+	
+	.header-layout-1 .main-navigation {
+		margin-left: auto;
+	}
 
 	.header-layout-3 .header-container {
 		display: flex;
 		align-items: center;
+	}
+	
+	.header-layout-3 .main-navigation {
+		margin-left: auto;
 	}
 	
 	.header-layout-2 .action-button {
