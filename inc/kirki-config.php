@@ -1201,6 +1201,43 @@ new \Kirki\Pro\Field\Divider(
 );
 
 /**
+ * Sticky Header Background Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'  => 'sticky_header_bg_color',
+		'label'     => esc_html__( 'Sticky Header Background', 'soda-theme' ),
+		'section'   => 'soda_theme_color_settings',
+		'priority'  => 190,
+		'default'   => '#ffffff',
+		'choices'   => array(
+			'alpha' => true,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header',
+				'property' => 'background-color',
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'color_divider_19',
+		'section'  => 'soda_theme_color_settings',
+		'priority' => 195,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
  * Header Padding
  */
 new \Kirki\Field\Dimensions(
