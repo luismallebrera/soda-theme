@@ -833,6 +833,7 @@ new \Kirki\Pro\Field\Padding(
 		'output'          => array(
 			array(
 				'element' => '.action-button',
+				'suffix'  => ' !important',
 			),
 		),
 		'active_callback' => array(
@@ -889,7 +890,8 @@ new \Kirki\Field\Typography(
 		'transport'       => 'auto',
 		'output'          => array(
 			array(
-				'element' => '.action-button',
+				'element'   => '.action-button',
+				'suffix'    => ' !important',
 			),
 		),
 		'active_callback' => array(
@@ -958,6 +960,7 @@ new \Kirki\Field\Color(
 			array(
 				'element'  => '.action-button',
 				'property' => 'background-color',
+				'suffix'   => ' !important',
 			),
 		),
 		'active_callback' => array(
@@ -999,6 +1002,7 @@ new \Kirki\Field\Color(
 			array(
 				'element'  => '.has-sticky-header .site-header.sticky-header .action-button',
 				'property' => 'background-color',
+				'suffix'   => ' !important',
 			),
 		),
 		'active_callback' => array(
@@ -1044,6 +1048,7 @@ new \Kirki\Field\Dimensions(
 		'output'          => array(
 			array(
 				'element' => '.action-button',
+				'suffix'  => ' !important',
 			),
 		),
 		'active_callback' => array(
@@ -1091,6 +1096,7 @@ new \Kirki\Field\Slider(
 				'element'  => '.action-button',
 				'property' => 'border-radius',
 				'units'    => 'px',
+				'suffix'   => ' !important',
 			),
 		),
 		'active_callback' => array(
@@ -1138,6 +1144,7 @@ new \Kirki\Field\Slider(
 				'element'       => '.action-button',
 				'property'      => 'backdrop-filter',
 				'value_pattern' => 'blur($px)',
+				'suffix'        => ' !important',
 			),
 		),
 		'active_callback' => array(
@@ -1180,6 +1187,7 @@ new \Kirki\Field\Text(
 			array(
 				'element'  => '.action-button',
 				'property' => 'box-shadow',
+				'suffix'   => ' !important',
 			),
 		),
 		'active_callback' => array(
