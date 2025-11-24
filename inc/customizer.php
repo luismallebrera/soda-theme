@@ -611,19 +611,6 @@ function soda_theme_customizer_controls_styles() {
 			flex-wrap: wrap;
 		}
 		
-		/* Custom control title styling */
-		span.customize-control-title {
-			margin-left: -12px;
-			padding: 10px 0px 10px 10px;
-			background-color: #fff;
-			margin-right: -12px;
-			border-bottom: 1px solid #c2c2c2;
-			border-top: 1px solid #c2c2c2;
-			margin-bottom: 15px;
-			text-transform: uppercase;
-			font-size: 12px;
-		}
-		
 		/* Color picker styling */
 		.customize-control-kirki-react-colorful .kirki-control-left-col {
 			width: 90%;
