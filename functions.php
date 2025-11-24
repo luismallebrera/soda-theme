@@ -216,6 +216,16 @@ if ( file_exists( get_template_directory() . '/inc/kirki-config.php' ) ) {
  */
 require get_template_directory() . '/inc/custom-fonts.php';
 
+// Debug helper - manually call debug function when parameter is set
+add_action( 'admin_notices', function() {
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( isset( $_GET['soda_debug_fonts'] ) && ! empty( $_GET['soda_debug_fonts'] ) && current_user_can( 'manage_options' ) ) {
+		if ( function_exists( 'soda_theme_debug_custom_fonts' ) ) {
+			soda_theme_debug_custom_fonts();
+		}
+	}
+}, 1 );
+
 /**
  * Load Jetpack compatibility file.
  */
