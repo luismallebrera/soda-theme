@@ -481,18 +481,6 @@ new \Kirki\Section(
 );
 
 /**
- * Color Settings Header
- */
-new \Kirki\Field\Custom(
-	array(
-		'settings' => 'color_settings_header',
-		'section'  => 'soda_theme_color_settings',
-		'priority' => 5,
-		'default'  => '<div style="padding: 10px 10px 11px; background: #00a0d2; border-left: 0; margin: 10px -5px; color: #fff; text-transform: uppercase; text-align: center; border-radius: 6px;"><strong>' . esc_html__( 'Menu Colors', 'soda-theme' ) . '</strong></div>',
-	)
-);
-
-/**
  * Header Background Color
  */
 new \Kirki\Field\Color(
@@ -538,6 +526,10 @@ new \Kirki\Pro\Field\Headline(
 		'label'    => esc_html__( 'HEADER CONTAINER', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
 		'priority' => 20,
+		'choices'  => array(
+			'background-color' => '#00a0d2',
+			'color'            => '#ffffff',
+		),
 	)
 );
 
@@ -816,6 +808,10 @@ new \Kirki\Pro\Field\Headline(
 		'label'    => esc_html__( 'MENU NAVIGATION', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
 		'priority' => 85,
+		'choices'  => array(
+			'background-color' => '#00a0d2',
+			'color'            => '#ffffff',
+		),
 	)
 );
 
@@ -1080,6 +1076,10 @@ new \Kirki\Pro\Field\Headline(
 		'label'    => esc_html__( 'MOBILE TOGGLE', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
 		'priority' => 150,
+		'choices'  => array(
+			'background-color' => '#00a0d2',
+			'color'            => '#ffffff',
+		),
 	)
 );
 
@@ -1358,6 +1358,10 @@ new \Kirki\Pro\Field\Headline(
 		'label'    => esc_html__( 'MOBILE DROPDOWN', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
 		'priority' => 215,
+		'choices'  => array(
+			'background-color' => '#00a0d2',
+			'color'            => '#ffffff',
+		),
 	)
 );
 
@@ -3398,70 +3402,6 @@ new \Kirki\Pro\Field\Padding(
 		'output'      => array(
 			array(
 				'element' => '.main-navigation a',
-			),
-		),
-	)
-);
-
-/**
- * Menu Navigation Box Shadow
- */
-new \Kirki\Field\Text(
-	array(
-		'settings'    => 'menu_navigation_box_shadow',
-		'label'       => esc_html__( 'Menu Navigation Box Shadow', 'soda-theme' ),
-		'description' => esc_html__( 'Example: 0 2px 5px rgba(0,0,0,0.1)', 'soda-theme' ),
-		'section'     => 'soda_theme_menu_settings',
-		'default'     => 'none',
-		'transport'   => 'postMessage',
-		'output'      => array(
-			array(
-				'element'  => '.main-navigation',
-				'property' => 'box-shadow',
-			),
-		),
-	)
-);
-
-/**
- * Menu Navigation Backdrop Filter Blur
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'    => 'menu_navigation_backdrop_blur',
-		'label'       => esc_html__( 'Menu Navigation Backdrop Blur', 'soda-theme' ),
-		'description' => esc_html__( 'Blur amount in pixels for backdrop filter', 'soda-theme' ),
-		'section'     => 'soda_theme_menu_settings',
-		'default'     => 0,
-		'choices'     => array(
-			'min'  => 0,
-			'max'  => 50,
-			'step' => 1,
-		),
-		'transport'   => 'postMessage',
-	)
-);
-
-/**
- * Menu Navigation Border Radius
- */
-new \Kirki\Field\Slider(
-	array(
-		'settings'  => 'menu_navigation_border_radius',
-		'label'     => esc_html__( 'Menu Navigation Border Radius', 'soda-theme' ),
-		'section'   => 'soda_theme_menu_settings',
-		'default'   => 0,
-		'choices'   => array(
-			'min'  => 0,
-			'max'  => 50,
-			'step' => 1,
-		),
-		'transport' => 'postMessage',
-		'output'    => array(
-			array(
-				'element'  => '.main-navigation',
-				'property' => 'border-radius',
-				'units'    => 'px',
 			),
 		),
 	)
