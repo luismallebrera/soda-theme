@@ -1153,6 +1153,32 @@ new \Kirki\Pro\Field\Padding(
 );
 
 /**
+ * Mobile Menu Toggle Gap
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'    => 'mobile_menu_toggle_gap',
+		'label'       => esc_html__( 'Toggle Gap (px)', 'soda-theme' ),
+		'description' => esc_html__( 'Space between hamburger icon and text.', 'soda-theme' ),
+		'section'     => 'soda_theme_menu_settings',
+		'default'     => 10,
+		'choices'     => array(
+			'min'  => 0,
+			'max'  => 50,
+			'step' => 1,
+		),
+		'transport' => 'postMessage',
+		'output'    => array(
+			array(
+				'element'  => '.site-navigation-toggle-holder .site-navigation-toggle',
+				'property' => 'gap',
+				'suffix'   => 'px',
+			),
+		),
+	)
+);
+
+/**
  * Mobile Menu Toggle Border Radius
  */
 new \Kirki\Field\Slider(

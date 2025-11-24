@@ -977,7 +977,7 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 	padding: 0;
 	border: none;
 	background-color: transparent;
-	gap: 10px;
+	/* Gap controlled by customizer */
 }
 
 /* Menu Text Wrapper with Perspective */
