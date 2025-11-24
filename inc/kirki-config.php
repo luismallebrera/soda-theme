@@ -2336,6 +2336,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'menu_typography_divider',
 		'section'  => 'soda_theme_navigation_typography',
+		'priority' => 15,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -2386,6 +2387,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'submenu_typography_divider',
 		'section'  => 'soda_theme_navigation_typography',
+		'priority' => 22,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -2448,6 +2450,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'toggle_typography_divider',
 		'section'  => 'soda_theme_navigation_typography',
+		'priority' => 32,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
@@ -2510,6 +2513,7 @@ new \Kirki\Pro\Field\Divider(
 	array(
 		'settings' => 'mobile_menu_typography_divider',
 		'section'  => 'soda_theme_navigation_typography',
+		'priority' => 42,
 		'choices'  => array(
 			'color' => '#dcdcdc',
 		),
