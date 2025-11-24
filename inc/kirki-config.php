@@ -252,10 +252,25 @@ new \Kirki\Field\Checkbox_Switch(
 		'label'       => esc_html__( 'Enable Sticky Header', 'soda-theme' ),
 		'description' => esc_html__( 'Make the header stick to the top when scrolling.', 'soda-theme' ),
 		'section'     => 'soda_theme_header_behavior',
+		'priority'    => 10,
 		'default'     => true,
 		'choices'     => array(
 			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
 			'off' => esc_html__( 'Disabled', 'soda-theme' ),
+		),
+	)
+);
+
+/**
+ * Enable Sticky Header Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'enable_sticky_header_divider',
+		'section'  => 'soda_theme_header_behavior',
+		'priority' => 15,
+		'choices'  => array(
+			'color' => '#dcdcdc',
 		),
 	)
 );
@@ -269,6 +284,7 @@ new \Kirki\Field\Checkbox_Switch(
 		'label'           => esc_html__( 'Enable Sticky Header Box Shadow', 'soda-theme' ),
 		'description'     => esc_html__( 'Add a shadow below the sticky header.', 'soda-theme' ),
 		'section'         => 'soda_theme_header_behavior',
+		'priority'        => 20,
 		'default'         => true,
 		'choices'         => array(
 			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
