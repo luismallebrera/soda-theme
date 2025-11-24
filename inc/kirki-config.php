@@ -6,6 +6,9 @@
  */
 
 // Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // Do not proceed if Kirki does not exist.
 if ( ! class_exists( 'Kirki' ) ) {
@@ -15,207 +18,222 @@ if ( ! class_exists( 'Kirki' ) ) {
 /**
  * Add Kirki configuration.
  */
+Kirki::add_config(
+	'soda_theme_config',
+	array(
+		'capability' => 'edit_theme_options',
+		'option_type' => 'theme_mod',
+	)
+);
 
-add_action( 'customize_controls_print_styles', function() {
-	?>
-	<style>
-		/* Strongly target the Kirki Headline controls and the specific controls
-		 * requested by the user. This prints as late as possible in the
-		 * Customizer controls panel to ensure it overrides other styles.
-		 */
+/**
+ * Add Logo Settings Panel
+ */
+new \Kirki\Panel(
+	'soda_theme_header_panel',
+	array(
+		'priority' => 29,
+		'title' => esc_html__( 'Soda Theme Header', 'soda-theme' ),
+		'description' => esc_html__( 'Customize your header appearance and behavior.', 'soda-theme' ),
+	)
+);
 
-		.customize-control-kirki-headline {
-			background: #00a0d2 !important;
-			border-radius: 6px !important;
-			margin: 10px -5px !important;
-			overflow: visible !important;
-		}
-		#customize-control-header_container_headline,
-		.customize-control-kirki-headline .customize-control-title,
-		#customize-control-header_container_headline .customize-control-title,
-		#customize-control-menu_navigation_headline .customize-control-title,
-		#customize-control-mobile_toggle_headline .customize-control-title,
-		#customize-control-mobile_dropdown_headline .customize-control-title {
-			color: #fff !important;
-			padding: 10px 10px 11px !important;
-			text-transform: uppercase !important;
-			text-align: center !important;
-			border-left: 0 !important;
-			display: block !important;
-			margin: 0 !important;
-		}
-		.customize-control-kirki-headline .kirki-control-label .customize-control-title,
-		.customize-control-kirki-headline .kirki-control-form .customize-control-title {
-			color: #fff !important;
-		}
+/**
+ * Logo Settings Section
+ */
+new \Kirki\Section(
+	'soda_theme_logo_settings',
+	array(
+		'title' => esc_html__( 'Logo Settings', 'soda-theme' ),
+		'panel' => 'soda_theme_header_panel',
+		'priority' => 10,
+	)
+);
 
-		/* Make soda-customizer-section wrappers visible for debugging/verification */
-		.soda-customizer-section {
-			border: 1px solid rgba(0,160,210,0.18) !important;
-			background: rgba(0,160,210,0.10) !important;
-			padding: 12px 14px !important;
-			margin: 8px 0 !important;
-			box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset !important;
-		}
+/**
+ * Logo Settings Header
+ */
+new \Kirki\Field\Custom(
+	array(
+		'settings' => 'logo_settings_header',
+		'section' => 'soda_theme_logo_settings',
+		'priority' => 5,
+		'default' => '<div style="padding: 10px 10px 11px; background: #00a0d2; border-left: 0; margin: 10px -5px; color: #fff; text-transform: uppercase; text-align: center; border-radius: 6px;"><strong>' . esc_html__( 'Logo Configuration', 'soda-theme' ) . '</strong></div>',
+	)
+);
 
-		/* Style Kirki divider controls to match the requested HR appearance */
-		.customize-control-kirki-divider,
-		.customize-control-kirki-pro-divider,
-		.kirki-divider,
-		.kirki-control-divider,
-		.customize-control .kirki-divider,
-		.customize-control .kirki-divider hr {
-			border-top: 1px solid #797979 !important;
-			border-bottom: 1px solid #f8f8f8 !important;
-			margin: 10px -12px !important;
-		}
-	</style>
-	<?php
-}, 9999 );
+/**
+ * Sticky Logo Upload
+ */
+new \Kirki\Field\Image(
+	array(
+		'settings' => 'sticky_logo',
+		'label' => esc_html__( 'Sticky Header Logo', 'soda-theme' ),
+		'description' => esc_html__( 'Upload a logo to be displayed when the header is sticky/scrolled.', 'soda-theme' ),
+		'section' => 'soda_theme_logo_settings',
+		'default' => '',
+		'priority' => 10,
+		'choices' => array(
+			'save_as' => 'id',
+		),
+	)
+);
 
-// Wrap specific Header Container controls into a single visual group
-add_action( 'customize_controls_print_footer_scripts', function() {
-	?>
-	<script>
-	( function( $ ) {
-		$( function() {
-			/**
-			 * Helper: move all li controls between startId and endId into the
-			 * wrapper DIV printed by the Custom field inside the start li.
-			 * If the start/end placeholders don't exist, fall back to wrapping by IDs.
-			 */
-			function moveControlsIntoWrapper( startId, endId, fallbackIds, wrapperClass ) {
-				var $startLi = $( '#customize-control-' + startId );
-				var $endLi   = $( '#customize-control-' + endId );
+/**
+ * Sticky Logo Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'sticky_logo_divider',
+		'section' => 'soda_theme_logo_settings',
+		'priority' => 15,
+		'choices' => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
 
-				// If a start li with a .soda-customizer-section exists, use it
-				if ( $startLi.length && $startLi.find( '.soda-customizer-section' ).length ) {
-					var $wrapper = $startLi.find( '.soda-customizer-section' ).first();
-					// Collect all sibling lis after the start until the end li and move them into the wrapper
-					var $toMove = $startLi.nextUntil( $endLi );
-					if ( $toMove.length ) {
-						// Append the controls into the wrapper for visual grouping
-						$toMove.appendTo( $wrapper );
-						$wrapper.addClass( wrapperClass );
-					}
-					return true;
-				}
+/**
+ * Regular Logo Width
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings' => 'regular_logo_width',
+		'label' => esc_html__( 'Regular Logo Width (px)', 'soda-theme' ),
+		'description' => esc_html__( 'Set the width for the regular logo.', 'soda-theme' ),
+		'section' => 'soda_theme_logo_settings',
+		'default' => 150,
+		'priority' => 20,
+		'transport' => 'postMessage',
+		'choices' => array(
+			'min' => 50,
+			'max' => 500,
+			'step' => 5,
+		),
+	)
+);
 
-				// Fallback: wrap specific control IDs (previous behaviour)
-				var $els = $( fallbackIds.join( ', ' ) );
-				if ( $els.length ) {
-					$els.wrapAll( '<div class="soda-customizer-section ' + wrapperClass + '"></div>' );
-					return true;
-				}
-				return false;
-			}
+/**
+ * Regular Logo Width Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'regular_logo_width_divider',
+		'section' => 'soda_theme_logo_settings',
+		'priority' => 25,
+		'choices' => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
 
-			// Header Container group (uses start/end placeholders: header_container_wrapper_start/_end)
-			moveControlsIntoWrapper(
-				'header_container_wrapper_start',
-				'header_container_wrapper_end',
-				[
-					'#customize-control-header_container_headline',
-					'#customize-control-header_container_bg_color',
-					'#customize-control-sticky_header_container_bg_color',
-					'#customize-control-header_container_border',
-					'#customize-control-header_container_border_color',
-					'#customize-control-header_container_border_radius',
-					'#customize-control-header_container_backdrop_blur',
-					'#customize-control-header_container_box_shadow'
-				],
-				'soda-header-container'
-			);
+/**
+ * Sticky Logo Width
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings' => 'sticky_logo_width',
+		'label' => esc_html__( 'Sticky Logo Width (px)', 'soda-theme' ),
+		'description' => esc_html__( 'Set the width for the sticky header logo.', 'soda-theme' ),
+		'section' => 'soda_theme_logo_settings',
+		'default' => 100,
+		'priority' => 30,
+		'transport' => 'postMessage',
+		'choices' => array(
+			'min' => 50,
+			'max' => 300,
+			'step' => 5,
+		),
+	)
+);
 
-			// Menu Navigation group
-			moveControlsIntoWrapper(
-				'menu_navigation_wrapper_start',
-				'menu_navigation_wrapper_end',
-				[
-					'#customize-control-menu_navigation_headline',
-					'#customize-control-menu_navigation_bg_color',
-					'#customize-control-menu_navigation_border',
-					'#customize-control-menu_navigation_border_color',
-					'#customize-control-menu_navigation_border_radius',
-					'#customize-control-menu_navigation_backdrop_blur',
-					'#customize-control-menu_navigation_box_shadow',
-					'#customize-control-menu_navigation_bg_color'
-				],
-				'soda-menu-navigation'
-			);
+/**
+ * Sticky Logo Width Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'sticky_logo_width_divider',
+		'section' => 'soda_theme_logo_settings',
+		'priority' => 35,
+		'choices' => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
 
-			// Mobile Toggle group
-			moveControlsIntoWrapper(
-				'mobile_toggle_wrapper_start',
-				'mobile_toggle_wrapper_end',
-				[
-					'#customize-control-mobile_toggle_headline',
-					'#customize-control-mobile_menu_toggle_bg_color',
-					'#customize-control-mobile_toggle_border',
-					'#customize-control-mobile_toggle_border_color',
-					'#customize-control-mobile_toggle_border_radius',
-					'#customize-control-mobile_toggle_backdrop_blur',
-					'#customize-control-mobile_toggle_box_shadow'
-				],
-				'soda-mobile-toggle'
-			);
+/**
+ * Header Layout Section
+ */
+new \Kirki\Section(
+	'soda_theme_header_layout',
+	array(
+		'title' => esc_html__( 'Header Layout', 'soda-theme' ),
+		'panel' => 'soda_theme_header_panel',
+		'priority' => 20,
+	)
+);
 
-			// Mobile Dropdown group
-			moveControlsIntoWrapper(
-				'mobile_dropdown_wrapper_start',
-				'mobile_dropdown_wrapper_end',
-				[
-					'#customize-control-mobile_dropdown_headline',
-					'#customize-control-mobile_dropdown_bg_color',
-					'#customize-control-mobile_dropdown_border',
-					'#customize-control-mobile_dropdown_border_color',
-					'#customize-control-mobile_dropdown_border_radius',
-					'#customize-control-mobile_dropdown_backdrop_blur',
-					'#customize-control-mobile_dropdown_box_shadow'
-				],
-				'soda-mobile-dropdown'
-			);
-		} );
-	} )( jQuery );
+/**
+ * Enable Sticky Header Border Bottom
+ */
+new \Kirki\Field\Checkbox_Switch(
+	array(
+		'settings'        => 'enable_sticky_header_border',
+		'label'           => esc_html__( 'Enable Sticky Header Border Bottom', 'soda-theme' ),
+		'description'     => esc_html__( 'Add a border at the bottom of the sticky header.', 'soda-theme' ),
+		'section'         => 'soda_theme_header_behavior',
+		'default'         => false,
+		'choices'         => array(
+			'on'  => esc_html__( 'Enabled', 'soda-theme' ),
+			'off' => esc_html__( 'Disabled', 'soda-theme' ),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_sticky_header',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
 
-	// Re-run grouping when Customizer dynamically updates controls (Kirki may render controls after initial load)
-	( function( $ ) {
-		$( function() {
-			var runCount = 0;
-			var maxRuns = 8;
-			var debounce;
-			function tryGrouping() {
-				if ( runCount >= maxRuns ) {
-					return;
-				}
-				runCount++;
-				// Reuse the same moveControlsIntoWrapper function above by triggering a tiny timeout
-				// since the function is declared in the same footer script scope it will be available.
-				if ( typeof moveControlsIntoWrapper === 'function' ) {
-					moveControlsIntoWrapper( 'header_container_wrapper_start', 'header_container_wrapper_end', [ '#customize-control-header_container_headline' ], 'soda-header-container' );
-					moveControlsIntoWrapper( 'menu_navigation_wrapper_start', 'menu_navigation_wrapper_end', [ '#customize-control-menu_navigation_headline' ], 'soda-menu-navigation' );
-					moveControlsIntoWrapper( 'mobile_toggle_wrapper_start', 'mobile_toggle_wrapper_end', [ '#customize-control-mobile_toggle_headline' ], 'soda-mobile-toggle' );
-					moveControlsIntoWrapper( 'mobile_dropdown_wrapper_start', 'mobile_dropdown_wrapper_end', [ '#customize-control-mobile_dropdown_headline' ], 'soda-mobile-dropdown' );
-				}
-			}
+/**
+ * Sticky Header Border Bottom Color
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'        => 'sticky_header_border_color',
+		'label'           => esc_html__( 'Sticky Header Border Bottom Color', 'soda-theme' ),
+		'section'         => 'soda_theme_header_behavior',
+		'default'         => '#e0e0e0',
+		'choices'         => array(
+			'alpha' => true,
+		),
+		'transport'       => 'postMessage',
+		'output'          => array(
+			array(
+				'element'  => '.has-transparent-header.has-sticky-header .site-header.sticky-header',
+				'property' => 'border-bottom-color',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_sticky_header',
+				'operator' => '==',
+				'value'    => true,
+			),
+			array(
+				'setting'  => 'enable_sticky_header_border',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
 
-			// Observe the main controls container for changes and debounce grouping attempts
-			var target = document.querySelector( '#sub-accordion-section-soda_theme_color_settings' ) || document.body;
-			var observer = new MutationObserver( function( mutations ) {
-				clearTimeout( debounce );
-				debounce = setTimeout( tryGrouping, 200 );
-			} );
-			observer.observe( target, { childList: true, subtree: true } );
-
-			// Final safety: run a few times spaced out in case rendering is delayed
-			setTimeout( tryGrouping, 300 );
-			setTimeout( tryGrouping, 800 );
-			setTimeout( tryGrouping, 1600 );
-		} );
-	} )( jQuery );
-	</script>
-	<?php
-}, 1000 );
+/* (file continues — restored from backup)
+ * Note: the full original backup content from `inc/kirki-config.php.bak` has been restored here.
+ */
 /**
  * Add Logo Settings Panel
  */
@@ -724,6 +742,7 @@ new \Kirki\Pro\Field\Headline(
 		'settings' => 'header_container_headline',
 		'label'    => esc_html__( 'HEADER CONTAINER', 'soda-theme' ),
 		'section'  => 'soda_theme_color_settings',
+		'tab'      => 'header_container',
 		'priority' => 20,
 		'choices'  => array(
 			'background-color' => '#00a0d2',
@@ -740,6 +759,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'header_container_bg_color',
 		'label'     => esc_html__( 'Header Container Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
+		'tab'       => 'header_container',
 		'priority'  => 25,
 		'default'   => 'transparent',
 		'choices'   => array(
@@ -777,6 +797,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'sticky_header_container_bg_color',
 		'label'     => esc_html__( 'Sticky Header Container Background', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
+		'tab'       => 'header_container',
 		'priority'  => 35,
 		'default'   => 'transparent',
 		'choices'   => array(
@@ -814,6 +835,7 @@ new \Kirki\Field\Dimensions(
 		'settings'  => 'header_container_border',
 		'label'     => esc_html__( 'Header Container Border Width', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
+		'tab'       => 'header_container',
 		'priority'  => 45,
 		'default'   => array(
 			'border-top-width'    => '0px',
@@ -865,6 +887,7 @@ new \Kirki\Field\Color(
 		'settings'  => 'header_container_border_color',
 		'label'     => esc_html__( 'Header Container Border Color', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
+		'tab'       => 'header_container',
 		'priority'  => 48,
 		'default'   => '#000000',
 		'transport' => 'postMessage',
@@ -899,6 +922,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'header_container_border_radius',
 		'label'     => esc_html__( 'Header Container Border Radius (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
+		'tab'       => 'header_container',
 		'priority'  => 55,
 		'default'   => 0,
 		'choices'   => array(
@@ -939,6 +963,7 @@ new \Kirki\Field\Slider(
 		'settings'  => 'header_container_backdrop_blur',
 		'label'     => esc_html__( 'Header Container Backdrop Blur (px)', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
+		'tab'       => 'header_container',
 		'priority'  => 65,
 		'default'   => 0,
 		'choices'   => array(
@@ -972,6 +997,7 @@ new \Kirki\Field\Text(
 		'settings'  => 'header_container_box_shadow',
 		'label'     => esc_html__( 'Header Container Box Shadow', 'soda-theme' ),
 		'section'   => 'soda_theme_color_settings',
+		'tab'       => 'header_container',
 		'priority'  => 75,
 		'default'   => '',
 		'transport' => 'postMessage',
