@@ -801,6 +801,388 @@ new \Kirki\Field\URL(
 );
 
 /**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_3',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 32,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Action Button Padding
+ */
+new \Kirki\Pro\Field\Padding(
+	array(
+		'settings'        => 'action_button_padding',
+		'label'           => esc_html__( 'Action Button Padding', 'soda-theme' ),
+		'section'         => 'soda_theme_action_button',
+		'priority'        => 33,
+		'default'         => array(
+			'top'    => '0.5em',
+			'bottom' => '0.5em',
+			'left'   => '1.5em',
+			'right'  => '1.5em',
+		),
+		'transport'       => 'auto',
+		'output'          => array(
+			array(
+				'element' => '.action-button',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_action_button',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_4',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 34,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Action Button Typography
+ */
+new \Kirki\Field\Typography(
+	array(
+		'settings'        => 'action_button_typography',
+		'label'           => esc_html__( 'Action Button Typography', 'soda-theme' ),
+		'section'         => 'soda_theme_action_button',
+		'priority'        => 35,
+		'default'         => array(
+			'font-family'    => '',
+			'variant'        => '600',
+			'font-size'      => '16px',
+			'line-height'    => '1.5',
+			'letter-spacing' => '0',
+			'text-transform' => 'none',
+		),
+		'transport'       => 'auto',
+		'output'          => array(
+			array(
+				'element' => '.action-button',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_action_button',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_5',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 36,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Headline
+ */
+new \Kirki\Pro\Field\Headline(
+	array(
+		'settings' => 'action_button_headline',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 40,
+		'label'    => esc_html__( 'ACTION BUTTON', 'soda-theme' ),
+		'choices'  => soda_theme_customizer_headline_style(),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_6',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 45,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Action Button Background
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'        => 'action_button_bg_color',
+		'label'           => esc_html__( 'Action Button Background', 'soda-theme' ),
+		'section'         => 'soda_theme_action_button',
+		'priority'        => 50,
+		'default'         => '#0073aa',
+		'transport'       => 'auto',
+		'output'          => array(
+			array(
+				'element'  => '.action-button',
+				'property' => 'background-color',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_action_button',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_7',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 55,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Sticky Action Button Background
+ */
+new \Kirki\Field\Color(
+	array(
+		'settings'        => 'sticky_action_button_bg_color',
+		'label'           => esc_html__( 'Sticky Action Button Background', 'soda-theme' ),
+		'section'         => 'soda_theme_action_button',
+		'priority'        => 60,
+		'default'         => '#0073aa',
+		'transport'       => 'auto',
+		'output'          => array(
+			array(
+				'element'  => '.has-sticky-header .site-header.sticky-header .action-button',
+				'property' => 'background-color',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_action_button',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_8',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 65,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Action Button Border
+ */
+new \Kirki\Field\Dimensions(
+	array(
+		'settings'        => 'action_button_border',
+		'label'           => esc_html__( 'Action Button Border (px)', 'soda-theme' ),
+		'section'         => 'soda_theme_action_button',
+		'priority'        => 70,
+		'default'         => array(
+			'border-top-width'    => '0px',
+			'border-right-width'  => '0px',
+			'border-bottom-width' => '0px',
+			'border-left-width'   => '0px',
+		),
+		'transport'       => 'auto',
+		'output'          => array(
+			array(
+				'element' => '.action-button',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_action_button',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_9',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 75,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Action Button Border Radius
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'        => 'action_button_border_radius',
+		'label'           => esc_html__( 'Action Button Border Radius (px)', 'soda-theme' ),
+		'section'         => 'soda_theme_action_button',
+		'priority'        => 80,
+		'default'         => 4,
+		'transport'       => 'auto',
+		'choices'         => array(
+			'min'  => 0,
+			'max'  => 50,
+			'step' => 1,
+		),
+		'output'          => array(
+			array(
+				'element'  => '.action-button',
+				'property' => 'border-radius',
+				'units'    => 'px',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_action_button',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_10',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 85,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Action Button Backdrop Blur
+ */
+new \Kirki\Field\Slider(
+	array(
+		'settings'        => 'action_button_backdrop_blur',
+		'label'           => esc_html__( 'Action Button Backdrop Blur (px)', 'soda-theme' ),
+		'section'         => 'soda_theme_action_button',
+		'priority'        => 90,
+		'default'         => 0,
+		'transport'       => 'auto',
+		'choices'         => array(
+			'min'  => 0,
+			'max'  => 20,
+			'step' => 1,
+		),
+		'output'          => array(
+			array(
+				'element'       => '.action-button',
+				'property'      => 'backdrop-filter',
+				'value_pattern' => 'blur($px)',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_action_button',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
+ * Divider
+ */
+new \Kirki\Pro\Field\Divider(
+	array(
+		'settings' => 'action_button_divider_11',
+		'section'  => 'soda_theme_action_button',
+		'priority' => 95,
+		'choices'  => array(
+			'color' => '#dcdcdc',
+		),
+	)
+);
+
+/**
+ * Action Button Box Shadow
+ */
+new \Kirki\Field\Text(
+	array(
+		'settings'        => 'action_button_box_shadow',
+		'label'           => esc_html__( 'Action Button Box Shadow', 'soda-theme' ),
+		'description'     => esc_html__( 'Example: 0 2px 4px rgba(0,0,0,0.1)', 'soda-theme' ),
+		'section'         => 'soda_theme_action_button',
+		'priority'        => 100,
+		'default'         => 'none',
+		'transport'       => 'auto',
+		'output'          => array(
+			array(
+				'element'  => '.action-button',
+				'property' => 'box-shadow',
+			),
+		),
+		'active_callback' => array(
+			array(
+				'setting'  => 'enable_action_button',
+				'operator' => '==',
+				'value'    => true,
+			),
+		),
+	)
+);
+
+/**
  * Color Settings Section
  */
 new \Kirki\Section(

@@ -985,7 +985,8 @@ body.admin-bar.has-transparent-header.has-fixed-header .site-header {
 .has-sticky-header .site-header.sticky-header .main-navigation .sub-menu,
 .site-navigation-toggle-holder,
 .has-sticky-header .site-header.sticky-header .site-navigation-toggle-holder,
-.site-navigation-dropdown .site-navigation-background {
+.site-navigation-dropdown .site-navigation-background,
+.action-button {
 	border-style: solid;
 }
 
