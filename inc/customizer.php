@@ -437,6 +437,9 @@ function soda_theme_customize_preview_js() {
 		'sticky_logo_width'  => get_theme_mod( 'sticky_logo_width', 100 ),
 	);
 	wp_localize_script( 'soda-theme-customizer', 'sodaThemeLogoData', $logo_data );
+	
+	// Enqueue scrollbar customizer preview JS
+	wp_enqueue_script( 'soda-theme-scrollbar-customizer', get_template_directory_uri() . '/js/scrollbar-customizer.js', array( 'customize-preview', 'jquery' ), _S_VERSION, true );
 }
 add_action( 'customize_preview_init', 'soda_theme_customize_preview_js' );
 

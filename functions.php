@@ -219,6 +219,13 @@ if ( file_exists( get_template_directory() . '/inc/kirki-config.php' ) ) {
 	require get_template_directory() . '/inc/kirki-config.php';
 }
 
+/**
+ * Scrollbar Customizer (Kirki).
+ */
+if ( file_exists( get_template_directory() . '/inc/scrollbar-customizer.php' ) ) {
+	require get_template_directory() . '/inc/scrollbar-customizer.php';
+}
+
 // Debug helper - manually call debug function when parameter is set
 add_action( 'admin_notices', function() {
 	// phpcs:ignore WordPress.Security.NonceVerification.Recommended
